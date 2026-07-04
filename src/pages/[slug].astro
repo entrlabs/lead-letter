@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
 import CopyLinkButton from '../components/CopyLinkButton.astro';
-import { formatDate, formatIssue } from '../utils/format';
+import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 
 export async function getStaticPaths() {
   const letters = await getCollection('letters');
@@ -32,13 +32,21 @@ function letterUrl(e: CollectionEntry<'letters'>) {
 }
 
 const canonicalUrl = `https://letters.entr.cc${letterUrl(entry)}`;
+const displayTitle = formatLetterTitle(entry.data.title);
 ---
-<BaseLayout title={`${entry.data.title} — The Lead Letter`} description={entry.data.description}>
+<BaseLayout
+  title={`${displayTitle} — The Lead Letter`}
+  description={entry.data.description}
+  canonicalPath={letterUrl(entry)}
+  type="article"
+  publishedTime={entry.data.date}
+  author={entry.data.author}
+>
   <article class="letter-page reveal">
     <p class="kicker letter-kicker">
-      The Lead Letter - {formatIssue(entry.data.issue)} - {formatDate(entry.data.date)}
+      Lead Letter · {formatIssue(entry.data.issue)} · {formatDate(entry.data.date)}
     </p>
-    <h1>{entry.data.title}</h1>
+    <h1>{displayTitle}</h1>
     <p class="byline">
       By <a href="https://josephiesue.com" target="_blank" rel="noopener">{entry.data.author}</a> · {entry.data.publication}
     </p>
@@ -53,7 +61,7 @@ const canonicalUrl = `https://letters.entr.cc${letterUrl(entry)}`;
     <div class="post-letter-cta">
       <p>If this letter was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
       <div class="cta-buttons">
-        <a class="btn-join" href="/#join">Join the Lead Letter</a>
+        <a class="btn-join" href="/#join">Get future issues</a>
         <CopyLinkButton url={canonicalUrl} />
       </div>
     </div>
@@ -61,8 +69,8 @@ const canonicalUrl = `https://letters.entr.cc${letterUrl(entry)}`;
     <HYOHCompass variant="cta" />
 
     <nav class="prev-next">
-      {older ? <a href={letterUrl(older)}>Previous: {older.data.title.replace(/^The Lead Letter:\s*/i, '')}</a> : <span class="empty">Previous</span>}
-      {newer ? <a href={letterUrl(newer)}>Next: {newer.data.title.replace(/^The Lead Letter:\s*/i, '')}</a> : <span class="empty">Next</span>}
+      {older ? <a href={letterUrl(older)}>Previous: {formatLetterTitle(older.data.title)}</a> : <span class="empty">Previous</span>}
+      {newer ? <a href={letterUrl(newer)}>Next: {formatLetterTitle(newer.data.title)}</a> : <span class="empty">Next</span>}
     </nav>
 
     <a class="back-to-archive" href="/archive/">Back to Archive</a>
