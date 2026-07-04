@@ -16,6 +16,12 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
   return `/${entry.slug}/`;
 }
 
+function latestBoxDescription(description: string) {
+  return description
+    .replace(/^A public weekly Signals Brief about\s+/i, 'This week is about ')
+    .replace(/^A public weekly letter about\s+/i, 'This week is about ');
+}
+
 const visualSignal = latest?.data.signalBoard ?? (latest ? {
   signal: formatLetterTitle(latest.data.title),
   micro: latest.data.description,
@@ -63,7 +69,7 @@ const radarPositions = [
           <div class="latest-feature-copy">
             <p class="feature-label">Latest letter</p>
             <h2><a href={letterUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
-            <p>{latest.data.description}</p>
+            <p>{latestBoxDescription(latest.data.description)}</p>
           </div>
           <div class="latest-cube" aria-hidden="true">
             <span class="cube-face cube-top"></span>
