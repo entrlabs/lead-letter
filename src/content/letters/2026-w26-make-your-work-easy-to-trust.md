@@ -29,7 +29,6 @@ Employers want proof that students can do real work. Customers want proof that a
 That does not mean every part of life should become a performance test. It means that in a cautious world, clear evidence helps people make better decisions.
 
 > [!NOTE]
-> **This week's main idea:**  
 > If you want someone to trust your work, make the proof easy to see.
 
 ---
