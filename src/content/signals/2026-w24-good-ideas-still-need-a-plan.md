@@ -15,6 +15,49 @@ tags:
   - entrepreneurship
   - ai-governance
   - resilience
+signalBoard:
+  signal: "Useful > Novel"
+  micro: "Pressure is exposing whether new ideas are affordable, trusted, and usable."
+  tension: "Big claims. Practical limits."
+  move: "Ask the cost question first."
+  question: "Can people afford and trust the change?"
+  flow:
+    - Idea
+    - Cost
+    - Trust
+    - Adoption
+  motionWords:
+    - Cost
+    - Trust
+    - Adoption
+    - Resilience
+    - AI
+    - Practice
+  lanes:
+    - label: Education
+      state: "AI advice needs to reduce panic."
+      level: Watching
+      score: 58
+      direction: steady
+      brief: "Students need calmer AI guidance tied to durable skills."
+    - label: Work
+      state: "Teams need rules before tools scale."
+      level: Active
+      score: 63
+      direction: up
+      brief: "AI use is creating accountability questions inside real workflows."
+    - label: Founders
+      state: "Small firms face cost pressure."
+      level: Strained
+      score: 74
+      direction: up
+      brief: "Small businesses need changes that pay off soon and reduce pain."
+    - label: Technology
+      state: "Trust depends on visible governance."
+      level: Active
+      score: 70
+      direction: up
+      brief: "AI confidence rises when use, checking, and accountability are clear."
 ---
 
 A good idea can still fail if the numbers do not work.
