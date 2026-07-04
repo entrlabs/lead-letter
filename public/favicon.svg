@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#FAF8F4"/>
-  <text x="16" y="23" font-family="Georgia, serif" font-size="20" fill="#8A6D3B" text-anchor="middle">L</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#06090F"/>
+  <circle cx="32" cy="32" r="23" fill="#5B8CFF" opacity=".16"/>
+  <image href="/assets/entr-main-logo.png" x="20" y="10" width="24" height="44" preserveAspectRatio="xMidYMid meet"/>
 </svg>
