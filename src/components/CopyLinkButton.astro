@@ -1,0 +1,24 @@
+---
+interface Props {
+  url: string;
+}
+const { url } = Astro.props as Props;
+---
+<button class="copy-link-btn" data-url={url} id="copy-link">Copy link</button>
+
+<script>
+  const btn = document.getElementById('copy-link');
+  btn?.addEventListener('click', async () => {
+    const url = btn.getAttribute('data-url') || window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+      const original = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(() => {
+        btn.textContent = original;
+      }, 1500);
+    } catch (err) {
+      // Clipboard API unavailable; fail silently.
+    }
+  });
+</script>
