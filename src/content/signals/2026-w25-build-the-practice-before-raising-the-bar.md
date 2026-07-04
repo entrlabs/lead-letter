@@ -15,6 +15,49 @@ tags:
   - entrepreneurship
   - management
   - workplace-learning
+signalBoard:
+  signal: "Practice Before Standards"
+  micro: "Higher expectations only work when people have places to practice judgment."
+  tension: "Rising standards. Shrinking support."
+  move: "Protect the practice space."
+  question: "Where do people learn judgment now?"
+  flow:
+    - Expectation
+    - Practice
+    - Feedback
+    - Judgment
+  motionWords:
+    - Practice
+    - Judgment
+    - Feedback
+    - Survival
+    - Coaching
+    - Standards
+  lanes:
+    - label: Education
+      state: "Career readiness needs visible judgment practice."
+      level: Rising
+      score: 70
+      direction: up
+      brief: "Entry roles are asking students to show more mature judgment."
+    - label: Work
+      state: "Flattening can remove hidden learning."
+      level: Strained
+      score: 78
+      direction: up
+      brief: "Management cuts risk removing coaching, review, and feedback loops."
+    - label: Founders
+      state: "Starting is easier than surviving."
+      level: Active
+      score: 66
+      direction: steady
+      brief: "AI helps launch, but durable companies still need customer evidence."
+    - label: Technology
+      state: "AI changes roles before learning systems adapt."
+      level: Active
+      score: 68
+      direction: up
+      brief: "Tool adoption is moving faster than training and governance."
 ---
 
 This week's stories had a common problem:
