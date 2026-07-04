@@ -34,7 +34,7 @@ src/content/letters/
 
 New letters are published weekly. Each letter is a Markdown file with public frontmatter used by the Astro website and future publication automation.
 
-Publication rule: callout labels should not be repeated inside the callout body. Use `[!LEADERS]` only when a draft callout would otherwise begin with `Leadership lesson:`; those render as `Thought for Leaders`. The first sentence inside the Markdown callout should begin with the actual idea, not with `This week's main idea:`, `Leadership lesson:`, or `Thought for Leaders:`.
+Publication rule: callout labels should not be repeated inside the callout body. Use `[!LEADERS]` only when a draft callout would otherwise begin with `Leadership lesson:`; those render as `Leaders`. The first sentence inside the Markdown callout should begin with the actual idea, not with `This week's main idea:`, `Leadership lesson:`, or `Leaders:`.
 
 ## Related Work
 
