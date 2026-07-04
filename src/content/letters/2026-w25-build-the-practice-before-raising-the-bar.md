@@ -19,14 +19,13 @@ tags:
 
 # The Lead Letter: Build the Practice Before Raising the Bar
 
-This week’s stories had a common problem:
+This week's stories had a common problem:
 
 People are being asked to show more judgment, but the places where people learn judgment are under pressure.
 
 Students are seeing entry-level jobs ask for more advanced skills. Founders can launch faster, but still have to survive. Companies are flattening structures, even when managers and junior workers are part of how people learn.
 
 > [!NOTE]
-> **This week's main idea:**  
 > Do not raise expectations without building the practice that helps people meet them.
 
 ---
