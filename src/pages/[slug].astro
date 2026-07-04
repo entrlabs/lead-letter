@@ -27,31 +27,31 @@ const idx = allLetters.findIndex((e) => e.slug === entry.slug);
 const newer = idx > 0 ? allLetters[idx - 1] : null;
 const older = idx < allLetters.length - 1 ? allLetters[idx + 1] : null;
 
-function letterUrl(e: CollectionEntry<'letters'>) {
-  return `/${e.slug}/`;
-}
-
-const canonicalUrl = `https://letters.entr.cc${letterUrl(entry)}`;
+const canonicalUrl = `https://letters.entr.cc/${entry.slug}/`;
 ---
 <BaseLayout title={`${entry.data.title} — The Lead Letter`} description={entry.data.description}>
   <article class="letter-page">
-    <p class="kicker letter-kicker">
-      The Lead Letter · № {toRoman(entry.data.issue)} · {formatDate(entry.data.date)}
-    </p>
-    <h1>{entry.data.title}</h1>
-    <p class="byline">
-      By <a href="https://josephiesue.com" target="_blank" rel="noopener">{entry.data.author}</a> · {entry.data.publication}
-    </p>
-    <hr class="hairline" />
+    <header class="letter-header">
+      <p class="kicker letter-kicker">
+        The Lead Letter · № {toRoman(entry.data.issue)} · {formatDate(entry.data.date)}
+      </p>
+      <h1 class="letter-title">{entry.data.title}</h1>
+      <p class="byline">
+        By <a href="https://josephiesue.com" target="_blank" rel="noopener">{entry.data.author}</a>
+        <span class="byline-sep">·</span> {entry.data.publication}
+      </p>
+      <div class="rule-double slim" aria-hidden="true"></div>
+    </header>
 
     <div class="letter-body">
       <Content />
     </div>
 
-    <p class="end-mark">— Strength Through Service —</p>
+    <p class="end-mark"><span>— Strength Through Service —</span></p>
 
     <div class="post-letter-cta">
-      <p>If this letter was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
+      <p class="kicker">Pass It On</p>
+      <p class="cta-copy">If this letter was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
       <div class="cta-buttons">
         <a class="btn-join" href="/#join">Join the Lead Letter</a>
         <CopyLinkButton url={canonicalUrl} />
@@ -60,11 +60,25 @@ const canonicalUrl = `https://letters.entr.cc${letterUrl(entry)}`;
 
     <HYOHCompass variant="cta" />
 
-    <nav class="prev-next">
-      {older ? <a href={letterUrl(older)}>← {older.data.title}</a> : <span class="empty">—</span>}
-      {newer ? <a href={letterUrl(newer)}>{newer.data.title} →</a> : <span class="empty">—</span>}
+    <nav class="prev-next" aria-label="Letter navigation">
+      <div class="pn-cell">
+        {older && (
+          <>
+            <p class="pn-label">Previous Letter</p>
+            <a href={`/${older.slug}/`}>{older.data.title}</a>
+          </>
+        )}
+      </div>
+      <div class="pn-cell pn-next">
+        {newer && (
+          <>
+            <p class="pn-label">Next Letter</p>
+            <a href={`/${newer.slug}/`}>{newer.data.title}</a>
+          </>
+        )}
+      </div>
     </nav>
 
-    <a class="back-to-archive" href="/archive/">Back to Archive</a>
+    <a class="back-to-archive" href="/archive/">← Back to the Archive</a>
   </article>
 </BaseLayout>
