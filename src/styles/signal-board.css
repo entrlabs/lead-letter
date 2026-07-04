@@ -225,6 +225,22 @@
   line-height: 1.04;
 }
 
+.signal-micro {
+  max-width: 28ch;
+  margin: 0.62rem 0 0;
+  color: #4f5d78;
+  font-size: 0.92rem;
+  line-height: 1.38;
+}
+
+.signal-large {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 2.05rem);
+  font-weight: 900;
+  line-height: 1.06;
+}
+
 .signal-panel-main {
   margin: 0.56rem 0 0;
   color: var(--raise);
