@@ -15,32 +15,38 @@ for (const entry of allLetters) {
   byYear.get(year)!.push(entry);
 }
 const years = [...byYear.keys()].sort((a, b) => b - a);
-
-function letterUrl(entry: CollectionEntry<'letters'>) {
-  return `/${entry.slug}/`;
-}
 ---
 <BaseLayout title="The Archive — The Lead Letter" description="Every letter, in order.">
   <div class="archive-page">
-    <h1>The Archive</h1>
-    <p class="archive-count">
-      {allLetters.length} letter{allLetters.length === 1 ? '' : 's'} and counting. Published weekly.
-    </p>
+    <header class="page-header">
+      <p class="kicker">The Record</p>
+      <h1>The Archive</h1>
+      <p class="archive-count">
+        {allLetters.length} letter{allLetters.length === 1 ? '' : 's'} and counting. Published weekly.
+      </p>
+      <div class="rule-double slim" aria-hidden="true"></div>
+    </header>
 
     {years.map((year) => (
-      <div>
-        <p class="archive-year">{year}</p>
+      <section class="archive-year-block">
+        <div class="section-label">
+          <span class="numeral year">{year}</span>
+          <span class="line" aria-hidden="true"></span>
+        </div>
         {byYear.get(year)!.map((entry) => (
-          <a class="archive-row" href={letterUrl(entry)}>
-            <p class="archive-row-meta">№ {toRoman(entry.data.issue)} · {formatDate(entry.data.date)}</p>
-            <h2 class="archive-row-title">{entry.data.title}</h2>
-            <p class="archive-row-desc">{entry.data.description}</p>
-            {entry.data.tags.length > 0 && (
-              <p class="archive-row-tags">{entry.data.tags.join(' · ')}</p>
-            )}
+          <a class="ledger-row" href={`/${entry.slug}/`}>
+            <span class="ledger-no">№ {toRoman(entry.data.issue)}</span>
+            <span class="ledger-main">
+              <span class="ledger-title">{entry.data.title}</span>
+              <span class="ledger-desc">{entry.data.description}</span>
+              {entry.data.tags.length > 0 && (
+                <span class="ledger-tags">{entry.data.tags.join(' · ')}</span>
+              )}
+            </span>
+            <span class="ledger-date">{formatDate(entry.data.date)}</span>
           </a>
         ))}
-      </div>
+      </section>
     ))}
 
     <HYOHCompass variant="quiet" />
