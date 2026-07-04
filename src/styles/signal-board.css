@@ -1,0 +1,303 @@
+@keyframes signalScan {
+  0%,
+  100% {
+    transform: translateX(-38%) rotate(14deg);
+    opacity: 0;
+  }
+  18%,
+  62% {
+    opacity: 0.56;
+  }
+  82% {
+    transform: translateX(62%) rotate(14deg);
+    opacity: 0;
+  }
+}
+
+.signal-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.36fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 42px);
+  margin: 0 0 clamp(42px, 7vw, 76px);
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid rgba(46, 91, 208, 0.18);
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(91, 140, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(46, 91, 208, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 18% 0, rgba(157, 184, 255, 0.34), transparent 17rem),
+    radial-gradient(circle at 92% 18%, rgba(91, 140, 255, 0.22), transparent 20rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(239, 244, 255, 0.84));
+  background-size: 34px 34px, 34px 34px, auto, auto, auto;
+  box-shadow: 0 28px 84px rgba(46, 91, 208, 0.1);
+}
+
+.signal-board::before,
+.signal-board::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.signal-board::before {
+  inset: 16px;
+  border: 1px solid rgba(46, 91, 208, 0.12);
+  border-radius: 12px;
+}
+
+.signal-board::after {
+  top: -18%;
+  bottom: -18%;
+  left: 28%;
+  width: 11rem;
+  background: linear-gradient(90deg, transparent, rgba(91, 140, 255, 0.18), transparent);
+  filter: blur(2px);
+  animation: signalScan 8s ease-in-out infinite;
+}
+
+.signal-board-copy,
+.signal-board-grid,
+.signal-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.signal-board-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.signal-board-copy::after {
+  content: "";
+  display: block;
+  width: min(180px, 48%);
+  height: 1px;
+  margin-top: 2rem;
+  background: linear-gradient(90deg, var(--azure), transparent);
+  box-shadow: 0 0 22px rgba(91, 140, 255, 0.32);
+}
+
+.signal-board-label,
+.signal-panel-label,
+.signal-panel-index,
+.pressure-panel b {
+  margin: 0;
+  color: var(--azure-deep);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.signal-board h2 {
+  max-width: 8ch;
+  margin: 0.45rem 0 1rem;
+  font-size: clamp(2.35rem, 5vw, 5rem);
+}
+
+.signal-board-copy p:last-child {
+  max-width: 32ch;
+  color: #4f5d78;
+  font-size: 1.04rem;
+  line-height: 1.6;
+}
+
+.signal-board-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.signal-panel {
+  min-height: 172px;
+  grid-column: span 3;
+  padding: 1.12rem;
+  border: 1px solid rgba(46, 91, 208, 0.18);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 14px 36px rgba(46, 91, 208, 0.07);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.signal-panel:hover {
+  border-color: rgba(46, 91, 208, 0.36);
+  box-shadow: 0 20px 48px rgba(46, 91, 208, 0.12);
+  transform: translateY(-2px);
+}
+
+.signal-panel::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 38px;
+  height: 38px;
+  border-right: 1px solid rgba(91, 140, 255, 0.34);
+  border-bottom: 1px solid rgba(91, 140, 255, 0.34);
+}
+
+.signal-panel-primary {
+  min-height: 268px;
+  grid-column: span 4;
+  background:
+    radial-gradient(circle at 96% 0, rgba(91, 140, 255, 0.22), transparent 12rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(231, 238, 255, 0.88));
+}
+
+.signal-panel:nth-child(2) {
+  grid-column: span 2;
+}
+
+.pressure-panel,
+.watch-panel,
+.question-panel {
+  grid-column: span 2;
+}
+
+.signal-panel-index {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  color: rgba(46, 91, 208, 0.48);
+  font-size: 0.62rem;
+}
+
+.signal-panel h3 {
+  margin: 0.6rem 0 1.2rem;
+  font-size: clamp(1.5rem, 2.8vw, 2.55rem);
+  line-height: 1.08;
+}
+
+.signal-panel a {
+  display: inline-flex;
+  color: var(--azure-deep);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.signal-panel-main {
+  margin: 0.65rem 0 0;
+  color: var(--raise);
+  font-size: 1.08rem;
+  line-height: 1.48;
+}
+
+.pressure-panel ul,
+.watch-panel ul {
+  display: grid;
+  gap: 0.72rem;
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0;
+}
+
+.pressure-panel li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding-top: 0.72rem;
+  border-top: 1px solid rgba(46, 91, 208, 0.12);
+}
+
+.pressure-panel strong,
+.pressure-panel em,
+.watch-panel li {
+  display: block;
+}
+
+.pressure-panel strong {
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.pressure-panel em {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-style: normal;
+  line-height: 1.38;
+}
+
+.pressure-panel b {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  padding: 0.22rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(157, 184, 255, 0.2);
+  color: var(--azure-deep);
+  font-size: 0.54rem;
+  letter-spacing: 0.08em;
+}
+
+.watch-panel li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--raise);
+  font-size: 0.94rem;
+  line-height: 1.42;
+}
+
+.watch-panel li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: var(--indigo);
+  box-shadow: 0 0 0 5px rgba(110, 116, 240, 0.1);
+}
+
+.question-panel {
+  background:
+    radial-gradient(circle at 90% 8%, rgba(160, 108, 240, 0.16), transparent 10rem),
+    rgba(255, 255, 255, 0.72);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-board::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .signal-board {
+    grid-template-columns: 1fr;
+  }
+
+  .signal-board h2 {
+    max-width: 12ch;
+  }
+}
+
+@media (max-width: 720px) {
+  .signal-board {
+    padding: 1.4rem;
+  }
+
+  .signal-board-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signal-panel,
+  .signal-panel-primary,
+  .signal-panel:nth-child(2),
+  .pressure-panel,
+  .watch-panel,
+  .question-panel {
+    min-height: auto;
+    grid-column: auto;
+  }
+
+  .pressure-panel li {
+    display: grid;
+  }
+}
