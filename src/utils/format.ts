@@ -1,5 +1,5 @@
 export function formatIssue(issue: number): string {
-  return `Week ${issue}`;
+  return `Week${issue}`;
 }
 
 export function formatLetterTitle(title: string): string {
