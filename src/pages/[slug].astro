@@ -6,38 +6,38 @@ import CopyLinkButton from '../components/CopyLinkButton.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 
 export async function getStaticPaths() {
-  const letters = await getCollection('letters');
-  return letters.map((entry) => ({
+  const signals = await getCollection('signals');
+  return signals.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
 interface Props {
-  entry: CollectionEntry<'letters'>;
+  entry: CollectionEntry<'signals'>;
 }
 
 const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
 
-const allLetters = (await getCollection('letters')).sort(
+const allSignals = (await getCollection('signals')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
-const idx = allLetters.findIndex((e) => e.slug === entry.slug);
-const newer = idx > 0 ? allLetters[idx - 1] : null;
-const older = idx < allLetters.length - 1 ? allLetters[idx + 1] : null;
+const idx = allSignals.findIndex((e) => e.slug === entry.slug);
+const newer = idx > 0 ? allSignals[idx - 1] : null;
+const older = idx < allSignals.length - 1 ? allSignals[idx + 1] : null;
 
-function letterUrl(e: CollectionEntry<'letters'>) {
+function signalUrl(e: CollectionEntry<'signals'>) {
   return `/${e.slug}/`;
 }
 
-const canonicalUrl = `https://letters.entr.cc${letterUrl(entry)}`;
+const canonicalUrl = `https://letters.entr.cc${signalUrl(entry)}`;
 const displayTitle = formatLetterTitle(entry.data.title);
 ---
 <BaseLayout
   title={`${displayTitle} — The Lead Letter`}
   description={entry.data.description}
-  canonicalPath={letterUrl(entry)}
+  canonicalPath={signalUrl(entry)}
   type="article"
   publishedTime={entry.data.date}
   author={entry.data.author}
@@ -59,7 +59,7 @@ const displayTitle = formatLetterTitle(entry.data.title);
     <p class="end-mark">Strength Through Service</p>
 
     <div class="post-letter-cta">
-      <p>If this letter was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
+      <p>If this brief was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
       <div class="cta-buttons">
         <a class="btn-join" href="/#join">Get future issues</a>
         <CopyLinkButton url={canonicalUrl} />
@@ -69,8 +69,8 @@ const displayTitle = formatLetterTitle(entry.data.title);
     <HYOHCompass variant="cta" />
 
     <nav class="prev-next">
-      {older ? <a href={letterUrl(older)}>Previous: {formatLetterTitle(older.data.title)}</a> : <span class="empty">Previous</span>}
-      {newer ? <a href={letterUrl(newer)}>Next: {formatLetterTitle(newer.data.title)}</a> : <span class="empty">Next</span>}
+      {older ? <a href={signalUrl(older)}>Previous: {formatLetterTitle(older.data.title)}</a> : <span class="empty">Previous</span>}
+      {newer ? <a href={signalUrl(newer)}>Next: {formatLetterTitle(newer.data.title)}</a> : <span class="empty">Next</span>}
     </nav>
 
     <a class="back-to-archive" href="/archive/">Back to Archive</a>
