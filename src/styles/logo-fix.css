@@ -1,30 +1,80 @@
-/* Use the real ENTR mark uploaded from the brand assets. */
-:root {
-  --entr-icon-mask: url('/assets/entr-main-logo.png');
-}
-
+/* Keep the public logo tied to the uploaded ENTR mark already embedded in global.css. */
 .entr-header-logo {
   gap: 0.68rem;
 }
 
-.entr-header-logo .entr-icon-mark {
-  width: 24px;
-  height: 37px;
+.entr-logo-tile {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 42px;
+  border: 1px solid rgba(46, 91, 208, 0.28);
+  border-radius: 10px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent 42%),
+    radial-gradient(circle at 35% 16%, rgba(255, 255, 255, 0.38), transparent 1.2rem),
     linear-gradient(180deg, var(--azure), var(--azure-deep));
-  filter: drop-shadow(0 11px 20px rgba(46, 91, 208, 0.2));
+  box-shadow:
+    0 14px 28px rgba(46, 91, 208, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.38) inset;
+}
+
+.entr-logo-tile::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 28px;
+  background: #fff;
+  -webkit-mask: var(--entr-icon-mask) center / contain no-repeat;
+  mask: var(--entr-icon-mask) center / contain no-repeat;
+  filter: drop-shadow(0 8px 14px rgba(10, 15, 28, 0.16));
+}
+
+.entr-header-logo .entr-logo-tile {
+  width: 34px;
+  height: 42px;
 }
 
 .entr-name {
   letter-spacing: 0.01em;
 }
 
-.subscribe-mark .entr-icon-mark,
-.footer-logo-mark.entr-icon-mark {
+.subscribe-mark .entr-logo-tile {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+}
+
+.subscribe-mark .entr-logo-tile::before {
+  width: 21px;
+  height: 34px;
+}
+
+.site-footer .footer-logo-mark.entr-logo-tile {
+  width: 34px;
+  height: 42px;
+  border: 1px solid rgba(157, 184, 255, 0.42);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.68), transparent 40%),
-    linear-gradient(180deg, var(--azure-soft), var(--azure));
+    radial-gradient(circle at 35% 16%, rgba(255, 255, 255, 0.42), transparent 1.2rem),
+    linear-gradient(180deg, var(--azure-deep), #173a98);
+  filter: none;
+  transform: none;
+}
+
+.site-footer .footer-logo-mark.entr-logo-tile::after {
+  display: none;
+}
+
+@media (max-width: 560px) {
+  .entr-header-logo .entr-logo-tile {
+    width: 30px;
+    height: 38px;
+  }
+
+  .entr-logo-tile::before {
+    width: 16px;
+    height: 26px;
+  }
 }
 
 .letter-body blockquote.callout-leaders {
