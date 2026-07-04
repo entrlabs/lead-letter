@@ -1,14 +1,14 @@
-# Lead Letter
+# The Lead Letter
 
 **An EntrLabs publication by Joseph E. Iesue.**
 
-Lead Letter is a weekly publication on leadership, service, responsibility, learning culture, and meaningful work.
+The Lead Letter is a weekly publication on leadership, service, responsibility, learning culture, and meaningful work.
 
 It is part of the EntrLabs ecosystem and sits alongside the frameworks, research, and applied systems developed through EntrLabs.
 
 ## Purpose
 
-Lead Letter exists to make the work public in a clear, direct, and useful form.
+The Lead Letter exists to make the work public in a clear, direct, and useful form.
 
 Each letter is a short reflection on one idea that matters for leadership, service, growth, culture, or work.
 
@@ -18,15 +18,21 @@ The center remains the same:
 Strength Through Service
 ```
 
-## Publication Source
+## Website
 
-Letters are maintained as Markdown content for the upcoming static site at letters.entr.cc.
+This repository powers the static site for:
 
-Current letter source:
+https://letters.entr.cc
+
+Published letters live in:
 
 ```text
 src/content/letters/
 ```
+
+## Publication
+
+New letters are published weekly. Each letter is a Markdown file with public frontmatter used by the Astro website and future publication automation.
 
 ## Related Work
 
