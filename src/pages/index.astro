@@ -22,31 +22,37 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
 >
   <section class="home-hero reveal">
     <div class="hero-copy">
-      <p class="kicker">EntrLabs - The Lead Letter</p>
+      <p class="kicker">{latest ? `${formatIssue(latest.data.issue)} · ${formatDate(latest.data.date)}` : 'EntrLabs Weekly'}</p>
       <h1>The Lead Letter</h1>
       <p class="positioning">
-        A weekly letter on leadership, service, and the discipline of helping people rise.
+        One sharp field note each week on leadership, service, work, learning, and the discipline of helping people rise.
       </p>
       <p class="by-joseph">By <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a></p>
       <div class="hero-actions">
         {latest && <a class="primary-action" href={letterUrl(latest)}>Read latest letter</a>}
-        <a class="secondary-action" href="/#join">Join the list</a>
+        <a class="secondary-action" href="/#join">Get future issues</a>
       </div>
     </div>
 
     {latest && (
       <article class="latest-feature reveal">
-        <div class="latest-feature-copy">
-          <p class="feature-label">Latest letter</p>
-          <h2><a href={letterUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
-          <p>{latest.data.description}</p>
-        </div>
-        <div class="feature-mark" aria-hidden="true">
-          <span></span>
+        <div class="latest-feature-content">
+          <div class="latest-feature-copy">
+            <p class="feature-label">Latest letter</p>
+            <h2><a href={letterUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
+            <p>{latest.data.description}</p>
+          </div>
+          <div class="latest-cube" aria-hidden="true">
+            <span class="cube-face cube-top"></span>
+            <span class="cube-face cube-left"></span>
+            <span class="cube-face cube-right"></span>
+            <span class="cube-grid"></span>
+          </div>
         </div>
         <div class="feature-meta">
           <span>{formatDate(latest.data.date)}</span>
           <span>{formatIssue(latest.data.issue)}</span>
+          <span>6 min read</span>
         </div>
       </article>
     )}
@@ -61,19 +67,24 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
       <ul class="archive-preview-list">
         {recent.map((entry) => (
           <li>
-            <p class="meta">{formatDate(entry.data.date)} - {formatIssue(entry.data.issue)}</p>
+            <span class="archive-dot" aria-hidden="true"></span>
             <div class="archive-preview-copy">
               <h3 class="title"><a href={letterUrl(entry)}>{formatLetterTitle(entry.data.title)}</a></h3>
-              <p class="desc">{entry.data.description}</p>
             </div>
+            <p class="meta">{formatDate(entry.data.date)}</p>
+            <p class="meta">{formatIssue(entry.data.issue)}</p>
+            <a class="archive-arrow" href={letterUrl(entry)} aria-label={`Read ${formatLetterTitle(entry.data.title)}`}>→</a>
           </li>
         ))}
       </ul>
     </div>
 
     <section id="join" class="subscribe-band reveal">
-      <p>Join The Lead Letter</p>
-      <p class="subscribe-copy">Delivered weekly. Short, practical, and built for leaders who serve.</p>
+      <div class="subscribe-mark" aria-hidden="true"><span class="entr-icon-mark"></span></div>
+      <div class="subscribe-copy-wrap">
+        <p>Build better judgment. Serve with strength.</p>
+        <p class="subscribe-copy">A weekly note for founders, educators, managers, and builders who take responsibility seriously.</p>
+      </div>
       <SendFoxForm />
     </section>
   </section>
@@ -82,9 +93,8 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
 
   <section class="about-strip">
     <p>
-      The Lead Letter is a weekly publication of
-      <a href="https://entr.cc/entrlabs" target="_blank" rel="noopener">EntrLabs</a>,
-      the research arm of ENTR, on leadership, service, and the discipline of helping people rise.
+      Published by <a href="https://entr.cc/entrlabs" target="_blank" rel="noopener">EntrLabs</a>,
+      the research arm of ENTR, this series translates leadership research, service, and systems thinking into practical public notes.
     </p>
     <p>
       Written by <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a>,
