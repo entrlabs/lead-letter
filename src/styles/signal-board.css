@@ -1,107 +1,44 @@
-@keyframes signalSweep {
-  0% {
-    transform: translateX(-38%) skewX(-12deg);
-    opacity: 0;
-  }
-  18%,
-  62% {
-    opacity: 0.55;
-  }
-  100% {
-    transform: translateX(88%) skewX(-12deg);
-    opacity: 0;
-  }
-}
-
 @keyframes signalFeed {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-@keyframes signalOrbit {
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes gaugePulse {
+  0%, 100% { transform: scale(0.98); opacity: 0.68; }
+  50% { transform: scale(1.04); opacity: 1; }
 }
 
-@keyframes signalPulse {
-  0%,
-  100% {
-    opacity: 0.42;
-    transform: scale(0.96);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.04);
-  }
+@keyframes orbitSpin {
+  to { transform: rotate(360deg); }
 }
 
-@keyframes flowBeam {
-  from {
-    transform: translateX(-28%);
-  }
-  to {
-    transform: translateX(128%);
-  }
+@keyframes laneScan {
+  0% { transform: translateX(-110%); opacity: 0; }
+  18%, 60% { opacity: 0.55; }
+  100% { transform: translateX(210%); opacity: 0; }
 }
 
-@keyframes flowBeamMobile {
-  from {
-    transform: translateY(-28%);
-  }
-  to {
-    transform: translateY(128%);
-  }
-}
-
-@keyframes nodeBeat {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(91, 140, 255, 0.3);
-  }
-  45% {
-    box-shadow: 0 0 0 12px rgba(91, 140, 255, 0);
-  }
-}
-
-@keyframes radarSweep {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes radarBlink {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: translate(-50%, -50%) scale(0.86);
-  }
-  50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.18);
-  }
+@keyframes boardGlow {
+  0%, 100% { opacity: 0.55; transform: translate3d(-2%, 0, 0); }
+  50% { opacity: 0.9; transform: translate3d(2%, 0, 0); }
 }
 
 .signal-board {
   position: relative;
   display: grid;
-  gap: clamp(0.9rem, 1.8vw, 1.25rem);
-  margin: clamp(4px, 1vw, 12px) calc(50% - 50vw) clamp(42px, 6vw, 72px);
-  padding: clamp(20px, 3vw, 32px) max(24px, calc((100vw - var(--container)) / 2));
-  border-block: 1px solid rgba(46, 91, 208, 0.18);
+  gap: clamp(1rem, 2vw, 1.35rem);
+  margin: clamp(4px, 1vw, 12px) calc(50% - 50vw) clamp(42px, 6vw, 74px);
+  padding: clamp(22px, 3.4vw, 38px) max(22px, calc((100vw - var(--container)) / 2));
   overflow: hidden;
+  border-block: 1px solid rgba(46, 91, 208, 0.18);
   background:
-    linear-gradient(90deg, rgba(91, 140, 255, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 140, 255, 0.08) 1px, transparent 1px),
     linear-gradient(180deg, rgba(46, 91, 208, 0.055) 1px, transparent 1px),
-    radial-gradient(circle at 16% 18%, rgba(157, 184, 255, 0.34), transparent 17rem),
-    radial-gradient(circle at 84% 8%, rgba(91, 140, 255, 0.2), transparent 24rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(239, 244, 255, 0.88));
-  background-size: 34px 34px, 34px 34px, auto, auto, auto;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88), inset 0 -1px 0 rgba(255, 255, 255, 0.76);
+    radial-gradient(circle at 18% 18%, rgba(157, 184, 255, 0.34), transparent 18rem),
+    radial-gradient(circle at 88% 12%, rgba(91, 140, 255, 0.19), transparent 28rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(238, 243, 255, 0.9));
+  background-size: 36px 36px, 36px 36px, auto, auto, auto;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 rgba(255, 255, 255, 0.72);
 }
 
 .signal-board::before,
@@ -114,14 +51,14 @@
 .signal-board::before {
   inset: 0;
   background:
-    linear-gradient(90deg, transparent, rgba(91, 140, 255, 0.15), transparent),
-    radial-gradient(circle at 52% 48%, rgba(255, 255, 255, 0.74), transparent 19rem);
-  animation: signalSweep 8.5s ease-in-out infinite;
+    linear-gradient(110deg, transparent 8%, rgba(91, 140, 255, 0.14), transparent 42%),
+    radial-gradient(circle at 52% 48%, rgba(255, 255, 255, 0.74), transparent 20rem);
+  animation: boardGlow 8s ease-in-out infinite;
 }
 
 .signal-board::after {
-  left: max(24px, calc((100vw - var(--container)) / 2));
-  right: max(24px, calc((100vw - var(--container)) / 2));
+  left: max(22px, calc((100vw - var(--container)) / 2));
+  right: max(22px, calc((100vw - var(--container)) / 2));
   bottom: 14px;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--azure), var(--azure-soft), transparent);
@@ -135,7 +72,7 @@
 .signal-board-stream {
   display: flex;
   width: max-content;
-  gap: 0.75rem;
+  gap: 0.72rem;
   color: rgba(46, 91, 208, 0.72);
   font-family: var(--font-label);
   font-size: 0.62rem;
@@ -143,13 +80,13 @@
   letter-spacing: 0.16em;
   line-height: 1;
   text-transform: uppercase;
-  animation: signalFeed 22s linear infinite;
+  animation: signalFeed 26s linear infinite;
 }
 
 .signal-board-stream span {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.72rem;
   white-space: nowrap;
 }
 
@@ -163,14 +100,16 @@
 
 .signal-board-header {
   display: grid;
-  grid-template-columns: minmax(230px, 0.78fr) minmax(280px, 1fr) auto;
+  grid-template-columns: minmax(240px, 0.9fr) minmax(280px, 1fr) auto;
   align-items: end;
   gap: clamp(18px, 4vw, 44px);
 }
 
 .signal-board-label,
 .signal-panel-label,
-.radar-lane b {
+.lane-trend,
+.lane-meta,
+.analysis-grid span {
   margin: 0;
   color: var(--azure-deep);
   font-family: var(--font-label);
@@ -182,18 +121,18 @@
 }
 
 .signal-board h2 {
-  max-width: none;
+  max-width: 10ch;
   margin: 0.28rem 0 0;
-  font-size: clamp(2.15rem, 4.2vw, 4.4rem);
+  font-size: clamp(2.25rem, 4.6vw, 4.75rem);
   line-height: 0.95;
 }
 
 .signal-board-header > p {
-  max-width: 47ch;
+  max-width: 50ch;
   margin: 0;
   color: #4f5d78;
-  font-size: clamp(0.94rem, 1.25vw, 1.04rem);
-  line-height: 1.45;
+  font-size: clamp(0.96rem, 1.25vw, 1.06rem);
+  line-height: 1.48;
 }
 
 .signal-board-link {
@@ -204,7 +143,7 @@
   padding: 0 0.95rem;
   border: 1px solid rgba(46, 91, 208, 0.32);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.76);
   color: var(--azure-deep);
   font-family: var(--font-label);
   font-size: 0.76rem;
@@ -219,42 +158,28 @@
   text-decoration: none;
 }
 
-.signal-instrument {
+.signal-system {
   display: grid;
-  grid-template-columns: minmax(250px, 0.86fr) minmax(290px, 1fr) minmax(320px, 1.08fr);
-  grid-template-areas:
-    "flow flow flow"
-    "core radar actions";
-  gap: 0.72rem;
+  grid-template-columns: minmax(220px, 0.56fr) minmax(300px, 0.8fr) minmax(420px, 1.45fr);
+  grid-template-areas: "gauge analysis map";
+  gap: 0.78rem;
   align-items: stretch;
 }
 
-.signal-core,
-.evidence-flow,
-.pressure-radar,
-.signal-card {
+.signal-gauge,
+.signal-analysis,
+.signal-lane-card {
   position: relative;
-  border: 1px solid rgba(46, 91, 208, 0.18);
-  border-radius: 14px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 18px 46px rgba(46, 91, 208, 0.08);
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  border: 1px solid rgba(46, 91, 208, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 46px rgba(46, 91, 208, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.72) inset;
 }
 
-.signal-core:hover,
-.evidence-flow:hover,
-.pressure-radar:hover,
-.signal-card:hover {
-  border-color: rgba(46, 91, 208, 0.36);
-  box-shadow: 0 22px 54px rgba(46, 91, 208, 0.13);
-  transform: translateY(-2px);
-}
-
-.signal-core::after,
-.evidence-flow::after,
-.pressure-radar::after,
-.signal-card::after {
+.signal-gauge::after,
+.signal-analysis::after,
+.signal-lane-card::after {
   content: "";
   position: absolute;
   right: 12px;
@@ -266,313 +191,298 @@
   pointer-events: none;
 }
 
-.evidence-flow {
-  grid-area: flow;
+.signal-gauge {
+  grid-area: gauge;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
-  align-items: center;
-  min-height: 90px;
-  padding: 1rem clamp(1rem, 3vw, 2rem);
-  background:
-    linear-gradient(90deg, rgba(91, 140, 255, 0.14), rgba(255, 255, 255, 0.72) 46%, rgba(157, 184, 255, 0.18)),
-    rgba(255, 255, 255, 0.76);
-}
-
-.flow-track {
-  position: absolute;
-  left: clamp(1rem, 3vw, 2rem);
-  right: clamp(1rem, 3vw, 2rem);
-  top: 2.08rem;
-  height: 3px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(91, 140, 255, 0.22), rgba(46, 91, 208, 0.5), rgba(157, 184, 255, 0.22));
-}
-
-.flow-beam {
-  position: absolute;
-  inset-block: -9px;
-  left: 0;
-  width: 38%;
-  border-radius: 999px;
-  background: linear-gradient(90deg, transparent, rgba(91, 140, 255, 0.18), rgba(46, 91, 208, 0.85), rgba(157, 184, 255, 0.18), transparent);
-  filter: blur(1px);
-  animation: flowBeam 3.6s linear infinite;
-}
-
-.flow-step {
-  position: relative;
-  display: grid;
+  align-content: center;
   justify-items: center;
-  gap: 0.58rem;
-  min-width: 0;
-}
-
-.flow-node {
-  width: 0.92rem;
-  height: 0.92rem;
-  border: 2px solid var(--azure);
-  border-radius: 999px;
-  background: #fff;
-  animation: nodeBeat 3.2s ease-out infinite;
-  animation-delay: calc(var(--step) * 260ms);
-}
-
-.flow-step strong {
-  max-width: 10ch;
-  color: var(--ink);
-  font-family: var(--font-label);
-  font-size: clamp(0.68rem, 1vw, 0.78rem);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
+  min-height: 330px;
+  padding: clamp(1.1rem, 2vw, 1.35rem);
   text-align: center;
-  text-transform: uppercase;
-}
-
-.signal-core {
-  grid-area: core;
-  min-height: 236px;
-  padding: clamp(1rem, 1.8vw, 1.25rem);
   background:
-    radial-gradient(circle at 50% 42%, rgba(91, 140, 255, 0.18), transparent 8rem),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(231, 238, 255, 0.88));
+    radial-gradient(circle at 50% 40%, rgba(91, 140, 255, 0.16), transparent 7rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(230, 238, 255, 0.86));
 }
 
-.signal-orbit {
-  position: absolute;
-  inset: 1.12rem;
-  border: 1px solid rgba(91, 140, 255, 0.16);
+.signal-gauge::before {
+  content: "";
+  width: min(190px, 48vw);
+  aspect-ratio: 1;
+  margin: 0.8rem 0 1rem;
   border-radius: 999px;
-  animation: signalOrbit 18s linear infinite;
-  pointer-events: none;
+  background:
+    radial-gradient(circle at center, #fff 0 46%, transparent 47%),
+    conic-gradient(var(--azure-deep) 0 var(--pressure-angle), rgba(157, 184, 255, 0.2) var(--pressure-angle) 360deg);
+  box-shadow: 0 24px 54px rgba(46, 91, 208, 0.16), inset 0 0 0 1px rgba(46, 91, 208, 0.14);
+  animation: gaugePulse var(--pulse-speed) ease-in-out infinite;
 }
 
-.signal-orbit span {
+.gauge-orbit {
   position: absolute;
-  width: 0.58rem;
-  height: 0.58rem;
+  inset: clamp(1rem, 2vw, 1.35rem);
+  border: 1px solid rgba(91, 140, 255, 0.14);
+  border-radius: 999px;
+  animation: orbitSpin 22s linear infinite;
+}
+
+.gauge-orbit span {
+  position: absolute;
+  width: 0.55rem;
+  height: 0.55rem;
   border-radius: 999px;
   background: var(--azure);
-  box-shadow: 0 0 28px rgba(91, 140, 255, 0.72);
-  animation: signalPulse 2.8s ease-in-out infinite;
+  box-shadow: 0 0 26px rgba(91, 140, 255, 0.72);
 }
 
-.signal-orbit span:nth-child(1) {
-  top: -0.29rem;
-  left: 50%;
-}
+.gauge-orbit span:nth-child(1) { top: -0.27rem; left: 50%; }
+.gauge-orbit span:nth-child(2) { right: 8%; bottom: 18%; }
+.gauge-orbit span:nth-child(3) { left: 10%; bottom: 24%; }
 
-.signal-orbit span:nth-child(2) {
-  right: 8%;
-  bottom: 15%;
-  animation-delay: 400ms;
-}
-
-.signal-orbit span:nth-child(3) {
-  left: 10%;
-  bottom: 22%;
-  animation-delay: 900ms;
-}
-
-.signal-core .signal-panel-label,
-.signal-core h3,
-.signal-core .signal-micro {
+.signal-gauge .signal-panel-label,
+.signal-gauge strong,
+.signal-gauge span,
+.signal-gauge p {
   position: relative;
   z-index: 1;
 }
 
-.signal-core h3 {
-  max-width: 8ch;
-  margin: clamp(3.4rem, 7vw, 4.9rem) 0 0;
+.signal-gauge strong {
+  margin-top: -7.35rem;
   color: var(--ink);
-  font-size: clamp(1.85rem, 3.4vw, 3.25rem);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.7rem);
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.signal-gauge > span {
+  display: block;
+  margin: 0.4rem 0 0.82rem;
+  color: var(--azure-deep);
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.signal-gauge p:last-child {
+  max-width: 27ch;
+  margin: 0;
+  color: #4f5d78;
+  font-size: 0.94rem;
+  line-height: 1.42;
+}
+
+.signal-analysis {
+  grid-area: analysis;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 330px;
+  padding: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.signal-analysis h3 {
+  max-width: 8.5ch;
+  margin: 1.2rem 0 0.8rem;
+  color: var(--ink);
+  font-size: clamp(2rem, 4vw, 3.4rem);
   line-height: 0.94;
 }
 
-.signal-micro {
-  max-width: 29ch;
-  margin: 0.72rem 0 0;
+.signal-analysis > p:not(.signal-panel-label) {
+  max-width: 34ch;
   color: #4f5d78;
-  font-size: clamp(0.9rem, 1.15vw, 0.98rem);
-  line-height: 1.38;
+  font-size: 0.98rem;
+  line-height: 1.46;
 }
 
-.pressure-radar {
-  grid-area: radar;
+.analysis-grid {
   display: grid;
-  grid-template-columns: minmax(132px, 0.72fr) minmax(0, 1fr);
-  gap: 0.8rem;
-  align-items: center;
-  min-height: 236px;
-  padding: 0.9rem;
-  background:
-    radial-gradient(circle at 26% 46%, rgba(91, 140, 255, 0.18), transparent 8rem),
-    rgba(255, 255, 255, 0.74);
+  gap: 0.58rem;
+  margin-top: 1rem;
 }
 
-.radar-visual {
-  position: relative;
-  aspect-ratio: 1;
-  min-width: 132px;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle, rgba(91, 140, 255, 0.18), transparent 8%),
-    radial-gradient(circle, transparent 42%, rgba(91, 140, 255, 0.13) 43%, transparent 44%),
-    radial-gradient(circle, transparent 66%, rgba(46, 91, 208, 0.12) 67%, transparent 68%);
+.analysis-grid div {
+  padding: 0.72rem 0.78rem;
+  border: 1px solid rgba(46, 91, 208, 0.13);
+  border-radius: 12px;
+  background: rgba(247, 249, 255, 0.68);
 }
 
-.radar-ring,
-.radar-sweep,
-.radar-dot {
+.analysis-grid span {
+  display: block;
+  margin-bottom: 0.28rem;
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+}
+
+.analysis-grid strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.05;
+}
+
+.signal-map {
+  grid-area: map;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.78rem;
+}
+
+.signal-lane-card {
+  min-height: 210px;
+  padding: clamp(0.92rem, 1.6vw, 1.1rem);
+  background:
+    linear-gradient(90deg, rgba(91, 140, 255, 0.08), transparent 42%),
+    rgba(255, 255, 255, 0.76);
+}
+
+.signal-lane-card::before {
+  content: "";
   position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(91, 140, 255, 0.2), transparent);
+  animation: laneScan var(--pulse-speed) ease-in-out infinite;
   pointer-events: none;
 }
 
-.radar-ring {
-  inset: var(--ring);
-  border: 1px solid rgba(46, 91, 208, 0.18);
-  border-radius: 999px;
-}
+.lane-1 { background: linear-gradient(90deg, rgba(110, 116, 240, 0.09), transparent 42%), rgba(255, 255, 255, 0.76); }
+.lane-2 { background: linear-gradient(90deg, rgba(160, 108, 240, 0.09), transparent 42%), rgba(255, 255, 255, 0.76); }
+.lane-3 { background: linear-gradient(90deg, rgba(201, 163, 94, 0.1), transparent 42%), rgba(255, 255, 255, 0.76); }
 
-.radar-ring-one {
-  --ring: 8%;
-}
-
-.radar-ring-two {
-  --ring: 27%;
-}
-
-.radar-ring-three {
-  --ring: 46%;
-}
-
-.radar-sweep {
-  inset: 4%;
-  border-radius: 999px;
-  background: conic-gradient(from 0deg, rgba(91, 140, 255, 0.42), rgba(91, 140, 255, 0.04) 34deg, transparent 58deg);
-  animation: radarSweep 5.4s linear infinite;
-}
-
-.radar-dot {
-  left: calc(50% + var(--x));
-  top: calc(50% + var(--y));
-  width: 0.68rem;
-  height: 0.68rem;
-  border: 2px solid #fff;
-  border-radius: 999px;
-  background: var(--azure);
-  box-shadow: 0 0 22px rgba(46, 91, 208, 0.5);
-  animation: radarBlink 3.4s ease-in-out infinite;
-  animation-delay: calc(var(--dot) * 420ms);
-}
-
-.radar-readout {
+.lane-card-header,
+.lane-meta {
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.7rem;
 }
 
-.radar-lanes {
-  display: grid;
-  gap: 0.46rem;
-  margin-top: 0.62rem;
-}
-
-.radar-lane {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.6rem;
-  align-items: center;
-  min-height: 32px;
-  padding: 0.46rem 0.54rem;
-  border: 1px solid rgba(46, 91, 208, 0.12);
-  border-radius: 999px;
-  background: rgba(247, 249, 255, 0.72);
-}
-
-.radar-lane strong {
+.lane-card-header h3 {
+  margin: 0.32rem 0 0;
   color: var(--ink);
-  font-family: var(--font-label);
-  font-size: 0.66rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1.15;
-  text-transform: uppercase;
+  font-size: clamp(1.3rem, 2.2vw, 2.05rem);
+  line-height: 0.98;
 }
 
-.radar-lane b {
-  padding: 0.16rem 0.4rem;
+.lane-trend {
+  flex: 0 0 auto;
+  padding: 0.22rem 0.5rem;
   border-radius: 999px;
   background: rgba(157, 184, 255, 0.22);
   color: var(--azure-deep);
-  font-size: 0.5rem;
+  font-size: 0.54rem;
   letter-spacing: 0.08em;
-  white-space: nowrap;
 }
 
-.signal-actions {
-  grid-area: actions;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.72rem;
+.trend-rising { color: var(--azure-deep); }
+.trend-cooling { color: var(--gold-deep); background: rgba(230, 203, 142, 0.25); }
+.trend-steady { color: var(--indigo-deep); background: rgba(169, 174, 255, 0.22); }
+
+.lane-state,
+.lane-brief {
+  position: relative;
+  z-index: 1;
+  margin: 0.86rem 0 0;
+  color: #273552;
+  font-size: 0.96rem;
+  line-height: 1.35;
 }
 
-.signal-card {
-  min-height: 70px;
-  padding: 0.78rem 0.9rem;
+.lane-brief {
+  margin-top: 0.42rem;
+  color: #66758f;
+  font-size: 0.88rem;
 }
 
-.signal-card p:last-child {
-  margin: 0.34rem 0 0;
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-size: clamp(1.04rem, 1.5vw, 1.42rem);
-  font-weight: 900;
-  line-height: 1.04;
+.lane-meter {
+  position: relative;
+  z-index: 1;
+  height: 9px;
+  margin: 1rem 0 0.9rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(46, 91, 208, 0.12);
 }
 
-.tension-card {
+.lane-meter span {
+  display: block;
+  width: var(--score-pct);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--azure), var(--azure-deep));
+  box-shadow: 0 0 18px rgba(91, 140, 255, 0.34);
+}
+
+.lane-spark-wrap {
+  position: relative;
+  z-index: 1;
+  height: 52px;
+  margin-top: 0.2rem;
+  overflow: hidden;
+  border: 1px solid rgba(46, 91, 208, 0.12);
+  border-radius: 12px;
   background:
-    radial-gradient(circle at 96% 0, rgba(160, 108, 240, 0.15), transparent 10rem),
-    rgba(255, 255, 255, 0.72);
+    linear-gradient(90deg, rgba(46, 91, 208, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(46, 91, 208, 0.07) 1px, transparent 1px),
+    rgba(247, 249, 255, 0.72);
+  background-size: 25% 100%, 100% 50%, auto;
 }
 
-.move-card {
-  background:
-    radial-gradient(circle at 96% 0, rgba(110, 116, 240, 0.14), transparent 10rem),
-    rgba(255, 255, 255, 0.72);
+.lane-spark {
+  position: absolute;
+  inset: 8px 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 16px);
+  overflow: visible;
 }
 
-.question-card {
-  background:
-    radial-gradient(circle at 96% 0, rgba(201, 163, 94, 0.15), transparent 10rem),
-    rgba(255, 255, 255, 0.72);
+.lane-spark polyline {
+  fill: none;
+  stroke: var(--azure-deep);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.spark-baseline {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 50%;
+  height: 1px;
+  background: rgba(46, 91, 208, 0.14);
+}
+
+.lane-meta {
+  margin-top: 0.68rem;
+  color: #66758f;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .signal-board::before,
   .signal-board-stream,
-  .signal-orbit,
-  .signal-orbit span,
-  .flow-beam,
-  .flow-node,
-  .radar-sweep,
-  .radar-dot {
+  .signal-gauge::before,
+  .gauge-orbit,
+  .signal-lane-card::before {
     animation: none;
   }
 }
 
-@media (max-width: 1100px) {
-  .signal-instrument {
-    grid-template-columns: minmax(250px, 0.92fr) minmax(0, 1fr);
+@media (max-width: 1120px) {
+  .signal-system {
+    grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1fr);
     grid-template-areas:
-      "flow flow"
-      "core radar"
-      "actions actions";
-  }
-
-  .signal-actions {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+      "gauge analysis"
+      "map map";
   }
 }
 
@@ -582,25 +492,28 @@
     align-items: start;
   }
 
+  .signal-board h2 {
+    max-width: 11ch;
+  }
+
   .signal-board-link {
     width: fit-content;
   }
 
-  .signal-instrument {
+  .signal-system {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "flow"
-      "core"
-      "radar"
-      "actions";
+      "gauge"
+      "analysis"
+      "map";
   }
 
-  .signal-core,
-  .pressure-radar {
-    min-height: 224px;
+  .signal-gauge,
+  .signal-analysis {
+    min-height: auto;
   }
 
-  .signal-actions {
+  .signal-map {
     grid-template-columns: 1fr;
   }
 }
@@ -612,51 +525,47 @@
   }
 
   .signal-board h2 {
-    font-size: clamp(2.2rem, 12vw, 3.25rem);
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
   }
 
-  .evidence-flow {
-    grid-template-columns: 1fr;
-    gap: 0.7rem;
-    min-height: auto;
-    padding: 0.92rem;
+  .signal-board-header > p {
+    font-size: 0.94rem;
   }
 
-  .flow-track {
-    left: 1.36rem;
-    right: auto;
-    top: 1rem;
-    bottom: 1rem;
-    width: 3px;
-    height: auto;
+  .signal-board-link {
+    width: 100%;
   }
 
-  .flow-beam {
-    inset-inline: -9px;
-    inset-block: 0 auto;
-    width: auto;
-    height: 38%;
-    background: linear-gradient(180deg, transparent, rgba(91, 140, 255, 0.18), rgba(46, 91, 208, 0.85), rgba(157, 184, 255, 0.18), transparent);
-    animation-name: flowBeamMobile;
-  }
-
-  .flow-step {
-    grid-template-columns: auto minmax(0, 1fr);
+  .signal-gauge {
     justify-items: start;
     text-align: left;
   }
 
-  .flow-step strong {
-    max-width: none;
-    text-align: left;
+  .signal-gauge::before {
+    width: 150px;
+    margin: 0.8rem 0 1rem;
   }
 
-  .pressure-radar {
-    grid-template-columns: 1fr;
+  .signal-gauge strong {
+    margin-top: -6rem;
+    margin-left: 2.45rem;
   }
 
-  .radar-visual {
-    width: min(180px, 58vw);
-    margin-inline: auto;
+  .signal-gauge > span,
+  .signal-gauge p:last-child {
+    margin-left: 0;
+  }
+
+  .analysis-grid {
+    gap: 0.5rem;
+  }
+
+  .lane-card-header,
+  .lane-meta {
+    gap: 0.55rem;
+  }
+
+  .lane-trend {
+    margin-top: 0.08rem;
   }
 }
