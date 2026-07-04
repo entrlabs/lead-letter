@@ -1,4 +1,8 @@
-/* Keep the public logo tied to the uploaded ENTR mark already embedded in global.css. */
+/* Keep the public logo tied to a real repo asset under public/assets. */
+:root {
+  --entr-icon-mask: url('/assets/entr-main-logo.svg');
+}
+
 .entr-header-logo {
   gap: 0.68rem;
 }
@@ -65,6 +69,34 @@
   display: none;
 }
 
+@media (max-width: 720px) {
+  .header-inner {
+    width: min(100% - 24px, var(--container));
+    min-height: 66px;
+    gap: 10px;
+  }
+
+  .entr-header-logo {
+    gap: 0.48rem;
+  }
+
+  .publication-title {
+    min-width: 0;
+    max-width: 38vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .site-header nav {
+    margin-left: auto;
+    gap: 12px;
+  }
+
+  .site-header nav a.join {
+    display: none;
+  }
+}
+
 @media (max-width: 560px) {
   .entr-header-logo .entr-logo-tile {
     width: 30px;
@@ -74,6 +106,12 @@
   .entr-logo-tile::before {
     width: 16px;
     height: 26px;
+  }
+}
+
+@media (max-width: 390px) {
+  .publication-title {
+    display: none;
   }
 }
 
