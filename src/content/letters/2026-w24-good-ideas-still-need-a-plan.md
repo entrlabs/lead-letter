@@ -1,5 +1,5 @@
 ---
-title: "The Lead Letter: Good Ideas Still Need a Plan"
+title: "Good Ideas Still Need a Plan"
 description: "A public weekly letter about small business pressure, AI readiness, trust, and practical leadership."
 date: 2026-06-15
 author: "Joseph E. Iesue"
@@ -16,8 +16,6 @@ tags:
   - ai-governance
   - resilience
 ---
-
-# The Lead Letter: Good Ideas Still Need a Plan
 
 A good idea can still fail if the numbers do not work.
 
