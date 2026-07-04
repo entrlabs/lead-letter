@@ -23,10 +23,9 @@ AI can help people move faster. It can help a student draft, a founder test, and
 
 But faster is not the same as wiser.
 
-This week’s useful lesson is simple: AI can lower the cost of starting, but it does not remove the need for judgment, trust, teamwork, and clear rules.
+This week's useful lesson is simple: AI can lower the cost of starting, but it does not remove the need for judgment, trust, teamwork, and clear rules.
 
 > [!NOTE]
-> **This week's main idea:**  
 > Use AI to move faster, but do not let it make decisions you cannot explain.
 
 ---
