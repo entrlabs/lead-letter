@@ -546,14 +546,17 @@ a:hover { color: var(--brass); text-decoration: underline; text-underline-offset
   margin: 0;
 }
 .footer-columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 34px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
   padding: 34px 0;
   border-top: 1px solid #1a1f27;
   border-bottom: 1px solid #1a1f27;
   margin-bottom: 28px;
 }
+.footer-col { flex: 1 1 0; min-width: 0; }
 .footer-heading {
   color: var(--footer-dim);
   font-family: var(--font-sans);
@@ -592,6 +595,7 @@ a:hover { color: var(--brass); text-decoration: underline; text-underline-offset
   .letter-body blockquote.callout { padding: 1rem 1.05rem; }
   .prev-next { grid-template-columns: 1fr; gap: 22px; }
   .pn-next { text-align: left; }
-  .footer-columns { grid-template-columns: 1fr; gap: 28px; }
+  .footer-columns { flex-direction: column; gap: 28px; }
+  .footer-col { width: 100%; }
   .site-footer { padding: 46px 20px 34px; }
 }
