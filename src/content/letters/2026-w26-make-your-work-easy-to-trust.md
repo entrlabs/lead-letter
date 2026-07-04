@@ -1,5 +1,5 @@
 ---
-title: "The Lead Letter: Make Your Work Easy to Trust"
+title: "Make Your Work Easy to Trust"
 description: "A public weekly letter about career proof, customer trust, workplace learning, and better decisions."
 date: 2026-06-29
 author: "Joseph E. Iesue"
@@ -17,8 +17,6 @@ tags:
   - workplace-learning
   - decision-making
 ---
-
-# The Lead Letter: Make Your Work Easy to Trust
 
 This week, several stories pointed to the same practical lesson:
 
@@ -82,8 +80,7 @@ Organizations keep asking people to adapt. But workers do not build new skills j
 
 People learn through practice, feedback, coaching, mistakes, and review. If a company removes junior tasks, cuts management layers, or changes roles too quickly, it may also remove the places where people used to learn judgment.
 
-> [!IMPORTANT]
-> **Leadership lesson:**  
+> [!LEADERS]
 > Do not redesign work without asking where people will practice, get feedback, and learn good judgment.
 
 This matters for managers, professors, and founders. A faster system is not always a stronger system. If people are expected to do harder work, the organization needs a real learning plan.
