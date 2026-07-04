@@ -1,0 +1,77 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SendFoxForm from '../components/SendFoxForm.astro';
+import HYOHCompass from '../components/HYOHCompass.astro';
+import { toRoman, formatDate } from '../utils/format';
+
+const allLetters = (await getCollection('letters')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const latest = allLetters[0];
+const recent = allLetters.slice(1, 7);
+
+function letterUrl(entry: CollectionEntry<'letters'>) {
+  return `/${entry.data.slug ?? entry.slug}/`;
+}
+---
+<BaseLayout
+  title="EntrLabs — The Lead Letter"
+  description="A weekly letter on leadership, service, and the discipline of helping people rise."
+>
+  <section class="masthead">
+    <p class="kicker">A Publication of EntrLabs</p>
+    <h1>The Lead Letter</h1>
+    <p class="positioning">
+      A weekly letter on leadership, service, and the discipline of helping people rise. By Joseph E. Iesue.
+    </p>
+    <p class="tagline">Strength Through Service.</p>
+  </section>
+
+  <hr class="hairline" />
+
+  {latest && (
+    <section class="latest-letter">
+      <p class="kicker">
+        The Latest · Letter № {toRoman(latest.data.issue)} · {formatDate(latest.data.date)}
+      </p>
+      <h2 class="title"><a href={letterUrl(latest)}>{latest.data.title}</a></h2>
+      <p class="description">{latest.data.description}</p>
+      <a class="read-more" href={letterUrl(latest)}>Read the letter →</a>
+    </section>
+  )}
+
+  <section id="join" class="subscribe-band">
+    <p>One letter a week. One idea worth keeping. Free.</p>
+    <SendFoxForm />
+  </section>
+
+  <section class="from-archive">
+    <h2>From the Archive</h2>
+    <ul class="archive-preview-list">
+      {recent.map((entry) => (
+        <li>
+          <p class="meta">{formatDate(entry.data.date)} · № {toRoman(entry.data.issue)}</p>
+          <h3 class="title"><a href={letterUrl(entry)}>{entry.data.title}</a></h3>
+          <p class="desc">{entry.data.description}</p>
+        </li>
+      ))}
+    </ul>
+    <a class="browse-full" href="/archive/">Browse the full archive →</a>
+  </section>
+
+  <HYOHCompass variant="full" />
+
+  <section class="about-strip">
+    <p>
+      The Lead Letter is a weekly publication of
+      <a href="https://entr.cc/entrlabs" target="_blank" rel="noopener">EntrLabs</a>,
+      the research arm of ENTR, on leadership, service, and the discipline of helping people rise.
+    </p>
+    <p>
+      Written by <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a>,
+      a leadership researcher and practitioner working at the intersection of leadership and service.
+    </p>
+  </section>
+</BaseLayout>
