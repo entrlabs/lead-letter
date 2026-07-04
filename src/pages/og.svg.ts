@@ -59,10 +59,11 @@ export async function GET({ url }: { url: URL }) {
   <rect x="72" y="72" width="1056" height="486" rx="28" fill="#fff" fill-opacity=".72" stroke="#2E5BD0" stroke-opacity=".24" filter="url(#shadow)"/>
   <path d="M108 120h64m856 0h64M108 510h64m856 0h64" stroke="#5B8CFF" stroke-width="3" stroke-linecap="round" opacity=".65"/>
   <g transform="translate(112 116)">
-    <image href="/assets/entr-icon.svg" x="0" y="-12" width="72" height="110" preserveAspectRatio="xMidYMid meet" opacity=".98"/>
-    <text x="96" y="45" font-family="Archivo, Arial, sans-serif" font-size="38" font-weight="800" fill="#0A0F1C">ENTR</text>
-    <line x1="208" y1="-12" x2="208" y2="62" stroke="#2E5BD0" stroke-opacity=".22" stroke-width="2"/>
-    <text x="236" y="38" font-family="Cinzel, Georgia, serif" font-size="28" font-weight="800" fill="#0A0F1C">EntrLabs - The Lead Letter</text>
+    <rect x="-12" y="-16" width="78" height="86" rx="20" fill="#2E5BD0"/>
+    <image href="/assets/entr-main-logo.png" x="14" y="-8" width="38" height="70" preserveAspectRatio="xMidYMid meet" opacity=".98"/>
+    <text x="88" y="45" font-family="Archivo, Arial, sans-serif" font-size="38" font-weight="800" fill="#0A0F1C">ENTR</text>
+    <line x1="200" y1="-12" x2="200" y2="62" stroke="#2E5BD0" stroke-opacity=".22" stroke-width="2"/>
+    <text x="228" y="38" font-family="Cinzel, Georgia, serif" font-size="28" font-weight="800" fill="#0A0F1C">EntrLabs - The Lead Letter</text>
   </g>
   <text x="112" y="250" font-family="Archivo, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="4" fill="#2E5BD0">STRENGTH THROUGH SERVICE</text>
   ${titleLines.map((line, index) => `<text x="112" y="${330 + index * 66}" font-family="Cinzel, Georgia, serif" font-size="58" font-weight="900" fill="#0A0F1C">${escapeXml(line)}</text>`).join('')}
