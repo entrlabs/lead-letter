@@ -16,6 +16,37 @@ tags:
   - higher-education
   - workplace-learning
   - decision-making
+signalBoard:
+  signal: "Proof > Promise"
+  micro: "Trust rises when evidence is easy to see, test, and share."
+  tension: "High claims. Thin proof."
+  move: "Show the work."
+  question: "What proof travels?"
+  flow:
+    - Claim
+    - Evidence
+    - Practice
+    - Trust
+  motionWords:
+    - Proof
+    - Trust
+    - Evidence
+    - Practice
+    - Judgment
+    - Signal
+  lanes:
+    - label: Education
+      state: "Students need visible proof of skill."
+      level: Rising
+    - label: Work
+      state: "Training must match the change."
+      level: Strained
+    - label: Founders
+      state: "Customers are asking for proof."
+      level: Active
+    - label: Technology
+      state: "AI needs accountable judgment."
+      level: Watching
 ---
 
 This week, several stories pointed to the same practical lesson:
@@ -87,55 +118,3 @@ This matters for managers, professors, and founders. A faster system is not alwa
 
 **Manager question:**  
 Before changing a role, what hidden learning work does that role currently do?
-
----
-
-## The Leadership Lesson
-
-Good leadership makes proof easier to find.
-
-For students, that means helping them show what they can do. For founders, it means testing whether customers believe the value. For managers, it means building the training and coaching people need before asking them to change.
-
-This is not about making people anxious or turning every experience into a score. It is about helping people make better choices with better evidence.
-
-> [!TIP]
-> **A simple rule for the week:**  
-> If someone has to take a risk on you, your product, or your plan, make the reason to trust you clear.
-
----
-
-## Questions Worth Asking
-
-1. What proof should a student be able to show before graduation?
-2. What makes a customer trust a new product enough to pay for it?
-3. Where do beginners learn judgment if companies remove the basic tasks they used to practice on?
-4. How can schools prepare students for work without reducing education to job training?
-5. What is one claim you make that needs better evidence?
-
----
-
-## What To Watch Next
-
-- Whether colleges make career evidence easier for students to build and explain.
-- Whether customers keep choosing repair, resale, savings, and durability over new purchases.
-- Whether companies invest in training before asking workers to change how they work.
-- Whether AI policies in classrooms become clearer, more honest, and more useful for professional life.
-
----
-
-## Sources
-
-| Source | Date | Why it matters |
-|---|---:|---|
-| [Employers want entry-level workers with senior-level skills](https://www.businessinsider.com/pwc-global-jobs-barometer-ai-advanced-skills-entry-level-jobs-2026-6), Business Insider / PwC | 2026-06-15 | Shows why students may need stronger proof of practical skills earlier in their careers. |
-| [Most creative arts degrees in England lead to lower lifetime earnings, research finds](https://www.theguardian.com/education/2026/jun/26/most-creative-arts-degrees-in-england-lead-to-lower-lifetime-earnings-research-finds), The Guardian | 2026-06-26 | Raises hard questions about degree value, student choice, and how universities explain outcomes. |
-| [US jobless claims fall, but continuing claims rise](https://apnews.com/article/unemployment-benefits-layoffs-jobs-economy-50b8a959f8ed431f9dd344c34d376b46), AP News | 2026-06-26 | Gives a mixed labor-market signal for students, job seekers, and career advisers. |
-| [State of the Consumer 2026](https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/state-of-consumer), McKinsey | 2026-06 | Shows how careful consumer behavior can affect founders, pricing, and product trust. |
-| [HR Monitor 2026](https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/hr-monitor), McKinsey | 2026-06-08 | Points to a gap between workforce change and the training systems people need. |
-| [9 in 10 HR leaders believe AI will create new entry-level roles](https://www.techradar.com/pro/9-in-10-hr-leaders-believe-ai-will-create-new-entry-level-roles-and-that-middle-managers-are-essential-to-this-transformation), TechRadar / Cognizant-Pearson | 2026-06-23 | Connects role change, manager support, and training gaps in the workplace. |
-| [Beyond the Org Chart](https://arxiv.org/abs/2605.22707), arXiv | 2026-05-28 | Helps explain why hidden work like mentoring, review, and coordination matters. |
-| [Teachers ban it, employers demand it: new grads face a frustrating AI double standard](https://www.marketwatch.com/story/teachers-ban-it-employers-demand-it-new-grads-face-a-frustrating-ai-double-standard-09c70f19), MarketWatch | 2026-06-23 | Shows why schools need clearer rules for professional tool use. |
-
----
-
-*The Lead Letter is a weekly note on leadership, learning, work, and better decisions.*
