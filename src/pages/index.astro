@@ -5,15 +5,15 @@ import SendFoxForm from '../components/SendFoxForm.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 
-const allLetters = (await getCollection('letters')).sort(
+const allSignals = (await getCollection('signals')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
-const latest = allLetters[0];
-const recent = allLetters.slice(1, 5);
+const latest = allSignals[0];
+const recent = allSignals.slice(1, 5);
 
-function letterUrl(entry: CollectionEntry<'letters'>) {
-  return `/${entry.slug}/`;
+function signalUrl(entry: CollectionEntry<'signals'>) {
+  return `/${entry.data.slug ?? entry.slug.replace(/^signals-/, '')}/`;
 }
 
 function latestBoxDescription(description: string) {
@@ -58,7 +58,7 @@ const radarPositions = [
       </p>
       <p class="by-joseph">By <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a></p>
       <div class="hero-actions">
-        {latest && <a class="primary-action" href={letterUrl(latest)}>Read latest letter</a>}
+        {latest && <a class="primary-action" href={signalUrl(latest)}>Read latest Signal Brief</a>}
         <a class="secondary-action" href="/#join">Get future issues</a>
       </div>
     </div>
@@ -67,8 +67,8 @@ const radarPositions = [
       <article class="latest-feature reveal">
         <div class="latest-feature-content">
           <div class="latest-feature-copy">
-            <p class="feature-label">Latest letter</p>
-            <h2><a href={letterUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
+            <p class="feature-label">Latest Signal Brief</p>
+            <h2><a href={signalUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
             <p>{latestBoxDescription(latest.data.description)}</p>
           </div>
           <div class="latest-cube" aria-hidden="true">
@@ -99,9 +99,9 @@ const radarPositions = [
           <h2 id="weekly-signal-board">This week's signal</h2>
         </div>
         <p>
-          A compact visual reading of the newest letter: the pattern, the pressure, and the next useful move.
+          A compact visual reading of the newest brief: the pattern, the pressure, and the next useful move.
         </p>
-        <a class="signal-board-link" href={letterUrl(latest)}>Read the full letter</a>
+        <a class="signal-board-link" href={signalUrl(latest)}>Read the full brief</a>
       </div>
 
       <div class="signal-instrument">
@@ -179,18 +179,18 @@ const radarPositions = [
     <div class="from-archive">
       <div class="section-heading-row">
         <h2>From the Archive</h2>
-        <a class="browse-full" href="/archive/">View all letters</a>
+        <a class="browse-full" href="/archive/">View all briefs</a>
       </div>
       <ul class="archive-preview-list">
         {recent.map((entry) => (
           <li>
             <span class="archive-dot" aria-hidden="true"></span>
             <div class="archive-preview-copy">
-              <h3 class="title"><a href={letterUrl(entry)}>{formatLetterTitle(entry.data.title)}</a></h3>
+              <h3 class="title"><a href={signalUrl(entry)}>{formatLetterTitle(entry.data.title)}</a></h3>
             </div>
             <p class="meta">{formatDate(entry.data.date)}</p>
             <p class="meta">{formatIssue(entry.data.issue)}</p>
-            <a class="archive-arrow" href={letterUrl(entry)} aria-label={`Read ${formatLetterTitle(entry.data.title)}`}>→</a>
+            <a class="archive-arrow" href={signalUrl(entry)} aria-label={`Read ${formatLetterTitle(entry.data.title)}`}>→</a>
           </li>
         ))}
       </ul>
