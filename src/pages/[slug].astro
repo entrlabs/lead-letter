@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
 import CopyLinkButton from '../components/CopyLinkButton.astro';
-import { toRoman, formatDate } from '../utils/format';
+import { formatDate, formatIssue } from '../utils/format';
 
 export async function getStaticPaths() {
   const letters = await getCollection('letters');
@@ -27,62 +27,31 @@ const idx = allLetters.findIndex((e) => e.slug === entry.slug);
 const newer = idx > 0 ? allLetters[idx - 1] : null;
 const older = idx < allLetters.length - 1 ? allLetters[idx + 1] : null;
 
-const canonicalUrl = `https://letters.entr.cc/${entry.slug}/`;
+function letterUrl(e: CollectionEntry<'letters'>) {
+  return `/${e.slug}/`;
+}
+
+const canonicalUrl = `https://letters.entr.cc${letterUrl(entry)}`;
 ---
 <BaseLayout title={`${entry.data.title} — The Lead Letter`} description={entry.data.description}>
-  <article class="letter-page">
-    <header class="letter-header">
-      <p class="kicker letter-kicker">
-        The Lead Letter · № {toRoman(entry.data.issue)} · {formatDate(entry.data.date)}
-      </p>
-      <h1 class="letter-title">{entry.data.title}</h1>
-      <p class="byline">
-        By <a href="https://josephiesue.com" target="_blank" rel="noopener">{entry.data.author}</a>
-        <span class="byline-sep">·</span> {entry.data.publication}
-      </p>
-      <div class="rule-double slim" aria-hidden="true"></div>
-    </header>
+  <article class="letter-page reveal">
+    <p class="kicker letter-kicker">
+      The Lead Letter - {formatIssue(entry.data.issue)} - {formatDate(entry.data.date)}
+    </p>
+    <h1>{entry.data.title}</h1>
+    <p class="byline">
+      By <a href="https://josephiesue.com" target="_blank" rel="noopener">{entry.data.author}</a> · {entry.data.publication}
+    </p>
+    <hr class="hairline" />
 
     <div class="letter-body">
       <Content />
     </div>
 
-    <script>
-      const calloutLabels = {
-        note: 'Note',
-        tip: 'Takeaway',
-        quote: 'Signal',
-        important: 'Important',
-        warning: 'Watchpoint',
-      };
-
-      document.querySelectorAll('.letter-body blockquote').forEach((quote) => {
-        if (quote.classList.contains('callout')) return;
-
-        const firstParagraph = quote.querySelector('p:first-child');
-        const marker = firstParagraph?.textContent?.trim().match(/^\[!(NOTE|TIP|QUOTE|IMPORTANT|WARNING)\]/i);
-        if (!firstParagraph || !marker) return;
-
-        const type = marker[1].toLowerCase();
-        quote.classList.add('callout', `callout-${type}`);
-        firstParagraph.innerHTML = firstParagraph.innerHTML.replace(/^\s*\[!(NOTE|TIP|QUOTE|IMPORTANT|WARNING)\]\s*/i, '');
-
-        const label = document.createElement('div');
-        label.className = 'callout-label';
-        label.textContent = calloutLabels[type] || 'Note';
-        quote.prepend(label);
-
-        if (!firstParagraph.textContent?.trim()) {
-          firstParagraph.remove();
-        }
-      });
-    </script>
-
-    <p class="end-mark"><span>— Strength Through Service —</span></p>
+    <p class="end-mark">Strength Through Service</p>
 
     <div class="post-letter-cta">
-      <p class="kicker">Pass It On</p>
-      <p class="cta-copy">If this letter was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
+      <p>If this letter was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
       <div class="cta-buttons">
         <a class="btn-join" href="/#join">Join the Lead Letter</a>
         <CopyLinkButton url={canonicalUrl} />
@@ -91,25 +60,41 @@ const canonicalUrl = `https://letters.entr.cc/${entry.slug}/`;
 
     <HYOHCompass variant="cta" />
 
-    <nav class="prev-next" aria-label="Letter navigation">
-      <div class="pn-cell">
-        {older && (
-          <>
-            <p class="pn-label">Previous Letter</p>
-            <a href={`/${older.slug}/`}>{older.data.title}</a>
-          </>
-        )}
-      </div>
-      <div class="pn-cell pn-next">
-        {newer && (
-          <>
-            <p class="pn-label">Next Letter</p>
-            <a href={`/${newer.slug}/`}>{newer.data.title}</a>
-          </>
-        )}
-      </div>
+    <nav class="prev-next">
+      {older ? <a href={letterUrl(older)}>Previous: {older.data.title.replace(/^The Lead Letter:\s*/i, '')}</a> : <span class="empty">Previous</span>}
+      {newer ? <a href={letterUrl(newer)}>Next: {newer.data.title.replace(/^The Lead Letter:\s*/i, '')}</a> : <span class="empty">Next</span>}
     </nav>
 
-    <a class="back-to-archive" href="/archive/">← Back to the Archive</a>
+    <a class="back-to-archive" href="/archive/">Back to Archive</a>
   </article>
+  <script>
+    const calloutLabels = {
+      note: 'Main idea',
+      tip: 'Practice',
+      quote: 'Signal',
+      important: 'Leadership lesson',
+      warning: 'Watchpoint',
+    };
+
+    document.querySelectorAll('.letter-body blockquote').forEach((quote) => {
+      if (quote.classList.contains('callout')) return;
+
+      const firstParagraph = quote.querySelector('p:first-child');
+      const marker = firstParagraph?.textContent?.trim().match(/^\[!(NOTE|TIP|QUOTE|IMPORTANT|WARNING)\]/i);
+      if (!firstParagraph || !marker) return;
+
+      const type = marker[1].toLowerCase();
+      quote.classList.add('callout', `callout-${type}`);
+      firstParagraph.innerHTML = firstParagraph.innerHTML.replace(/^\s*\[!(NOTE|TIP|QUOTE|IMPORTANT|WARNING)\]\s*/i, '');
+
+      const label = document.createElement('div');
+      label.className = 'callout-label';
+      label.textContent = calloutLabels[type] || 'Note';
+      quote.prepend(label);
+
+      if (!firstParagraph.textContent?.trim()) {
+        firstParagraph.remove();
+      }
+    });
+  </script>
 </BaseLayout>
