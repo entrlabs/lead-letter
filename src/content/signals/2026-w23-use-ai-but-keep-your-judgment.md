@@ -15,6 +15,49 @@ tags:
   - higher-education
   - ai-literacy
   - judgment
+signalBoard:
+  signal: "Judgment > Speed"
+  micro: "AI can accelerate work, but responsibility still sits with people."
+  tension: "Faster starts. Harder accountability."
+  move: "Keep the human decision visible."
+  question: "What still needs judgment?"
+  flow:
+    - Tool
+    - Check
+    - Explain
+    - Decide
+  motionWords:
+    - AI
+    - Judgment
+    - Trust
+    - Learning
+    - Founders
+    - Rules
+  lanes:
+    - label: Education
+      state: "Students need clear AI practice rules."
+      level: Active
+      score: 60
+      direction: up
+      brief: "Higher education is moving from AI curiosity to policy and practice."
+    - label: Work
+      state: "Teams need habits that make AI useful."
+      level: Watching
+      score: 55
+      direction: steady
+      brief: "AI tools help only when teams know how to check and learn from them."
+    - label: Founders
+      state: "AI lowers the cost of starting."
+      level: Active
+      score: 62
+      direction: up
+      brief: "Startup formation is easier, but trust and survival remain open tests."
+    - label: Technology
+      state: "Responsibility is the main pressure point."
+      level: Rising
+      score: 72
+      direction: up
+      brief: "AI adoption is creating a need for clearer judgment and disclosure."
 ---
 
 AI can help people move faster. It can help a student draft, a founder test, and a team organize work.
