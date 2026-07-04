@@ -12,7 +12,6 @@ const signals = defineCollection({
     featured: z.boolean().default(false),
     week: z.string().optional(),
     series: z.string().default('Signals Brief'),
-    slug: z.string().optional(),
     tags: z.array(z.string()).default([]),
     signalBoard: z.object({
       signal: z.string(),
