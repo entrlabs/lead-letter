@@ -1,5 +1,5 @@
 ---
-title: "The Lead Letter: Use AI, But Keep Your Judgment"
+title: "Use AI, But Keep Your Judgment"
 description: "A public weekly letter about AI, entrepreneurship, learning, and responsible work."
 date: 2026-06-08
 author: "Joseph E. Iesue"
@@ -16,8 +16,6 @@ tags:
   - ai-literacy
   - judgment
 ---
-
-# The Lead Letter: Use AI, But Keep Your Judgment
 
 AI can help people move faster. It can help a student draft, a founder test, and a team organize work.
 
