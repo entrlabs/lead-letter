@@ -3,14 +3,14 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SendFoxForm from '../components/SendFoxForm.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
-import { toRoman, formatDate } from '../utils/format';
+import { formatDate, formatIssue } from '../utils/format';
 
 const allLetters = (await getCollection('letters')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
 const latest = allLetters[0];
-const recent = allLetters.slice(1, 7);
+const recent = allLetters.slice(1, 5);
 
 function letterUrl(entry: CollectionEntry<'letters'>) {
   return `/${entry.slug}/`;
@@ -20,84 +20,75 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
   title="EntrLabs — The Lead Letter"
   description="A weekly letter on leadership, service, and the discipline of helping people rise."
 >
-  <section class="masthead">
-    <div class="rule-double" aria-hidden="true"></div>
-    <p class="kicker masthead-kicker">A Publication of EntrLabs</p>
-    <h1 class="masthead-title">The Lead Letter</h1>
-    <p class="masthead-sub">
-      A weekly letter on leadership, service, and the discipline of helping people rise.
-      <span class="masthead-byline">By Joseph E. Iesue.</span>
-    </p>
-    <p class="doctrine"><span>Strength Through Service</span></p>
-    <div class="rule-double" aria-hidden="true"></div>
-  </section>
-
-  {latest && (
-    <section class="home-section">
-      <div class="section-label">
-        <span class="numeral">I</span>
-        <span class="label">The Latest</span>
-        <span class="line" aria-hidden="true"></span>
+  <section class="home-hero reveal">
+    <div class="hero-copy">
+      <p class="kicker">EntrLabs - The Lead Letter</p>
+      <h1>The Lead Letter</h1>
+      <p class="positioning">
+        A weekly letter on leadership, service, and the discipline of helping people rise.
+      </p>
+      <p class="by-joseph">By <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a></p>
+      <div class="hero-actions">
+        {latest && <a class="primary-action" href={letterUrl(latest)}>Read latest letter</a>}
+        <a class="secondary-action" href="/#join">Join the list</a>
       </div>
-      <article class="latest">
-        <p class="issue-line">Letter № {toRoman(latest.data.issue)} · {formatDate(latest.data.date)}</p>
-        <h2 class="latest-title"><a href={letterUrl(latest)}>{latest.data.title}</a></h2>
-        <p class="latest-desc">{latest.data.description}</p>
-        <a class="read-link" href={letterUrl(latest)}>Read the letter →</a>
+    </div>
+
+    {latest && (
+      <article class="latest-feature reveal">
+        <div class="latest-feature-copy">
+          <p class="feature-label">Latest letter</p>
+          <h2><a href={letterUrl(latest)}>{latest.data.title.replace(/^The Lead Letter:\s*/i, '')}</a></h2>
+          <p>{latest.data.description}</p>
+        </div>
+        <div class="feature-mark" aria-hidden="true">
+          <span></span>
+        </div>
+        <div class="feature-meta">
+          <span>{formatDate(latest.data.date)}</span>
+          <span>{formatIssue(latest.data.issue)}</span>
+        </div>
       </article>
+    )}
+  </section>
+
+  <section class="home-lower reveal">
+    <div class="from-archive">
+      <div class="section-heading-row">
+        <h2>From the Archive</h2>
+        <a class="browse-full" href="/archive/">View all letters</a>
+      </div>
+      <ul class="archive-preview-list">
+        {recent.map((entry) => (
+          <li>
+            <p class="meta">{formatDate(entry.data.date)} - {formatIssue(entry.data.issue)}</p>
+            <div class="archive-preview-copy">
+              <h3 class="title"><a href={letterUrl(entry)}>{entry.data.title.replace(/^The Lead Letter:\s*/i, '')}</a></h3>
+              <p class="desc">{entry.data.description}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <section id="join" class="subscribe-band reveal">
+      <p>Join The Lead Letter</p>
+      <p class="subscribe-copy">Delivered weekly. Short, practical, and built for leaders who serve.</p>
+      <SendFoxForm />
     </section>
-  )}
-
-  <section id="join" class="subscribe-band">
-    <p class="kicker">The Newsletter</p>
-    <p class="subscribe-lede">One letter a week. One idea worth keeping. Free.</p>
-    <SendFoxForm />
   </section>
 
-  <section class="home-section">
-    <div class="section-label">
-      <span class="numeral">II</span>
-      <span class="label">From the Archive</span>
-      <span class="line" aria-hidden="true"></span>
-    </div>
-    <ul class="preview-list">
-      {recent.map((entry) => (
-        <li class="preview-row">
-          <span class="row-no">№ {toRoman(entry.data.issue)}</span>
-          <div class="row-body">
-            <a class="row-title" href={letterUrl(entry)}>{entry.data.title}</a>
-            <p class="row-desc">{entry.data.description}</p>
-            <p class="row-meta">{formatDate(entry.data.date)}</p>
-          </div>
-        </li>
-      ))}
-    </ul>
-    <a class="read-link browse-link" href="/archive/">Browse the full archive →</a>
-  </section>
+  <HYOHCompass variant="full" />
 
-  <section class="home-section">
-    <div class="section-label">
-      <span class="numeral">III</span>
-      <span class="label">Related Reading</span>
-      <span class="line" aria-hidden="true"></span>
-    </div>
-    <HYOHCompass variant="full" />
-  </section>
-
-  <section class="home-section about-strip">
-    <div class="section-label">
-      <span class="numeral">IV</span>
-      <span class="label">The Publication</span>
-      <span class="line" aria-hidden="true"></span>
-    </div>
+  <section class="about-strip">
     <p>
       The Lead Letter is a weekly publication of
       <a href="https://entr.cc/entrlabs" target="_blank" rel="noopener">EntrLabs</a>,
-      a research lab of ENTR, on leadership, service, and the discipline of helping people rise.
+      the research arm of ENTR, on leadership, service, and the discipline of helping people rise.
     </p>
     <p>
       Written by <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a>,
-      a leadership researcher and practitioner. One sharp idea at a time.
+      a leadership researcher and practitioner working at the intersection of leadership and service.
     </p>
   </section>
 </BaseLayout>
