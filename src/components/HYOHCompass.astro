@@ -1,0 +1,32 @@
+---
+interface Props {
+  variant?: 'full' | 'quiet' | 'cta';
+}
+const { variant = 'full' } = Astro.props as Props;
+---
+
+{variant === 'full' && (
+  <section class="hyoh-band">
+    <p class="hyoh-copy">
+      For readers thinking more deeply about education, career agency, and building a path of their own,
+      <strong> HYOH Career Compass</strong> explores how learning becomes direction, work, and self-leadership.
+    </p>
+    <a class="hyoh-link" href="https://hyoh.substack.com" target="_blank" rel="noopener">Explore HYOH Career Compass →</a>
+  </section>
+)}
+
+{variant === 'quiet' && (
+  <p class="hyoh-quiet">
+    Exploring education, career agency, and self-leadership?
+    <a href="https://hyoh.substack.com" target="_blank" rel="noopener"> Read HYOH Career Compass.</a>
+  </p>
+)}
+
+{variant === 'cta' && (
+  <div class="hyoh-cta">
+    <p>
+      If this letter raised questions about education, career agency, or forging your own path, continue with
+      <a href="https://hyoh.substack.com" target="_blank" rel="noopener"> HYOH Career Compass</a>.
+    </p>
+  </div>
+)}
