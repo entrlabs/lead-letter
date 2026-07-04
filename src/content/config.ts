@@ -1,5 +1,14 @@
 import { defineCollection, z } from 'astro:content';
 
+const signalLane = z.object({
+  label: z.string(),
+  state: z.string(),
+  level: z.string(),
+  score: z.number().min(0).max(100).optional(),
+  direction: z.enum(['up', 'down', 'steady']).optional(),
+  brief: z.string().optional(),
+});
+
 const signals = defineCollection({
   type: 'content',
   schema: z.object({
@@ -21,11 +30,7 @@ const signals = defineCollection({
       question: z.string(),
       flow: z.array(z.string()).min(3).max(5),
       motionWords: z.array(z.string()).min(4).max(8),
-      lanes: z.array(z.object({
-        label: z.string(),
-        state: z.string(),
-        level: z.string(),
-      })).min(3).max(4),
+      lanes: z.array(signalLane).min(3).max(4),
     }).optional(),
   }),
 });
