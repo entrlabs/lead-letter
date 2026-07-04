@@ -15,6 +15,76 @@ const recent = allLetters.slice(1, 5);
 function letterUrl(entry: CollectionEntry<'letters'>) {
   return `/${entry.slug}/`;
 }
+
+function cleanMarkdownLine(value: string) {
+  return value
+    .replace(/^>\s?/gm, '')
+    .replace(/^[-\d.]+\s+/gm, '')
+    .replace(/\*\*/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function extractCallout(body: string, type: string) {
+  const match = body.match(new RegExp(`> \\[!${type}\\]\\n((?:>.*(?:\\n|$))+?)`, 'i'));
+  return match ? cleanMarkdownLine(match[1]) : '';
+}
+
+function extractSectionBullets(body: string, heading: string, limit = 3) {
+  const match = body.match(new RegExp(`## ${heading}\\n([\\s\\S]*?)(?:\\n---|\\n## |$)`, 'i'));
+  if (!match) return [];
+
+  return match[1]
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line.startsWith('- '))
+    .map((line) => cleanMarkdownLine(line))
+    .filter(Boolean)
+    .slice(0, limit);
+}
+
+function extractQuestions(body: string, limit = 2) {
+  const match = body.match(/## Questions Worth Asking\n([\s\S]*?)(?:\n---|\n## |$)/i);
+  if (!match) return [];
+
+  return match[1]
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => /^\d+\.\s+/.test(line))
+    .map((line) => cleanMarkdownLine(line))
+    .filter(Boolean)
+    .slice(0, limit);
+}
+
+const latestBody = latest?.body ?? '';
+const weeklyPattern = extractCallout(latestBody, 'NOTE') || latest?.data.description;
+const leaderSignal = extractCallout(latestBody, 'LEADERS') || 'Build the conditions that help people do stronger work.';
+const watchSignals = extractSectionBullets(latestBody, 'What To Watch Next', 3);
+const questionSignals = extractQuestions(latestBody, 2);
+const latestTags = new Set(latest?.data.tags ?? []);
+const bodySignalText = latestBody.toLowerCase();
+const pressureMap = [
+  {
+    label: 'Education',
+    status: latestTags.has('higher-education') || latestTags.has('career-readiness') ? 'Rising' : 'Watching',
+    detail: 'Proof, pathways, and practical learning',
+  },
+  {
+    label: 'Work',
+    status: latestTags.has('workplace-learning') || latestTags.has('management') ? 'Strained' : 'Active',
+    detail: 'Training, judgment, and hidden learning',
+  },
+  {
+    label: 'Founders',
+    status: latestTags.has('entrepreneurship') ? 'Worth watching' : 'Quiet',
+    detail: 'Trust, price, customers, and survival',
+  },
+  {
+    label: 'Technology',
+    status: bodySignalText.includes('ai') || latestTags.has('ai-literacy') || latestTags.has('ai-governance') ? 'Rising' : 'In view',
+    detail: 'Tools, evidence, and responsibility',
+  },
+];
 ---
 <BaseLayout
   title="EntrLabs — The Lead Letter"
@@ -58,6 +128,68 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
     )}
   </section>
 
+  {latest && (
+    <section class="signal-board reveal" aria-labelledby="weekly-signal-board">
+      <div class="signal-board-copy">
+        <p class="signal-board-label">Weekly Signal Board</p>
+        <h2 id="weekly-signal-board">What changed this week</h2>
+        <p>
+          A quick read on the patterns behind the latest letter: what is rising, what leaders should
+          watch, and which question deserves attention before the next decision.
+        </p>
+      </div>
+
+      <div class="signal-board-grid">
+        <article class="signal-panel signal-panel-primary">
+          <span class="signal-panel-index">01</span>
+          <p class="signal-panel-label">This week's pattern</p>
+          <h3>{weeklyPattern}</h3>
+          <a href={letterUrl(latest)}>Read the full letter</a>
+        </article>
+
+        <article class="signal-panel">
+          <span class="signal-panel-index">02</span>
+          <p class="signal-panel-label">Leaders</p>
+          <p class="signal-panel-main">{leaderSignal}</p>
+        </article>
+
+        <article class="signal-panel pressure-panel">
+          <span class="signal-panel-index">03</span>
+          <p class="signal-panel-label">Pressure map</p>
+          <ul>
+            {pressureMap.map((item) => (
+              <li>
+                <span>
+                  <strong>{item.label}</strong>
+                  <em>{item.detail}</em>
+                </span>
+                <b>{item.status}</b>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="signal-panel watch-panel">
+          <span class="signal-panel-index">04</span>
+          <p class="signal-panel-label">Watch next</p>
+          <ul>
+            {(watchSignals.length ? watchSignals : [latest.data.description]).map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="signal-panel question-panel">
+          <span class="signal-panel-index">05</span>
+          <p class="signal-panel-label">Question of the week</p>
+          <p class="signal-panel-main">
+            {questionSignals[0] || 'What would help people make a better decision this week?'}
+          </p>
+        </article>
+      </div>
+    </section>
+  )}
+
   <section class="home-lower reveal">
     <div class="from-archive">
       <div class="section-heading-row">
@@ -81,7 +213,9 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
 
     <section id="join" class="subscribe-band reveal">
       <div class="subscribe-mark" aria-hidden="true">
-        <span class="entr-logo-tile"></span>
+        <span class="entr-logo-tile">
+          <img src="/assets/entr-main-logo.png" alt="" />
+        </span>
       </div>
       <div class="subscribe-copy-wrap">
         <p>Build better judgment. Serve with strength.</p>
