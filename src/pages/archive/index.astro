@@ -1,0 +1,48 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HYOHCompass from '../../components/HYOHCompass.astro';
+import { toRoman, formatDate } from '../../utils/format';
+
+const allLetters = (await getCollection('letters')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const byYear = new Map<number, CollectionEntry<'letters'>[]>();
+for (const entry of allLetters) {
+  const year = entry.data.date.getFullYear();
+  if (!byYear.has(year)) byYear.set(year, []);
+  byYear.get(year)!.push(entry);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+
+function letterUrl(entry: CollectionEntry<'letters'>) {
+  return `/${entry.data.slug ?? entry.slug}/`;
+}
+---
+<BaseLayout title="The Archive — The Lead Letter" description="Every letter, in order.">
+  <div class="archive-page">
+    <h1>The Archive</h1>
+    <p class="archive-count">
+      {allLetters.length} letter{allLetters.length === 1 ? '' : 's'} and counting. Published weekly.
+    </p>
+
+    {years.map((year) => (
+      <div>
+        <p class="archive-year">{year}</p>
+        {byYear.get(year)!.map((entry) => (
+          <a class="archive-row" href={letterUrl(entry)}>
+            <p class="archive-row-meta">№ {toRoman(entry.data.issue)} · {formatDate(entry.data.date)}</p>
+            <h2 class="archive-row-title">{entry.data.title}</h2>
+            <p class="archive-row-desc">{entry.data.description}</p>
+            {entry.data.tags.length > 0 && (
+              <p class="archive-row-tags">{entry.data.tags.join(' · ')}</p>
+            )}
+          </a>
+        ))}
+      </div>
+    ))}
+
+    <HYOHCompass variant="quiet" />
+  </div>
+</BaseLayout>
