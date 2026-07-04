@@ -80,7 +80,8 @@ const displayTitle = formatLetterTitle(entry.data.title);
       note: 'Main idea',
       tip: 'Practice',
       quote: 'Signal',
-      important: 'Leadership lesson',
+      important: 'Important',
+      leaders: 'Thought for Leaders',
       warning: 'Watchpoint',
     };
 
@@ -88,12 +89,12 @@ const displayTitle = formatLetterTitle(entry.data.title);
       if (quote.classList.contains('callout')) return;
 
       const firstParagraph = quote.querySelector('p:first-child');
-      const marker = firstParagraph?.textContent?.trim().match(/^\[!(NOTE|TIP|QUOTE|IMPORTANT|WARNING)\]/i);
+      const marker = firstParagraph?.textContent?.trim().match(/^\[!(NOTE|TIP|QUOTE|IMPORTANT|LEADERS|WARNING)\]/i);
       if (!firstParagraph || !marker) return;
 
       const type = marker[1].toLowerCase();
       quote.classList.add('callout', `callout-${type}`);
-      firstParagraph.innerHTML = firstParagraph.innerHTML.replace(/^\s*\[!(NOTE|TIP|QUOTE|IMPORTANT|WARNING)\]\s*/i, '');
+      firstParagraph.innerHTML = firstParagraph.innerHTML.replace(/^\s*\[!(NOTE|TIP|QUOTE|IMPORTANT|LEADERS|WARNING)\]\s*/i, '');
 
       const label = document.createElement('div');
       label.className = 'callout-label';
