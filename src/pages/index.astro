@@ -13,7 +13,7 @@ const latest = allSignals[0];
 const recent = allSignals.slice(1, 5);
 
 function signalUrl(entry: CollectionEntry<'signals'>) {
-  return `/${entry.data.slug ?? entry.slug.replace(/^signals-/, '')}/`;
+  return `/${entry.slug}/`;
 }
 
 function latestBoxDescription(description: string) {
