@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "astro": "^4.16.0",
-    "@astrojs/rss": "^4.0.9",
-    "@fontsource/newsreader": "^5.1.0",
-    "@fontsource/inter": "^5.1.0"
+    "@astrojs/rss": "^4.0.9"
   }
 }
