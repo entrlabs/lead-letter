@@ -1,0 +1,4 @@
+/* Use the real ENTR mark uploaded from the brand assets. */
+:root {
+  --entr-icon-mask: url('/assets/entr-main-logo.png');
+}
