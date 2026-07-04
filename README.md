@@ -18,15 +18,15 @@ The center remains the same:
 Strength Through Service
 ```
 
-## Read The Letters
+## Publication Source
 
-Letters are organized by year:
+Letters are maintained as Markdown content for the upcoming static site at letters.entr.cc.
 
-- [2026 Letters](2026/README.md)
+Current letter source:
 
-## Publication
-
-New letters are published weekly and archived by year.
+```text
+src/content/letters/
+```
 
 ## Related Work
 
