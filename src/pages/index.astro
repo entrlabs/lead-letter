@@ -22,7 +22,7 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
 >
   <section class="home-hero reveal">
     <div class="hero-copy">
-      <p class="kicker">{latest ? `${formatIssue(latest.data.issue)} · ${formatDate(latest.data.date)}` : 'EntrLabs Weekly'}</p>
+      <p class="kicker" data-today-label>Today</p>
       <h1>The Lead Letter</h1>
       <p class="positioning">
         Updates each week on leadership, service, work, learning, and the discipline of helping people rise.
@@ -103,4 +103,15 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
       a leadership researcher and practitioner working at the intersection of leadership and service.
     </p>
   </section>
+  <script is:inline>
+    const todayLabel = document.querySelector('[data-today-label]');
+    if (todayLabel) {
+      todayLabel.textContent = new Intl.DateTimeFormat('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      }).format(new Date());
+    }
+  </script>
 </BaseLayout>
