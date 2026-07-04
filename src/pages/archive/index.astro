@@ -2,7 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HYOHCompass from '../../components/HYOHCompass.astro';
-import { formatDate, formatIssue } from '../../utils/format';
+import { formatDate, formatIssue, formatLetterTitle } from '../../utils/format';
 
 const allLetters = (await getCollection('letters')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -18,7 +18,7 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
 <BaseLayout title="The Archive — The Lead Letter" description="Every letter, in order.">
   <div class="archive-page">
     <section class="archive-hero reveal">
-      <p class="kicker">The Lead Letter Archive</p>
+      <p class="kicker">Archive</p>
       <h1>All Letters</h1>
       <p class="archive-count">
         {allLetters.length} letter{allLetters.length === 1 ? '' : 's'} and counting. Published weekly by EntrLabs.
@@ -29,14 +29,14 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
       <section class="archive-bento">
         <a class="archive-card archive-card-featured reveal" href={letterUrl(featured)}>
           <p class="archive-row-meta">{formatDate(featured.data.date)} - {formatIssue(featured.data.issue)}</p>
-          <h2 class="archive-row-title">{featured.data.title.replace(/^The Lead Letter:\s*/i, '')}</h2>
+          <h2 class="archive-row-title">{formatLetterTitle(featured.data.title)}</h2>
           <p class="archive-row-desc">{featured.data.description}</p>
         </a>
 
         {rest.map((entry) => (
           <a class="archive-card reveal" href={letterUrl(entry)}>
             <p class="archive-row-meta">{formatDate(entry.data.date)} - {formatIssue(entry.data.issue)}</p>
-            <h2 class="archive-row-title">{entry.data.title.replace(/^The Lead Letter:\s*/i, '')}</h2>
+            <h2 class="archive-row-title">{formatLetterTitle(entry.data.title)}</h2>
             <p class="archive-row-desc">{entry.data.description}</p>
             {entry.data.tags.length > 0 && (
               <p class="archive-row-tags">{entry.data.tags.slice(0, 3).join(' / ')}</p>
