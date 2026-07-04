@@ -1,5 +1,5 @@
 ---
-title: "The Lead Letter: Build the Practice Before Raising the Bar"
+title: "Build the Practice Before Raising the Bar"
 description: "A public weekly letter about career readiness, startup survival, manager strain, and learning systems."
 date: 2026-06-22
 author: "Joseph E. Iesue"
@@ -16,8 +16,6 @@ tags:
   - management
   - workplace-learning
 ---
-
-# The Lead Letter: Build the Practice Before Raising the Bar
 
 This week's stories had a common problem:
 
@@ -75,8 +73,7 @@ Some organizations are flattening management layers and changing junior work.
 
 That may reduce cost or speed up decisions. But it can also remove hidden learning: coaching, review, mentoring, feedback, conflict repair, and help with priorities.
 
-> [!IMPORTANT]
-> **Leadership lesson:**  
+> [!LEADERS]
 > Before removing a layer or task, ask what people used to learn there.
 
 **Manager question:**  
