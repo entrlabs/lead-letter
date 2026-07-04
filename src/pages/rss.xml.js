@@ -2,20 +2,24 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import { formatLetterTitle } from '../utils/format';
 
+function publicSlug(entry) {
+  return entry.data.slug ?? entry.slug.replace(/^signals-/, '');
+}
+
 export async function GET(context) {
-  const letters = (await getCollection('letters')).sort(
+  const signals = (await getCollection('signals')).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
   );
 
   return rss({
     title: 'EntrLabs — The Lead Letter',
-    description: 'A weekly letter on leadership, service, and the discipline of helping people rise.',
+    description: 'A weekly Signal Brief on leadership, service, and the discipline of helping people rise.',
     site: context.site,
-    items: letters.map((entry) => ({
+    items: signals.map((entry) => ({
       title: formatLetterTitle(entry.data.title),
       description: entry.data.description,
       pubDate: entry.data.date,
-      link: `/${entry.slug}/`,
+      link: `/${publicSlug(entry)}/`,
     })),
   });
 }
