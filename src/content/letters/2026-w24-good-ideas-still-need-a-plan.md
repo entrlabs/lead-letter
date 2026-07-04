@@ -21,12 +21,11 @@ tags:
 
 A good idea can still fail if the numbers do not work.
 
-This week’s stories were about pressure: higher costs, uncertain markets, nervous AI claims, and small businesses trying to survive while everyone tells them to adapt.
+This week's stories were about pressure: higher costs, uncertain markets, nervous AI claims, and small businesses trying to survive while everyone tells them to adapt.
 
 The useful lesson is not to panic. It is to ask better practical questions before making a big move.
 
 > [!NOTE]
-> **This week's main idea:**  
 > A tool, idea, or strategy is only useful if people can afford it, trust it, and learn how to use it well.
 
 ---
