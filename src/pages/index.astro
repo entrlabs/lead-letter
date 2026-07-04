@@ -5,127 +5,43 @@ import SendFoxForm from '../components/SendFoxForm.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 
-const allSignals = (await getCollection('signals')).sort(
+const allLetters = (await getCollection('letters')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
-const latest = allSignals[0];
-const recent = allSignals.slice(1, 5);
+const latest = allLetters[0];
+const recent = allLetters.slice(1, 5);
 
-function signalUrl(entry: CollectionEntry<'signals'>) {
-  const frontmatterSlug = (entry.data as { slug?: string }).slug;
-  return `/${frontmatterSlug ?? entry.slug.replace(/^signals-/, '')}/`;
+function letterUrl(entry: CollectionEntry<'letters'>) {
+  return `/${entry.slug}/`;
 }
 
-function cleanMarkdownLine(value: string) {
-  return value
-    .replace(/^>\s?/gm, '')
-    .replace(/^[-\d.]+\s+/gm, '')
-    .replace(/\*\*/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function extractQuestions(body: string, limit = 2) {
-  const match = body.match(/## Questions Worth Asking\n([\s\S]*?)(?:\n---|\n## |$)/i);
-  if (!match) return [];
-
-  return match[1]
-    .split('\n')
-    .map((line) => line.trim())
-    .filter((line) => /^\d+\.\s+/.test(line))
-    .map((line) => cleanMarkdownLine(line))
-    .filter(Boolean)
-    .slice(0, limit);
-}
-
-const latestBody = latest?.body ?? '';
-const questionSignals = extractQuestions(latestBody, 2);
-const latestTags = new Set(latest?.data.tags ?? []);
-const bodySignalText = latestBody.toLowerCase();
-const pressureMap = [
-  {
-    label: 'Education',
-    status: latestTags.has('higher-education') || latestTags.has('career-readiness') ? 'Rising' : 'Watching',
-    detail: 'proof',
-  },
-  {
-    label: 'Work',
-    status: latestTags.has('workplace-learning') || latestTags.has('management') ? 'Strained' : 'Active',
-    detail: 'practice',
-  },
-  {
-    label: 'Founders',
-    status: latestTags.has('entrepreneurship') ? 'Worth watching' : 'Quiet',
-    detail: 'trust',
-  },
-  {
-    label: 'Technology',
-    status: bodySignalText.includes('ai') || latestTags.has('ai-literacy') || latestTags.has('ai-governance') ? 'Rising' : 'In view',
-    detail: 'judgment',
-  },
+const visualSignal = latest?.data.signalBoard ?? (latest ? {
+  signal: formatLetterTitle(latest.data.title),
+  micro: latest.data.description,
+  tension: 'Noise vs. signal',
+  move: 'Find the useful pattern.',
+  question: 'What changed this week?',
+  flow: ['Notice', 'Name', 'Act', 'Learn'],
+  motionWords: ['Leadership', 'Service', 'Work', 'Learning', 'Decision', 'Signal'],
+  lanes: [
+    { label: 'Education', state: 'Learning signal in view.', level: 'Watching' },
+    { label: 'Work', state: 'Practice signal in view.', level: 'Active' },
+    { label: 'Founders', state: 'Trust signal in view.', level: 'Watching' },
+    { label: 'Technology', state: 'Judgment signal in view.', level: 'Active' },
+  ],
+} : undefined);
+const signalFeed = visualSignal ? [...visualSignal.motionWords, ...visualSignal.motionWords] : [];
+const radarPositions = [
+  { x: '-28%', y: '-20%' },
+  { x: '22%', y: '-28%' },
+  { x: '-12%', y: '28%' },
+  { x: '30%', y: '20%' },
 ];
-
-function visualSignalFor(entry: CollectionEntry<'signals'>) {
-  const visualSignals: Record<string, {
-    signal: string;
-    micro: string;
-    tension: string;
-    move: string;
-    question: string;
-    feed: string[];
-  }> = {
-    '2026-w26-make-your-work-easy-to-trust': {
-      signal: 'Proof > Promise',
-      micro: 'Trust rises when the evidence is easy to see.',
-      tension: 'High claims. Thin proof.',
-      move: 'Show the work.',
-      question: 'What proof travels?',
-      feed: ['Proof', 'Trust', 'Evidence', 'Practice', 'Judgment', 'Signal'],
-    },
-    '2026-w25-build-the-practice-before-raising-the-bar': {
-      signal: 'Practice Before Pressure',
-      micro: 'Higher standards need places where people can learn judgment.',
-      tension: 'Higher bar. Fewer reps.',
-      move: 'Build the practice.',
-      question: 'Where do people rehearse?',
-      feed: ['Practice', 'Standards', 'Feedback', 'Judgment', 'Learning', 'Signal'],
-    },
-    '2026-w24-good-ideas-still-need-a-plan': {
-      signal: 'Ideas Need Conditions',
-      micro: 'Useful plans respect cost, trust, and adoption.',
-      tension: 'Hype meets constraint.',
-      move: 'Check the conditions.',
-      question: 'Can people use it well?',
-      feed: ['Cost', 'Trust', 'Adoption', 'Resilience', 'Planning', 'Signal'],
-    },
-    '2026-w23-use-ai-but-keep-your-judgment': {
-      signal: 'Speed Needs Judgment',
-      micro: 'AI can accelerate work, but responsibility still has to stay visible.',
-      tension: 'Fast output. Unclear ownership.',
-      move: 'Explain the decision.',
-      question: 'Who is responsible?',
-      feed: ['AI', 'Judgment', 'Trust', 'Rules', 'Learning', 'Signal'],
-    },
-  };
-
-  const visualSlug = (entry.data as { slug?: string }).slug ?? entry.slug.replace(/^signals-/, '');
-  return visualSignals[visualSlug] ?? {
-    signal: formatLetterTitle(entry.data.title).split(':').pop()?.trim() || formatLetterTitle(entry.data.title),
-    micro: entry.data.description,
-    tension: 'Noise vs. signal',
-    move: 'Find the useful pattern.',
-    question: questionSignals[0] || 'What changed this week?',
-    feed: ['Leadership', 'Service', 'Work', 'Learning', 'Decision', 'Signal'],
-  };
-}
-
-const visualSignal = latest ? visualSignalFor(latest) : undefined;
-const signalFeed = visualSignal ? [...visualSignal.feed, ...visualSignal.feed] : [];
 ---
 <BaseLayout
   title="EntrLabs — The Lead Letter"
-  description="Weekly Signals Briefs on leadership, service, and the discipline of helping people rise."
+  description="A weekly letter on leadership, service, and the discipline of helping people rise."
 >
   <section class="home-hero reveal">
     <div class="hero-copy">
@@ -136,7 +52,7 @@ const signalFeed = visualSignal ? [...visualSignal.feed, ...visualSignal.feed] :
       </p>
       <p class="by-joseph">By <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a></p>
       <div class="hero-actions">
-        {latest && <a class="primary-action" href={signalUrl(latest)}>Read latest brief</a>}
+        {latest && <a class="primary-action" href={letterUrl(latest)}>Read latest letter</a>}
         <a class="secondary-action" href="/#join">Get future issues</a>
       </div>
     </div>
@@ -145,8 +61,8 @@ const signalFeed = visualSignal ? [...visualSignal.feed, ...visualSignal.feed] :
       <article class="latest-feature reveal">
         <div class="latest-feature-content">
           <div class="latest-feature-copy">
-            <p class="feature-label">Latest Signals Brief</p>
-            <h2><a href={signalUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
+            <p class="feature-label">Latest letter</p>
+            <h2><a href={letterUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
             <p>{latest.data.description}</p>
           </div>
           <div class="latest-cube" aria-hidden="true">
@@ -173,48 +89,82 @@ const signalFeed = visualSignal ? [...visualSignal.feed, ...visualSignal.feed] :
 
       <div class="signal-board-header">
         <div>
-          <p class="signal-board-label">Weekly Signal Board</p>
-          <h2 id="weekly-signal-board">What changed this week</h2>
+          <p class="signal-board-label">Weekly Signal Instrument</p>
+          <h2 id="weekly-signal-board">This week's signal</h2>
         </div>
         <p>
-          A visual translation of the latest brief: one signal, one tension, one move, and one question worth carrying.
+          A compact visual reading of the newest letter: the pattern, the pressure, and the next useful move.
         </p>
-        <a class="signal-board-link" href={signalUrl(latest)}>Read the full brief</a>
+        <a class="signal-board-link" href={letterUrl(latest)}>Read the full letter</a>
       </div>
 
-      <div class="signal-strip">
-        <article class="signal-panel signal-panel-primary">
-          <p class="signal-panel-label">Signal</p>
+      <div class="signal-instrument">
+        <article class="signal-core">
+          <div class="signal-orbit" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p class="signal-panel-label">Pattern</p>
           <h3>{visualSignal?.signal}</h3>
           <p class="signal-micro">{visualSignal?.micro}</p>
         </article>
 
-        <div class="signal-rail" aria-label="Current pressure map">
-          {pressureMap.map((item) => (
-            <div class="signal-rail-item">
-              <span>
-                <strong>{item.label}</strong>
-                <em>{item.detail}</em>
-              </span>
-              <b>{item.status}</b>
+        <div class="evidence-flow" aria-label="Weekly evidence flow">
+          <span class="flow-track" aria-hidden="true">
+            <span class="flow-beam"></span>
+          </span>
+          {visualSignal?.flow.map((step, index) => (
+            <div class="flow-step" style={`--step: ${index};`}>
+              <span class="flow-node" aria-hidden="true"></span>
+              <strong>{step}</strong>
             </div>
           ))}
         </div>
 
-        <article class="signal-panel leaders-panel">
-          <p class="signal-panel-label">Tension</p>
-          <p class="signal-panel-main signal-large">{visualSignal?.tension}</p>
-        </article>
+        <div class="pressure-radar" aria-label="Pressure radar">
+          <div class="radar-visual" aria-hidden="true">
+            <span class="radar-ring radar-ring-one"></span>
+            <span class="radar-ring radar-ring-two"></span>
+            <span class="radar-ring radar-ring-three"></span>
+            <span class="radar-sweep"></span>
+            {visualSignal?.lanes.map((lane, index) => (
+              <span
+                class="radar-dot"
+                style={`--dot: ${index}; --x: ${radarPositions[index]?.x ?? '0%'}; --y: ${radarPositions[index]?.y ?? '0%'};`}
+                title={lane.state}
+              ></span>
+            ))}
+          </div>
+          <div class="radar-readout">
+            <p class="signal-panel-label">Pressure radar</p>
+            <div class="radar-lanes">
+              {visualSignal?.lanes.map((lane, index) => (
+                <div class="radar-lane" style={`--lane: ${index};`}>
+                  <strong>{lane.label}</strong>
+                  <b>{lane.level}</b>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
-        <article class="signal-panel watch-panel">
-          <p class="signal-panel-label">Move</p>
-          <p class="signal-panel-main signal-large">{visualSignal?.move}</p>
-        </article>
+        <div class="signal-actions">
+          <article class="signal-card tension-card">
+            <p class="signal-panel-label">Tension</p>
+            <p>{visualSignal?.tension}</p>
+          </article>
 
-        <article class="signal-panel question-panel">
-          <p class="signal-panel-label">Question</p>
-          <p class="signal-panel-main signal-large">{visualSignal?.question}</p>
-        </article>
+          <article class="signal-card move-card">
+            <p class="signal-panel-label">Move</p>
+            <p>{visualSignal?.move}</p>
+          </article>
+
+          <article class="signal-card question-card">
+            <p class="signal-panel-label">Question</p>
+            <p>{visualSignal?.question}</p>
+          </article>
+        </div>
       </div>
     </section>
   )}
@@ -223,18 +173,18 @@ const signalFeed = visualSignal ? [...visualSignal.feed, ...visualSignal.feed] :
     <div class="from-archive">
       <div class="section-heading-row">
         <h2>From the Archive</h2>
-        <a class="browse-full" href="/archive/">View all briefs</a>
+        <a class="browse-full" href="/archive/">View all letters</a>
       </div>
       <ul class="archive-preview-list">
         {recent.map((entry) => (
           <li>
             <span class="archive-dot" aria-hidden="true"></span>
             <div class="archive-preview-copy">
-              <h3 class="title"><a href={signalUrl(entry)}>{formatLetterTitle(entry.data.title)}</a></h3>
+              <h3 class="title"><a href={letterUrl(entry)}>{formatLetterTitle(entry.data.title)}</a></h3>
             </div>
             <p class="meta">{formatDate(entry.data.date)}</p>
             <p class="meta">{formatIssue(entry.data.issue)}</p>
-            <a class="archive-arrow" href={signalUrl(entry)} aria-label={`Read ${formatLetterTitle(entry.data.title)}`}>→</a>
+            <a class="archive-arrow" href={letterUrl(entry)} aria-label={`Read ${formatLetterTitle(entry.data.title)}`}>→</a>
           </li>
         ))}
       </ul>
@@ -243,7 +193,7 @@ const signalFeed = visualSignal ? [...visualSignal.feed, ...visualSignal.feed] :
     <section id="join" class="subscribe-band reveal">
       <div class="subscribe-mark" aria-hidden="true">
         <span class="entr-logo-tile">
-          <img src="/assets/entr-icon.svg" alt="" />
+          <img src="/assets/entr-main-logo.png" alt="" />
         </span>
       </div>
       <div class="subscribe-copy-wrap">
