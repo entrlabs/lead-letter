@@ -22,7 +22,7 @@ Strength Through Service
 
 Letters are organized by year:
 
-- [2026 Letters](letters/2026/README.md)
+- [2026 Letters](2026/README.md)
 
 ## Publication
 
