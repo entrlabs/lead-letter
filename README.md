@@ -10,7 +10,7 @@ It is part of the EntrLabs ecosystem and sits alongside the frameworks, research
 
 The Lead Letter exists to make the work public in a clear, direct, and useful form.
 
-Each letter is a short reflection on one idea that matters for leadership, service, growth, culture, or work.
+Each weekly note is published as a Signals Brief: a short reflection on one idea that matters for leadership, service, growth, culture, or work.
 
 The center remains the same:
 
@@ -24,15 +24,15 @@ This repository powers the static site for:
 
 https://letters.entr.cc
 
-Published letters live in:
+Published Signals Briefs live in:
 
 ```text
-src/content/letters/
+src/content/signals/
 ```
 
 ## Publication
 
-New letters are published weekly. Each letter is a Markdown file with public frontmatter used by the Astro website and future publication automation.
+New Signals Briefs are published weekly. Each brief is a Markdown file with public frontmatter used by the Astro website and publication automation.
 
 Publication rule: callout labels should not be repeated inside the callout body. Use `[!LEADERS]` only when a draft callout would otherwise begin with `Leadership lesson:`; those render as `Leaders`. The first sentence inside the Markdown callout should begin with the actual idea, not with `This week's main idea:`, `Leadership lesson:`, or `Leaders:`.
 
