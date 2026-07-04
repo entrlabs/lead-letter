@@ -21,57 +21,83 @@ function letterUrl(entry: CollectionEntry<'letters'>) {
   description="A weekly letter on leadership, service, and the discipline of helping people rise."
 >
   <section class="masthead">
-    <p class="kicker">A Publication of EntrLabs</p>
-    <h1>The Lead Letter</h1>
-    <p class="positioning">
-      A weekly letter on leadership, service, and the discipline of helping people rise. By Joseph E. Iesue.
+    <div class="rule-double" aria-hidden="true"></div>
+    <p class="kicker masthead-kicker">A Publication of EntrLabs</p>
+    <h1 class="masthead-title">The Lead Letter</h1>
+    <p class="masthead-sub">
+      A weekly letter on leadership, service, and the discipline of helping people rise.
+      <span class="masthead-byline">By Joseph E. Iesue.</span>
     </p>
-    <p class="tagline">Strength Through Service.</p>
+    <p class="doctrine"><span>Strength Through Service</span></p>
+    <div class="rule-double" aria-hidden="true"></div>
   </section>
 
-  <hr class="hairline" />
-
   {latest && (
-    <section class="latest-letter">
-      <p class="kicker">
-        The Latest · Letter № {toRoman(latest.data.issue)} · {formatDate(latest.data.date)}
-      </p>
-      <h2 class="title"><a href={letterUrl(latest)}>{latest.data.title}</a></h2>
-      <p class="description">{latest.data.description}</p>
-      <a class="read-more" href={letterUrl(latest)}>Read the letter →</a>
+    <section class="home-section">
+      <div class="section-label">
+        <span class="numeral">I</span>
+        <span class="label">The Latest</span>
+        <span class="line" aria-hidden="true"></span>
+      </div>
+      <article class="latest">
+        <p class="issue-line">Letter № {toRoman(latest.data.issue)} · {formatDate(latest.data.date)}</p>
+        <h2 class="latest-title"><a href={letterUrl(latest)}>{latest.data.title}</a></h2>
+        <p class="latest-desc">{latest.data.description}</p>
+        <a class="read-link" href={letterUrl(latest)}>Read the letter →</a>
+      </article>
     </section>
   )}
 
   <section id="join" class="subscribe-band">
-    <p>One letter a week. One idea worth keeping. Free.</p>
+    <p class="kicker">The Newsletter</p>
+    <p class="subscribe-lede">One letter a week. One idea worth keeping. Free.</p>
     <SendFoxForm />
   </section>
 
-  <section class="from-archive">
-    <h2>From the Archive</h2>
-    <ul class="archive-preview-list">
+  <section class="home-section">
+    <div class="section-label">
+      <span class="numeral">II</span>
+      <span class="label">From the Archive</span>
+      <span class="line" aria-hidden="true"></span>
+    </div>
+    <ul class="preview-list">
       {recent.map((entry) => (
-        <li>
-          <p class="meta">{formatDate(entry.data.date)} · № {toRoman(entry.data.issue)}</p>
-          <h3 class="title"><a href={letterUrl(entry)}>{entry.data.title}</a></h3>
-          <p class="desc">{entry.data.description}</p>
+        <li class="preview-row">
+          <span class="row-no">№ {toRoman(entry.data.issue)}</span>
+          <div class="row-body">
+            <a class="row-title" href={letterUrl(entry)}>{entry.data.title}</a>
+            <p class="row-desc">{entry.data.description}</p>
+            <p class="row-meta">{formatDate(entry.data.date)}</p>
+          </div>
         </li>
       ))}
     </ul>
-    <a class="browse-full" href="/archive/">Browse the full archive →</a>
+    <a class="read-link browse-link" href="/archive/">Browse the full archive →</a>
   </section>
 
-  <HYOHCompass variant="full" />
+  <section class="home-section">
+    <div class="section-label">
+      <span class="numeral">III</span>
+      <span class="label">Related Reading</span>
+      <span class="line" aria-hidden="true"></span>
+    </div>
+    <HYOHCompass variant="full" />
+  </section>
 
-  <section class="about-strip">
+  <section class="home-section about-strip">
+    <div class="section-label">
+      <span class="numeral">IV</span>
+      <span class="label">The Publication</span>
+      <span class="line" aria-hidden="true"></span>
+    </div>
     <p>
       The Lead Letter is a weekly publication of
       <a href="https://entr.cc/entrlabs" target="_blank" rel="noopener">EntrLabs</a>,
-      the research arm of ENTR, on leadership, service, and the discipline of helping people rise.
+      a research lab of ENTR, on leadership, service, and the discipline of helping people rise.
     </p>
     <p>
       Written by <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a>,
-      a leadership researcher and practitioner working at the intersection of leadership and service.
+      a leadership researcher and practitioner. One sharp idea at a time.
     </p>
   </section>
 </BaseLayout>
