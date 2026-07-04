@@ -5,54 +5,46 @@ import HYOHCompass from '../components/HYOHCompass.astro';
 import CopyLinkButton from '../components/CopyLinkButton.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 
-function entryPublicSlug(entry: CollectionEntry<'signals'>) {
-  const frontmatterSlug = (entry.data as { slug?: string }).slug;
-  return frontmatterSlug ?? entry.slug.replace(/^signals-/, '');
-}
-
 export async function getStaticPaths() {
-  const signals = await getCollection('signals');
-  return signals.map((entry) => ({
-    params: {
-      slug: ((entry.data as { slug?: string }).slug ?? entry.slug.replace(/^signals-/, '')),
-    },
+  const letters = await getCollection('letters');
+  return letters.map((entry) => ({
+    params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
 interface Props {
-  entry: CollectionEntry<'signals'>;
+  entry: CollectionEntry<'letters'>;
 }
 
 const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
 
-const allSignals = (await getCollection('signals')).sort(
+const allLetters = (await getCollection('letters')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
-const entryPath = entryPublicSlug(entry);
-const idx = allSignals.findIndex((e) => entryPublicSlug(e) === entryPath);
-const newer = idx > 0 ? allSignals[idx - 1] : null;
-const older = idx < allSignals.length - 1 ? allSignals[idx + 1] : null;
+const idx = allLetters.findIndex((e) => e.slug === entry.slug);
+const newer = idx > 0 ? allLetters[idx - 1] : null;
+const older = idx < allLetters.length - 1 ? allLetters[idx + 1] : null;
 
-function signalUrl(e: CollectionEntry<'signals'>) {
-  return `/${entryPublicSlug(e)}/`;
+function letterUrl(e: CollectionEntry<'letters'>) {
+  return `/${e.slug}/`;
 }
 
-const canonicalUrl = `https://letters.entr.cc${signalUrl(entry)}`;
+const canonicalUrl = `https://letters.entr.cc${letterUrl(entry)}`;
 const displayTitle = formatLetterTitle(entry.data.title);
 ---
 <BaseLayout
   title={`${displayTitle} — The Lead Letter`}
   description={entry.data.description}
-  canonicalPath={signalUrl(entry)}
+  canonicalPath={letterUrl(entry)}
   type="article"
   publishedTime={entry.data.date}
   author={entry.data.author}
 >
-  <article class="letter-page">
+  <article class="letter-page reveal">
     <p class="kicker letter-kicker">
-      Signals Brief · {formatIssue(entry.data.issue)} · {formatDate(entry.data.date)}
+      Lead Letter · {formatIssue(entry.data.issue)} · {formatDate(entry.data.date)}
     </p>
     <h1>{displayTitle}</h1>
     <p class="byline">
@@ -67,7 +59,7 @@ const displayTitle = formatLetterTitle(entry.data.title);
     <p class="end-mark">Strength Through Service</p>
 
     <div class="post-letter-cta">
-      <p>If this brief was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
+      <p>If this letter was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
       <div class="cta-buttons">
         <a class="btn-join" href="/#join">Get future issues</a>
         <CopyLinkButton url={canonicalUrl} />
@@ -77,8 +69,8 @@ const displayTitle = formatLetterTitle(entry.data.title);
     <HYOHCompass variant="cta" />
 
     <nav class="prev-next">
-      {older ? <a href={signalUrl(older)}>Previous: {formatLetterTitle(older.data.title)}</a> : <span class="empty">Previous</span>}
-      {newer ? <a href={signalUrl(newer)}>Next: {formatLetterTitle(newer.data.title)}</a> : <span class="empty">Next</span>}
+      {older ? <a href={letterUrl(older)}>Previous: {formatLetterTitle(older.data.title)}</a> : <span class="empty">Previous</span>}
+      {newer ? <a href={letterUrl(newer)}>Next: {formatLetterTitle(newer.data.title)}</a> : <span class="empty">Next</span>}
     </nav>
 
     <a class="back-to-archive" href="/archive/">Back to Archive</a>
