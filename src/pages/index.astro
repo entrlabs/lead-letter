@@ -11,6 +11,10 @@ const allSignals = (await getCollection('signals')).sort(
 
 const latest = allSignals[0];
 const recent = allSignals.slice(1, 5);
+const boardEntries = allSignals
+  .filter((entry) => entry.data.signalBoard)
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+const latestBoard = latest?.data.signalBoard;
 
 function signalUrl(entry: CollectionEntry<'signals'>) {
   return `/${entry.slug}/`;
@@ -22,28 +26,112 @@ function latestBoxDescription(description: string) {
     .replace(/^A public weekly letter about\s+/i, 'This week is about ');
 }
 
-const visualSignal = latest?.data.signalBoard ?? (latest ? {
-  signal: formatLetterTitle(latest.data.title),
-  micro: latest.data.description,
-  tension: 'Noise vs. signal',
-  move: 'Find the useful pattern.',
-  question: 'What changed this week?',
-  flow: ['Notice', 'Name', 'Act', 'Learn'],
-  motionWords: ['Leadership', 'Service', 'Work', 'Learning', 'Decision', 'Signal'],
-  lanes: [
-    { label: 'Education', state: 'Learning signal in view.', level: 'Watching' },
-    { label: 'Work', state: 'Practice signal in view.', level: 'Active' },
-    { label: 'Founders', state: 'Trust signal in view.', level: 'Watching' },
-    { label: 'Technology', state: 'Judgment signal in view.', level: 'Active' },
-  ],
-} : undefined);
-const signalFeed = visualSignal ? [...visualSignal.motionWords, ...visualSignal.motionWords] : [];
-const radarPositions = [
-  { x: '-28%', y: '-20%' },
-  { x: '22%', y: '-28%' },
-  { x: '-12%', y: '28%' },
-  { x: '30%', y: '20%' },
+function scoreFromLevel(level = '') {
+  const normalized = level.toLowerCase();
+  if (normalized.includes('critical')) return 92;
+  if (normalized.includes('strained')) return 80;
+  if (normalized.includes('rising')) return 74;
+  if (normalized.includes('active')) return 66;
+  if (normalized.includes('watching')) return 54;
+  return 58;
+}
+
+function directionLabel(direction: string, delta: number) {
+  if (direction === 'up' || delta >= 4) return 'Rising';
+  if (direction === 'down' || delta <= -4) return 'Cooling';
+  return 'Steady';
+}
+
+function sparkPoints(points: Array<{ score: number }>) {
+  if (points.length === 0) return '';
+  if (points.length === 1) {
+    const y = 100 - points[0].score;
+    return `0,${y} 100,${y}`;
+  }
+
+  return points
+    .map((point, index) => {
+      const x = (index / (points.length - 1)) * 100;
+      const y = 100 - point.score;
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    })
+    .join(' ');
+}
+
+const laneLabels = latestBoard?.lanes.map((lane) => lane.label) ?? [
+  'Education',
+  'Work',
+  'Founders',
+  'Technology',
 ];
+
+const laneTracks = laneLabels.map((label, index) => {
+  const weeks = boardEntries
+    .map((entry) => {
+      const lane = entry.data.signalBoard?.lanes.find((item) => item.label === label);
+      if (!lane) return null;
+      return {
+        issue: entry.data.issue,
+        date: entry.data.date,
+        score: lane.score ?? scoreFromLevel(lane.level),
+        level: lane.level,
+        state: lane.state,
+        brief: lane.brief ?? lane.state,
+        direction: lane.direction ?? 'steady',
+      };
+    })
+    .filter(Boolean) as Array<{
+      issue: number;
+      date: Date;
+      score: number;
+      level: string;
+      state: string;
+      brief: string;
+      direction: string;
+    }>;
+
+  const current = weeks[weeks.length - 1] ?? {
+    issue: latest?.data.issue ?? 0,
+    date: latest?.data.date ?? new Date(),
+    score: scoreFromLevel('Watching'),
+    level: 'Watching',
+    state: 'Signal developing.',
+    brief: 'Signal developing.',
+    direction: 'steady',
+  };
+  const previous = weeks[weeks.length - 2];
+  const delta = previous ? current.score - previous.score : 0;
+  const trend = directionLabel(current.direction, delta);
+  const score = Math.round(current.score);
+
+  return {
+    label,
+    index,
+    weeks,
+    current,
+    score,
+    trend,
+    delta,
+    points: sparkPoints(weeks),
+    pulseSpeed: `${Math.max(2.4, 7 - score / 16).toFixed(1)}s`,
+    scorePct: `${score}%`,
+    scoreAngle: `${score * 3.6}deg`,
+  };
+});
+
+const pressureAverage = Math.round(
+  laneTracks.reduce((total, lane) => total + lane.score, 0) / Math.max(laneTracks.length, 1)
+);
+const hottestLane = [...laneTracks].sort((a, b) => b.score - a.score)[0];
+const fastestLane = [...laneTracks].sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))[0];
+const pressureTone = pressureAverage >= 78
+  ? 'High pressure'
+  : pressureAverage >= 68
+    ? 'Active pressure'
+    : pressureAverage >= 58
+      ? 'Building pressure'
+      : 'Watchful pressure';
+const signalFeed = laneTracks.flatMap((lane) => [lane.label, lane.trend, `${lane.score}`]);
 ---
 <BaseLayout
   title="EntrLabs — The Lead Letter"
@@ -87,89 +175,89 @@ const radarPositions = [
     )}
   </section>
 
-  {latest && (
+  {latest && latestBoard && (
     <section class="signal-board reveal" aria-labelledby="weekly-signal-board">
       <div class="signal-board-stream" aria-hidden="true">
-        {signalFeed.map((item) => <span>{item}</span>)}
+        {[...signalFeed, ...signalFeed].map((item) => <span>{item}</span>)}
       </div>
 
       <div class="signal-board-header">
         <div>
-          <p class="signal-board-label">Weekly Updates</p>
-          <h2 id="weekly-signal-board">This week's signal</h2>
+          <p class="signal-board-label">Weekly Signal Board</p>
+          <h2 id="weekly-signal-board">Where pressure is moving</h2>
         </div>
         <p>
-          A compact visual reading of the newest brief: the pattern, the pressure, and the next useful move.
+          A living read across education, work, founders, and technology. Each new brief adds another week to the trend line.
         </p>
         <a class="signal-board-link" href={signalUrl(latest)}>Read the full brief</a>
       </div>
 
-      <div class="signal-instrument">
-        <article class="signal-core">
-          <div class="signal-orbit" aria-hidden="true">
+      <div class="signal-system">
+        <article
+          class="signal-gauge"
+          style={`--pressure: ${pressureAverage}; --pressure-angle: ${pressureAverage * 3.6}deg; --pulse-speed: ${Math.max(2.4, 7 - pressureAverage / 16).toFixed(1)}s;`}
+        >
+          <div class="gauge-orbit" aria-hidden="true">
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <p class="signal-panel-label">Pattern</p>
-          <h3>{visualSignal?.signal}</h3>
-          <p class="signal-micro">{visualSignal?.micro}</p>
+          <p class="signal-panel-label">Current read</p>
+          <strong>{pressureAverage}</strong>
+          <span>{pressureTone}</span>
+          <p>{latestBoard.micro}</p>
         </article>
 
-        <div class="evidence-flow" aria-label="Weekly evidence flow">
-          <span class="flow-track" aria-hidden="true">
-            <span class="flow-beam"></span>
-          </span>
-          {visualSignal?.flow.map((step, index) => (
-            <div class="flow-step" style={`--step: ${index};`}>
-              <span class="flow-node" aria-hidden="true"></span>
-              <strong>{step}</strong>
+        <article class="signal-analysis">
+          <p class="signal-panel-label">What changed</p>
+          <h3>{latestBoard.signal}</h3>
+          <p>{hottestLane?.label} is carrying the strongest pressure this week. {fastestLane?.label} is the lane moving fastest across the archive.</p>
+          <div class="analysis-grid">
+            <div>
+              <span>Tension</span>
+              <strong>{latestBoard.tension}</strong>
             </div>
-          ))}
-        </div>
-
-        <div class="pressure-radar" aria-label="Pressure radar">
-          <div class="radar-visual" aria-hidden="true">
-            <span class="radar-ring radar-ring-one"></span>
-            <span class="radar-ring radar-ring-two"></span>
-            <span class="radar-ring radar-ring-three"></span>
-            <span class="radar-sweep"></span>
-            {visualSignal?.lanes.map((lane, index) => (
-              <span
-                class="radar-dot"
-                style={`--dot: ${index}; --x: ${radarPositions[index]?.x ?? '0%'}; --y: ${radarPositions[index]?.y ?? '0%'};`}
-                title={lane.state}
-              ></span>
-            ))}
+            <div>
+              <span>Move</span>
+              <strong>{latestBoard.move}</strong>
+            </div>
+            <div>
+              <span>Question</span>
+              <strong>{latestBoard.question}</strong>
+            </div>
           </div>
-          <div class="radar-readout">
-            <p class="signal-panel-label">Pressure radar</p>
-            <div class="radar-lanes">
-              {visualSignal?.lanes.map((lane, index) => (
-                <div class="radar-lane" style={`--lane: ${index};`}>
-                  <strong>{lane.label}</strong>
-                  <b>{lane.level}</b>
+        </article>
+
+        <div class="signal-map" aria-label="Industry pressure status this week">
+          {laneTracks.map((lane) => (
+            <article
+              class={`signal-lane-card lane-${lane.index}`}
+              style={`--score: ${lane.score}; --score-pct: ${lane.scorePct}; --score-angle: ${lane.scoreAngle}; --pulse-speed: ${lane.pulseSpeed};`}
+            >
+              <div class="lane-card-header">
+                <div>
+                  <p class="signal-panel-label">{lane.label}</p>
+                  <h3>{lane.current.level}</h3>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div class="signal-actions">
-          <article class="signal-card tension-card">
-            <p class="signal-panel-label">Tension</p>
-            <p>{visualSignal?.tension}</p>
-          </article>
-
-          <article class="signal-card move-card">
-            <p class="signal-panel-label">Move</p>
-            <p>{visualSignal?.move}</p>
-          </article>
-
-          <article class="signal-card question-card">
-            <p class="signal-panel-label">Question</p>
-            <p>{visualSignal?.question}</p>
-          </article>
+                <span class={`lane-trend trend-${lane.trend.toLowerCase()}`}>{lane.trend}</span>
+              </div>
+              <p class="lane-state">{lane.current.state}</p>
+              <p class="lane-brief">{lane.current.brief}</p>
+              <div class="lane-meter" aria-hidden="true">
+                <span></span>
+              </div>
+              <div class="lane-spark-wrap">
+                <svg class="lane-spark" viewBox="0 0 100 100" preserveAspectRatio="none" role="img" aria-label={`${lane.label} trend across ${lane.weeks.length} weeks`}>
+                  <polyline points={lane.points}></polyline>
+                </svg>
+                <div class="spark-baseline" aria-hidden="true"></div>
+              </div>
+              <div class="lane-meta">
+                <span>{lane.score}/100</span>
+                <span>{lane.weeks.length} week{lane.weeks.length === 1 ? '' : 's'} tracked</span>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
