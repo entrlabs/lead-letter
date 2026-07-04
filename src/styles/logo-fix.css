@@ -2,3 +2,38 @@
 :root {
   --entr-icon-mask: url('/assets/entr-main-logo.png');
 }
+
+.entr-header-logo {
+  gap: 0.68rem;
+}
+
+.entr-header-logo .entr-icon-mark {
+  width: 24px;
+  height: 37px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent 42%),
+    linear-gradient(180deg, var(--azure), var(--azure-deep));
+  filter: drop-shadow(0 11px 20px rgba(46, 91, 208, 0.2));
+}
+
+.entr-name {
+  letter-spacing: 0.01em;
+}
+
+.subscribe-mark .entr-icon-mark,
+.footer-logo-mark.entr-icon-mark {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.68), transparent 40%),
+    linear-gradient(180deg, var(--azure-soft), var(--azure));
+}
+
+.letter-body blockquote.callout-leaders {
+  --callout-accent: var(--violet);
+  --callout-soft: var(--violet-soft);
+  --callout-deep: var(--violet-deep);
+  --callout-bg: rgba(245, 239, 255, 0.9);
+  --callout-glow: rgba(160, 108, 240, 0.16);
+  --callout-rule: rgba(160, 108, 240, 0.38);
+  --callout-border: rgba(160, 108, 240, 0.26);
+  --callout-ring: rgba(160, 108, 240, 0.11);
+}
