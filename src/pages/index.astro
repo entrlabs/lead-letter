@@ -25,24 +25,6 @@ function cleanMarkdownLine(value: string) {
     .trim();
 }
 
-function extractCallout(body: string, type: string) {
-  const match = body.match(new RegExp(`> \\[!${type}\\]\\n((?:>.*(?:\\n|$))+?)`, 'i'));
-  return match ? cleanMarkdownLine(match[1]) : '';
-}
-
-function extractSectionBullets(body: string, heading: string, limit = 3) {
-  const match = body.match(new RegExp(`## ${heading}\\n([\\s\\S]*?)(?:\\n---|\\n## |$)`, 'i'));
-  if (!match) return [];
-
-  return match[1]
-    .split('\n')
-    .map((line) => line.trim())
-    .filter((line) => line.startsWith('- '))
-    .map((line) => cleanMarkdownLine(line))
-    .filter(Boolean)
-    .slice(0, limit);
-}
-
 function extractQuestions(body: string, limit = 2) {
   const match = body.match(/## Questions Worth Asking\n([\s\S]*?)(?:\n---|\n## |$)/i);
   if (!match) return [];
@@ -57,9 +39,6 @@ function extractQuestions(body: string, limit = 2) {
 }
 
 const latestBody = latest?.body ?? '';
-const weeklyPattern = extractCallout(latestBody, 'NOTE') || latest?.data.description;
-const leaderSignal = extractCallout(latestBody, 'LEADERS') || 'Build the conditions that help people do stronger work.';
-const watchSignals = extractSectionBullets(latestBody, 'What To Watch Next', 3);
 const questionSignals = extractQuestions(latestBody, 2);
 const latestTags = new Set(latest?.data.tags ?? []);
 const bodySignalText = latestBody.toLowerCase();
@@ -67,24 +46,80 @@ const pressureMap = [
   {
     label: 'Education',
     status: latestTags.has('higher-education') || latestTags.has('career-readiness') ? 'Rising' : 'Watching',
-    detail: 'Proof, pathways, and practical learning',
+    detail: 'proof',
   },
   {
     label: 'Work',
     status: latestTags.has('workplace-learning') || latestTags.has('management') ? 'Strained' : 'Active',
-    detail: 'Training, judgment, and hidden learning',
+    detail: 'practice',
   },
   {
     label: 'Founders',
     status: latestTags.has('entrepreneurship') ? 'Worth watching' : 'Quiet',
-    detail: 'Trust, price, customers, and survival',
+    detail: 'trust',
   },
   {
     label: 'Technology',
     status: bodySignalText.includes('ai') || latestTags.has('ai-literacy') || latestTags.has('ai-governance') ? 'Rising' : 'In view',
-    detail: 'Tools, evidence, and responsibility',
+    detail: 'judgment',
   },
 ];
+
+function visualSignalFor(entry: CollectionEntry<'letters'>) {
+  const visualSignals: Record<string, {
+    signal: string;
+    micro: string;
+    tension: string;
+    move: string;
+    question: string;
+    feed: string[];
+  }> = {
+    '2026-w26-make-your-work-easy-to-trust': {
+      signal: 'Proof > Promise',
+      micro: 'Trust rises when the evidence is easy to see.',
+      tension: 'High claims. Thin proof.',
+      move: 'Show the work.',
+      question: 'What proof travels?',
+      feed: ['Proof', 'Trust', 'Evidence', 'Practice', 'Judgment', 'Signal'],
+    },
+    '2026-w25-build-the-practice-before-raising-the-bar': {
+      signal: 'Practice Before Pressure',
+      micro: 'Higher standards need places where people can learn judgment.',
+      tension: 'Higher bar. Fewer reps.',
+      move: 'Build the practice.',
+      question: 'Where do people rehearse?',
+      feed: ['Practice', 'Standards', 'Feedback', 'Judgment', 'Learning', 'Signal'],
+    },
+    '2026-w24-good-ideas-still-need-a-plan': {
+      signal: 'Ideas Need Conditions',
+      micro: 'Useful plans respect cost, trust, and adoption.',
+      tension: 'Hype meets constraint.',
+      move: 'Check the conditions.',
+      question: 'Can people use it well?',
+      feed: ['Cost', 'Trust', 'Adoption', 'Resilience', 'Planning', 'Signal'],
+    },
+    '2026-w23-use-ai-but-keep-your-judgment': {
+      signal: 'Speed Needs Judgment',
+      micro: 'AI can accelerate work, but responsibility still has to stay visible.',
+      tension: 'Fast output. Unclear ownership.',
+      move: 'Explain the decision.',
+      question: 'Who is responsible?',
+      feed: ['AI', 'Judgment', 'Trust', 'Rules', 'Learning', 'Signal'],
+    },
+  };
+
+  return visualSignals[entry.slug] ?? {
+    signal: formatLetterTitle(entry.data.title).split(':').pop()?.trim() || formatLetterTitle(entry.data.title),
+    micro: entry.data.description,
+    tension: 'Noise vs. signal',
+    move: 'Find the useful pattern.',
+    question: questionSignals[0] || 'What changed this week?',
+    feed: ['Leadership', 'Service', 'Work', 'Learning', 'Decision', 'Signal'],
+  };
+}
+
+const visualSignal = latest ? visualSignalFor(latest) : undefined;
+const signalFeed = visualSignal ? [...visualSignal.feed, ...visualSignal.feed] : [];
 ---
 <BaseLayout
   title="EntrLabs — The Lead Letter"
@@ -130,61 +165,53 @@ const pressureMap = [
 
   {latest && (
     <section class="signal-board reveal" aria-labelledby="weekly-signal-board">
-      <div class="signal-board-copy">
-        <p class="signal-board-label">Weekly Signal Board</p>
-        <h2 id="weekly-signal-board">What changed this week</h2>
-        <p>
-          A quick read on the patterns behind the latest letter: what is rising, what leaders should
-          watch, and which question deserves attention before the next decision.
-        </p>
+      <div class="signal-board-stream" aria-hidden="true">
+        {signalFeed.map((item) => <span>{item}</span>)}
       </div>
 
-      <div class="signal-board-grid">
+      <div class="signal-board-header">
+        <div>
+          <p class="signal-board-label">Weekly Signal Board</p>
+          <h2 id="weekly-signal-board">What changed this week</h2>
+        </div>
+        <p>
+          A visual translation of the latest note: one signal, one tension, one move, and one question worth carrying.
+        </p>
+        <a class="signal-board-link" href={letterUrl(latest)}>Read the full letter</a>
+      </div>
+
+      <div class="signal-strip">
         <article class="signal-panel signal-panel-primary">
-          <span class="signal-panel-index">01</span>
-          <p class="signal-panel-label">This week's pattern</p>
-          <h3>{weeklyPattern}</h3>
-          <a href={letterUrl(latest)}>Read the full letter</a>
+          <p class="signal-panel-label">Signal</p>
+          <h3>{visualSignal?.signal}</h3>
+          <p class="signal-micro">{visualSignal?.micro}</p>
         </article>
 
-        <article class="signal-panel">
-          <span class="signal-panel-index">02</span>
-          <p class="signal-panel-label">Leaders</p>
-          <p class="signal-panel-main">{leaderSignal}</p>
-        </article>
+        <div class="signal-rail" aria-label="Current pressure map">
+          {pressureMap.map((item) => (
+            <div class="signal-rail-item">
+              <span>
+                <strong>{item.label}</strong>
+                <em>{item.detail}</em>
+              </span>
+              <b>{item.status}</b>
+            </div>
+          ))}
+        </div>
 
-        <article class="signal-panel pressure-panel">
-          <span class="signal-panel-index">03</span>
-          <p class="signal-panel-label">Pressure map</p>
-          <ul>
-            {pressureMap.map((item) => (
-              <li>
-                <span>
-                  <strong>{item.label}</strong>
-                  <em>{item.detail}</em>
-                </span>
-                <b>{item.status}</b>
-              </li>
-            ))}
-          </ul>
+        <article class="signal-panel leaders-panel">
+          <p class="signal-panel-label">Tension</p>
+          <p class="signal-panel-main signal-large">{visualSignal?.tension}</p>
         </article>
 
         <article class="signal-panel watch-panel">
-          <span class="signal-panel-index">04</span>
-          <p class="signal-panel-label">Watch next</p>
-          <ul>
-            {(watchSignals.length ? watchSignals : [latest.data.description]).map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
+          <p class="signal-panel-label">Move</p>
+          <p class="signal-panel-main signal-large">{visualSignal?.move}</p>
         </article>
 
         <article class="signal-panel question-panel">
-          <span class="signal-panel-index">05</span>
-          <p class="signal-panel-label">Question of the week</p>
-          <p class="signal-panel-main">
-            {questionSignals[0] || 'What would help people make a better decision this week?'}
-          </p>
+          <p class="signal-panel-label">Question</p>
+          <p class="signal-panel-main signal-large">{visualSignal?.question}</p>
         </article>
       </div>
     </section>
