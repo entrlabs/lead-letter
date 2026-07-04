@@ -2,52 +2,49 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HYOHCompass from '../../components/HYOHCompass.astro';
-import { toRoman, formatDate } from '../../utils/format';
+import { formatDate, formatIssue } from '../../utils/format';
 
 const allLetters = (await getCollection('letters')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
-const byYear = new Map<number, CollectionEntry<'letters'>[]>();
-for (const entry of allLetters) {
-  const year = entry.data.date.getFullYear();
-  if (!byYear.has(year)) byYear.set(year, []);
-  byYear.get(year)!.push(entry);
+const featured = allLetters[0];
+const rest = allLetters.slice(1);
+
+function letterUrl(entry: CollectionEntry<'letters'>) {
+  return `/${entry.slug}/`;
 }
-const years = [...byYear.keys()].sort((a, b) => b - a);
 ---
 <BaseLayout title="The Archive — The Lead Letter" description="Every letter, in order.">
   <div class="archive-page">
-    <header class="page-header">
-      <p class="kicker">The Record</p>
-      <h1>The Archive</h1>
+    <section class="archive-hero reveal">
+      <p class="kicker">The Lead Letter Archive</p>
+      <h1>All Letters</h1>
       <p class="archive-count">
-        {allLetters.length} letter{allLetters.length === 1 ? '' : 's'} and counting. Published weekly.
+        {allLetters.length} letter{allLetters.length === 1 ? '' : 's'} and counting. Published weekly by EntrLabs.
       </p>
-      <div class="rule-double slim" aria-hidden="true"></div>
-    </header>
+    </section>
 
-    {years.map((year) => (
-      <section class="archive-year-block">
-        <div class="section-label">
-          <span class="numeral year">{year}</span>
-          <span class="line" aria-hidden="true"></span>
-        </div>
-        {byYear.get(year)!.map((entry) => (
-          <a class="ledger-row" href={`/${entry.slug}/`}>
-            <span class="ledger-no">№ {toRoman(entry.data.issue)}</span>
-            <span class="ledger-main">
-              <span class="ledger-title">{entry.data.title}</span>
-              <span class="ledger-desc">{entry.data.description}</span>
-              {entry.data.tags.length > 0 && (
-                <span class="ledger-tags">{entry.data.tags.join(' · ')}</span>
-              )}
-            </span>
-            <span class="ledger-date">{formatDate(entry.data.date)}</span>
+    {featured && (
+      <section class="archive-bento">
+        <a class="archive-card archive-card-featured reveal" href={letterUrl(featured)}>
+          <p class="archive-row-meta">{formatDate(featured.data.date)} - {formatIssue(featured.data.issue)}</p>
+          <h2 class="archive-row-title">{featured.data.title.replace(/^The Lead Letter:\s*/i, '')}</h2>
+          <p class="archive-row-desc">{featured.data.description}</p>
+        </a>
+
+        {rest.map((entry) => (
+          <a class="archive-card reveal" href={letterUrl(entry)}>
+            <p class="archive-row-meta">{formatDate(entry.data.date)} - {formatIssue(entry.data.issue)}</p>
+            <h2 class="archive-row-title">{entry.data.title.replace(/^The Lead Letter:\s*/i, '')}</h2>
+            <p class="archive-row-desc">{entry.data.description}</p>
+            {entry.data.tags.length > 0 && (
+              <p class="archive-row-tags">{entry.data.tags.slice(0, 3).join(' / ')}</p>
+            )}
           </a>
         ))}
       </section>
-    ))}
+    )}
 
     <HYOHCompass variant="quiet" />
   </div>
