@@ -5,10 +5,17 @@ import HYOHCompass from '../components/HYOHCompass.astro';
 import CopyLinkButton from '../components/CopyLinkButton.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 
+function entryPublicSlug(entry: CollectionEntry<'signals'>) {
+  const frontmatterSlug = (entry.data as { slug?: string }).slug;
+  return frontmatterSlug ?? entry.slug.replace(/^signals-/, '');
+}
+
 export async function getStaticPaths() {
   const signals = await getCollection('signals');
   return signals.map((entry) => ({
-    params: { slug: entry.slug },
+    params: {
+      slug: ((entry.data as { slug?: string }).slug ?? entry.slug.replace(/^signals-/, '')),
+    },
     props: { entry },
   }));
 }
@@ -23,12 +30,13 @@ const { Content } = await entry.render();
 const allSignals = (await getCollection('signals')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
-const idx = allSignals.findIndex((e) => e.slug === entry.slug);
+const entryPath = entryPublicSlug(entry);
+const idx = allSignals.findIndex((e) => entryPublicSlug(e) === entryPath);
 const newer = idx > 0 ? allSignals[idx - 1] : null;
 const older = idx < allSignals.length - 1 ? allSignals[idx + 1] : null;
 
 function signalUrl(e: CollectionEntry<'signals'>) {
-  return `/${e.slug}/`;
+  return `/${entryPublicSlug(e)}/`;
 }
 
 const canonicalUrl = `https://letters.entr.cc${signalUrl(entry)}`;
