@@ -4,38 +4,37 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import HYOHCompass from '../../components/HYOHCompass.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../../utils/format';
 
-const allSignals = (await getCollection('signals')).sort(
+const allLetters = (await getCollection('letters')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
-const featured = allSignals[0];
-const rest = allSignals.slice(1);
+const featured = allLetters[0];
+const rest = allLetters.slice(1);
 
-function signalUrl(entry: CollectionEntry<'signals'>) {
-  const frontmatterSlug = (entry.data as { slug?: string }).slug;
-  return `/${frontmatterSlug ?? entry.slug.replace(/^signals-/, '')}/`;
+function letterUrl(entry: CollectionEntry<'letters'>) {
+  return `/${entry.slug}/`;
 }
 ---
-<BaseLayout title="The Archive — The Lead Letter" description="Every Signals Brief, in order.">
+<BaseLayout title="The Archive — The Lead Letter" description="Every letter, in order.">
   <div class="archive-page">
     <section class="archive-hero reveal">
       <p class="kicker">Archive</p>
-      <h1>All Signals Briefs</h1>
+      <h1>All Letters</h1>
       <p class="archive-count">
-        {allSignals.length} Signals Brief{allSignals.length === 1 ? '' : 's'} and counting. Published weekly by EntrLabs.
+        {allLetters.length} letter{allLetters.length === 1 ? '' : 's'} and counting. Published weekly by EntrLabs.
       </p>
     </section>
 
     {featured && (
       <section class="archive-bento">
-        <a class="archive-card archive-card-featured reveal" href={signalUrl(featured)}>
+        <a class="archive-card archive-card-featured reveal" href={letterUrl(featured)}>
           <p class="archive-row-meta">{formatDate(featured.data.date)} - {formatIssue(featured.data.issue)}</p>
           <h2 class="archive-row-title">{formatLetterTitle(featured.data.title)}</h2>
           <p class="archive-row-desc">{featured.data.description}</p>
         </a>
 
         {rest.map((entry) => (
-          <a class="archive-card reveal" href={signalUrl(entry)}>
+          <a class="archive-card reveal" href={letterUrl(entry)}>
             <p class="archive-row-meta">{formatDate(entry.data.date)} - {formatIssue(entry.data.issue)}</p>
             <h2 class="archive-row-title">{formatLetterTitle(entry.data.title)}</h2>
             <p class="archive-row-desc">{entry.data.description}</p>
