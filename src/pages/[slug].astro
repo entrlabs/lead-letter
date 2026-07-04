@@ -6,13 +6,13 @@ import CopyLinkButton from '../components/CopyLinkButton.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 
 function entryPublicSlug(entry: CollectionEntry<'signals'>) {
-  return entry.data.slug ?? entry.slug.replace(/^signals-/, '');
+  return entry.slug;
 }
 
 export async function getStaticPaths() {
   const signals = await getCollection('signals');
   return signals.map((entry) => ({
-    params: { slug: entryPublicSlug(entry) },
+    params: { slug: entry.slug },
     props: { entry },
   }));
 }
