@@ -1,0 +1,70 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HYOHCompass from '../components/HYOHCompass.astro';
+import CopyLinkButton from '../components/CopyLinkButton.astro';
+import { toRoman, formatDate } from '../utils/format';
+
+export async function getStaticPaths() {
+  const letters = await getCollection('letters');
+  return letters.map((entry) => ({
+    params: { slug: entry.data.slug ?? entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'letters'>;
+}
+
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+
+const allLetters = (await getCollection('letters')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const idx = allLetters.findIndex((e) => e.slug === entry.slug);
+const newer = idx > 0 ? allLetters[idx - 1] : null;
+const older = idx < allLetters.length - 1 ? allLetters[idx + 1] : null;
+
+function letterUrl(e: CollectionEntry<'letters'>) {
+  return `/${e.data.slug ?? e.slug}/`;
+}
+
+const canonicalUrl = `https://letters.entr.cc${letterUrl(entry)}`;
+---
+<BaseLayout title={`${entry.data.title} — The Lead Letter`} description={entry.data.description}>
+  <article class="letter-page">
+    <p class="kicker letter-kicker">
+      The Lead Letter · № {toRoman(entry.data.issue)} · {formatDate(entry.data.date)}
+    </p>
+    <h1>{entry.data.title}</h1>
+    <p class="byline">
+      By <a href="https://josephiesue.com" target="_blank" rel="noopener">{entry.data.author}</a> · {entry.data.publication}
+    </p>
+    <hr class="hairline" />
+
+    <div class="letter-body">
+      <Content />
+    </div>
+
+    <p class="end-mark">— Strength Through Service —</p>
+
+    <div class="post-letter-cta">
+      <p>If this letter was useful, it will be useful to someone you lead. Share it — or join the list and get the next one.</p>
+      <div class="cta-buttons">
+        <a class="btn-join" href="/#join">Join the Lead Letter</a>
+        <CopyLinkButton url={canonicalUrl} />
+      </div>
+    </div>
+
+    <HYOHCompass variant="cta" />
+
+    <nav class="prev-next">
+      {older ? <a href={letterUrl(older)}>← {older.data.title}</a> : <span class="empty">—</span>}
+      {newer ? <a href={letterUrl(newer)}>{newer.data.title} →</a> : <span class="empty">—</span>}
+    </nav>
+
+    <a class="back-to-archive" href="/archive/">Back to Archive</a>
+  </article>
+</BaseLayout>
