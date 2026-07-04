@@ -38,15 +38,27 @@ signalBoard:
     - label: Education
       state: "Students need visible proof of skill."
       level: Rising
+      score: 76
+      direction: up
+      brief: "Proof of skill is becoming more important than confidence alone."
     - label: Work
       state: "Training must match the change."
       level: Strained
+      score: 82
+      direction: up
+      brief: "Work is changing faster than practice systems are catching up."
     - label: Founders
       state: "Customers are asking for proof."
       level: Active
+      score: 71
+      direction: up
+      brief: "Careful customers are rewarding evidence over enthusiasm."
     - label: Technology
       state: "AI needs accountable judgment."
       level: Watching
+      score: 64
+      direction: steady
+      brief: "Technology pressure is real, but trust depends on human accountability."
 ---
 
 This week, several stories pointed to the same practical lesson:
