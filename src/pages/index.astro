@@ -13,7 +13,7 @@ const latest = allLetters[0];
 const recent = allLetters.slice(1, 7);
 
 function letterUrl(entry: CollectionEntry<'letters'>) {
-  return `/${entry.data.slug ?? entry.slug}/`;
+  return `/${entry.slug}/`;
 }
 ---
 <BaseLayout
