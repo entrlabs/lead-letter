@@ -47,7 +47,7 @@ const radarPositions = [
 ---
 <BaseLayout
   title="EntrLabs — The Lead Letter"
-  description="A weekly letter on leadership, service, and the discipline of helping people rise."
+  description="Weekly Signals Briefs on leadership, service, and the discipline of helping people rise."
 >
   <section class="home-hero reveal">
     <div class="hero-copy">
@@ -58,7 +58,7 @@ const radarPositions = [
       </p>
       <p class="by-joseph">By <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a></p>
       <div class="hero-actions">
-        {latest && <a class="primary-action" href={signalUrl(latest)}>Read latest Signal Brief</a>}
+        {latest && <a class="primary-action" href={signalUrl(latest)}>Read latest brief</a>}
         <a class="secondary-action" href="/#join">Get future issues</a>
       </div>
     </div>
@@ -67,7 +67,7 @@ const radarPositions = [
       <article class="latest-feature reveal">
         <div class="latest-feature-content">
           <div class="latest-feature-copy">
-            <p class="feature-label">Latest Signal Brief</p>
+            <p class="feature-label">Latest Signals Brief</p>
             <h2><a href={signalUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
             <p>{latestBoxDescription(latest.data.description)}</p>
           </div>
@@ -95,7 +95,7 @@ const radarPositions = [
 
       <div class="signal-board-header">
         <div>
-          <p class="signal-board-label">Weekly Signal Instrument</p>
+          <p class="signal-board-label">Weekly Updates</p>
           <h2 id="weekly-signal-board">This week's signal</h2>
         </div>
         <p>
@@ -198,9 +198,7 @@ const radarPositions = [
 
     <section id="join" class="subscribe-band reveal">
       <div class="subscribe-mark" aria-hidden="true">
-        <span class="entr-logo-tile">
-          <img src="/assets/entr-main-logo.png" alt="" />
-        </span>
+        <span class="entr-name">ENTR</span>
       </div>
       <div class="subscribe-copy-wrap">
         <p>Build better judgment. Serve with strength.</p>
