@@ -12,7 +12,6 @@ const letters = defineCollection({
     featured: z.boolean().default(false),
     week: z.string().optional(),
     series: z.string().default('The Lead Letter'),
-    slug: z.string().optional(),
     tags: z.array(z.string()).default([]),
   }),
 });
