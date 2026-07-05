@@ -61,6 +61,8 @@ signalInsight:
       importance: 82
 ```
 
+Importance is a 0-100 editorial signal strength. The site automatically turns it into five-point visual bands: 90+, 85+, 80+, 75+, 70+, 65+, 60+, and below 60. Use higher scores only when the brief gives readers a strong reason to pay attention now.
+
 If this block is missing, the site derives a fallback from the title, description, tags, and Markdown body.
 
 ## Deployment Automation
