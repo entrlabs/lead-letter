@@ -19,6 +19,10 @@ const signalInsightLane = z.object({
   level: z.string(),
   state: z.string(),
   importance: z.number().min(0).max(100).optional(),
+  classification: z.string().optional(),
+  strength: z.string().optional(),
+  sourceWeek: z.string().optional(),
+  meaning: z.string().optional(),
 });
 
 const signals = defineCollection({
