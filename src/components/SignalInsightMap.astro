@@ -247,7 +247,6 @@ const outputPath = 'M324 210 C404 202 498 204 580 210';
       ))}
 
       <div class="core-caption">
-        <strong>Judgment</strong>
         <span>Translation Core</span>
       </div>
     </div>
@@ -696,8 +695,7 @@ const outputPath = 'M324 210 C404 202 498 204 580 210';
     top: 50%;
     z-index: 3;
     display: grid;
-    gap: .24rem;
-    width: min(148px, 38%);
+    width: min(154px, 42%);
     text-align: center;
     transform: translate(-50%, -50%);
     pointer-events: none;
@@ -705,20 +703,14 @@ const outputPath = 'M324 210 C404 202 498 204 580 210';
 
   .core-caption span {
     justify-self: center;
-    padding: .2rem .36rem;
+    padding: .28rem .46rem;
     border: 1px solid rgba(46, 91, 208, .18);
     border-radius: 999px;
     background: rgba(255, 255, 255, .72);
     color: var(--azure-deep);
-    font-size: .48rem;
-    letter-spacing: .13em;
-  }
-
-  .core-caption strong {
-    color: var(--ink);
-    font-family: var(--font-display);
-    font-size: clamp(1.05rem, 2vw, 1.42rem);
-    line-height: 1;
+    font-size: clamp(.56rem, .95vw, .68rem);
+    letter-spacing: .14em;
+    line-height: 1.1;
   }
 
   .action-column {
