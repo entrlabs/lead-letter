@@ -1,11 +1,22 @@
 import type { CollectionEntry } from 'astro:content';
 
+export type SignalInsightLane = {
+  label: string;
+  level: string;
+  state: string;
+  importance?: number;
+  classification?: string;
+  strength?: string;
+  sourceWeek?: string;
+  meaning?: string;
+};
+
 export type SignalInsight = {
   primaryTheme: string;
   signal: string;
   micro: string;
   concepts: Array<{ label: string; type: string }>;
-  lanes: Array<{ label: string; level: string; state: string; importance?: number }>;
+  lanes: SignalInsightLane[];
 };
 
 const themeKeywords = [
@@ -72,11 +83,13 @@ function firstCallout(body: string) {
 
 function importanceFromLevel(level: string, index = 0) {
   const normalized = level.toLowerCase();
-  if (normalized.includes('urgent') || normalized.includes('leading')) return 88;
-  if (normalized.includes('rising')) return 82;
+  if (normalized.includes('prime') || normalized.includes('urgent') || normalized.includes('leading')) return 90;
+  if (normalized.includes('confirmed')) return 88;
+  if (normalized.includes('high')) return 86;
+  if (normalized.includes('rising') || normalized.includes('strong')) return 82;
   if (normalized.includes('active')) return 76;
-  if (normalized.includes('worth')) return 70;
-  if (normalized.includes('view')) return 62;
+  if (normalized.includes('emerging') || normalized.includes('worth')) return 70;
+  if (normalized.includes('view') || normalized.includes('low')) return 62;
   if (normalized.includes('watch')) return 58;
   return Math.max(48, 72 - index * 6);
 }
@@ -130,7 +143,7 @@ export function getSignalInsight(entry: CollectionEntry<'signals'>): SignalInsig
       state: `${theme.theme} is a visible theme in this brief.`,
     }))).map((lane, index) => ({
       ...lane,
-      importance: lane.importance ?? importanceFromLevel(lane.level, index),
+      importance: lane.importance ?? importanceFromLevel(`${lane.level} ${lane.strength ?? ''} ${lane.classification ?? ''}`, index),
     })),
   };
 }
