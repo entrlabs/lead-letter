@@ -9,8 +9,7 @@ interface Props {
 }
 
 const { entry, insight } = Astro.props as Props;
-const concepts = insight.concepts.slice(0, 7);
-const visibleConcepts = concepts.slice(0, 4);
+const concepts = insight.concepts.slice(0, 4);
 const lanes = insight.lanes.slice(0, 4);
 
 function signalBand(importance: number) {
@@ -34,109 +33,121 @@ const signalRows = lanes.map((lane, index) => {
     bandClass: band.className,
   };
 });
-const orbit = [
-  { label: insight.primaryTheme, level: 'Leading', state: `${insight.primaryTheme} is the primary theme.` },
-  ...lanes.filter((lane) => lane.label.toLowerCase() !== insight.primaryTheme.toLowerCase()),
-].slice(0, 4);
-const nodePositions = [
-  [19, 70],
-  [32, 86],
-  [48, 74],
-  [62, 88],
-  [80, 70],
-  [68, 46],
-  [31, 45],
-];
-const orbitPositions = [
-  [50, 18],
-  [82, 44],
-  [50, 70],
-  [18, 44],
+
+function pickLane(matchers: string[], fallbackIndex: number) {
+  return signalRows.find((lane) =>
+    matchers.some((matcher) => lane.label.toLowerCase().includes(matcher))
+  ) ?? signalRows[fallbackIndex] ?? signalRows[0];
+}
+
+const schoolLane = pickLane(['education', 'learning', 'student', 'school'], 0);
+const workLane = pickLane(['work', 'organization', 'team', 'role'], 1);
+const techLane = pickLane(['technology', 'tech', 'ai', 'tool', 'system'], signalRows.length - 1);
+const trustLabel = /trust/i.test(insight.primaryTheme) ? 'Trust' : insight.primaryTheme;
+
+const visualNodes = [
+  {
+    key: 'trust',
+    label: trustLabel,
+    support: concepts[0]?.label ?? 'Signal',
+    positionClass: 'node-top',
+    toneClass: 'node-azure',
+  },
+  {
+    key: 'school',
+    label: 'School',
+    support: schoolLane?.state ?? 'Learning needs translation into visible proof.',
+    positionClass: 'node-left',
+    toneClass: 'node-indigo',
+  },
+  {
+    key: 'work',
+    label: 'Work',
+    support: workLane?.state ?? 'Work needs translation into reliable practice.',
+    positionClass: 'node-right',
+    toneClass: 'node-violet',
+  },
+  {
+    key: 'tech',
+    label: 'Tech',
+    support: techLane?.state ?? 'Technology needs translation into judgment.',
+    positionClass: 'node-bottom',
+    toneClass: 'node-gold',
+  },
 ];
 ---
 
 <section class="signal-insight-map reveal" aria-labelledby="latest-signal-map">
   <div class="signal-map-copy">
-    <p class="signal-map-label">Latest Signals Brief</p>
-    <h2 id="latest-signal-map">Signal Map</h2>
-    <p>A quick reading of the newest brief: the main signal, the fields it touches, and how strongly each one deserves attention now.</p>
-    <a href={`/${entry.slug}/`}>Read the full story</a>
-    <div class="signal-map-notes" aria-label="Signal method notes">
-      <article>
-        <strong>Method</strong>
-        <p>Signal strength follows the core pattern, lane importance, and how clearly the note points to the next useful move.</p>
-      </article>
-      <article>
-        <strong>Key</strong>
-        <p>{insight.primaryTheme}, {visibleConcepts.map((concept) => concept.label).join(', ')}, and the four signal lanes name the main ideas, where they are showing up, and how strongly they deserve attention now.</p>
-      </article>
+    <div>
+      <p class="signal-map-label">Latest Signals Brief</p>
+      <h2 id="latest-signal-map">Signal Map</h2>
     </div>
+    <p class="signal-map-intro">A live visual read of the newest brief: where pressure is building, what it is touching, and what needs translation into action.</p>
+    <a href={`/${entry.slug}/`}>Read the full story</a>
   </div>
 
   <div class="signal-map-stage">
-    <div class="signal-orbit-card" aria-label={`Signal map for ${entry.data.title}`}>
-      <div class="signal-orbit-figure">
-        <svg viewBox="0 0 100 100" role="img">
-          <title>{`Signal map for ${entry.data.title}`}</title>
-          <desc>{insight.signal}</desc>
-          <defs>
-            <radialGradient id="core-glow" cx="50%" cy="45%" r="55%">
-              <stop offset="0%" stop-color="#9DB8FF" stop-opacity=".9" />
-              <stop offset="55%" stop-color="#5B8CFF" stop-opacity=".28" />
-              <stop offset="100%" stop-color="#2E5BD0" stop-opacity=".04" />
-            </radialGradient>
-          </defs>
-          <rect class="map-frame" x="4" y="4" width="92" height="92" rx="6" />
-          <path class="map-grid" d="M18 18H82M18 34H82M18 50H82M18 66H82M18 82H82M18 18V82M34 18V82M50 18V82M66 18V82M82 18V82" />
-          <ellipse class="orbit-line orbit-a" cx="50" cy="44" rx="34" ry="23" />
-          <ellipse class="orbit-line orbit-b" cx="50" cy="44" rx="24" ry="16" />
+    <div class="signal-map-canvas" aria-label={`Signal field for ${entry.data.title}`}>
+      <svg viewBox="0 0 1200 420" role="img">
+        <title>{`Signal field for ${entry.data.title}`}</title>
+        <desc>{insight.signal}</desc>
+        <defs>
+          <radialGradient id="field-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#9DB8FF" stop-opacity=".34" />
+            <stop offset="55%" stop-color="#5B8CFF" stop-opacity=".12" />
+            <stop offset="100%" stop-color="#2E5BD0" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="flow-line" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(91,140,255,.08)" />
+            <stop offset="50%" stop-color="rgba(91,140,255,.82)" />
+            <stop offset="100%" stop-color="rgba(91,140,255,.08)" />
+          </linearGradient>
+        </defs>
 
-          {concepts.map((concept, index) => {
-            const [x, y] = nodePositions[index] ?? nodePositions[0];
-            return (
-              <g class={`concept concept-${concept.type}`} style={`--i:${index}`}>
-                <line x1="50" y1="44" x2={x} y2={y} />
-                <circle cx={x} cy={y} r="1.55" />
-              </g>
-            );
-          })}
+        <rect class="field-frame" x="18" y="18" width="1164" height="384" rx="24" />
+        <rect class="field-grid" x="74" y="74" width="1052" height="272" rx="16" />
+        <path class="field-grid-lines" d="M160 74V346M292 74V346M424 74V346M556 74V346M688 74V346M820 74V346M952 74V346M1084 74V346M74 128H1126M74 182H1126M74 236H1126M74 290H1126" />
 
-          {orbit.map((theme, index) => {
-            const [x, y] = orbitPositions[index] ?? orbitPositions[0];
-            return (
-              <g class={`orbit-node ${index === 0 ? 'is-primary' : ''}`} style={`--i:${index}`}>
-                <circle cx={x} cy={y} r={index === 0 ? 4.2 : 3.2} />
-                <text x={x} y={y - 6}>{theme.label}</text>
-              </g>
-            );
-          })}
+        <circle class="field-halo" cx="600" cy="210" r="128" />
+        <path class="field-connector connector-top" d="M600 210 C600 182 600 150 600 114" />
+        <path class="field-connector connector-left" d="M600 210 C516 210 402 210 248 210" />
+        <path class="field-connector connector-right" d="M600 210 C684 210 798 210 952 210" />
+        <path class="field-connector connector-bottom" d="M600 210 C600 238 600 270 600 306" />
 
-          <g class="core">
-            <circle cx="50" cy="44" r="13" />
-            <path d="M50 23 64 44 50 65 36 44Z" />
-            <path d="M50 34 57 44 50 54 43 44Z" />
-          </g>
-        </svg>
+        <circle class="field-pulse pulse-top" cx="600" cy="114" r="10" />
+        <circle class="field-pulse pulse-left" cx="248" cy="210" r="10" />
+        <circle class="field-pulse pulse-right" cx="952" cy="210" r="10" />
+        <circle class="field-pulse pulse-bottom" cx="600" cy="306" r="10" />
+
+        <g class="field-core">
+          <circle cx="600" cy="210" r="54" />
+          <path d="M600 142 666 210 600 278 534 210Z" />
+          <path d="M600 174 636 210 600 246 564 210Z" />
+        </g>
+      </svg>
+
+      <div class="field-node field-node-center">
+        <span class="field-node-eyebrow">Center</span>
+        <strong>People</strong>
+        <p>Broad signals only become useful when someone turns them into a next step.</p>
       </div>
 
-      <div class="signal-orbit-copy">
-        <p class="signal-orbit-label">Primary signal</p>
-        <h3>{insight.signal}</h3>
-        <p>{insight.micro}</p>
-        <div class="signal-concept-list" aria-label="Concept threads in this brief">
-          {visibleConcepts.map((concept) => (
-            <span class={`signal-concept-chip signal-concept-${concept.type}`}>{concept.label}</span>
-          ))}
-        </div>
-      </div>
+      {visualNodes.map((node) => (
+        <article class={`field-node ${node.positionClass} ${node.toneClass}`}>
+          <span class="field-node-eyebrow">Signal</span>
+          <strong>{node.label}</strong>
+          <p>{node.support}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="signal-map-caption">
+      <p>This week's map shows the same pressure across school, trust, work, and tech: signals need translation before they become useful.</p>
+      <span>{formatIssue(entry.data.issue)} · {formatDate(entry.data.date)}</span>
     </div>
 
     <div class="signal-lanes" aria-label="Current signals in this brief">
-      <div class="signal-lanes-head">
-        <span>Signals</span>
-        <span>{formatIssue(entry.data.issue)} · {formatDate(entry.data.date)}</span>
-      </div>
-
       {signalRows.map((lane, index) => (
         <article class={`signal-strip ${lane.bandClass}`} style={`--i:${index}; --importance:${lane.importance}; --importance-pct:${lane.importance}%`}>
           <div class="signal-strip-main">
@@ -159,14 +170,14 @@ const orbitPositions = [
   .signal-insight-map {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(220px, .3fr) minmax(0, 1fr);
-    gap: clamp(18px, 3vw, 34px);
+    gap: clamp(18px, 3vw, 28px);
     margin: clamp(18px, 4vw, 42px) 0 clamp(32px, 6vw, 56px);
     padding: clamp(18px, 3vw, 28px);
     overflow: hidden;
     border: 1px solid rgba(46, 91, 208, .22);
     border-radius: 18px;
-    background: radial-gradient(circle at 76% 18%, rgba(91, 140, 255, .18), transparent 22rem),
+    background:
+      radial-gradient(circle at 76% 18%, rgba(91, 140, 255, .18), transparent 22rem),
       linear-gradient(135deg, rgba(255, 255, 255, .94), rgba(239, 244, 255, .8));
     box-shadow: 0 26px 90px rgba(46, 91, 208, .14), 0 0 0 1px rgba(255, 255, 255, .82) inset;
   }
@@ -186,11 +197,19 @@ const orbitPositions = [
     z-index: 1;
   }
 
+  .signal-map-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, .95fr) auto;
+    align-items: end;
+    gap: clamp(14px, 2vw, 22px);
+  }
+
   .signal-map-label,
   .signal-map-copy a,
-  .signal-lanes-head,
+  .signal-priority,
   .signal-strip-main span,
-  .signal-priority {
+  .field-node-eyebrow,
+  .signal-map-caption span {
     font-family: var(--font-label);
     font-weight: 800;
     text-transform: uppercase;
@@ -204,289 +223,221 @@ const orbitPositions = [
   }
 
   .signal-map-copy h2 {
-    max-width: 6ch;
-    margin-bottom: .32em;
+    margin: 0;
     font-size: clamp(1.9rem, 3.4vw, 3rem);
     line-height: .95;
   }
 
-  .signal-map-copy p:not(.signal-map-label) {
-    max-width: 31ch;
+  .signal-map-intro {
+    margin: 0;
     color: #4f5d78;
-    font-size: .92rem;
-    line-height: 1.42;
+    font-size: .95rem;
+    line-height: 1.45;
   }
 
   .signal-map-copy a {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     min-height: 40px;
-    margin-top: .4rem;
     padding: 0 1rem;
     border: 1px solid rgba(46, 91, 208, .28);
     border-radius: 999px;
-    background: rgba(255, 255, 255, .68);
+    background: rgba(255, 255, 255, .72);
     color: var(--azure-deep);
     font-size: .72rem;
     letter-spacing: .11em;
     box-shadow: 0 14px 32px rgba(46, 91, 208, .09);
+    white-space: nowrap;
   }
 
   .signal-map-stage {
     display: grid;
-    gap: clamp(10px, 1.6vw, 14px);
+    gap: 14px;
   }
 
-  .signal-map-notes {
+  .signal-map-canvas {
+    position: relative;
+    min-height: clamp(360px, 42vw, 520px);
+    overflow: hidden;
+    border: 1px solid rgba(46, 91, 208, .18);
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(91, 140, 255, .16), transparent 20rem),
+      linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(242, 246, 255, .84));
+    box-shadow: 0 18px 48px rgba(46, 91, 208, .1);
+  }
+
+  .signal-map-canvas svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .field-frame {
+    fill: rgba(255, 255, 255, .34);
+    stroke: rgba(46, 91, 208, .18);
+  }
+
+  .field-grid {
+    fill: rgba(255, 255, 255, .48);
+    stroke: rgba(46, 91, 208, .12);
+  }
+
+  .field-grid-lines {
+    fill: none;
+    stroke: rgba(46, 91, 208, .08);
+    stroke-width: 1;
+  }
+
+  .field-halo {
+    fill: url(#field-glow);
+    animation: fieldBreath 3.4s ease-in-out infinite;
+  }
+
+  .field-connector {
+    fill: none;
+    stroke: rgba(91, 140, 255, .56);
+    stroke-width: 3.2;
+    stroke-linecap: round;
+    stroke-dasharray: 14 18;
+    animation: connectorMove 10s linear infinite;
+  }
+
+  .connector-left,
+  .connector-right {
+    animation-duration: 8s;
+  }
+
+  .field-pulse {
+    fill: rgba(91, 140, 255, .9);
+    stroke: rgba(255, 255, 255, .9);
+    stroke-width: 4;
+    animation: nodePulse 2.8s ease-in-out infinite;
+  }
+
+  .pulse-left { fill: var(--indigo); }
+  .pulse-right { fill: var(--violet); }
+  .pulse-bottom { fill: var(--gold); }
+
+  .field-core circle {
+    fill: rgba(255, 255, 255, .86);
+    stroke: rgba(46, 91, 208, .16);
+  }
+
+  .field-core path:first-of-type {
+    fill: rgba(255, 255, 255, .96);
+    stroke: rgba(46, 91, 208, .78);
+    stroke-width: 4;
+  }
+
+  .field-core path:last-of-type {
+    fill: var(--azure-deep);
+    animation: coreFloat 4.4s ease-in-out infinite;
+  }
+
+  .field-node {
+    position: absolute;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: .48rem;
-    width: min(340px, 100%);
-    margin-top: .72rem;
-  }
-
-  .signal-map-notes article {
-    padding: .62rem .72rem;
-    border: 1px solid rgba(46, 91, 208, .14);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, .58);
-    box-shadow: 0 10px 24px rgba(46, 91, 208, .06);
-  }
-
-  .signal-map-notes strong {
-    display: block;
-    color: var(--azure-deep);
-    font-family: var(--font-label);
-    font-size: .58rem;
-    font-weight: 800;
-    letter-spacing: .1em;
-    line-height: 1.1;
-    text-transform: uppercase;
-  }
-
-  .signal-map-notes p {
-    margin: .26rem 0 0;
-    color: #596780;
-    font-size: .76rem;
-    line-height: 1.28;
-  }
-
-  .signal-orbit-card,
-  .signal-lanes {
+    gap: .34rem;
+    width: min(250px, 24vw);
+    padding: .9rem 1rem;
     border: 1px solid rgba(46, 91, 208, .18);
     border-radius: 14px;
-    background: rgba(255, 255, 255, .62);
-    box-shadow: 0 16px 44px rgba(46, 91, 208, .09);
+    background: rgba(255, 255, 255, .84);
+    box-shadow: 0 16px 32px rgba(46, 91, 208, .1);
+    backdrop-filter: blur(10px);
   }
 
-  .signal-orbit-card {
-    min-height: clamp(232px, 22vw, 300px);
-    display: grid;
-    grid-template-columns: minmax(300px, 1.14fr) minmax(220px, .76fr);
-    align-items: center;
-    gap: clamp(12px, 1.8vw, 18px);
-    padding: clamp(14px, 1.8vw, 18px);
-    overflow: hidden;
-  }
-
-  .signal-orbit-figure {
-    display: grid;
-    place-items: center;
-  }
-
-  .signal-orbit-card svg {
-    width: min(100%, 560px);
-    height: auto;
-  }
-
-  .signal-orbit-copy {
-    display: grid;
-    gap: .65rem;
-    align-content: center;
-  }
-
-  .signal-orbit-label {
-    margin: 0;
+  .field-node-eyebrow {
     color: var(--azure-deep);
-    font-family: var(--font-label);
-    font-size: .62rem;
-    font-weight: 800;
+    font-size: .56rem;
     letter-spacing: .14em;
-    text-transform: uppercase;
   }
 
-  .signal-orbit-copy h3 {
-    margin: 0;
+  .field-node strong {
     color: var(--ink);
     font-family: var(--font-display);
-    font-size: clamp(1.34rem, 2.2vw, 2rem);
-    line-height: 1.04;
+    font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+    line-height: 1;
   }
 
-  .signal-orbit-copy p:not(.signal-orbit-label) {
+  .field-node p {
     margin: 0;
-    color: #52617c;
-    font-size: .88rem;
-    line-height: 1.36;
+    color: #4d5a74;
+    font-size: .82rem;
+    line-height: 1.34;
   }
 
-  .signal-concept-list {
+  .field-node-center {
+    left: 50%;
+    top: 50%;
+    width: min(300px, 28vw);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .field-node-center .field-node-eyebrow {
+    justify-self: center;
+  }
+
+  .node-top {
+    left: 50%;
+    top: 8%;
+    transform: translateX(-50%);
+  }
+
+  .node-left {
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .node-right {
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .node-bottom {
+    left: 50%;
+    bottom: 8%;
+    transform: translateX(-50%);
+  }
+
+  .node-azure { border-color: rgba(91, 140, 255, .24); }
+  .node-indigo { border-color: rgba(110, 116, 240, .24); }
+  .node-violet { border-color: rgba(160, 108, 240, .24); }
+  .node-gold { border-color: rgba(201, 163, 94, .26); }
+
+  .signal-map-caption {
     display: flex;
-    flex-wrap: wrap;
-    gap: .48rem;
-    margin-top: .15rem;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 0 4px;
   }
 
-  .signal-concept-chip {
-    display: inline-flex;
-    align-items: center;
-    min-height: 28px;
-    padding: 0 .72rem;
-    border: 1px solid rgba(46, 91, 208, .14);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, .82);
-    color: var(--ink);
-    font-family: var(--font-label);
-    font-size: .62rem;
-    font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+  .signal-map-caption p {
+    max-width: 66ch;
+    margin: 0;
+    color: #4d5a74;
+    font-size: .94rem;
+    line-height: 1.42;
   }
 
-  .signal-concept-service {
-    color: var(--gold-deep);
-    border-color: rgba(201, 163, 94, .22);
-    background: rgba(255, 248, 230, .92);
-  }
-
-  .signal-concept-leadership {
-    color: var(--violet-deep);
-    border-color: rgba(160, 108, 240, .2);
-    background: rgba(247, 241, 255, .94);
-  }
-
-  .signal-concept-learning {
-    color: var(--indigo-deep);
-    border-color: rgba(110, 116, 240, .2);
-    background: rgba(241, 242, 255, .94);
-  }
-
-  .signal-concept-technology {
-    color: var(--azure-deep);
-    border-color: rgba(91, 140, 255, .2);
-    background: rgba(240, 245, 255, .94);
-  }
-
-  .map-frame {
-    fill: rgba(248, 251, 255, .72);
-    stroke: rgba(46, 91, 208, .2);
-  }
-
-  .map-grid {
-    fill: none;
-    stroke: rgba(46, 91, 208, .07);
-    stroke-width: .25;
-  }
-
-  .orbit-line {
-    fill: none;
-    stroke: rgba(46, 91, 208, .36);
-    stroke-dasharray: 1.6 2.8;
-    animation: trace 12s linear infinite;
-  }
-
-  .orbit-b {
-    animation-direction: reverse;
-    animation-duration: 9s;
-  }
-
-  .concept {
-    opacity: 0;
-    animation: rise .7s ease both;
-    animation-delay: calc(var(--i) * 90ms + 180ms);
-  }
-
-  .concept line {
-    stroke: rgba(46, 91, 208, .16);
-    stroke-dasharray: 1 2;
-  }
-
-  .concept circle {
-    fill: var(--azure);
-    stroke: #fff;
-    stroke-width: .8;
-  }
-
-  .concept-service circle { fill: var(--gold); }
-  .concept-leadership circle { fill: var(--violet); }
-  .concept-learning circle { fill: var(--indigo); }
-  .concept-technology circle { fill: var(--azure-deep); }
-
-  .orbit-node text {
-    fill: #24314d;
-    font-family: var(--font-label);
-    font-size: 2.6px;
-    font-weight: 800;
-    text-anchor: middle;
-  }
-
-  .orbit-node {
-    opacity: 0;
-    animation: rise .7s ease both;
-    animation-delay: calc(var(--i) * 120ms + 80ms);
-  }
-
-  .orbit-node circle {
-    fill: rgba(157, 184, 255, .7);
-    stroke: rgba(46, 91, 208, .36);
-    stroke-width: .45;
-  }
-
-  .orbit-node.is-primary circle {
-    fill: rgba(91, 140, 255, .95);
-    stroke: #fff;
-    stroke-width: .9;
-    animation: pulse 2.8s ease-in-out infinite;
-  }
-
-  .core circle {
-    fill: url(#core-glow);
-    animation: breathe 3.6s ease-in-out infinite;
-  }
-
-  .core path:first-of-type {
-    fill: rgba(255, 255, 255, .9);
-    stroke: rgba(46, 91, 208, .72);
-    stroke-width: .55;
-  }
-
-  .core path:last-of-type {
-    fill: var(--azure-deep);
-    opacity: .9;
+  .signal-map-caption span {
+    color: #6a7893;
+    font-size: .66rem;
+    letter-spacing: .14em;
+    white-space: nowrap;
   }
 
   .signal-lanes {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
-    padding: clamp(10px, 1.3vw, 13px);
-    overflow: hidden;
-  }
-
-  .signal-lanes-head {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 0 2px 2px;
-    color: var(--azure-deep);
-    font-size: .66rem;
-    letter-spacing: .14em;
-  }
-
-  .signal-lanes-head span:last-child {
-    color: #6a7893;
-    text-align: right;
   }
 
   .signal-strip {
@@ -501,17 +452,17 @@ const orbitPositions = [
     align-items: center;
     gap: clamp(10px, 1.6vw, 14px);
     min-height: 0;
-    padding: .62rem .74rem;
+    padding: .7rem .8rem;
     overflow: hidden;
     border: 1px solid rgba(46, 91, 208, .13);
     border-radius: 10px;
     background:
       linear-gradient(90deg, var(--signal-wash), transparent var(--importance-pct)),
-      rgba(255, 255, 255, .7);
+      rgba(255, 255, 255, .72);
     box-shadow: 0 10px 24px rgba(46, 91, 208, .07);
     opacity: 0;
     animation: laneReveal .72s ease both;
-    animation-delay: calc(var(--i) * 90ms + 280ms);
+    animation-delay: calc(var(--i) * 90ms + 180ms);
   }
 
   .signal-strip::before {
@@ -576,7 +527,7 @@ const orbitPositions = [
     box-shadow: 0 0 14px var(--signal-glow);
     transform-origin: left center;
     animation: priorityFill 1.1s cubic-bezier(.2, .7, .2, 1) both;
-    animation-delay: calc(var(--i) * 90ms + 440ms);
+    animation-delay: calc(var(--i) * 90ms + 300ms);
   }
 
   .signal-priority em {
@@ -648,66 +599,106 @@ const orbitPositions = [
     --signal-glow: rgba(138, 151, 184, .28);
   }
 
-  @keyframes trace { to { stroke-dashoffset: -40; } }
-  @keyframes rise { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes laneReveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes priorityFill { from { transform: scaleX(.18); } to { transform: scaleX(1); } }
-  @keyframes pulse { 50% { filter: drop-shadow(0 0 3px rgba(91, 140, 255, .7)); } }
-  @keyframes breathe { 50% { opacity: .72; } }
+  @keyframes connectorMove {
+    to { stroke-dashoffset: -64; }
+  }
 
-  @media (max-width: 1020px) {
-    .signal-insight-map,
-    .signal-map-stage {
+  @keyframes nodePulse {
+    50% { transform: scale(1.16); filter: drop-shadow(0 0 10px rgba(91, 140, 255, .48)); }
+  }
+
+  @keyframes fieldBreath {
+    50% { opacity: .76; transform: scale(1.04); transform-origin: center; }
+  }
+
+  @keyframes coreFloat {
+    50% { transform: translateY(-6px); transform-origin: center; }
+  }
+
+  @keyframes laneReveal {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes priorityFill {
+    from { transform: scaleX(.18); }
+    to { transform: scaleX(1); }
+  }
+
+  @media (max-width: 980px) {
+    .signal-map-copy {
       grid-template-columns: 1fr;
+      align-items: start;
     }
 
-    .signal-map-copy h2 {
+    .signal-map-copy a {
+      justify-self: start;
+    }
+
+    .field-node {
+      width: min(240px, 36vw);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .signal-map-canvas {
+      min-height: 700px;
+    }
+
+    .field-node {
+      width: auto;
       max-width: none;
     }
 
-    .signal-map-notes {
-      width: 100%;
+    .field-node-center {
+      left: 50%;
+      top: 50%;
+      width: min(280px, calc(100% - 28px));
     }
 
-    .signal-orbit-card {
+    .node-top {
+      top: 18px;
+      width: calc(100% - 28px);
+    }
+
+    .node-left,
+    .node-right {
+      top: auto;
+      width: calc(50% - 21px);
+      transform: none;
+    }
+
+    .node-left {
+      left: 14px;
+      bottom: 132px;
+    }
+
+    .node-right {
+      right: 14px;
+      bottom: 132px;
+    }
+
+    .node-bottom {
+      bottom: 18px;
+      width: calc(100% - 28px);
+    }
+
+    .signal-map-caption,
+    .signal-lanes,
+    .signal-strip {
       grid-template-columns: 1fr;
+    }
+
+    .signal-map-caption {
+      display: grid;
     }
 
     .signal-lanes {
       grid-template-columns: 1fr;
     }
-  }
-
-  @media (max-width: 640px) {
-    .signal-insight-map {
-      padding: 18px 14px;
-    }
-
-    .signal-orbit-card {
-      min-height: 230px;
-    }
-
-    .signal-orbit-card svg {
-      width: 122%;
-    }
-
-    .signal-map-notes,
-    .signal-lanes-head,
-    .signal-strip {
-      grid-template-columns: 1fr;
-    }
-
-    .signal-lanes-head {
-      display: grid;
-    }
-
-    .signal-lanes-head span:last-child {
-      text-align: left;
-    }
 
     .signal-strip {
       gap: 8px;
-      min-height: 0;
     }
 
     .signal-priority {
@@ -720,15 +711,13 @@ const orbitPositions = [
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .orbit-line,
-    .concept,
-    .orbit-node,
-    .orbit-node.is-primary circle,
-    .core circle,
+    .field-halo,
+    .field-connector,
+    .field-pulse,
+    .field-core path:last-of-type,
     .signal-strip,
     .signal-priority b {
       animation: none;
-      opacity: 1;
     }
   }
 </style>
