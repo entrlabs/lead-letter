@@ -10,7 +10,7 @@ It is part of the EntrLabs ecosystem and sits alongside the frameworks, research
 
 The Lead Letter exists to make the work public in a clear, direct, and useful form.
 
-Each weekly note is published as a Signals Brief: a short reflection on one idea that matters for leadership, service, growth, culture, or work.
+Each Signals Brief is a short reflection on one idea that matters for leadership, service, growth, culture, or work.
 
 The center remains the same:
 
@@ -30,63 +30,40 @@ Published Signals Briefs live in:
 src/content/signals/
 ```
 
+Use clean date-title filenames:
+
+```text
+src/content/signals/2026-w26-make-your-work-easy-to-trust.md
+```
+
+Do not prefix public filenames with `signals-`. The folder already identifies the content type.
+
 ## Publication
 
-New Signals Briefs are published weekly. Each brief is a Markdown file with public frontmatter used by the Astro website and publication automation.
+New Signals Briefs are published weekly. Each brief is a Markdown file with public frontmatter used by the Astro website and future publication automation.
 
 Publication rule: callout labels should not be repeated inside the callout body. Use `[!LEADERS]` only when a draft callout would otherwise begin with `Leadership lesson:`; those render as `Leaders`. The first sentence inside the Markdown callout should begin with the actual idea, not with `This week's main idea:`, `Leadership lesson:`, or `Leaders:`.
 
-## Weekly Signal Board
-
-The homepage includes a living signal board. It updates automatically from the `signalBoard` frontmatter inside each weekly Markdown file.
-
-Every new brief should include four industry lanes in this order:
+For the homepage visual, future automation may add an optional `signalInsight` frontmatter block with:
 
 ```yaml
-signalBoard:
-  signal: "Short thesis for the week"
-  micro: "One useful interpretation of the week."
-  tension: "The pressure or conflict."
-  move: "The practical response."
-  question: "The question leaders should ask."
-  flow:
-    - First
-    - Second
-    - Third
-    - Fourth
-  motionWords:
-    - Word
-    - Word
-    - Word
-    - Word
+signalInsight:
+  primaryTheme: "Trust"
+  signal: "Trust needs visible proof."
+  micro: "One clear sentence explaining the pattern."
+  tension: "The main tension."
+  move: "The practical move."
+  question: "The question worth carrying forward."
+  concepts:
+    - label: "Proof"
+      type: "service"
   lanes:
-    - label: Education
-      state: "What changed in education this week."
-      level: Rising
-      score: 70
-      direction: up
-      brief: "One short interpretation, not a repeated sentence from the article."
-    - label: Work
-      state: "What changed in work this week."
-      level: Active
-      score: 66
-      direction: steady
-      brief: "One short interpretation."
-    - label: Founders
-      state: "What changed for founders this week."
-      level: Strained
-      score: 78
-      direction: up
-      brief: "One short interpretation."
-    - label: Technology
-      state: "What changed in technology this week."
-      level: Watching
-      score: 58
-      direction: down
-      brief: "One short interpretation."
+    - label: "Education"
+      level: "Rising"
+      state: "Why this theme is active."
 ```
 
-`score` is a 0-100 pressure reading for the week. `direction` must be `up`, `down`, or `steady`. The site pools these values across all published briefs, so each new Markdown file extends the trend lines and changes the homepage visualization.
+If this block is missing, the site derives a fallback from the title, description, tags, and Markdown body.
 
 ## Deployment Automation
 
