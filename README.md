@@ -2,80 +2,58 @@
 
 **An EntrLabs publication by Joseph E. Iesue.**
 
-The Lead Letter is a weekly publication on leadership, service, responsibility, learning culture, and meaningful work.
+The Lead Letter is the public editorial publication of EntrLabs. It publishes weekly Signals Briefs on leadership, service, judgment, learning, work, and the discipline of helping people rise.
 
-It is part of the EntrLabs ecosystem and sits alongside the frameworks, research, and applied systems developed through EntrLabs.
+Website: https://letters.entr.cc
 
-## Purpose
+## What Lives Here
 
-The Lead Letter exists to make the work public in a clear, direct, and useful form.
+- The Astro site for `letters.entr.cc`
+- The published Markdown source files for each Signals Brief
+- The automation and structure needed to publish new briefs cleanly
 
-Each Signals Brief is a short reflection on one idea that matters for leadership, service, growth, culture, or work.
-
-The center remains the same:
-
-```text
-Strength Through Service
-```
-
-## Website
-
-This repository powers the static site for:
-
-https://letters.entr.cc
-
-Published Signals Briefs live in:
+Published briefs live in:
 
 ```text
 src/content/signals/
 ```
 
-Use clean date-title filenames:
+Use clear date-title filenames:
 
 ```text
 src/content/signals/2026-w26-make-your-work-easy-to-trust.md
 ```
 
-Do not prefix public filenames with `signals-`. The folder already identifies the content type.
+## Writing Standard
 
-## Publication
+The writing should be public, direct, and useful.
 
-New Signals Briefs are published weekly. Each brief is a Markdown file with public frontmatter used by the Astro website and future publication automation.
+- Write in Joseph's voice and the EntrLabs brand voice.
+- Keep the reading level clear and accessible without sounding flat.
+- Let callout labels do their job. Do not repeat the label in the first sentence of the callout body.
+- Use `[!LEADERS]` when the note is speaking directly to people responsible for others, teams, or institutions.
 
-Publication rule: callout labels should not be repeated inside the callout body. Use `[!LEADERS]` only when a draft callout would otherwise begin with `Leadership lesson:`; those render as `Leaders`. The first sentence inside the Markdown callout should begin with the actual idea, not with `This week's main idea:`, `Leadership lesson:`, or `Leaders:`.
+## Signal Metadata
 
-For the homepage visual, future automation may add an optional `signalInsight` frontmatter block with:
+Signals Briefs may include an optional `signalInsight` block in frontmatter to shape the homepage visualization and signal map.
 
-```yaml
-signalInsight:
-  primaryTheme: "Trust"
-  signal: "Trust needs visible proof."
-  micro: "One clear sentence explaining the pattern."
-  concepts:
-    - label: "Proof"
-      type: "service"
-  lanes:
-    - label: "Education"
-      level: "Rising"
-      state: "Why this theme is active."
-      importance: 82
-```
+This block can define:
 
-Importance is a 0-100 editorial signal strength. The site automatically turns it into five-point visual bands: 90+, 85+, 80+, 75+, 70+, 65+, 60+, and below 60. Use higher scores only when the brief gives readers a strong reason to pay attention now.
+- `primaryTheme`
+- `signal`
+- `micro`
+- `concepts`
+- `lanes`
 
-If this block is missing, the site derives a fallback from the title, description, tags, and Markdown body.
+If it is not provided, the site derives a fallback signal read from the title, description, tags, and body of the note.
 
-## Deployment Automation
-
-GitHub Actions deploys the site automatically when files change in `src/**`, `public/**`, `astro.config.mjs`, `package.json`, `package-lock.json`, `tsconfig.json`, or `.github/workflows/deploy.yml`.
-
-The intended publishing path is:
+## Publishing Flow
 
 ```text
 add Markdown file to src/content/signals/ -> push to main -> GitHub Actions builds Astro -> GitHub Pages publishes letters.entr.cc
 ```
 
-No manual website edit should be needed after the Markdown file is pushed.
+No manual site editing should be required after the Markdown file is pushed.
 
 ## Related Work
 
