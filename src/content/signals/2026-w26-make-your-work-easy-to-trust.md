@@ -20,9 +20,6 @@ signalInsight:
   primaryTheme: "Trust"
   signal: "Trust needs visible proof."
   micro: "This brief connects student portfolios, customer decisions, and workplace learning around one pattern: people need clearer evidence before they can rely on the work."
-  tension: "People are being asked to take bigger risks while the evidence is often hard to see."
-  move: "Make the reason to trust your work easy to inspect."
-  question: "What claim needs better proof before someone should rely on it?"
   concepts:
     - label: "Proof"
       type: "service"
@@ -42,15 +39,19 @@ signalInsight:
     - label: "Education"
       level: "Rising"
       state: "Students need visible evidence of real work, not only confidence."
+      importance: 82
     - label: "Work"
       level: "Active"
       state: "Organizations need training systems before asking people to adapt."
+      importance: 78
     - label: "Founders"
       level: "Worth watching"
       state: "Careful customers need proof that the offer is worth the price."
+      importance: 72
     - label: "Technology"
       level: "In view"
       state: "AI and new tools raise the value of clear judgment and evidence."
+      importance: 64
 ---
 
 This week, several stories pointed to the same practical lesson:
