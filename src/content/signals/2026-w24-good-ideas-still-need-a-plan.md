@@ -1,13 +1,13 @@
 ---
 title: "Good Ideas Still Need a Plan"
-description: "A public weekly letter about small business pressure, AI readiness, trust, and practical leadership."
+description: "A public weekly Signals Brief about small business pressure, AI readiness, trust, and practical leadership."
 date: 2026-06-15
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
 issue: 24
 featured: false
 week: "2026-W24"
-series: "The Lead Letter"
+series: "Signals Brief"
 slug: "2026-w24-good-ideas-still-need-a-plan"
 tags:
   - leadership
@@ -15,49 +15,6 @@ tags:
   - entrepreneurship
   - ai-governance
   - resilience
-signalBoard:
-  signal: "Useful > Novel"
-  micro: "Pressure is exposing whether new ideas are affordable, trusted, and usable."
-  tension: "Big claims. Practical limits."
-  move: "Ask the cost question first."
-  question: "Can people afford and trust the change?"
-  flow:
-    - Idea
-    - Cost
-    - Trust
-    - Adoption
-  motionWords:
-    - Cost
-    - Trust
-    - Adoption
-    - Resilience
-    - AI
-    - Practice
-  lanes:
-    - label: Education
-      state: "AI advice needs to reduce panic."
-      level: Watching
-      score: 58
-      direction: steady
-      brief: "Students need calmer AI guidance tied to durable skills."
-    - label: Work
-      state: "Teams need rules before tools scale."
-      level: Active
-      score: 63
-      direction: up
-      brief: "AI use is creating accountability questions inside real workflows."
-    - label: Founders
-      state: "Small firms face cost pressure."
-      level: Strained
-      score: 74
-      direction: up
-      brief: "Small businesses need changes that pay off soon and reduce pain."
-    - label: Technology
-      state: "Trust depends on visible governance."
-      level: Active
-      score: 70
-      direction: up
-      brief: "AI confidence rises when use, checking, and accountability are clear."
 ---
 
 A good idea can still fail if the numbers do not work.
@@ -169,4 +126,4 @@ For a small business, that may mean saying no to a shiny tool. For a university,
 
 ---
 
-*The Lead Letter is a weekly note on leadership, learning, work, and better decisions.*
+*Signals Brief is a weekly note from The Lead Letter on leadership, learning, work, and better decisions.*
