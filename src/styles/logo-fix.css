@@ -141,3 +141,25 @@
   --callout-border: rgba(160, 108, 240, 0.26);
   --callout-ring: rgba(160, 108, 240, 0.11);
 }
+
+.section-heading-row h2,
+.archive-preview-list .title,
+.letter-page h1,
+.letter-body h2,
+.letter-body h3,
+.hyoh-band h2 {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+}
+
+.section-heading-row h2 {
+  color: var(--ink);
+  font-size: clamp(1.75rem, 3.4vw, 3.25rem);
+  font-weight: 900;
+  line-height: 0.98;
+  text-transform: none;
+}
+
+.archive-preview-list .title {
+  font-weight: 900;
+}
