@@ -38,9 +38,6 @@ const orbit = [
   { label: insight.primaryTheme, level: 'Leading', state: `${insight.primaryTheme} is the primary theme.` },
   ...lanes.filter((lane) => lane.label.toLowerCase() !== insight.primaryTheme.toLowerCase()),
 ].slice(0, 4);
-const methodSummary = signalRows
-  .map((lane) => `${lane.label} ${lane.importance}`)
-  .join(' · ');
 const nodePositions = [
   [19, 70],
   [32, 86],
@@ -70,8 +67,8 @@ const orbitPositions = [
         <p>Signal strength follows the core pattern, lane importance, and how clearly the note points to the next useful move.</p>
       </article>
       <article>
-        <strong>Update</strong>
-        <p>The map reads from the newest note's signal, micro, concepts, and lane scores: {methodSummary}.</p>
+        <strong>Key</strong>
+        <p>{insight.primaryTheme}, {visibleConcepts.map((concept) => concept.label).join(', ')}, and the four signal lanes name the main ideas, where they are showing up, and how strongly they deserve attention now.</p>
       </article>
     </div>
   </div>
