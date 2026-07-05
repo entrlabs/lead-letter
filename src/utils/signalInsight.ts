@@ -2,6 +2,7 @@ import type { CollectionEntry } from 'astro:content';
 
 export type SignalInsightLane = {
   label: string;
+  field?: string;
   level: string;
   state: string;
   importance?: number;
@@ -19,40 +20,50 @@ export type SignalInsight = {
   lanes: SignalInsightLane[];
 };
 
-const themeKeywords = [
+const signalFields = [
   {
-    theme: 'Trust',
-    type: 'service',
-    keywords: ['trust', 'proof', 'evidence', 'customer', 'believe', 'price', 'buy', 'rely'],
-  },
-  {
-    theme: 'Leadership',
-    type: 'leadership',
-    keywords: ['leadership', 'leader', 'manager', 'management', 'responsibility', 'decision', 'judgment'],
-  },
-  {
-    theme: 'Learning',
+    field: 'School',
     type: 'learning',
-    keywords: ['learning', 'student', 'education', 'college', 'training', 'career', 'skill', 'practice'],
+    keywords: ['student', 'students', 'school', 'college', 'university', 'education', 'degree', 'course', 'advising', 'financial aid', 'learning'],
   },
   {
-    theme: 'Work',
+    field: 'Work',
     type: 'work',
-    keywords: ['work', 'worker', 'role', 'organization', 'team', 'job', 'workplace'],
+    keywords: ['work', 'worker', 'workers', 'job', 'career', 'labor', 'manager', 'role', 'workplace', 'hiring', 'organization'],
   },
   {
-    theme: 'Technology',
+    field: 'Tech',
     type: 'technology',
-    keywords: ['ai', 'technology', 'tool', 'automation', 'system', 'digital'],
+    keywords: ['ai', 'technology', 'tech', 'tool', 'automation', 'digital', 'platform', 'data', 'system'],
   },
   {
-    theme: 'Service',
+    field: 'Trust',
     type: 'service',
-    keywords: ['service', 'serve', 'help', 'people', 'community', 'support'],
+    keywords: ['trust', 'proof', 'evidence', 'credibility', 'claim', 'claims', 'customer', 'believe', 'verify', 'rely'],
+  },
+  {
+    field: 'Money',
+    type: 'service',
+    keywords: ['cost', 'price', 'debt', 'loan', 'funding', 'investment', 'affordability', 'capital', 'financial'],
+  },
+  {
+    field: 'Market',
+    type: 'work',
+    keywords: ['market', 'consumer', 'customer', 'demand', 'competition', 'founder', 'startup', 'venture'],
+  },
+  {
+    field: 'Policy',
+    type: 'leadership',
+    keywords: ['policy', 'law', 'rule', 'regulation', 'federal', 'government', 'institutional'],
+  },
+  {
+    field: 'People',
+    type: 'leadership',
+    keywords: ['people', 'leadership', 'culture', 'service', 'dignity', 'agency', 'support', 'community'],
   },
 ];
 
-const fallbackConcepts = ['Service', 'Leadership', 'Learning', 'Work', 'Judgment'];
+const fallbackConcepts = ['School', 'Work', 'Tech', 'Trust', 'Money', 'People'];
 
 function normalize(value: unknown) {
   return String(value ?? '').toLowerCase();
@@ -60,7 +71,8 @@ function normalize(value: unknown) {
 
 function scoreTheme(text: string, keywords: string[]) {
   return keywords.reduce((score, keyword) => {
-    const matches = text.match(new RegExp(`\\b${keyword}\\b`, 'g'));
+    const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const matches = text.match(new RegExp(`\\b${escaped}\\b`, 'g'));
     return score + (matches?.length ?? 0);
   }, 0);
 }
@@ -94,9 +106,9 @@ function importanceFromLevel(level: string, index = 0) {
   return Math.max(48, 72 - index * 6);
 }
 
-function conceptsFromEntry(entry: CollectionEntry<'signals'>, activeThemes: typeof themeKeywords) {
+function conceptsFromEntry(entry: CollectionEntry<'signals'>, activeFields: typeof signalFields) {
   const tags = entry.data.tags.map(titleCase);
-  const fromThemes = activeThemes.map((theme) => theme.theme);
+  const fromFields = activeFields.map((theme) => theme.field);
   const fromTitle = entry.data.title
     .split(/\s+/)
     .map((word) => word.replace(/[^a-zA-Z]/g, ''))
@@ -104,13 +116,13 @@ function conceptsFromEntry(entry: CollectionEntry<'signals'>, activeThemes: type
     .slice(0, 3)
     .map(titleCase);
 
-  return [...fromThemes, ...tags, ...fromTitle, ...fallbackConcepts]
+  return [...fromFields, ...tags, ...fromTitle, ...fallbackConcepts]
     .filter(Boolean)
     .filter((item, index, array) => array.findIndex((candidate) => candidate.toLowerCase() === item.toLowerCase()) === index)
     .slice(0, 7)
     .map((label, index) => ({
       label,
-      type: activeThemes[index % activeThemes.length]?.type ?? 'service',
+      type: activeFields[index % activeFields.length]?.type ?? 'service',
     }));
 }
 
@@ -123,26 +135,28 @@ export function getSignalInsight(entry: CollectionEntry<'signals'>): SignalInsig
     entry.body,
   ].join(' '));
 
-  const rankedThemes = themeKeywords
+  const rankedFields = signalFields
     .map((theme) => ({ ...theme, score: scoreTheme(searchableText, theme.keywords) }))
     .sort((a, b) => b.score - a.score);
 
-  const activeThemes = rankedThemes.filter((theme) => theme.score > 0).slice(0, 4);
-  const themeSet = activeThemes.length ? activeThemes : themeKeywords.slice(0, 4);
-  const primaryTheme = curated?.primaryTheme ?? themeSet[0].theme;
+  const activeFields = rankedFields.filter((theme) => theme.score > 0).slice(0, 4);
+  const fieldSet = activeFields.length ? activeFields : signalFields.slice(0, 4);
+  const primaryTheme = curated?.primaryTheme ?? fieldSet[0].field;
   const bodySignal = firstCallout(entry.body);
 
   return {
     primaryTheme,
     signal: curated?.signal ?? bodySignal ?? entry.data.title,
     micro: curated?.micro ?? entry.data.description,
-    concepts: curated?.concepts ?? conceptsFromEntry(entry, themeSet),
-    lanes: (curated?.lanes ?? themeSet.map((theme, index) => ({
-      label: theme.theme,
+    concepts: curated?.concepts ?? conceptsFromEntry(entry, fieldSet),
+    lanes: (curated?.lanes ?? fieldSet.map((theme, index) => ({
+      label: theme.field,
+      field: theme.field,
       level: index === 0 ? 'Leading' : theme.score > 2 ? 'Rising' : 'Watching',
-      state: `${theme.theme} is a visible theme in this brief.`,
+      state: `${theme.field} is a visible field in this brief.`,
     }))).map((lane, index) => ({
       ...lane,
+      field: lane.field ?? lane.label,
       importance: lane.importance ?? importanceFromLevel(`${lane.level} ${lane.strength ?? ''} ${lane.classification ?? ''}`, index),
     })),
   };
