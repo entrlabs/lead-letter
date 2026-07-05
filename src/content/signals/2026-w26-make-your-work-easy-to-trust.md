@@ -47,7 +47,7 @@ signalInsight:
     - label: "Founders"
       level: "Worth watching"
       state: "Careful customers need proof that the offer is worth the price."
-      importance: 72
+      importance: 74
     - label: "Technology"
       level: "In view"
       state: "AI and new tools raise the value of clear judgment and evidence."
