@@ -10,7 +10,7 @@ interface Props {
 
 const { entry, insight } = Astro.props as Props;
 const concepts = insight.concepts.slice(0, 7);
-const visibleConcepts = concepts.slice(0, 5);
+const visibleConcepts = concepts.slice(0, 4);
 const lanes = insight.lanes.slice(0, 4);
 
 function signalBand(importance: number) {
@@ -60,14 +60,14 @@ const orbitPositions = [
 
 <section class="signal-insight-map reveal" aria-labelledby="latest-signal-map">
   <div class="signal-map-copy">
-    <p class="signal-map-label">Latest Brief Signal</p>
+    <p class="signal-map-label">Latest Signals Brief</p>
     <h2 id="latest-signal-map">Signal Map</h2>
-    <p>A compact reading of the newest brief: the central idea, active themes, and what deserves attention this week.</p>
+    <p>A quick reading of the newest brief: the main signal, the fields it touches, and how strongly each one deserves attention now.</p>
     <a href={`/${entry.slug}/`}>Read the full story</a>
     <div class="signal-map-notes" aria-label="Signal method notes">
       <article>
         <strong>Method</strong>
-        <p>Signal strength follows the lead pattern, lane importance, and how clearly the note points to the next useful move.</p>
+        <p>Signal strength follows the core pattern, lane importance, and how clearly the note points to the next useful move.</p>
       </article>
       <article>
         <strong>Update</strong>
@@ -148,9 +148,9 @@ const orbitPositions = [
           </div>
           <p>{lane.state}</p>
           <div class="signal-priority" aria-label={`${lane.priorityLabel}: ${lane.importance} out of 100`}>
-            <span>{lane.priorityLabel}</span>
+            <span>Priority · {lane.priorityLabel}</span>
             <i><b></b></i>
-            <em>{lane.importance}</em>
+            <em>{lane.importance}/100</em>
           </div>
         </article>
       ))}
@@ -162,7 +162,7 @@ const orbitPositions = [
   .signal-insight-map {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(220px, .34fr) minmax(0, 1fr);
+    grid-template-columns: minmax(220px, .3fr) minmax(0, 1fr);
     gap: clamp(18px, 3vw, 34px);
     margin: clamp(18px, 4vw, 42px) 0 clamp(32px, 6vw, 56px);
     padding: clamp(18px, 3vw, 28px);
@@ -207,16 +207,17 @@ const orbitPositions = [
   }
 
   .signal-map-copy h2 {
-    max-width: 8ch;
+    max-width: 6ch;
     margin-bottom: .32em;
-    font-size: clamp(2rem, 4.2vw, 3.8rem);
+    font-size: clamp(1.9rem, 3.4vw, 3rem);
+    line-height: .95;
   }
 
   .signal-map-copy p:not(.signal-map-label) {
-    max-width: 30ch;
+    max-width: 31ch;
     color: #4f5d78;
-    font-size: .96rem;
-    line-height: 1.48;
+    font-size: .92rem;
+    line-height: 1.42;
   }
 
   .signal-map-copy a {
@@ -241,8 +242,9 @@ const orbitPositions = [
 
   .signal-map-notes {
     display: grid;
+    grid-template-columns: 1fr;
     gap: .48rem;
-    width: min(320px, 100%);
+    width: min(340px, 100%);
     margin-top: .72rem;
   }
 
@@ -281,12 +283,12 @@ const orbitPositions = [
   }
 
   .signal-orbit-card {
-    min-height: clamp(250px, 26vw, 340px);
+    min-height: clamp(232px, 22vw, 300px);
     display: grid;
-    grid-template-columns: minmax(240px, .92fr) minmax(220px, .82fr);
+    grid-template-columns: minmax(300px, 1.14fr) minmax(220px, .76fr);
     align-items: center;
-    gap: clamp(14px, 2vw, 22px);
-    padding: clamp(14px, 2vw, 20px);
+    gap: clamp(12px, 1.8vw, 18px);
+    padding: clamp(14px, 1.8vw, 18px);
     overflow: hidden;
   }
 
@@ -320,15 +322,15 @@ const orbitPositions = [
     margin: 0;
     color: var(--ink);
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 2.6vw, 2.45rem);
-    line-height: 1.02;
+    font-size: clamp(1.34rem, 2.2vw, 2rem);
+    line-height: 1.04;
   }
 
   .signal-orbit-copy p:not(.signal-orbit-label) {
     margin: 0;
     color: #52617c;
-    font-size: .92rem;
-    line-height: 1.42;
+    font-size: .88rem;
+    line-height: 1.36;
   }
 
   .signal-concept-list {
@@ -468,12 +470,14 @@ const orbitPositions = [
 
   .signal-lanes {
     display: grid;
-    gap: 6px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
     padding: clamp(10px, 1.3vw, 13px);
     overflow: hidden;
   }
 
   .signal-lanes-head {
+    grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;
     gap: 16px;
@@ -496,11 +500,11 @@ const orbitPositions = [
     --signal-glow: rgba(91, 140, 255, .46);
     position: relative;
     display: grid;
-    grid-template-columns: minmax(112px, .38fr) minmax(0, 1fr) minmax(128px, .32fr);
+    grid-template-columns: minmax(104px, .34fr) minmax(0, 1fr) minmax(132px, .34fr);
     align-items: center;
-    gap: clamp(10px, 2vw, 18px);
-    min-height: 54px;
-    padding: .58rem .72rem;
+    gap: clamp(10px, 1.6vw, 14px);
+    min-height: 0;
+    padding: .62rem .74rem;
     overflow: hidden;
     border: 1px solid rgba(46, 91, 208, .13);
     border-radius: 10px;
@@ -530,21 +534,21 @@ const orbitPositions = [
   .signal-strip-main strong {
     color: var(--ink);
     font-family: var(--font-label);
-    font-size: .86rem;
+    font-size: .8rem;
     letter-spacing: .01em;
   }
 
   .signal-strip-main span {
     color: var(--signal-deep);
-    font-size: .62rem;
-    letter-spacing: .13em;
+    font-size: .58rem;
+    letter-spacing: .12em;
   }
 
   .signal-strip p {
     margin: 0;
     color: #4d5a74;
-    font-size: .84rem;
-    line-height: 1.26;
+    font-size: .8rem;
+    line-height: 1.22;
   }
 
   .signal-priority {
@@ -671,6 +675,10 @@ const orbitPositions = [
     .signal-orbit-card {
       grid-template-columns: 1fr;
     }
+
+    .signal-lanes {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 640px) {
@@ -686,6 +694,7 @@ const orbitPositions = [
       width: 122%;
     }
 
+    .signal-map-notes,
     .signal-lanes-head,
     .signal-strip {
       grid-template-columns: 1fr;
