@@ -6,29 +6,39 @@ const { variant = 'full' } = Astro.props as Props;
 ---
 
 {variant === 'full' && (
-  <section class="hyoh-band">
-    <p class="kicker">Related Reading · The ENTR Family</p>
-    <p class="hyoh-copy">
-      For readers thinking more deeply about education, career agency, and building a path of their own,
-      <strong> HYOH Career Compass</strong> explores how learning becomes direction, work, and self-leadership.
-    </p>
-    <a class="hyoh-link" href="https://hyoh.substack.com" target="_blank" rel="noopener">Explore HYOH Career Compass →</a>
+  <section class="hyoh-band reveal" aria-labelledby="hyoh-heading">
+    <div class="hyoh-pathway" aria-hidden="true">
+      <span>Explore</span>
+      <span>Learn</span>
+      <span>Build</span>
+    </div>
+    <div class="hyoh-copy-wrap">
+      <p class="hyoh-label">Career Pathway Option</p>
+      <h2 id="hyoh-heading">For students and young professionals finding direction</h2>
+      <p class="hyoh-copy">
+        <strong>HYOH Career Compass</strong> is for people trying to connect education, work, and purpose into a profession they can actually build.
+      </p>
+    </div>
+    <a class="hyoh-link" href="https://hyoh.substack.com" target="_blank" rel="noopener">Explore HYOH Career Compass</a>
   </section>
 )}
 
 {variant === 'quiet' && (
-  <p class="hyoh-quiet">
-    Exploring education, career agency, and self-leadership?
-    <a href="https://hyoh.substack.com" target="_blank" rel="noopener"> Read HYOH Career Compass.</a>
-  </p>
+  <aside class="hyoh-quiet" aria-label="HYOH Career Compass">
+    <span>Career pathway option</span>
+    <p>
+      Exploring education, career agency, or your next professional direction?
+      <a href="https://hyoh.substack.com" target="_blank" rel="noopener"> Read HYOH Career Compass.</a>
+    </p>
+  </aside>
 )}
 
 {variant === 'cta' && (
-  <div class="hyoh-cta">
-    <p class="kicker">Continue the Thread</p>
+  <aside class="hyoh-cta" aria-label="HYOH Career Compass">
+    <p class="hyoh-label">Career Pathway Option</p>
     <p>
-      If this letter raised questions about education, career agency, or forging your own path, continue with
-      <a href="https://hyoh.substack.com" target="_blank" rel="noopener"> HYOH Career Compass</a>.
+      If this brief raised questions about education, career agency, or forging your own professional path,
+      <a href="https://hyoh.substack.com" target="_blank" rel="noopener"> continue with HYOH Career Compass</a>.
     </p>
-  </div>
+  </aside>
 )}
