@@ -56,6 +56,7 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
@@ -100,31 +101,40 @@ const structuredData = {
         lastY = nextY;
       }, { passive: true });
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.14 });
+      const revealItems = Array.from(document.querySelectorAll('.reveal'));
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
 
-      document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
+        revealItems.forEach((item) => observer.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
+      }
 
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       document.querySelectorAll('a[href]').forEach((link) => {
         link.addEventListener('click', (event) => {
+          if (reduceMotion) return;
+
           const anchor = event.currentTarget;
           const href = anchor.getAttribute('href');
           if (!href || href.startsWith('#') || anchor.target || anchor.hasAttribute('download')) return;
 
           const next = new URL(href, window.location.href);
-          if (next.origin !== window.location.origin || next.pathname === window.location.pathname && next.hash) return;
+          const samePageHash = next.pathname === window.location.pathname && next.hash;
+          if (next.origin !== window.location.origin || samePageHash) return;
 
           event.preventDefault();
           document.documentElement.classList.add('page-leaving');
           window.setTimeout(() => {
-            window.location.href = next.href;
-          }, 180);
+            window.location.assign(next.href);
+          }, 120);
         });
       });
     </script>
