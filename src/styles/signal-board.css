@@ -26,6 +26,7 @@
 .signal-board {
   position: relative;
   display: grid;
+  max-width: 100vw;
   gap: clamp(1rem, 2vw, 1.35rem);
   margin: clamp(4px, 1vw, 12px) calc(50% - 50vw) clamp(42px, 6vw, 74px);
   padding: clamp(22px, 3.4vw, 38px) max(22px, calc((100vw - var(--container)) / 2));
@@ -67,11 +68,13 @@
 .signal-board > * {
   position: relative;
   z-index: 1;
+  min-width: 0;
 }
 
 .signal-board-stream {
   display: flex;
   width: max-content;
+  max-width: none;
   gap: 0.72rem;
   color: rgba(46, 91, 208, 0.72);
   font-family: var(--font-label);
@@ -164,6 +167,7 @@
   grid-template-areas: "gauge analysis map";
   gap: 0.78rem;
   align-items: stretch;
+  min-width: 0;
 }
 
 .signal-gauge,
@@ -171,6 +175,7 @@
 .signal-lane-card {
   position: relative;
   overflow: hidden;
+  min-width: 0;
   border: 1px solid rgba(46, 91, 208, 0.18);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.76);
@@ -330,6 +335,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.78rem;
+  min-width: 0;
 }
 
 .signal-lane-card {
@@ -563,6 +569,10 @@
   .lane-card-header,
   .lane-meta {
     gap: 0.55rem;
+  }
+
+  .lane-card-header {
+    flex-wrap: wrap;
   }
 
   .lane-trend {
