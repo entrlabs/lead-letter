@@ -9,26 +9,29 @@ interface Props {
 }
 
 const { entry, insight } = Astro.props as Props;
-const concepts = insight.concepts.slice(0, 4);
 const lanes = insight.lanes.slice(0, 4);
 
 function signalBand(importance: number) {
-  if (importance >= 90) return { className: 'signal-band-90', label: 'Prime signal' };
-  if (importance >= 85) return { className: 'signal-band-85', label: 'Strong signal' };
-  if (importance >= 80) return { className: 'signal-band-80', label: 'High signal' };
-  if (importance >= 75) return { className: 'signal-band-75', label: 'Active signal' };
-  if (importance >= 70) return { className: 'signal-band-70', label: 'Emerging signal' };
-  if (importance >= 65) return { className: 'signal-band-65', label: 'Watch signal' };
-  if (importance >= 60) return { className: 'signal-band-60', label: 'Low signal' };
-  return { className: 'signal-band-55', label: 'Background signal' };
+  if (importance >= 90) return { className: 'signal-band-90', label: 'Prime' };
+  if (importance >= 85) return { className: 'signal-band-85', label: 'Strong' };
+  if (importance >= 80) return { className: 'signal-band-80', label: 'High' };
+  if (importance >= 75) return { className: 'signal-band-75', label: 'Active' };
+  if (importance >= 70) return { className: 'signal-band-70', label: 'Emerging' };
+  if (importance >= 65) return { className: 'signal-band-65', label: 'Watch' };
+  if (importance >= 60) return { className: 'signal-band-60', label: 'Quiet' };
+  return { className: 'signal-band-55', label: 'Background' };
 }
 
 const signalRows = lanes.map((lane, index) => {
-  const importance = Math.min(100, Math.max(0, lane.importance ?? 72 - index * 6));
+  const importance = Math.min(100, Math.max(0, lane.importance ?? 76 - index * 6));
   const band = signalBand(importance);
+  const duration = Math.max(4.2, 9.6 - importance / 18).toFixed(1);
+
   return {
     ...lane,
     importance,
+    duration,
+    delay: (index * -1.25).toFixed(1),
     priorityLabel: band.label,
     bandClass: band.className,
   };
@@ -40,41 +43,99 @@ function pickLane(matchers: string[], fallbackIndex: number) {
   ) ?? signalRows[fallbackIndex] ?? signalRows[0];
 }
 
+function compactState(value?: string) {
+  if (!value) return 'A visible pressure point in this week\'s brief.';
+  return value.length > 88 ? `${value.slice(0, 85).trim()}...` : value;
+}
+
 const schoolLane = pickLane(['education', 'learning', 'student', 'school'], 0);
+const trustLane = pickLane(['trust', 'founder', 'customer', 'proof'], 2);
 const workLane = pickLane(['work', 'organization', 'team', 'role'], 1);
 const techLane = pickLane(['technology', 'tech', 'ai', 'tool', 'system'], signalRows.length - 1);
-const trustLabel = /trust/i.test(insight.primaryTheme) ? 'Trust' : insight.primaryTheme;
 
-const visualNodes = [
-  {
-    key: 'trust',
-    label: trustLabel,
-    support: concepts[0]?.label ?? 'Signal',
-    positionClass: 'node-top',
-    toneClass: 'node-azure',
-  },
+const sourceRows = [
   {
     key: 'school',
     label: 'School',
-    support: schoolLane?.state ?? 'Learning needs translation into visible proof.',
-    positionClass: 'node-left',
-    toneClass: 'node-indigo',
+    lane: schoolLane,
+    tone: 'source-indigo',
+    pathClass: 'route-school',
+    packetClass: 'packet-indigo',
+    path: 'M20 82 C122 72 204 122 278 190',
+  },
+  {
+    key: 'trust',
+    label: /trust/i.test(insight.primaryTheme) ? 'Trust' : insight.primaryTheme,
+    lane: trustLane,
+    tone: 'source-azure',
+    pathClass: 'route-trust',
+    packetClass: 'packet-azure',
+    path: 'M20 164 C126 148 206 168 282 204',
   },
   {
     key: 'work',
     label: 'Work',
-    support: workLane?.state ?? 'Work needs translation into reliable practice.',
-    positionClass: 'node-right',
-    toneClass: 'node-violet',
+    lane: workLane,
+    tone: 'source-violet',
+    pathClass: 'route-work',
+    packetClass: 'packet-violet',
+    path: 'M20 258 C118 274 204 254 282 222',
   },
   {
     key: 'tech',
     label: 'Tech',
-    support: techLane?.state ?? 'Technology needs translation into judgment.',
-    positionClass: 'node-bottom',
-    toneClass: 'node-gold',
+    lane: techLane,
+    tone: 'source-gold',
+    pathClass: 'route-tech',
+    packetClass: 'packet-gold',
+    path: 'M20 340 C116 360 200 304 278 238',
   },
 ];
+
+const conceptPositions = [
+  { x: 50, y: 11 },
+  { x: 77, y: 25 },
+  { x: 83, y: 53 },
+  { x: 64, y: 82 },
+  { x: 36, y: 82 },
+  { x: 17, y: 53 },
+  { x: 23, y: 25 },
+];
+
+const conceptPalette: Record<string, { accent: string; soft: string; deep: string }> = {
+  service: { accent: '#5B8CFF', soft: '#DCE6FF', deep: '#2E5BD0' },
+  leadership: { accent: '#6E74F0', soft: '#E7E9FF', deep: '#3840BD' },
+  learning: { accent: '#A06CF0', soft: '#F0E6FF', deep: '#6C36C2' },
+  work: { accent: '#C9A35E', soft: '#FFF1C9', deep: '#8C6526' },
+  technology: { accent: '#5B8CFF', soft: '#DCE6FF', deep: '#2E5BD0' },
+};
+
+function paletteFor(type: string) {
+  return conceptPalette[type.toLowerCase()] ?? conceptPalette.service;
+}
+
+function conceptPath(xPercent: number, yPercent: number, index: number) {
+  const x = Math.round(xPercent * 6);
+  const y = Math.round(yPercent * 4.2);
+  const controlX = Math.round((300 + x) / 2 + (index % 2 === 0 ? 22 : -22));
+  const controlY = Math.round((210 + y) / 2 + (index < 3 ? -20 : 24));
+  return `M300 210 Q${controlX} ${controlY} ${x} ${y}`;
+}
+
+const conceptNodes = insight.concepts.slice(0, 7).map((concept, index) => {
+  const position = conceptPositions[index] ?? conceptPositions[0];
+  const palette = paletteFor(concept.type);
+
+  return {
+    ...concept,
+    ...position,
+    palette,
+    delay: `${index * 0.24}s`,
+    line: conceptPath(position.x, position.y, index),
+  };
+});
+
+const outputPath = 'M324 210 C404 202 498 204 580 210';
 ---
 
 <section class="signal-insight-map reveal" aria-labelledby="latest-signal-map">
@@ -83,86 +144,131 @@ const visualNodes = [
       <p class="signal-map-label">Latest Signals Brief</p>
       <h2 id="latest-signal-map">Signal Map</h2>
     </div>
-    <p class="signal-map-intro">A live visual read of the newest brief: where pressure is building, what it is touching, and what needs translation into action.</p>
+    <p class="signal-map-intro">A live reading of the week: source pressure enters, judgment translates it, and the brief leaves one path worth acting on.</p>
     <a href={`/${entry.slug}/`}>Read the full story</a>
   </div>
 
-  <div class="signal-map-stage">
-    <div class="signal-map-canvas" aria-label={`Signal field for ${entry.data.title}`}>
-      <svg viewBox="0 0 1200 420" role="img">
-        <title>{`Signal field for ${entry.data.title}`}</title>
+  <div class="signal-engine" aria-label={`Signal map for ${entry.data.title}`}>
+    <div class="source-column" aria-label="Weekly signal sources">
+      {sourceRows.map((row) => (
+        <article
+          class={`source-card ${row.tone} ${row.lane.bandClass}`}
+          style={`--score:${row.lane.importance}%; --delay:${row.lane.delay}s;`}
+        >
+          <div class="source-card-head">
+            <span>{row.label}</span>
+            <em>{row.lane.importance}</em>
+          </div>
+          <div class="source-card-body">
+            <strong>{row.lane.level}</strong>
+            <p>{compactState(row.lane.state)}</p>
+          </div>
+          <i aria-hidden="true"><b></b></i>
+        </article>
+      ))}
+    </div>
+
+    <div class="signal-theater">
+      <svg class="signal-stage-art" viewBox="0 0 600 420" role="img">
+        <title>{`Signal translation map for ${entry.data.title}`}</title>
         <desc>{insight.signal}</desc>
         <defs>
-          <radialGradient id="field-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#9DB8FF" stop-opacity=".34" />
-            <stop offset="55%" stop-color="#5B8CFF" stop-opacity=".12" />
-            <stop offset="100%" stop-color="#2E5BD0" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient id="flow-line" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(91,140,255,.08)" />
-            <stop offset="50%" stop-color="rgba(91,140,255,.82)" />
-            <stop offset="100%" stop-color="rgba(91,140,255,.08)" />
+          <linearGradient id="route-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#9DB8FF" stop-opacity=".2" />
+            <stop offset="52%" stop-color="#5B8CFF" stop-opacity=".9" />
+            <stop offset="100%" stop-color="#2E5BD0" stop-opacity=".28" />
           </linearGradient>
+          <radialGradient id="core-fill" cx="50%" cy="50%" r="62%">
+            <stop offset="0%" stop-color="#FFFFFF" />
+            <stop offset="58%" stop-color="#E5ECFF" />
+            <stop offset="100%" stop-color="#9DB8FF" stop-opacity=".18" />
+          </radialGradient>
+          <filter id="map-glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.36 0 0 0 0 0.55 0 0 0 0 1 0 0 0 .58 0" />
+            <feMerge>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
 
-        <rect class="field-frame" x="18" y="18" width="1164" height="384" rx="24" />
-        <rect class="field-grid" x="74" y="74" width="1052" height="272" rx="16" />
-        <path class="field-grid-lines" d="M160 74V346M292 74V346M424 74V346M556 74V346M688 74V346M820 74V346M952 74V346M1084 74V346M74 128H1126M74 182H1126M74 236H1126M74 290H1126" />
+        <rect class="stage-frame" x="12" y="12" width="576" height="396" rx="24" />
+        <path class="stage-grid" d="M48 66H552M48 126H552M48 186H552M48 246H552M48 306H552M48 366H552M96 42V378M168 42V378M240 42V378M312 42V378M384 42V378M456 42V378M528 42V378" />
+        <path class="stage-scan" d="M86 368 L514 50" />
 
-        <circle class="field-halo" cx="600" cy="210" r="128" />
-        <path class="field-connector connector-top" d="M600 210 C600 182 600 150 600 114" />
-        <path class="field-connector connector-left" d="M600 210 C516 210 402 210 248 210" />
-        <path class="field-connector connector-right" d="M600 210 C684 210 798 210 952 210" />
-        <path class="field-connector connector-bottom" d="M600 210 C600 238 600 270 600 306" />
+        {sourceRows.map((row) => (
+          <>
+            <path class={`signal-route-under ${row.pathClass}`} d={row.path} />
+            <path class={`signal-route ${row.pathClass}`} d={row.path} style={`--route-weight:${row.lane.importance};`} />
+            <g class={`signal-courier ${row.packetClass}`} filter="url(#map-glow)">
+              <path d="M0 -9 L9 0 L0 9 L-9 0Z" />
+              <path class="courier-tail" d="M-26 0H-9" />
+              <animateMotion dur={`${row.lane.duration}s`} begin={`${row.lane.delay}s`} repeatCount="indefinite" path={row.path} rotate="auto" />
+            </g>
+          </>
+        ))}
 
-        <circle class="field-pulse pulse-top" cx="600" cy="114" r="10" />
-        <circle class="field-pulse pulse-left" cx="248" cy="210" r="10" />
-        <circle class="field-pulse pulse-right" cx="952" cy="210" r="10" />
-        <circle class="field-pulse pulse-bottom" cx="600" cy="306" r="10" />
+        {conceptNodes.map((node) => (
+          <path
+            class="concept-line"
+            d={node.line}
+            style={`--accent:${node.palette.accent}; --delay:${node.delay};`}
+          />
+        ))}
 
-        <g class="field-core">
-          <circle cx="600" cy="210" r="54" />
-          <path d="M600 142 666 210 600 278 534 210Z" />
-          <path d="M600 174 636 210 600 246 564 210Z" />
+        <path class="output-route-under" d={outputPath} />
+        <path class="output-route" d={outputPath} />
+        <g class="output-courier" filter="url(#map-glow)">
+          <rect x="-14" y="-6" width="28" height="12" rx="6" />
+          <path d="M17 0H43" />
+          <animateMotion dur="4.7s" repeatCount="indefinite" path={outputPath} rotate="auto" />
+        </g>
+
+        <g class="core-orbit">
+          <circle cx="300" cy="210" r="92" />
+          <circle cx="300" cy="210" r="66" />
+          <circle cx="300" cy="210" r="38" />
+        </g>
+        <g class="core-mark" filter="url(#map-glow)">
+          <circle cx="300" cy="210" r="58" />
+          <path d="M300 132 370 210 300 288 230 210Z" />
+          <path d="M300 173 334 210 300 247 266 210Z" />
         </g>
       </svg>
 
-      <div class="field-node field-node-center">
-        <span class="field-node-eyebrow">Center</span>
-        <strong>People</strong>
-        <p>Broad signals only become useful when someone turns them into a next step.</p>
+      {conceptNodes.map((node) => (
+        <span
+          class="concept-node"
+          style={`--x:${node.x}%; --y:${node.y}%; --accent:${node.palette.accent}; --soft:${node.palette.soft}; --deep:${node.palette.deep}; --delay:${node.delay};`}
+        >
+          {node.label}
+        </span>
+      ))}
+
+      <div class="core-caption">
+        <strong>Judgment</strong>
+        <span>Translation Core</span>
       </div>
-
-      {visualNodes.map((node) => (
-        <article class={`field-node ${node.positionClass} ${node.toneClass}`}>
-          <span class="field-node-eyebrow">Signal</span>
-          <strong>{node.label}</strong>
-          <p>{node.support}</p>
-        </article>
-      ))}
     </div>
 
-    <div class="signal-map-caption">
-      <p>This week's map shows the same pressure across school, trust, work, and tech: signals need translation before they become useful.</p>
-      <span>{formatIssue(entry.data.issue)} · {formatDate(entry.data.date)}</span>
-    </div>
+    <article class="action-column">
+      <span class="action-kicker">Action Path</span>
+      <strong>{insight.signal}</strong>
+      <p>{insight.micro}</p>
+      <div class="action-sequence" aria-hidden="true">
+        <span>Read</span>
+        <i></i>
+        <span>Translate</span>
+        <i></i>
+        <span>Act</span>
+      </div>
+    </article>
+  </div>
 
-    <div class="signal-lanes" aria-label="Current signals in this brief">
-      {signalRows.map((lane, index) => (
-        <article class={`signal-strip ${lane.bandClass}`} style={`--i:${index}; --importance:${lane.importance}; --importance-pct:${lane.importance}%`}>
-          <div class="signal-strip-main">
-            <strong>{lane.label}</strong>
-            <span>{lane.level}</span>
-          </div>
-          <p>{lane.state}</p>
-          <div class="signal-priority" aria-label={`${lane.priorityLabel}: ${lane.importance} out of 100`}>
-            <span>Priority · {lane.priorityLabel}</span>
-            <i><b></b></i>
-            <em>{lane.importance}/100</em>
-          </div>
-        </article>
-      ))}
-    </div>
+  <div class="signal-footer-line">
+    <span>{formatIssue(entry.data.issue)} · {formatDate(entry.data.date)}</span>
+    <p>Same system every week, new signal each issue.</p>
   </div>
 </section>
 
@@ -170,15 +276,16 @@ const visualNodes = [
   .signal-insight-map {
     position: relative;
     display: grid;
-    gap: clamp(18px, 3vw, 28px);
+    gap: clamp(16px, 3vw, 24px);
     margin: clamp(18px, 4vw, 42px) 0 clamp(32px, 6vw, 56px);
     padding: clamp(18px, 3vw, 28px);
     overflow: hidden;
     border: 1px solid rgba(46, 91, 208, .22);
     border-radius: 18px;
     background:
-      radial-gradient(circle at 76% 18%, rgba(91, 140, 255, .18), transparent 22rem),
-      linear-gradient(135deg, rgba(255, 255, 255, .94), rgba(239, 244, 255, .8));
+      radial-gradient(circle at 74% 20%, rgba(91, 140, 255, .18), transparent 23rem),
+      radial-gradient(circle at 24% 76%, rgba(160, 108, 240, .1), transparent 20rem),
+      linear-gradient(135deg, rgba(255, 255, 255, .96), rgba(240, 245, 255, .9));
     box-shadow: 0 26px 90px rgba(46, 91, 208, .14), 0 0 0 1px rgba(255, 255, 255, .82) inset;
   }
 
@@ -186,30 +293,34 @@ const visualNodes = [
     content: "";
     position: absolute;
     inset: 9px;
-    border: 1px solid rgba(46, 91, 208, .12);
+    border: 1px solid rgba(46, 91, 208, .11);
     border-radius: 12px;
     pointer-events: none;
   }
 
   .signal-map-copy,
-  .signal-map-stage {
+  .signal-engine,
+  .signal-footer-line {
     position: relative;
     z-index: 1;
   }
 
   .signal-map-copy {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(320px, .95fr) auto;
+    grid-template-columns: minmax(190px, .42fr) minmax(320px, 1fr) auto;
     align-items: end;
     gap: clamp(14px, 2vw, 22px);
   }
 
   .signal-map-label,
   .signal-map-copy a,
-  .signal-priority,
-  .signal-strip-main span,
-  .field-node-eyebrow,
-  .signal-map-caption span {
+  .source-card-head,
+  .source-card-body strong,
+  .concept-node,
+  .core-caption span,
+  .action-kicker,
+  .action-sequence,
+  .signal-footer-line {
     font-family: var(--font-label);
     font-weight: 800;
     text-transform: uppercase;
@@ -229,6 +340,7 @@ const visualNodes = [
   }
 
   .signal-map-intro {
+    max-width: 60ch;
     margin: 0;
     color: #4f5d78;
     font-size: .95rem;
@@ -251,373 +363,516 @@ const visualNodes = [
     white-space: nowrap;
   }
 
-  .signal-map-stage {
+  .signal-engine {
     display: grid;
-    gap: 14px;
+    grid-template-columns: minmax(190px, .82fr) minmax(430px, 1.46fr) minmax(230px, .9fr);
+    gap: clamp(14px, 2.2vw, 24px);
+    align-items: stretch;
   }
 
-  .signal-map-canvas {
-    position: relative;
-    min-height: clamp(360px, 42vw, 520px);
-    overflow: hidden;
-    border: 1px solid rgba(46, 91, 208, .18);
-    border-radius: 18px;
-    background:
-      radial-gradient(circle at 50% 50%, rgba(91, 140, 255, .16), transparent 20rem),
-      linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(242, 246, 255, .84));
-    box-shadow: 0 18px 48px rgba(46, 91, 208, .1);
-  }
-
-  .signal-map-canvas svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .field-frame {
-    fill: rgba(255, 255, 255, .34);
-    stroke: rgba(46, 91, 208, .18);
-  }
-
-  .field-grid {
-    fill: rgba(255, 255, 255, .48);
-    stroke: rgba(46, 91, 208, .12);
-  }
-
-  .field-grid-lines {
-    fill: none;
-    stroke: rgba(46, 91, 208, .08);
-    stroke-width: 1;
-  }
-
-  .field-halo {
-    fill: url(#field-glow);
-    animation: fieldBreath 3.4s ease-in-out infinite;
-  }
-
-  .field-connector {
-    fill: none;
-    stroke: rgba(91, 140, 255, .56);
-    stroke-width: 3.2;
-    stroke-linecap: round;
-    stroke-dasharray: 14 18;
-    animation: connectorMove 10s linear infinite;
-  }
-
-  .connector-left,
-  .connector-right {
-    animation-duration: 8s;
-  }
-
-  .field-pulse {
-    fill: rgba(91, 140, 255, .9);
-    stroke: rgba(255, 255, 255, .9);
-    stroke-width: 4;
-    animation: nodePulse 2.8s ease-in-out infinite;
-  }
-
-  .pulse-left { fill: var(--indigo); }
-  .pulse-right { fill: var(--violet); }
-  .pulse-bottom { fill: var(--gold); }
-
-  .field-core circle {
-    fill: rgba(255, 255, 255, .86);
-    stroke: rgba(46, 91, 208, .16);
-  }
-
-  .field-core path:first-of-type {
-    fill: rgba(255, 255, 255, .96);
-    stroke: rgba(46, 91, 208, .78);
-    stroke-width: 4;
-  }
-
-  .field-core path:last-of-type {
-    fill: var(--azure-deep);
-    animation: coreFloat 4.4s ease-in-out infinite;
-  }
-
-  .field-node {
-    position: absolute;
+  .source-column {
     display: grid;
-    gap: .34rem;
-    width: min(250px, 24vw);
-    padding: .9rem 1rem;
-    border: 1px solid rgba(46, 91, 208, .18);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, .84);
-    box-shadow: 0 16px 32px rgba(46, 91, 208, .1);
-    backdrop-filter: blur(10px);
+    gap: 10px;
+    align-content: center;
   }
 
-  .field-node-eyebrow {
-    color: var(--azure-deep);
-    font-size: .56rem;
-    letter-spacing: .14em;
-  }
-
-  .field-node strong {
-    color: var(--ink);
-    font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.8vw, 1.45rem);
-    line-height: 1;
-  }
-
-  .field-node p {
-    margin: 0;
-    color: #4d5a74;
-    font-size: .82rem;
-    line-height: 1.34;
-  }
-
-  .field-node-center {
-    left: 50%;
-    top: 50%;
-    width: min(300px, 28vw);
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-
-  .field-node-center .field-node-eyebrow {
-    justify-self: center;
-  }
-
-  .node-top {
-    left: 50%;
-    top: 8%;
-    transform: translateX(-50%);
-  }
-
-  .node-left {
-    left: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .node-right {
-    right: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .node-bottom {
-    left: 50%;
-    bottom: 8%;
-    transform: translateX(-50%);
-  }
-
-  .node-azure { border-color: rgba(91, 140, 255, .24); }
-  .node-indigo { border-color: rgba(110, 116, 240, .24); }
-  .node-violet { border-color: rgba(160, 108, 240, .24); }
-  .node-gold { border-color: rgba(201, 163, 94, .26); }
-
-  .signal-map-caption {
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    align-items: flex-start;
-    padding: 0 4px;
-  }
-
-  .signal-map-caption p {
-    max-width: 66ch;
-    margin: 0;
-    color: #4d5a74;
-    font-size: .94rem;
-    line-height: 1.42;
-  }
-
-  .signal-map-caption span {
-    color: #6a7893;
-    font-size: .66rem;
-    letter-spacing: .14em;
-    white-space: nowrap;
-  }
-
-  .signal-lanes {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .signal-strip {
+  .source-card {
     --signal-accent: var(--azure);
     --signal-soft: var(--azure-soft);
     --signal-deep: var(--azure-deep);
-    --signal-wash: rgba(91, 140, 255, .13);
-    --signal-glow: rgba(91, 140, 255, .46);
     position: relative;
     display: grid;
-    grid-template-columns: minmax(104px, .34fr) minmax(0, 1fr) minmax(132px, .34fr);
-    align-items: center;
-    gap: clamp(10px, 1.6vw, 14px);
-    min-height: 0;
-    padding: .7rem .8rem;
+    gap: .44rem;
+    min-height: 96px;
+    padding: .74rem .78rem;
     overflow: hidden;
-    border: 1px solid rgba(46, 91, 208, .13);
-    border-radius: 10px;
+    border: 1px solid rgba(46, 91, 208, .16);
+    border-radius: 14px;
     background:
-      linear-gradient(90deg, var(--signal-wash), transparent var(--importance-pct)),
-      rgba(255, 255, 255, .72);
-    box-shadow: 0 10px 24px rgba(46, 91, 208, .07);
-    opacity: 0;
-    animation: laneReveal .72s ease both;
-    animation-delay: calc(var(--i) * 90ms + 180ms);
+      linear-gradient(90deg, color-mix(in srgb, var(--signal-soft) 26%, transparent), transparent 42%),
+      rgba(255, 255, 255, .84);
+    box-shadow: 0 14px 28px rgba(46, 91, 208, .08);
+    backdrop-filter: blur(10px);
+    animation: sourceWake 5.8s ease-in-out infinite;
+    animation-delay: var(--delay);
   }
 
-  .signal-strip::before {
+  .source-card::before {
     content: "";
     position: absolute;
     inset: 0 auto 0 0;
     width: 3px;
-    background: linear-gradient(180deg, var(--signal-accent), var(--signal-deep));
-    opacity: .9;
+    background: linear-gradient(180deg, var(--signal-soft), var(--signal-accent), var(--signal-deep));
   }
 
-  .signal-strip-main {
-    display: grid;
-    gap: 2px;
+  .source-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 0 38%, rgba(255, 255, 255, .5) 48%, transparent 58% 100%);
+    transform: translateX(-130%);
+    animation: cardScan 6.6s ease-in-out infinite;
+    animation-delay: calc(var(--delay) + .4s);
   }
 
-  .signal-strip-main strong {
-    color: var(--ink);
-    font-family: var(--font-label);
-    font-size: .8rem;
-    letter-spacing: .01em;
+  .source-indigo { --signal-accent: var(--indigo); --signal-soft: var(--indigo-soft); --signal-deep: var(--indigo-deep); }
+  .source-azure { --signal-accent: var(--azure); --signal-soft: var(--azure-soft); --signal-deep: var(--azure-deep); }
+  .source-violet { --signal-accent: var(--violet); --signal-soft: var(--violet-soft); --signal-deep: var(--violet-deep); }
+  .source-gold { --signal-accent: var(--gold); --signal-soft: var(--gold-soft); --signal-deep: var(--gold-deep); }
+
+  .source-card-head,
+  .source-card-body,
+  .source-card i {
+    position: relative;
+    z-index: 1;
   }
 
-  .signal-strip-main span {
+  .source-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
     color: var(--signal-deep);
-    font-size: .58rem;
-    letter-spacing: .12em;
+    font-size: .62rem;
+    letter-spacing: .13em;
   }
 
-  .signal-strip p {
+  .source-card-head em {
+    display: inline-grid;
+    place-items: center;
+    min-width: 2.1rem;
+    min-height: 1.3rem;
+    border: 1px solid color-mix(in srgb, var(--signal-accent) 34%, transparent);
+    border-radius: 999px;
+    color: var(--ink);
+    font-style: normal;
+    background: rgba(255, 255, 255, .58);
+  }
+
+  .source-card-body {
+    display: grid;
+    gap: .18rem;
+  }
+
+  .source-card-body strong {
+    color: var(--ink);
+    font-size: .73rem;
+    letter-spacing: .08em;
+  }
+
+  .source-card-body p {
     margin: 0;
     color: #4d5a74;
-    font-size: .8rem;
-    line-height: 1.22;
+    font-size: .78rem;
+    line-height: 1.25;
   }
 
-  .signal-priority {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 5px 8px;
-    color: var(--signal-deep);
-    font-size: .6rem;
-    letter-spacing: .1em;
-  }
-
-  .signal-priority i {
-    grid-column: 1 / -1;
-    position: relative;
-    height: 5px;
+  .source-card i {
+    height: 4px;
     overflow: hidden;
     border-radius: 999px;
     background: rgba(46, 91, 208, .12);
   }
 
-  .signal-priority b {
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: var(--importance-pct);
+  .source-card b {
+    display: block;
+    width: var(--score);
+    height: 100%;
     border-radius: inherit;
     background: linear-gradient(90deg, var(--signal-soft), var(--signal-accent), var(--signal-deep));
-    box-shadow: 0 0 14px var(--signal-glow);
+    box-shadow: 0 0 14px rgba(91, 140, 255, .36);
     transform-origin: left center;
     animation: priorityFill 1.1s cubic-bezier(.2, .7, .2, 1) both;
-    animation-delay: calc(var(--i) * 90ms + 300ms);
   }
 
-  .signal-priority em {
+  .signal-theater {
+    position: relative;
+    min-height: 430px;
+    overflow: hidden;
+    border: 1px solid rgba(46, 91, 208, .18);
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(91, 140, 255, .18), transparent 13rem),
+      radial-gradient(circle at 32% 28%, rgba(160, 108, 240, .1), transparent 13rem),
+      linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(241, 246, 255, .84));
+    box-shadow: 0 18px 48px rgba(46, 91, 208, .1);
+    isolation: isolate;
+  }
+
+  .signal-theater::before {
+    content: "";
+    position: absolute;
+    inset: 21%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent, rgba(91, 140, 255, .2), transparent, rgba(160, 108, 240, .18), transparent);
+    filter: blur(12px);
+    opacity: .74;
+    animation: chamberTurn 18s linear infinite;
+  }
+
+  .signal-stage-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .stage-frame {
+    fill: rgba(255, 255, 255, .32);
+    stroke: rgba(46, 91, 208, .14);
+  }
+
+  .stage-grid {
+    fill: none;
+    stroke: rgba(46, 91, 208, .065);
+    stroke-width: 1;
+  }
+
+  .stage-scan {
+    fill: none;
+    stroke: rgba(157, 184, 255, .26);
+    stroke-linecap: round;
+    stroke-width: 36;
+    animation: scanSweep 8s ease-in-out infinite;
+  }
+
+  .signal-route-under,
+  .signal-route,
+  .concept-line,
+  .output-route-under,
+  .output-route {
+    fill: none;
+    stroke-linecap: round;
+  }
+
+  .signal-route-under {
+    stroke: rgba(91, 140, 255, .12);
+    stroke-width: 16;
+  }
+
+  .signal-route {
+    stroke: url(#route-gradient);
+    stroke-width: calc(2.2px + var(--route-weight) * .035px);
+    stroke-dasharray: 12 16;
+    animation: routeFlow 7.8s linear infinite;
+  }
+
+  .route-school { animation-delay: -.2s; }
+  .route-trust { animation-delay: -1.1s; }
+  .route-work { animation-delay: -2s; }
+  .route-tech { animation-delay: -2.9s; }
+
+  .signal-courier path:first-child {
+    fill: var(--azure);
+    stroke: #fff;
+    stroke-width: 2;
+  }
+
+  .courier-tail {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: .72;
+  }
+
+  .packet-indigo { color: var(--indigo); }
+  .packet-indigo path:first-child { fill: var(--indigo); }
+  .packet-azure { color: var(--azure); }
+  .packet-azure path:first-child { fill: var(--azure); }
+  .packet-violet { color: var(--violet); }
+  .packet-violet path:first-child { fill: var(--violet); }
+  .packet-gold { color: var(--gold); }
+  .packet-gold path:first-child { fill: var(--gold); }
+
+  .concept-line {
+    stroke: var(--accent);
+    stroke-width: 1.4;
+    stroke-dasharray: 2 9;
+    opacity: .42;
+    animation: conceptPulse 4s ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  .output-route-under {
+    stroke: rgba(91, 140, 255, .14);
+    stroke-width: 20;
+  }
+
+  .output-route {
+    stroke: rgba(46, 91, 208, .66);
+    stroke-width: 4;
+    stroke-dasharray: 18 12;
+    animation: routeFlow 4.8s linear infinite;
+  }
+
+  .output-courier rect {
+    fill: var(--azure-deep);
+  }
+
+  .output-courier path {
+    fill: none;
+    stroke: var(--azure-deep);
+    stroke-linecap: round;
+    stroke-width: 3;
+  }
+
+  .core-orbit {
+    transform-origin: 300px 210px;
+    animation: engineSpin 18s linear infinite;
+  }
+
+  .core-orbit circle {
+    fill: none;
+    stroke: rgba(46, 91, 208, .22);
+    stroke-dasharray: 4 9;
+    stroke-width: 1.3;
+  }
+
+  .core-orbit circle:nth-child(2) {
+    stroke: rgba(160, 108, 240, .22);
+    animation: ringPulse 3.4s ease-in-out infinite;
+  }
+
+  .core-orbit circle:nth-child(3) {
+    stroke: rgba(201, 163, 94, .24);
+  }
+
+  .core-mark circle {
+    fill: url(#core-fill);
+    stroke: rgba(46, 91, 208, .18);
+  }
+
+  .core-mark path:first-of-type {
+    fill: rgba(255, 255, 255, .96);
+    stroke: rgba(46, 91, 208, .78);
+    stroke-width: 4;
+  }
+
+  .core-mark path:last-of-type {
+    fill: var(--azure-deep);
+    animation: coreLift 4.2s ease-in-out infinite;
+    transform-origin: 300px 210px;
+  }
+
+  .concept-node {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: .36rem;
+    max-width: 12rem;
+    padding: .38rem .54rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--soft) 72%, white);
+    color: var(--deep);
+    font-size: clamp(.56rem, .86vw, .68rem);
+    letter-spacing: .09em;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: 0 12px 24px color-mix(in srgb, var(--accent) 16%, transparent);
+    transform: translate(-50%, -50%);
+    animation: conceptFloat 4.8s ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  .concept-node::before {
+    content: "";
+    width: .46rem;
+    height: .46rem;
+    flex: 0 0 auto;
+    background: var(--accent);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 48%, transparent);
+  }
+
+  .core-caption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 3;
+    display: grid;
+    gap: .24rem;
+    width: min(148px, 38%);
+    text-align: center;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .core-caption span {
+    justify-self: center;
+    padding: .2rem .36rem;
+    border: 1px solid rgba(46, 91, 208, .18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .72);
+    color: var(--azure-deep);
+    font-size: .48rem;
+    letter-spacing: .13em;
+  }
+
+  .core-caption strong {
     color: var(--ink);
-    font-style: normal;
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2vw, 1.42rem);
+    line-height: 1;
   }
 
-  .signal-band-90 {
-    --signal-accent: #2E5BD0;
-    --signal-soft: #9DB8FF;
-    --signal-deep: #163C9C;
-    --signal-wash: rgba(46, 91, 208, .18);
-    --signal-glow: rgba(46, 91, 208, .5);
+  .action-column {
+    position: relative;
+    display: grid;
+    align-content: center;
+    gap: .76rem;
+    min-height: 100%;
+    padding: clamp(1rem, 2vw, 1.2rem);
+    overflow: hidden;
+    border: 1px solid rgba(46, 91, 208, .18);
+    border-radius: 16px;
+    background:
+      radial-gradient(circle at 34% 18%, rgba(91, 140, 255, .16), transparent 14rem),
+      linear-gradient(180deg, rgba(255, 255, 255, .88), rgba(241, 246, 255, .88));
+    box-shadow: 0 18px 38px rgba(46, 91, 208, .1);
   }
 
-  .signal-band-85 {
-    --signal-accent: #5B8CFF;
-    --signal-soft: #B9CAFF;
-    --signal-deep: #2E5BD0;
-    --signal-wash: rgba(91, 140, 255, .16);
-    --signal-glow: rgba(91, 140, 255, .48);
+  .action-column::before {
+    content: "";
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    right: -38px;
+    top: -38px;
+    border: 1px solid rgba(46, 91, 208, .16);
+    transform: rotate(45deg);
+    background: rgba(157, 184, 255, .14);
+    animation: outputTurn 11s linear infinite;
   }
 
-  .signal-band-80 {
-    --signal-accent: #6E74F0;
-    --signal-soft: #A9AEFF;
-    --signal-deep: #3840BD;
-    --signal-wash: rgba(110, 116, 240, .15);
-    --signal-glow: rgba(110, 116, 240, .44);
+  .action-kicker {
+    position: relative;
+    z-index: 1;
+    color: var(--azure-deep);
+    font-size: .6rem;
+    letter-spacing: .14em;
   }
 
-  .signal-band-75 {
-    --signal-accent: #A06CF0;
-    --signal-soft: #C9A8FF;
-    --signal-deep: #6C36C2;
-    --signal-wash: rgba(160, 108, 240, .14);
-    --signal-glow: rgba(160, 108, 240, .42);
+  .action-column strong {
+    position: relative;
+    z-index: 1;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 2.2vw, 2rem);
+    line-height: 1;
   }
 
-  .signal-band-70 {
-    --signal-accent: #C9A35E;
-    --signal-soft: #E6CB8E;
-    --signal-deep: #8C6526;
-    --signal-wash: rgba(201, 163, 94, .15);
-    --signal-glow: rgba(201, 163, 94, .42);
+  .action-column p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #4d5a74;
+    font-size: .92rem;
+    line-height: 1.35;
   }
 
-  .signal-band-65 {
-    --signal-accent: #7FA3FF;
-    --signal-soft: #C8D6FF;
-    --signal-deep: #2E5BD0;
-    --signal-wash: rgba(127, 163, 255, .13);
-    --signal-glow: rgba(127, 163, 255, .38);
+  .action-sequence {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .46rem;
+    color: var(--azure-deep);
+    font-size: .58rem;
+    letter-spacing: .1em;
   }
 
-  .signal-band-60 {
-    --signal-accent: #7F86E8;
-    --signal-soft: #C8CBFF;
-    --signal-deep: #4D55B5;
-    --signal-wash: rgba(127, 134, 232, .12);
-    --signal-glow: rgba(127, 134, 232, .34);
+  .action-sequence i {
+    width: 18px;
+    height: 1px;
+    background: rgba(46, 91, 208, .28);
   }
 
-  .signal-band-55 {
-    --signal-accent: #8A97B8;
-    --signal-soft: #D7DEEF;
-    --signal-deep: #52617C;
-    --signal-wash: rgba(138, 151, 184, .11);
-    --signal-glow: rgba(138, 151, 184, .28);
+  .signal-footer-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 0 4px;
+    color: #6a7893;
+    font-size: .66rem;
+    letter-spacing: .14em;
   }
 
-  @keyframes connectorMove {
-    to { stroke-dashoffset: -64; }
+  .signal-footer-line p {
+    margin: 0;
+    color: #5a6884;
+    font-family: var(--font-body);
+    font-size: .9rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.35;
+    text-transform: none;
   }
 
-  @keyframes nodePulse {
-    50% { transform: scale(1.16); filter: drop-shadow(0 0 10px rgba(91, 140, 255, .48)); }
+  .signal-band-90 { --signal-accent: #2E5BD0; --signal-soft: #9DB8FF; --signal-deep: #163C9C; }
+  .signal-band-85 { --signal-accent: #5B8CFF; --signal-soft: #B9CAFF; --signal-deep: #2E5BD0; }
+  .signal-band-80 { --signal-accent: #6E74F0; --signal-soft: #A9AEFF; --signal-deep: #3840BD; }
+  .signal-band-75 { --signal-accent: #A06CF0; --signal-soft: #C9A8FF; --signal-deep: #6C36C2; }
+  .signal-band-70 { --signal-accent: #C9A35E; --signal-soft: #E6CB8E; --signal-deep: #8C6526; }
+  .signal-band-65 { --signal-accent: #7FA3FF; --signal-soft: #C8D6FF; --signal-deep: #2E5BD0; }
+  .signal-band-60 { --signal-accent: #7F86E8; --signal-soft: #C8CBFF; --signal-deep: #4D55B5; }
+  .signal-band-55 { --signal-accent: #8A97B8; --signal-soft: #D7DEEF; --signal-deep: #52617C; }
+
+  @keyframes sourceWake {
+    0%, 100% { transform: translateY(0); box-shadow: 0 14px 28px rgba(46, 91, 208, .08); }
+    48% { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(46, 91, 208, .12); }
   }
 
-  @keyframes fieldBreath {
-    50% { opacity: .76; transform: scale(1.04); transform-origin: center; }
+  @keyframes cardScan {
+    0%, 48% { transform: translateX(-130%); opacity: 0; }
+    58% { opacity: .72; }
+    76%, 100% { transform: translateX(130%); opacity: 0; }
   }
 
-  @keyframes coreFloat {
-    50% { transform: translateY(-6px); transform-origin: center; }
+  @keyframes routeFlow {
+    to { stroke-dashoffset: -96; }
   }
 
-  @keyframes laneReveal {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+  @keyframes scanSweep {
+    0%, 100% { opacity: .12; transform: translateX(-160px); }
+    50% { opacity: .46; transform: translateX(170px); }
+  }
+
+  @keyframes chamberTurn {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes conceptPulse {
+    0%, 100% { opacity: .28; stroke-dashoffset: 0; }
+    50% { opacity: .68; stroke-dashoffset: -22; }
+  }
+
+  @keyframes engineSpin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes ringPulse {
+    50% { stroke-width: 2.6; opacity: .76; }
+  }
+
+  @keyframes coreLift {
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes conceptFloat {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-5px); }
+  }
+
+  @keyframes outputTurn {
+    to { transform: rotate(405deg); }
   }
 
   @keyframes priorityFill {
@@ -625,7 +880,7 @@ const visualNodes = [
     to { transform: scaleX(1); }
   }
 
-  @media (max-width: 980px) {
+  @media (max-width: 1040px) {
     .signal-map-copy {
       grid-template-columns: 1fr;
       align-items: start;
@@ -635,88 +890,99 @@ const visualNodes = [
       justify-self: start;
     }
 
-    .field-node {
-      width: min(240px, 36vw);
+    .signal-engine {
+      grid-template-columns: 1fr;
+    }
+
+    .source-column {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .action-column {
+      min-height: 190px;
     }
   }
 
-  @media (max-width: 760px) {
-    .signal-map-canvas {
-      min-height: 700px;
+  @media (max-width: 680px) {
+    .signal-insight-map {
+      padding: 16px;
+      border-radius: 16px;
     }
 
-    .field-node {
-      width: auto;
-      max-width: none;
+    .source-column {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .field-node-center {
-      left: 50%;
-      top: 50%;
-      width: min(280px, calc(100% - 28px));
+    .source-card {
+      min-height: auto;
+      padding: .66rem .62rem;
     }
 
-    .node-top {
-      top: 18px;
-      width: calc(100% - 28px);
+    .source-card-body p {
+      display: none;
     }
 
-    .node-left,
-    .node-right {
-      top: auto;
-      width: calc(50% - 21px);
-      transform: none;
+    .signal-theater {
+      min-height: 390px;
     }
 
-    .node-left {
-      left: 14px;
-      bottom: 132px;
+    .concept-node {
+      max-width: 8.5rem;
+      padding: .32rem .42rem;
+      font-size: .52rem;
+      letter-spacing: .06em;
+      line-height: 1.1;
+      text-align: center;
+      white-space: normal;
     }
 
-    .node-right {
-      right: 14px;
-      bottom: 132px;
+    .concept-node:nth-of-type(2),
+    .concept-node:nth-of-type(3) {
+      --x: 72%;
     }
 
-    .node-bottom {
-      bottom: 18px;
-      width: calc(100% - 28px);
+    .concept-node:nth-of-type(4) {
+      --x: 58%;
     }
 
-    .signal-map-caption,
-    .signal-lanes,
-    .signal-strip {
-      grid-template-columns: 1fr;
+    .concept-node:nth-of-type(5) {
+      --x: 34%;
     }
 
-    .signal-map-caption {
+    .concept-node:nth-of-type(n + 6) {
+      display: none;
+    }
+
+    .core-caption {
+      width: 132px;
+    }
+
+    .action-column {
+      min-height: auto;
+    }
+
+    .signal-footer-line {
       display: grid;
-    }
-
-    .signal-lanes {
-      grid-template-columns: 1fr;
-    }
-
-    .signal-strip {
-      gap: 8px;
-    }
-
-    .signal-priority {
-      grid-template-columns: auto 1fr auto;
-    }
-
-    .signal-priority i {
-      grid-column: auto;
+      gap: 6px;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .field-halo,
-    .field-connector,
-    .field-pulse,
-    .field-core path:last-of-type,
-    .signal-strip,
-    .signal-priority b {
+    .source-card,
+    .source-card::after,
+    .signal-route,
+    .signal-courier,
+    .stage-scan,
+    .signal-theater::before,
+    .concept-line,
+    .output-route,
+    .output-courier,
+    .core-orbit,
+    .core-orbit circle:nth-child(2),
+    .core-mark path:last-of-type,
+    .concept-node,
+    .action-column::before,
+    .source-card b {
       animation: none;
     }
   }
