@@ -60,6 +60,17 @@ const orbitPositions = [
   [50, 70],
   [18, 44],
 ];
+const flowRoutes = concepts.map((concept, index) => {
+  const [x, y] = nodePositions[index] ?? nodePositions[0];
+  const controlA = [x + (50 - x) * .32, y - 14 - index * .8];
+  const controlB = [50 + (x < 50 ? -7 : 7), 44 + (y < 44 ? -7 : 7)];
+  return {
+    concept,
+    d: `M${x} ${y} C ${controlA[0]} ${controlA[1]}, ${controlB[0]} ${controlB[1]}, 50 44`,
+    duration: 5.4 + index * .48,
+    delay: index * .42,
+  };
+});
 ---
 
 <section class="signal-insight-map reveal" aria-labelledby="latest-signal-map">
@@ -77,15 +88,39 @@ const orbitPositions = [
         <desc>{insight.signal}</desc>
         <defs>
           <radialGradient id="core-glow" cx="50%" cy="45%" r="55%">
-            <stop offset="0%" stop-color="#9DB8FF" stop-opacity=".9" />
-            <stop offset="55%" stop-color="#5B8CFF" stop-opacity=".28" />
-            <stop offset="100%" stop-color="#2E5BD0" stop-opacity=".04" />
+            <stop offset="0%" stop-color="#ffffff" stop-opacity=".95" />
+            <stop offset="40%" stop-color="#9DB8FF" stop-opacity=".86" />
+            <stop offset="100%" stop-color="#2E5BD0" stop-opacity=".08" />
           </radialGradient>
+          <linearGradient id="flow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C9A35E" stop-opacity=".14" />
+            <stop offset="48%" stop-color="#5B8CFF" stop-opacity=".48" />
+            <stop offset="100%" stop-color="#2E5BD0" stop-opacity=".72" />
+          </linearGradient>
+          <filter id="signal-soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="1.2" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
         <rect class="map-frame" x="4" y="4" width="92" height="92" rx="6" />
         <path class="map-grid" d="M18 18H82M18 34H82M18 50H82M18 66H82M18 82H82M18 18V82M34 18V82M50 18V82M66 18V82M82 18V82" />
         <ellipse class="orbit-line orbit-a" cx="50" cy="44" rx="34" ry="23" />
         <ellipse class="orbit-line orbit-b" cx="50" cy="44" rx="24" ry="16" />
+
+        <g class="flow-field" aria-hidden="true">
+          {flowRoutes.map((route, index) => (
+            <g class="flow-route-wrap" style={`--i:${index}`}>
+              <path class="flow-route" d={route.d} />
+              <path class="flow-route flow-route-echo" d={route.d} />
+              <circle class={`flow-packet concept-${route.concept.type}`} r="1.15" filter="url(#signal-soft-glow)">
+                <animateMotion dur={`${route.duration}s`} begin={`${route.delay}s`} repeatCount="indefinite" path={route.d} />
+              </circle>
+            </g>
+          ))}
+        </g>
 
         {concepts.map((concept, index) => {
           const [x, y] = nodePositions[index] ?? nodePositions[0];
@@ -93,6 +128,7 @@ const orbitPositions = [
             <g class={`concept concept-${concept.type}`} style={`--i:${index}`}>
               <line x1="50" y1="44" x2={x} y2={y} />
               <circle cx={x} cy={y} r="1.55" />
+              <circle class="concept-ring" cx={x} cy={y} r="3.1" />
               <text x={x} y={y + 5}>{concept.label}</text>
             </g>
           );
@@ -111,8 +147,11 @@ const orbitPositions = [
 
         <g class="core">
           <circle cx="50" cy="44" r="13" />
+          <circle class="core-ring core-ring-a" cx="50" cy="44" r="17" />
+          <circle class="core-ring core-ring-b" cx="50" cy="44" r="21" />
           <path d="M50 23 64 44 50 65 36 44Z" />
           <path d="M50 34 57 44 50 54 43 44Z" />
+          <text class="decision-label" x="50" y="73">Next step</text>
         </g>
       </svg>
     </div>
@@ -262,7 +301,7 @@ const orbitPositions = [
 
   .orbit-line {
     fill: none;
-    stroke: rgba(46, 91, 208, .36);
+    stroke: rgba(46, 91, 208, .32);
     stroke-dasharray: 1.6 2.8;
     animation: trace 12s linear infinite;
   }
@@ -272,6 +311,48 @@ const orbitPositions = [
     animation-duration: 9s;
   }
 
+  .flow-field {
+    mix-blend-mode: multiply;
+  }
+
+  .flow-route-wrap {
+    opacity: 0;
+    animation: rise .8s ease both;
+    animation-delay: calc(var(--i) * 80ms + 120ms);
+  }
+
+  .flow-route {
+    fill: none;
+    stroke: url(#flow-gradient);
+    stroke-width: .42;
+    stroke-linecap: round;
+    stroke-dasharray: 1 4.5;
+    opacity: .48;
+    animation: flowTrace 8s linear infinite;
+    animation-delay: calc(var(--i) * -420ms);
+  }
+
+  .flow-route-echo {
+    stroke-width: 1.4;
+    stroke: rgba(91, 140, 255, .08);
+    stroke-dasharray: none;
+    opacity: .6;
+    animation: none;
+  }
+
+  .flow-packet {
+    fill: #2E5BD0;
+    stroke: #fff;
+    stroke-width: .36;
+    opacity: .92;
+  }
+
+  .flow-packet.concept-service { fill: var(--gold); }
+  .flow-packet.concept-leadership { fill: var(--violet); }
+  .flow-packet.concept-learning { fill: var(--indigo); }
+  .flow-packet.concept-technology { fill: var(--azure-deep); }
+  .flow-packet.concept-work { fill: #A06CF0; }
+
   .concept {
     opacity: 0;
     animation: rise .7s ease both;
@@ -279,28 +360,45 @@ const orbitPositions = [
   }
 
   .concept line {
-    stroke: rgba(46, 91, 208, .16);
+    stroke: rgba(46, 91, 208, .12);
     stroke-dasharray: 1 2;
   }
 
-  .concept circle {
+  .concept circle:not(.concept-ring) {
     fill: var(--azure);
     stroke: #fff;
     stroke-width: .8;
   }
 
-  .concept-service circle { fill: var(--gold); }
-  .concept-leadership circle { fill: var(--violet); }
-  .concept-learning circle { fill: var(--indigo); }
-  .concept-technology circle { fill: var(--azure-deep); }
+  .concept-ring {
+    fill: none;
+    stroke: rgba(46, 91, 208, .18);
+    stroke-width: .42;
+    transform-origin: center;
+    animation: nodePing 3.8s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 260ms);
+  }
+
+  .concept-service circle:not(.concept-ring) { fill: var(--gold); }
+  .concept-leadership circle:not(.concept-ring) { fill: var(--violet); }
+  .concept-learning circle:not(.concept-ring) { fill: var(--indigo); }
+  .concept-technology circle:not(.concept-ring) { fill: var(--azure-deep); }
+  .concept-work circle:not(.concept-ring) { fill: #A06CF0; }
 
   .concept text,
-  .orbit-node text {
+  .orbit-node text,
+  .decision-label {
     fill: #24314d;
     font-family: var(--font-label);
     font-size: 2.6px;
     font-weight: 800;
     text-anchor: middle;
+  }
+
+  .decision-label {
+    fill: var(--azure-deep);
+    font-size: 2.85px;
+    letter-spacing: .04em;
   }
 
   .orbit-node {
@@ -322,9 +420,26 @@ const orbitPositions = [
     animation: pulse 2.8s ease-in-out infinite;
   }
 
-  .core circle {
+  .core circle:first-child {
     fill: url(#core-glow);
     animation: breathe 3.6s ease-in-out infinite;
+  }
+
+  .core-ring {
+    fill: none;
+    stroke: rgba(46, 91, 208, .18);
+    stroke-width: .45;
+    transform-origin: center;
+  }
+
+  .core-ring-a {
+    animation: coreWave 3.4s ease-in-out infinite;
+  }
+
+  .core-ring-b {
+    stroke: rgba(201, 163, 94, .24);
+    animation: coreWave 3.4s ease-in-out infinite;
+    animation-delay: 1.1s;
   }
 
   .core path:first-of-type {
@@ -536,11 +651,14 @@ const orbitPositions = [
   }
 
   @keyframes trace { to { stroke-dashoffset: -40; } }
+  @keyframes flowTrace { to { stroke-dashoffset: -42; } }
   @keyframes rise { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes laneReveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes priorityFill { from { transform: scaleX(.18); } to { transform: scaleX(1); } }
   @keyframes pulse { 50% { filter: drop-shadow(0 0 3px rgba(91, 140, 255, .7)); } }
   @keyframes breathe { 50% { opacity: .72; } }
+  @keyframes nodePing { 50% { transform: scale(1.18); opacity: .42; } }
+  @keyframes coreWave { 0% { transform: scale(.82); opacity: 0; } 35% { opacity: .62; } 100% { transform: scale(1.12); opacity: 0; } }
 
   @media (max-width: 1020px) {
     .signal-insight-map,
@@ -595,14 +713,21 @@ const orbitPositions = [
 
   @media (prefers-reduced-motion: reduce) {
     .orbit-line,
+    .flow-route,
     .concept,
+    .concept-ring,
     .orbit-node,
     .orbit-node.is-primary circle,
     .core circle,
+    .core-ring,
     .signal-strip,
     .signal-priority b {
       animation: none;
       opacity: 1;
+    }
+
+    .flow-packet {
+      display: none;
     }
   }
 </style>
