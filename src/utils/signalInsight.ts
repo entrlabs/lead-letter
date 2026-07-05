@@ -4,11 +4,8 @@ export type SignalInsight = {
   primaryTheme: string;
   signal: string;
   micro: string;
-  tension: string;
-  move: string;
-  question: string;
   concepts: Array<{ label: string; type: string }>;
-  lanes: Array<{ label: string; level: string; state: string }>;
+  lanes: Array<{ label: string; level: string; state: string; importance?: number }>;
 };
 
 const themeKeywords = [
@@ -73,14 +70,15 @@ function firstCallout(body: string) {
     .trim();
 }
 
-function questionFromBody(body: string) {
-  const match = body.match(/## Questions Worth Asking\n([\s\S]*?)(?:\n---|\n## |$)/i);
-  return match?.[1]
-    .split('\n')
-    .map((line) => line.trim())
-    .find((line) => /^\d+\.\s+/.test(line))
-    ?.replace(/^\d+\.\s+/, '')
-    .trim();
+function importanceFromLevel(level: string, index = 0) {
+  const normalized = level.toLowerCase();
+  if (normalized.includes('urgent') || normalized.includes('leading')) return 88;
+  if (normalized.includes('rising')) return 82;
+  if (normalized.includes('active')) return 76;
+  if (normalized.includes('worth')) return 70;
+  if (normalized.includes('view')) return 62;
+  if (normalized.includes('watch')) return 58;
+  return Math.max(48, 72 - index * 6);
 }
 
 function conceptsFromEntry(entry: CollectionEntry<'signals'>, activeThemes: typeof themeKeywords) {
@@ -125,14 +123,14 @@ export function getSignalInsight(entry: CollectionEntry<'signals'>): SignalInsig
     primaryTheme,
     signal: curated?.signal ?? bodySignal ?? entry.data.title,
     micro: curated?.micro ?? entry.data.description,
-    tension: curated?.tension ?? 'People are moving through more noise and need a clearer signal.',
-    move: curated?.move ?? 'Name the pattern, make the evidence visible, and choose the next useful action.',
-    question: curated?.question ?? questionFromBody(entry.body) ?? 'What needs to become clearer before the next decision?',
     concepts: curated?.concepts ?? conceptsFromEntry(entry, themeSet),
-    lanes: curated?.lanes ?? themeSet.map((theme, index) => ({
+    lanes: (curated?.lanes ?? themeSet.map((theme, index) => ({
       label: theme.theme,
       level: index === 0 ? 'Leading' : theme.score > 2 ? 'Rising' : 'Watching',
       state: `${theme.theme} is a visible theme in this brief.`,
+    }))).map((lane, index) => ({
+      ...lane,
+      importance: lane.importance ?? importanceFromLevel(lane.level, index),
     })),
   };
 }
