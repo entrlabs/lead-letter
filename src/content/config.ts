@@ -18,6 +18,7 @@ const signalInsightLane = z.object({
   label: z.string(),
   level: z.string(),
   state: z.string(),
+  importance: z.number().min(0).max(100).optional(),
 });
 
 const signals = defineCollection({
@@ -47,9 +48,6 @@ const signals = defineCollection({
       primaryTheme: z.string().optional(),
       signal: z.string().optional(),
       micro: z.string().optional(),
-      tension: z.string().optional(),
-      move: z.string().optional(),
-      question: z.string().optional(),
       concepts: z.array(signalInsightConcept).optional(),
       lanes: z.array(signalInsightLane).optional(),
     }).optional(),
