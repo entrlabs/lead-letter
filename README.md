@@ -51,9 +51,6 @@ signalInsight:
   primaryTheme: "Trust"
   signal: "Trust needs visible proof."
   micro: "One clear sentence explaining the pattern."
-  tension: "The main tension."
-  move: "The practical move."
-  question: "The question worth carrying forward."
   concepts:
     - label: "Proof"
       type: "service"
@@ -61,6 +58,7 @@ signalInsight:
     - label: "Education"
       level: "Rising"
       state: "Why this theme is active."
+      importance: 82
 ```
 
 If this block is missing, the site derives a fallback from the title, description, tags, and Markdown body.
