@@ -110,15 +110,33 @@ const latestInsight = latest ? getSignalInsight(latest) : undefined;
 
   <HYOHCompass variant="full" />
 
-  <section class="about-strip">
-    <p>
-      Published by <a href="https://entr.cc/entrlabs" target="_blank" rel="noopener">EntrLabs</a>,
-      the research arm of ENTR, this series translates leadership research, service, and systems thinking into practical public notes.
-    </p>
-    <p>
-      Written by <a href="https://josephiesue.com" target="_blank" rel="noopener">Joseph E. Iesue</a>,
-      a leadership researcher and practitioner working at the intersection of leadership and service.
-    </p>
+  <section class="publication-note reveal" aria-labelledby="publication-note-heading">
+    <div class="publication-note-mark" aria-hidden="true">
+      <span>ENTR</span>
+      <i></i>
+    </div>
+
+    <div class="publication-note-intro">
+      <p class="publication-note-label">Publication Origin</p>
+      <h2 id="publication-note-heading">Research made useful in public.</h2>
+    </div>
+
+    <div class="publication-note-grid">
+      <article>
+        <span>Published through</span>
+        <p>
+          <a href="https://entr.cc/entrlabs" target="_blank" rel="noopener">EntrLabs</a>,
+          the research arm of ENTR, translating leadership research, service, and systems thinking into practical public signals.
+        </p>
+      </article>
+      <article>
+        <span>Written by</span>
+        <p>
+          <a href="https://josephiesue.com/" target="_blank" rel="noopener">Joseph E. Iesue</a>,
+          a leadership researcher and practitioner working at the intersection of leadership and service.
+        </p>
+      </article>
+    </div>
   </section>
 
   <script>
