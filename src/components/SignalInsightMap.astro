@@ -28,8 +28,10 @@ const signalRows = lanes.map((lane, index) => {
   const band = signalBand(importance);
   const classificationLabel = lane.classification ?? lane.level;
   const strengthLabel = lane.strength ?? band.label;
+  const fieldLabel = lane.field ?? lane.label;
   return {
     ...lane,
+    fieldLabel,
     importance,
     classificationLabel,
     strengthLabel,
@@ -41,7 +43,7 @@ const signalRows = lanes.map((lane, index) => {
 });
 const orbit = [
   { label: insight.primaryTheme, level: 'Leading', state: `${insight.primaryTheme} is the primary theme.` },
-  ...lanes.filter((lane) => lane.label.toLowerCase() !== insight.primaryTheme.toLowerCase()),
+  ...lanes.filter((lane) => (lane.field ?? lane.label).toLowerCase() !== insight.primaryTheme.toLowerCase()),
 ].slice(0, 4);
 const nodePositions = [
   [19, 70],
@@ -98,10 +100,11 @@ const orbitPositions = [
 
         {orbit.map((theme, index) => {
           const [x, y] = orbitPositions[index] ?? orbitPositions[0];
+          const orbitLabel = theme.field ?? theme.label;
           return (
             <g class={`orbit-node ${index === 0 ? 'is-primary' : ''}`} style={`--i:${index}`}>
               <circle cx={x} cy={y} r={index === 0 ? 4.2 : 3.2} />
-              <text x={x} y={y - 6}>{theme.label}</text>
+              <text x={x} y={y - 6}>{orbitLabel}</text>
             </g>
           );
         })}
@@ -123,7 +126,7 @@ const orbitPositions = [
       {signalRows.map((lane, index) => (
         <article class={`signal-strip ${lane.bandClass}`} style={`--i:${index}; --importance:${lane.importance}; --importance-pct:${lane.importance}%`}>
           <div class="signal-strip-main">
-            <strong>{lane.label}</strong>
+            <strong>{lane.fieldLabel}</strong>
             <span>{lane.classificationLabel}</span>
           </div>
           <div class="signal-strip-copy">
