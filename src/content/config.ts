@@ -2,6 +2,7 @@ import { defineCollection, z } from 'astro:content';
 
 const signalLane = z.object({
   label: z.string(),
+  field: z.string().optional(),
   state: z.string(),
   level: z.string(),
   score: z.number().min(0).max(100).optional(),
@@ -16,6 +17,7 @@ const signalInsightConcept = z.object({
 
 const signalInsightLane = z.object({
   label: z.string(),
+  field: z.string().optional(),
   level: z.string(),
   state: z.string(),
   importance: z.number().min(0).max(100).optional(),
