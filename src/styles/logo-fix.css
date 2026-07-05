@@ -163,3 +163,193 @@
 .archive-preview-list .title {
   font-weight: 900;
 }
+
+.publication-note {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(92px, 0.16fr) minmax(220px, 0.48fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(16px, 3vw, 28px);
+  margin: clamp(18px, 4vw, 36px) 0 clamp(46px, 7vw, 82px);
+  padding: clamp(18px, 3vw, 26px);
+  overflow: hidden;
+  border: 1px solid rgba(46, 91, 208, 0.18);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(157, 184, 255, 0.24), transparent 13rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(239, 244, 255, 0.68));
+  box-shadow: 0 18px 54px rgba(46, 91, 208, 0.09), inset 0 0 0 1px rgba(255, 255, 255, 0.74);
+}
+
+.publication-note::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(46, 91, 208, 0.1);
+  border-radius: 11px;
+  pointer-events: none;
+}
+
+.publication-note::after {
+  content: "";
+  position: absolute;
+  left: clamp(18px, 3vw, 26px);
+  right: clamp(18px, 3vw, 26px);
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(46, 91, 208, 0.16), transparent);
+  pointer-events: none;
+}
+
+.publication-note > * {
+  position: relative;
+  z-index: 1;
+}
+
+.publication-note-mark {
+  display: grid;
+  align-content: space-between;
+  min-height: 150px;
+  padding-right: clamp(12px, 2vw, 20px);
+  border-right: 1px solid rgba(46, 91, 208, 0.16);
+}
+
+.publication-note-mark span,
+.publication-note-label,
+.publication-note-grid article span {
+  font-family: var(--font-label);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.publication-note-mark span {
+  color: var(--azure-deep);
+  font-size: 0.86rem;
+  letter-spacing: 0.2em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.publication-note-mark i {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(91, 140, 255, 0.55);
+  background: linear-gradient(135deg, rgba(91, 140, 255, 0.18), rgba(255, 255, 255, 0.72));
+  transform: rotate(45deg);
+  box-shadow: 0 0 28px rgba(91, 140, 255, 0.22);
+}
+
+.publication-note-intro {
+  align-self: center;
+}
+
+.publication-note-label {
+  margin: 0 0 0.62rem;
+  color: var(--azure-deep);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+}
+
+.publication-note h2 {
+  max-width: 10ch;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.publication-note-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(46, 91, 208, 0.14);
+  border-radius: 12px;
+  background: rgba(46, 91, 208, 0.12);
+}
+
+.publication-note-grid article {
+  min-height: 150px;
+  display: grid;
+  align-content: space-between;
+  gap: 18px;
+  padding: clamp(16px, 2.4vw, 22px);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.publication-note-grid article span {
+  color: var(--azure-deep);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+.publication-note-grid p {
+  margin: 0;
+  color: #52617c;
+  font-size: clamp(0.98rem, 1.3vw, 1.06rem);
+  line-height: 1.5;
+}
+
+.publication-note-grid a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(91, 140, 255, 0.46);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.publication-note-grid a:hover {
+  color: var(--azure-deep);
+  text-decoration-color: var(--azure-deep);
+}
+
+@media (max-width: 920px) {
+  .publication-note {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .publication-note-grid {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .publication-note {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .publication-note::after {
+    display: none;
+  }
+
+  .publication-note-mark {
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 12px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(46, 91, 208, 0.16);
+  }
+
+  .publication-note-mark span {
+    writing-mode: initial;
+    transform: none;
+  }
+
+  .publication-note h2 {
+    max-width: 100%;
+  }
+
+  .publication-note-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .publication-note-grid article {
+    min-height: 0;
+  }
+}
