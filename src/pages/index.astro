@@ -3,7 +3,9 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SendFoxForm from '../components/SendFoxForm.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
+import SignalInsightMap from '../components/SignalInsightMap.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
+import { getSignalInsight } from '../utils/signalInsight';
 
 const allSignals = (await getCollection('signals')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -11,10 +13,11 @@ const allSignals = (await getCollection('signals')).sort(
 
 const latest = allSignals[0];
 const recent = allSignals.slice(1, 5);
-const boardEntries = allSignals
-  .filter((entry) => entry.data.signalBoard)
-  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
-const latestBoard = latest?.data.signalBoard;
+const todayLabel = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+}).format(new Date());
 
 function signalUrl(entry: CollectionEntry<'signals'>) {
   return `/${entry.slug}/`;
@@ -26,112 +29,7 @@ function latestBoxDescription(description: string) {
     .replace(/^A public weekly letter about\s+/i, 'This week is about ');
 }
 
-function scoreFromLevel(level = '') {
-  const normalized = level.toLowerCase();
-  if (normalized.includes('critical')) return 92;
-  if (normalized.includes('strained')) return 80;
-  if (normalized.includes('rising')) return 74;
-  if (normalized.includes('active')) return 66;
-  if (normalized.includes('watching')) return 54;
-  return 58;
-}
-
-function directionLabel(direction: string, delta: number) {
-  if (direction === 'up' || delta >= 4) return 'Rising';
-  if (direction === 'down' || delta <= -4) return 'Cooling';
-  return 'Steady';
-}
-
-function sparkPoints(points: Array<{ score: number }>) {
-  if (points.length === 0) return '';
-  if (points.length === 1) {
-    const y = 100 - points[0].score;
-    return `0,${y} 100,${y}`;
-  }
-
-  return points
-    .map((point, index) => {
-      const x = (index / (points.length - 1)) * 100;
-      const y = 100 - point.score;
-      return `${x.toFixed(1)},${y.toFixed(1)}`;
-    })
-    .join(' ');
-}
-
-const laneLabels = latestBoard?.lanes.map((lane) => lane.label) ?? [
-  'Education',
-  'Work',
-  'Founders',
-  'Technology',
-];
-
-const laneTracks = laneLabels.map((label, index) => {
-  const weeks = boardEntries
-    .map((entry) => {
-      const lane = entry.data.signalBoard?.lanes.find((item) => item.label === label);
-      if (!lane) return null;
-      return {
-        issue: entry.data.issue,
-        date: entry.data.date,
-        score: lane.score ?? scoreFromLevel(lane.level),
-        level: lane.level,
-        state: lane.state,
-        brief: lane.brief ?? lane.state,
-        direction: lane.direction ?? 'steady',
-      };
-    })
-    .filter(Boolean) as Array<{
-      issue: number;
-      date: Date;
-      score: number;
-      level: string;
-      state: string;
-      brief: string;
-      direction: string;
-    }>;
-
-  const current = weeks[weeks.length - 1] ?? {
-    issue: latest?.data.issue ?? 0,
-    date: latest?.data.date ?? new Date(),
-    score: scoreFromLevel('Watching'),
-    level: 'Watching',
-    state: 'Signal developing.',
-    brief: 'Signal developing.',
-    direction: 'steady',
-  };
-  const previous = weeks[weeks.length - 2];
-  const delta = previous ? current.score - previous.score : 0;
-  const trend = directionLabel(current.direction, delta);
-  const score = Math.round(current.score);
-
-  return {
-    label,
-    index,
-    weeks,
-    current,
-    score,
-    trend,
-    delta,
-    points: sparkPoints(weeks),
-    pulseSpeed: `${Math.max(2.4, 7 - score / 16).toFixed(1)}s`,
-    scorePct: `${score}%`,
-    scoreAngle: `${score * 3.6}deg`,
-  };
-});
-
-const pressureAverage = Math.round(
-  laneTracks.reduce((total, lane) => total + lane.score, 0) / Math.max(laneTracks.length, 1)
-);
-const hottestLane = [...laneTracks].sort((a, b) => b.score - a.score)[0];
-const fastestLane = [...laneTracks].sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))[0];
-const pressureTone = pressureAverage >= 78
-  ? 'High pressure'
-  : pressureAverage >= 68
-    ? 'Active pressure'
-    : pressureAverage >= 58
-      ? 'Building pressure'
-      : 'Watchful pressure';
-const signalFeed = laneTracks.flatMap((lane) => [lane.label, lane.trend, `${lane.score}`]);
+const latestInsight = latest ? getSignalInsight(latest) : undefined;
 ---
 <BaseLayout
   title="EntrLabs — The Lead Letter"
@@ -139,7 +37,7 @@ const signalFeed = laneTracks.flatMap((lane) => [lane.label, lane.trend, `${lane
 >
   <section class="home-hero reveal">
     <div class="hero-copy">
-      <p class="kicker" data-today-label>Today</p>
+      <p class="kicker">Today · <span data-today-date>{todayLabel}</span></p>
       <h1>The Lead Letter</h1>
       <p class="positioning">
         Updates each week on leadership, service, work, learning, and the discipline of helping people rise.
@@ -175,93 +73,7 @@ const signalFeed = laneTracks.flatMap((lane) => [lane.label, lane.trend, `${lane
     )}
   </section>
 
-  {latest && latestBoard && (
-    <section class="signal-board reveal" aria-labelledby="weekly-signal-board">
-      <div class="signal-board-stream" aria-hidden="true">
-        {[...signalFeed, ...signalFeed].map((item) => <span>{item}</span>)}
-      </div>
-
-      <div class="signal-board-header">
-        <div>
-          <p class="signal-board-label">Weekly Signal Board</p>
-          <h2 id="weekly-signal-board">Where pressure is moving</h2>
-        </div>
-        <p>
-          A living read across education, work, founders, and technology. Each new brief adds another week to the trend line.
-        </p>
-        <a class="signal-board-link" href={signalUrl(latest)}>Read the full brief</a>
-      </div>
-
-      <div class="signal-system">
-        <article
-          class="signal-gauge"
-          style={`--pressure: ${pressureAverage}; --pressure-angle: ${pressureAverage * 3.6}deg; --pulse-speed: ${Math.max(2.4, 7 - pressureAverage / 16).toFixed(1)}s;`}
-        >
-          <div class="gauge-orbit" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <p class="signal-panel-label">Current read</p>
-          <strong>{pressureAverage}</strong>
-          <span>{pressureTone}</span>
-          <p>{latestBoard.micro}</p>
-        </article>
-
-        <article class="signal-analysis">
-          <p class="signal-panel-label">What changed</p>
-          <h3>{latestBoard.signal}</h3>
-          <p>{hottestLane?.label} is carrying the strongest pressure this week. {fastestLane?.label} is the lane moving fastest across the archive.</p>
-          <div class="analysis-grid">
-            <div>
-              <span>Tension</span>
-              <strong>{latestBoard.tension}</strong>
-            </div>
-            <div>
-              <span>Move</span>
-              <strong>{latestBoard.move}</strong>
-            </div>
-            <div>
-              <span>Question</span>
-              <strong>{latestBoard.question}</strong>
-            </div>
-          </div>
-        </article>
-
-        <div class="signal-map" aria-label="Industry pressure status this week">
-          {laneTracks.map((lane) => (
-            <article
-              class={`signal-lane-card lane-${lane.index}`}
-              style={`--score: ${lane.score}; --score-pct: ${lane.scorePct}; --score-angle: ${lane.scoreAngle}; --pulse-speed: ${lane.pulseSpeed};`}
-            >
-              <div class="lane-card-header">
-                <div>
-                  <p class="signal-panel-label">{lane.label}</p>
-                  <h3>{lane.current.level}</h3>
-                </div>
-                <span class={`lane-trend trend-${lane.trend.toLowerCase()}`}>{lane.trend}</span>
-              </div>
-              <p class="lane-state">{lane.current.state}</p>
-              <p class="lane-brief">{lane.current.brief}</p>
-              <div class="lane-meter" aria-hidden="true">
-                <span></span>
-              </div>
-              <div class="lane-spark-wrap">
-                <svg class="lane-spark" viewBox="0 0 100 100" preserveAspectRatio="none" role="img" aria-label={`${lane.label} trend across ${lane.weeks.length} weeks`}>
-                  <polyline points={lane.points}></polyline>
-                </svg>
-                <div class="spark-baseline" aria-hidden="true"></div>
-              </div>
-              <div class="lane-meta">
-                <span>{lane.score}/100</span>
-                <span>{lane.weeks.length} week{lane.weeks.length === 1 ? '' : 's'} tracked</span>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
+  {latest && latestInsight && <SignalInsightMap entry={latest} insight={latestInsight} />}
 
   <section class="home-lower reveal">
     <div class="from-archive">
@@ -308,11 +120,11 @@ const signalFeed = laneTracks.flatMap((lane) => [lane.label, lane.trend, `${lane
       a leadership researcher and practitioner working at the intersection of leadership and service.
     </p>
   </section>
-  <script is:inline>
-    const todayLabel = document.querySelector('[data-today-label]');
-    if (todayLabel) {
-      todayLabel.textContent = new Intl.DateTimeFormat('en-US', {
-        weekday: 'long',
+
+  <script>
+    const today = document.querySelector('[data-today-date]');
+    if (today) {
+      today.textContent = new Intl.DateTimeFormat('en-US', {
         month: 'long',
         day: 'numeric',
         year: 'numeric',
