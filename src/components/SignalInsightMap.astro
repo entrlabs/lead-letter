@@ -1,0 +1,113 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, formatIssue } from '../utils/format';
+import type { SignalInsight } from '../utils/signalInsight';
+
+interface Props {
+  entry: CollectionEntry<'signals'>;
+  insight: SignalInsight;
+}
+
+const { entry, insight } = Astro.props as Props;
+const concepts = insight.concepts.slice(0, 7);
+const lanes = insight.lanes.slice(0, 4);
+const orbit = [
+  { label: insight.primaryTheme, level: 'Leading', state: `${insight.primaryTheme} is the primary theme.` },
+  ...lanes.filter((lane) => lane.label.toLowerCase() !== insight.primaryTheme.toLowerCase()),
+].slice(0, 4);
+const nodePositions = [[19, 70], [32, 86], [48, 74], [62, 88], [80, 70], [68, 46], [31, 45]];
+const orbitPositions = [[50, 18], [82, 44], [50, 70], [18, 44]];
+---
+
+<section class="signal-insight-map reveal" aria-labelledby="latest-signal-map">
+  <div class="signal-map-copy">
+    <p class="signal-map-label">Latest Brief Signal</p>
+    <h2 id="latest-signal-map">Signal Map</h2>
+    <p>A compact reading of the newest brief: the central idea, active themes, and next move worth carrying into the week.</p>
+    <a href={`/${entry.slug}/`}>Read the full brief</a>
+  </div>
+
+  <div class="signal-map-stage">
+    <div class="signal-orbit-card" aria-label={`Signal map for ${entry.data.title}`}>
+      <svg viewBox="0 0 100 100" role="img">
+        <title>{`Signal map for ${entry.data.title}`}</title>
+        <desc>{insight.signal}</desc>
+        <defs>
+          <radialGradient id="core-glow" cx="50%" cy="45%" r="55%">
+            <stop offset="0%" stop-color="#9DB8FF" stop-opacity=".9" />
+            <stop offset="55%" stop-color="#5B8CFF" stop-opacity=".28" />
+            <stop offset="100%" stop-color="#2E5BD0" stop-opacity=".04" />
+          </radialGradient>
+        </defs>
+        <rect class="map-frame" x="4" y="4" width="92" height="92" rx="6" />
+        <path class="map-grid" d="M18 18H82M18 34H82M18 50H82M18 66H82M18 82H82M18 18V82M34 18V82M50 18V82M66 18V82M82 18V82" />
+        <ellipse class="orbit-line orbit-a" cx="50" cy="44" rx="34" ry="23" />
+        <ellipse class="orbit-line orbit-b" cx="50" cy="44" rx="24" ry="16" />
+
+        {concepts.map((concept, index) => {
+          const [x, y] = nodePositions[index] ?? nodePositions[0];
+          return (
+            <g class={`concept concept-${concept.type}`} style={`--i:${index}`}>
+              <line x1="50" y1="44" x2={x} y2={y} />
+              <circle cx={x} cy={y} r="1.55" />
+              <text x={x} y={y + 5}>{concept.label}</text>
+            </g>
+          );
+        })}
+
+        {orbit.map((theme, index) => {
+          const [x, y] = orbitPositions[index] ?? orbitPositions[0];
+          return (
+            <g class={`orbit-node ${index === 0 ? 'is-primary' : ''}`} style={`--i:${index}`}>
+              <circle cx={x} cy={y} r={index === 0 ? 4.2 : 3.2} />
+              <text x={x} y={y - 6}>{theme.label}</text>
+            </g>
+          );
+        })}
+
+        <g class="core">
+          <circle cx="50" cy="44" r="13" />
+          <path d="M50 23 64 44 50 65 36 44Z" />
+          <path d="M50 34 57 44 50 54 43 44Z" />
+        </g>
+      </svg>
+    </div>
+
+    <article class="signal-readout">
+      <p class="signal-meta"><span>{formatIssue(entry.data.issue)}</span><span>{formatDate(entry.data.date)}</span><span>{insight.primaryTheme}</span></p>
+      <h3>{insight.signal}</h3>
+      <p>{insight.micro}</p>
+
+      <div class="theme-list">
+        {lanes.map((lane) => (
+          <div>
+            <strong>{lane.label}</strong>
+            <span>{lane.level}</span>
+            <p>{lane.state}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="next-grid">
+        <div><span>Tension</span><p>{insight.tension}</p></div>
+        <div><span>Move</span><p>{insight.move}</p></div>
+        <div><span>Question</span><p>{insight.question}</p></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .signal-insight-map{position:relative;display:grid;grid-template-columns:minmax(220px,.34fr) minmax(0,1fr);gap:clamp(24px,4vw,46px);margin:clamp(24px,5vw,58px) 0 clamp(42px,7vw,72px);padding:clamp(24px,4vw,40px);overflow:hidden;border:1px solid rgba(46,91,208,.22);border-radius:18px;background:radial-gradient(circle at 76% 18%,rgba(91,140,255,.18),transparent 22rem),linear-gradient(135deg,rgba(255,255,255,.94),rgba(239,244,255,.8));box-shadow:0 26px 90px rgba(46,91,208,.14),0 0 0 1px rgba(255,255,255,.82) inset}
+  .signal-insight-map:before{content:"";position:absolute;inset:12px;border:1px solid rgba(46,91,208,.12);border-radius:12px;pointer-events:none}.signal-map-copy,.signal-map-stage{position:relative;z-index:1}
+  .signal-map-label,.signal-map-copy a,.signal-meta,.theme-list span,.next-grid span{font-family:var(--font-label);font-weight:800;text-transform:uppercase}.signal-map-label{margin:0 0 .9rem;color:var(--azure-deep);font-size:.72rem;letter-spacing:.16em}.signal-map-copy h2{max-width:8ch;margin-bottom:.45em;font-size:clamp(2.45rem,5vw,4.9rem)}.signal-map-copy p:not(.signal-map-label){max-width:30ch;color:#4f5d78;font-size:1.02rem;line-height:1.58}
+  .signal-map-copy a{display:inline-flex;align-items:center;min-height:44px;margin-top:.7rem;padding:0 1rem;border:1px solid rgba(46,91,208,.28);border-radius:999px;background:rgba(255,255,255,.68);color:var(--azure-deep);font-size:.72rem;letter-spacing:.11em;box-shadow:0 14px 32px rgba(46,91,208,.09)}
+  .signal-map-stage{display:grid;grid-template-columns:minmax(260px,.92fr) minmax(300px,.78fr);gap:clamp(18px,3vw,30px)}.signal-orbit-card,.signal-readout{border:1px solid rgba(46,91,208,.18);border-radius:14px;background:rgba(255,255,255,.62);box-shadow:0 16px 44px rgba(46,91,208,.09)}.signal-orbit-card{min-height:350px;display:grid;place-items:center;overflow:hidden}.signal-orbit-card svg{width:min(100%,560px);height:auto}
+  .map-frame{fill:rgba(248,251,255,.72);stroke:rgba(46,91,208,.2)}.map-grid{fill:none;stroke:rgba(46,91,208,.07);stroke-width:.25}.orbit-line{fill:none;stroke:rgba(46,91,208,.36);stroke-dasharray:1.6 2.8;animation:trace 12s linear infinite}.orbit-b{animation-direction:reverse;animation-duration:9s}
+  .concept{opacity:0;animation:rise .7s ease both;animation-delay:calc(var(--i) * 90ms + 180ms)}.concept line{stroke:rgba(46,91,208,.16);stroke-dasharray:1 2}.concept circle{fill:var(--azure);stroke:#fff;stroke-width:.8}.concept-service circle{fill:var(--gold)}.concept-leadership circle{fill:var(--violet)}.concept-learning circle{fill:var(--indigo)}.concept-technology circle{fill:var(--azure-deep)}.concept text,.orbit-node text{fill:#24314d;font-family:var(--font-label);font-size:2.6px;font-weight:800;text-anchor:middle}
+  .orbit-node{opacity:0;animation:rise .7s ease both;animation-delay:calc(var(--i) * 120ms + 80ms)}.orbit-node circle{fill:rgba(157,184,255,.7);stroke:rgba(46,91,208,.36);stroke-width:.45}.orbit-node.is-primary circle{fill:rgba(91,140,255,.95);stroke:#fff;stroke-width:.9;animation:pulse 2.8s ease-in-out infinite}.core circle{fill:url(#core-glow);animation:breathe 3.6s ease-in-out infinite}.core path:first-of-type{fill:rgba(255,255,255,.9);stroke:rgba(46,91,208,.72);stroke-width:.55}.core path:last-of-type{fill:var(--azure-deep);opacity:.9}
+  .signal-readout{padding:clamp(18px,2.8vw,26px)}.signal-meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 1rem;color:var(--azure-deep);font-size:.66rem;letter-spacing:.12em}.signal-meta span{padding:.34rem .5rem;border:1px solid rgba(46,91,208,.18);border-radius:999px;background:rgba(157,184,255,.16)}.signal-readout h3{margin-bottom:.55rem;font-size:clamp(1.7rem,3vw,2.65rem);line-height:1.02}.signal-readout>p,.theme-list p,.next-grid p{color:#4d5a74;line-height:1.45}
+  .theme-list{display:grid;gap:9px;margin:1rem 0}.theme-list div{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding-top:.72rem;border-top:1px solid rgba(46,91,208,.12)}.theme-list strong{color:var(--ink);font-family:var(--font-label);font-size:.88rem}.theme-list span{color:var(--azure-deep);font-size:.64rem;letter-spacing:.12em}.theme-list p{grid-column:1/-1;margin:0;font-size:.9rem}.next-grid{display:grid;gap:10px}.next-grid div{padding:.85rem;border:1px solid rgba(46,91,208,.14);border-radius:10px;background:linear-gradient(135deg,rgba(255,255,255,.76),rgba(238,243,255,.72))}.next-grid span{color:var(--azure-deep);font-size:.64rem;letter-spacing:.13em}.next-grid p{margin:.28rem 0 0;font-size:1rem}
+  @keyframes trace{to{stroke-dashoffset:-40}}@keyframes rise{from{opacity:0;transform:translateY(2px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{50%{filter:drop-shadow(0 0 3px rgba(91,140,255,.7))}}@keyframes breathe{50%{opacity:.72}}
+  @media (max-width:1020px){.signal-insight-map,.signal-map-stage{grid-template-columns:1fr}.signal-map-copy h2{max-width:none}}@media (max-width:640px){.signal-insight-map{padding:22px 16px}.signal-orbit-card{min-height:270px}.signal-orbit-card svg{width:122%}}@media (prefers-reduced-motion:reduce){.orbit-line,.concept,.orbit-node,.orbit-node.is-primary circle,.core circle{animation:none;opacity:1}}
+</style>
