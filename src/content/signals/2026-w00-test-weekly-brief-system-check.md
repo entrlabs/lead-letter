@@ -34,51 +34,56 @@ signalBoard:
     - Practice
     - Decide
   lanes:
-    - label: Education
+    - label: School
+      field: School
       state: "Student support, aid guidance, course access, and affordability are becoming decision infrastructure."
       level: Confirmed
       score: 88
       direction: up
       brief: "The strongest signal is that students need clearer support to navigate real constraints."
     - label: Trust
+      field: Trust
       state: "Employers, customers, and regulators are asking for visible evidence before they rely on claims."
       level: Rising
       score: 82
       direction: up
       brief: "Proof is becoming the shared language of trust."
     - label: Work
+      field: Work
       state: "Labor headlines need translation into role-level evidence and practical career steps."
       level: Active
       score: 77
       direction: steady
       brief: "A good job-market headline is context, not a complete plan."
-    - label: Technology
+    - label: Tech
+      field: Tech
       state: "AI matters most where it changes how people practice judgment and verify work."
       level: Worth watching
       score: 71
       direction: steady
       brief: "The useful AI signal is role design, not hype."
 signalInsight:
-  primaryTheme: "Support"
+  primaryTheme: "People"
   signal: "Useful leadership turns broad signals into clear next steps."
   micro: "The newest signal is not just that systems are changing. It is that people need better translation from signal to decision."
   concepts:
-    - label: "Support"
+    - label: "People"
+      type: "leadership"
+    - label: "Trust"
       type: "service"
+    - label: "School"
+      type: "learning"
+    - label: "Work"
+      type: "work"
+    - label: "Tech"
+      type: "technology"
     - label: "Proof"
       type: "service"
-    - label: "Career Readiness"
-      type: "learning"
-    - label: "Advising"
-      type: "learning"
-    - label: "Work Design"
-      type: "work"
     - label: "Judgment"
       type: "leadership"
-    - label: "AI Use"
-      type: "technology"
   lanes:
-    - label: "Education"
+    - label: "School"
+      field: "School"
       level: "Confirmed"
       classification: "Confirmed"
       strength: "High signal"
@@ -87,6 +92,7 @@ signalInsight:
       meaning: "Students need clearer help translating loan rules, costs, course access, and career signals into action."
       importance: 88
     - label: "Trust"
+      field: "Trust"
       level: "Rising"
       classification: "Rising"
       strength: "Strong signal"
@@ -95,6 +101,7 @@ signalInsight:
       meaning: "Employers, customers, regulators, and students are asking for evidence they can inspect."
       importance: 82
     - label: "Work"
+      field: "Work"
       level: "Active"
       classification: "Active"
       strength: "Active signal"
@@ -102,7 +109,8 @@ signalInsight:
       state: "Career guidance needs role-level evidence, not only labor headlines."
       meaning: "A strong hiring report helps only when it becomes a practical next step for a specific student or worker."
       importance: 77
-    - label: "Technology"
+    - label: "Tech"
+      field: "Tech"
       level: "Worth watching"
       classification: "Worth watching"
       strength: "Emerging signal"
