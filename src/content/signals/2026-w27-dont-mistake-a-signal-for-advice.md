@@ -18,8 +18,8 @@ tags:
   - work
   - policy
 signalBoard:
-  signal: "A signal is not advice until someone translates it into context, limits, and a next step."
-  micro: "This week is about interpreting public signals before turning them into decisions."
+  signal: "Information is not advice."
+  micro: "Signals become useful when someone translates them into context, limits, and a next step."
   tension: "Fast signals. Missing context."
   move: "Interpret before acting."
   question: "What context is needed before this becomes advice?"
@@ -67,8 +67,8 @@ signalBoard:
       brief: "Regional education policy matters, but it should not become a universal claim."
 signalInsight:
   primaryTheme: "Psych"
-  signal: "A signal is not advice until someone translates it into context, limits, and a next step."
-  micro: "This week's map is about interpreting public signals before turning them into decisions."
+  signal: "Information is not advice."
+  micro: "Signals become useful when someone translates them into context, limits, and a next step."
   tension: "Fast signals. Missing context."
   move: "Interpret before acting."
   question: "What context is needed before this becomes advice?"
@@ -111,7 +111,8 @@ A signal can be accurate and still be unfinished. A policy change can matter wit
 The work is interpretation.
 
 > [!NOTE]
-> A signal is not advice until someone translates it into context, limits, and a next step.
+> **Signal: Information is not advice.**  
+> A signal becomes useful only when someone translates it into context, limits, and a next step.
 
 ---
 
