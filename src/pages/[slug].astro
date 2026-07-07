@@ -94,17 +94,35 @@ const displayTitle = formatLetterTitle(entry.data.title);
       if (quote.classList.contains('callout')) return;
 
       const firstParagraph = quote.querySelector('p:first-child');
-      const marker = firstParagraph?.textContent?.trim().match(/^\[!(NOTE|TIP|QUOTE|IMPORTANT|LEADERS|WARNING)\]/i);
+      const marker = firstParagraph?.textContent?.trim().match(/^\[!(NOTE|TIP|QUOTE|IMPORTANT|LEADERS|WARNING)\](?:\s+([^\n]+))?/i);
       if (!firstParagraph || !marker) return;
 
       const type = marker[1].toLowerCase();
+      let calloutTitle = marker[2]?.trim();
       quote.classList.add('callout', `callout-${type}`);
-      firstParagraph.innerHTML = firstParagraph.innerHTML.replace(/^\s*\[!(NOTE|TIP|QUOTE|IMPORTANT|LEADERS|WARNING)\]\s*/i, '');
+      firstParagraph.innerHTML = firstParagraph.innerHTML.replace(/^\s*\[!(NOTE|TIP|QUOTE|IMPORTANT|LEADERS|WARNING)\](?:\s+[^\n<]+)?\s*/i, '');
+
+      const leadingStrong = firstParagraph.querySelector('strong:first-child');
+      if (!calloutTitle && leadingStrong?.textContent?.trim().toLowerCase().startsWith('signal:')) {
+        calloutTitle = leadingStrong.textContent.trim();
+        leadingStrong.remove();
+
+        while (firstParagraph.firstChild?.nodeName === 'BR') {
+          firstParagraph.firstChild.remove();
+        }
+      }
 
       const label = document.createElement('div');
       label.className = 'callout-label';
       label.textContent = calloutLabels[type] || 'Note';
       quote.prepend(label);
+
+      if (calloutTitle) {
+        const title = document.createElement('div');
+        title.className = 'callout-title';
+        title.textContent = calloutTitle;
+        label.after(title);
+      }
 
       if (!firstParagraph.textContent?.trim()) {
         firstParagraph.remove();

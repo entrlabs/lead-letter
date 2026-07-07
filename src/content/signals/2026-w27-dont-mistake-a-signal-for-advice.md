@@ -110,8 +110,8 @@ A signal can be accurate and still be unfinished. A policy change can matter wit
 
 The work is interpretation.
 
-> [!NOTE]
-> **Signal: Information is not advice.**  
+> [!NOTE] Signal: Information is not advice
+>
 > A signal becomes useful only when someone translates it into context, limits, and a next step.
 
 ---

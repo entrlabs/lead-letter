@@ -893,6 +893,17 @@ a:hover {
   margin: 0.45rem 0 0;
 }
 
+.callout-title {
+  position: relative;
+  z-index: 1;
+  max-width: 32rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.22rem, 2vw, 1.72rem);
+  font-weight: 900;
+  line-height: 1.08;
+}
+
 .letter-body blockquote.callout p:first-of-type {
   color: var(--raise);
   font-size: 1rem;
