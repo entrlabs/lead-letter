@@ -10,11 +10,11 @@ week: "2026-W24"
 series: "Signals Brief"
 slug: "2026-w24-good-ideas-still-need-a-plan"
 tags:
-  - leadership
-  - small-business
-  - entrepreneurship
-  - ai-governance
-  - resilience
+  - managers
+  - founders
+  - education
+  - tech
+  - society
 ---
 
 A good idea can still fail if the numbers do not work.

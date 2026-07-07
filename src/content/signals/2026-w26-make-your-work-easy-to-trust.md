@@ -10,12 +10,11 @@ week: "2026-W26"
 series: "Signals Brief"
 slug: "2026-w26-make-your-work-easy-to-trust"
 tags:
-  - leadership
-  - career-readiness
-  - entrepreneurship
-  - higher-education
-  - workplace-learning
-  - decision-making
+  - managers
+  - work
+  - founders
+  - education
+  - psych
 signalInsight:
   primaryTheme: "Trust"
   signal: "Trust needs visible proof."

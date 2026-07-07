@@ -136,6 +136,52 @@ const conceptNodes = insight.concepts.slice(0, 7).map((concept, index) => {
 });
 
 const outputPath = 'M324 210 C404 202 498 204 580 210';
+const quadrantFrames = [
+  {
+    title: 'High importance',
+    timing: 'Useful now',
+    x: 48,
+    y: 54,
+    width: 240,
+    height: 138,
+    pointX: 164,
+    pointY: 128,
+  },
+  {
+    title: 'High importance',
+    timing: 'Useful later',
+    x: 312,
+    y: 54,
+    width: 240,
+    height: 138,
+    pointX: 430,
+    pointY: 128,
+  },
+  {
+    title: 'Lower importance',
+    timing: 'Useful now',
+    x: 48,
+    y: 228,
+    width: 240,
+    height: 138,
+    pointX: 164,
+    pointY: 300,
+  },
+  {
+    title: 'Lower importance',
+    timing: 'Useful later',
+    x: 312,
+    y: 228,
+    width: 240,
+    height: 138,
+    pointX: 430,
+    pointY: 300,
+  },
+];
+const quadrantSignals = signalRows.slice(0, 4).map((lane, index) => ({
+  ...lane,
+  ...quadrantFrames[index % quadrantFrames.length],
+}));
 ---
 
 <section class="signal-insight-map reveal" aria-labelledby="latest-signal-map">
@@ -196,6 +242,32 @@ const outputPath = 'M324 210 C404 202 498 204 580 210';
         <rect class="stage-frame" x="12" y="12" width="576" height="396" rx="24" />
         <path class="stage-grid" d="M48 66H552M48 126H552M48 186H552M48 246H552M48 306H552M48 366H552M96 42V378M168 42V378M240 42V378M312 42V378M384 42V378M456 42V378M528 42V378" />
         <path class="stage-scan" d="M86 368 L514 50" />
+        <g class="priority-quadrants" aria-hidden="true">
+          {quadrantFrames.map((quadrant, index) => (
+            <g class={`priority-cell priority-cell-${index + 1}`}>
+              <rect
+                x={quadrant.x}
+                y={quadrant.y}
+                width={quadrant.width}
+                height={quadrant.height}
+                rx="16"
+              />
+              <text class="priority-title" x={quadrant.x + 16} y={quadrant.y + 25}>{quadrant.title}</text>
+              <text class="priority-time" x={quadrant.x + 16} y={quadrant.y + 48}>{quadrant.timing}</text>
+            </g>
+          ))}
+          <path class="priority-axis" d="M300 54V366M48 210H552" />
+          <text class="priority-axis-label priority-axis-importance" x="34" y="202" transform="rotate(-90 34 202)">Importance</text>
+          <text class="priority-axis-label priority-axis-usefulness" x="448" y="388">Usefulness</text>
+          {quadrantSignals.map((signal, index) => (
+            <g class="priority-signal" style={`--priority-delay:${index * 0.16}s;`}>
+              <circle cx={signal.pointX} cy={signal.pointY} r="17" />
+              <circle class="priority-signal-core" cx={signal.pointX} cy={signal.pointY} r="6" />
+              <text x={signal.pointX} y={signal.pointY - 25}>{signal.label}</text>
+              <text class="priority-signal-level" x={signal.pointX} y={signal.pointY + 34}>{signal.level}</text>
+            </g>
+          ))}
+        </g>
 
         {sourceRows.map((row) => (
           <>
@@ -536,6 +608,99 @@ const outputPath = 'M324 210 C404 202 498 204 580 210';
     animation: scanSweep 8s ease-in-out infinite;
   }
 
+  .priority-quadrants {
+    opacity: .94;
+  }
+
+  .priority-cell rect {
+    fill: rgba(255, 255, 255, .38);
+    stroke: rgba(46, 91, 208, .13);
+    stroke-width: 1;
+  }
+
+  .priority-cell-1 rect {
+    fill: rgba(91, 140, 255, .14);
+  }
+
+  .priority-cell-2 rect {
+    fill: rgba(160, 108, 240, .11);
+  }
+
+  .priority-cell-3 rect {
+    fill: rgba(201, 163, 94, .12);
+  }
+
+  .priority-cell-4 rect {
+    fill: rgba(79, 182, 168, .1);
+  }
+
+  .priority-title,
+  .priority-time,
+  .priority-axis-label,
+  .priority-signal text {
+    font-family: var(--font-label);
+    font-weight: 800;
+    text-anchor: start;
+  }
+
+  .priority-title {
+    fill: rgba(36, 49, 77, .72);
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .priority-time {
+    fill: rgba(46, 91, 208, .76);
+    font-size: 16px;
+  }
+
+  .priority-axis {
+    fill: none;
+    stroke: rgba(46, 91, 208, .18);
+    stroke-dasharray: 8 10;
+    stroke-width: 1.4;
+  }
+
+  .priority-axis-label {
+    fill: rgba(46, 91, 208, .52);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .priority-signal {
+    animation: prioritySignalRise 900ms ease both;
+    animation-delay: var(--priority-delay);
+  }
+
+  .priority-signal circle {
+    fill: rgba(255, 255, 255, .86);
+    stroke: rgba(46, 91, 208, .44);
+    stroke-width: 2;
+  }
+
+  .priority-signal-core {
+    fill: var(--azure-deep);
+    stroke: #fff;
+    stroke-width: 2;
+    animation: ringPulse 3.6s ease-in-out infinite;
+  }
+
+  .priority-signal text {
+    fill: #24314d;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-anchor: middle;
+  }
+
+  .priority-signal-level {
+    fill: rgba(46, 91, 208, .76);
+    font-size: 9px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
   .signal-route-under,
   .signal-route,
   .concept-line,
@@ -872,6 +1037,18 @@ const outputPath = 'M324 210 C404 202 498 204 580 210';
     to { transform: scaleX(1); }
   }
 
+  @keyframes prioritySignalRise {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
   @media (max-width: 1040px) {
     .signal-map-copy {
       grid-template-columns: 1fr;
@@ -965,6 +1142,8 @@ const outputPath = 'M324 210 C404 202 498 204 580 210';
     .signal-route,
     .signal-courier,
     .stage-scan,
+    .priority-signal,
+    .priority-signal-core,
     .signal-theater::before,
     .concept-line,
     .output-route,

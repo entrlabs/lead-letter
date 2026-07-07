@@ -1,5 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 
+const topicTags = ['business', 'founders', 'managers', 'education', 'policy', 'market', 'community', 'global', 'work', 'tech', 'psych', 'society'] as const;
+
 const signalLane = z.object({
   label: z.string(),
   field: z.string().optional(),
@@ -39,7 +41,7 @@ const signals = defineCollection({
     featured: z.boolean().default(false),
     week: z.string().optional(),
     series: z.string().default('Signals Brief'),
-    tags: z.array(z.string()).default([]),
+    tags: z.array(z.enum(topicTags)).default([]),
     signalBoard: z.object({
       signal: z.string(),
       micro: z.string(),

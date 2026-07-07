@@ -1,6 +1,6 @@
 ---
 title: "Use AI, But Keep Your Judgment"
-description: "A public weekly Signals Brief about AI, entrepreneurship, learning, and responsible work."
+description: "A public weekly Signals Brief about AI, founders, learning, and responsible work."
 date: 2026-06-08
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,11 +10,11 @@ week: "2026-W23"
 series: "Signals Brief"
 slug: "2026-w23-use-ai-but-keep-your-judgment"
 tags:
-  - leadership
-  - entrepreneurship
-  - higher-education
-  - ai-literacy
-  - judgment
+  - managers
+  - founders
+  - education
+  - tech
+  - psych
 signalBoard:
   signal: "Judgment > Speed"
   micro: "AI can accelerate work, but responsibility still sits with people."

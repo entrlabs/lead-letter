@@ -10,11 +10,11 @@ week: "2026-W25"
 series: "Signals Brief"
 slug: "2026-w25-build-the-practice-before-raising-the-bar"
 tags:
-  - leadership
-  - career-readiness
-  - entrepreneurship
-  - management
-  - workplace-learning
+  - managers
+  - work
+  - founders
+  - education
+  - society
 ---
 
 This week's stories had a common problem:
