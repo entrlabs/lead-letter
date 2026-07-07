@@ -5,6 +5,9 @@ export type SignalInsightLane = {
   field?: string;
   level: string;
   state: string;
+  score?: number;
+  direction?: 'up' | 'down' | 'steady';
+  brief?: string;
   importance?: number;
   classification?: string;
   strength?: string;
@@ -106,6 +109,10 @@ function importanceFromLevel(level: string, index = 0) {
   return Math.max(48, 72 - index * 6);
 }
 
+function sameLane(a?: string, b?: string) {
+  return normalize(a).trim() === normalize(b).trim();
+}
+
 function conceptsFromEntry(entry: CollectionEntry<'signals'>, activeFields: typeof signalFields) {
   const tags = entry.data.tags.map(titleCase);
   const fromFields = activeFields.map((theme) => theme.field);
@@ -157,7 +164,23 @@ export function getSignalInsight(entry: CollectionEntry<'signals'>): SignalInsig
     }))).map((lane, index) => ({
       ...lane,
       field: lane.field ?? lane.label,
-      importance: lane.importance ?? importanceFromLevel(`${lane.level} ${lane.strength ?? ''} ${lane.classification ?? ''}`, index),
-    })),
+    })).map((lane, index) => {
+      const boardLane = entry.data.signalBoard?.lanes.find((candidate) =>
+        sameLane(candidate.field, lane.field) ||
+        sameLane(candidate.label, lane.label) ||
+        sameLane(candidate.label, lane.field) ||
+        sameLane(candidate.field, lane.label)
+      );
+      const score = lane.score ?? boardLane?.score;
+      const direction = lane.direction ?? boardLane?.direction;
+
+      return {
+        ...lane,
+        score,
+        direction,
+        brief: lane.brief ?? boardLane?.brief,
+        importance: lane.importance ?? score ?? importanceFromLevel(`${lane.level} ${lane.strength ?? ''} ${lane.classification ?? ''}`, index),
+      };
+    }),
   };
 }

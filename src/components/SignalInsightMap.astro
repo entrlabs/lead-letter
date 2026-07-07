@@ -178,10 +178,66 @@ const quadrantFrames = [
     pointY: 300,
   },
 ];
-const quadrantSignals = signalRows.slice(0, 4).map((lane, index) => ({
-  ...lane,
-  ...quadrantFrames[index % quadrantFrames.length],
-}));
+
+function laneSearchText(lane: typeof signalRows[number]) {
+  return [
+    lane.label,
+    lane.field,
+    lane.level,
+    lane.state,
+    lane.strength,
+    lane.classification,
+    lane.meaning,
+    lane.brief,
+  ].filter(Boolean).join(' ').toLowerCase();
+}
+
+function isUsefulNow(lane: typeof signalRows[number]) {
+  const text = laneSearchText(lane);
+  let score = 0;
+
+  if (lane.direction === 'up') score += 2;
+  if (lane.direction === 'down') score -= 1;
+  if (lane.direction === 'steady') score -= 1;
+  if (/\b(urgent|immediate|now|today|current|active|rising|action|operate|operating|decision|support|practice)\b/.test(text)) score += 1;
+  if (/\b(later|future|watch|watching|emerging|monitor|next|developing|longer-term)\b/.test(text)) score -= 2;
+  if (/\b(confirmed|strong|prime|leading)\b/.test(text)) score += 1;
+
+  return score >= 2;
+}
+
+// Matrix placement is derived from signal metadata so new Lead Letters map automatically.
+function quadrantIndexFor(lane: typeof signalRows[number]) {
+  const highImportance = lane.importance >= 82;
+  const usefulNow = isUsefulNow(lane);
+
+  if (highImportance && usefulNow) return 0;
+  if (highImportance) return 1;
+  if (usefulNow) return 2;
+  return 3;
+}
+
+const quadrantSlots = [
+  { dx: 0, dy: 0 },
+  { dx: -42, dy: 24 },
+  { dx: 42, dy: 24 },
+  { dx: 0, dy: -26 },
+];
+const quadrantUseCounts: Record<number, number> = {};
+const quadrantSignals = signalRows.slice(0, 4).map((lane) => {
+  const matrixIndex = quadrantIndexFor(lane);
+  const frame = quadrantFrames[matrixIndex];
+  const slot = quadrantSlots[quadrantUseCounts[matrixIndex] ?? 0] ?? quadrantSlots[0];
+  quadrantUseCounts[matrixIndex] = (quadrantUseCounts[matrixIndex] ?? 0) + 1;
+
+  return {
+    ...lane,
+    ...frame,
+    matrixIndex,
+    pointX: frame.pointX + slot.dx,
+    pointY: frame.pointY + slot.dy,
+  };
+});
 ---
 
 <section class="signal-insight-map reveal" aria-labelledby="latest-signal-map">
