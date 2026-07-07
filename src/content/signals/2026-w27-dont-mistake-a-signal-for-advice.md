@@ -46,11 +46,11 @@ signalBoard:
       brief: "People need context and limits before a signal becomes usable."
     - label: Society
       field: Society
-      state: "Complex systems create interpretation work."
+      state: "Complex systems make interpretation part of service."
       level: Confirmed
       score: 84
       direction: steady
-      brief: "Institutions should help people understand what applies, what does not, and why."
+      brief: "Rules, costs, tools, and choices are only useful when people can understand what applies to them."
     - label: Founders
       field: Founders
       state: "Customer and market signals need operating translation."
@@ -93,7 +93,7 @@ signalInsight:
       state: "Decision quality depends on interpretation before action."
     - label: "Society"
       level: "Confirmed"
-      state: "Complex systems create interpretation work."
+      state: "Complex systems make interpretation part of service."
     - label: "Founders"
       level: "Rising"
       state: "Customer and market signals need operating translation."
@@ -133,21 +133,21 @@ What does this signal change for this person, this role, and this decision?
 
 ---
 
-## 2. Context Comes Before Advice
+## 2. Complex Systems Need Human Translation
 
-One reason signals get misused is that they travel faster than context.
+Complexity changes what service means.
 
-An education policy can be country-specific. A student-loan rule can be U.S.-specific. A course-sharing partnership can matter deeply for participating institutions without becoming a universal model. A consumer report can show pressure without telling every business to make the same move.
+When rules, costs, tools, and choices become complicated, access to information is not enough. People need to understand which part applies to them, what changed, what did not change, and what choice is actually in front of them.
 
-Good interpretation starts by naming the boundary.
+That showed up in education and work this week. Student-loan changes created demand for clearer explanation. Course-sharing partnerships raised questions about access, coordination, and trust. AI exposure stories pointed to real changes in work, but the practical meaning depended on the role. Consumer caution mattered for founders, but not every careful customer was cautious for the same reason.
 
-Where does this apply? Who is affected? What is still unknown? What would need local verification? What would make the signal useful for a student, young professional, manager, founder, or community leader?
+The pattern is bigger than any one sector. The more complex a system becomes, the more valuable clear interpretation becomes. People do not need someone to decide for them. They need the decision environment to be legible enough to act with confidence.
 
 > [!WARNING]
-> The fastest way to overclaim a signal is to skip the place, people, and limits.
+> Complexity turns explanation into part of the service.
 
 **Question to ask:**  
-Where does this signal apply, and where would it need local verification?
+What would help a real person understand the choice in front of them?
 
 ---
 
@@ -175,12 +175,12 @@ Education was important this week, but it should stay properly scoped.
 
 U.S. financial-aid administrators were interpreting last-minute loan changes. Six HBCUs launched a course-sharing partnership. Australia kept a university-fee policy in place. These are serious signals, but they are not the same signal.
 
-The useful lesson is scope discipline.
+The useful lesson is not that every education story points to the same conclusion.
 
-Some education signals are local. Some are comparative. Some point to a broader institutional pattern. A good brief should say which one it is before telling readers what to do with it.
+Some education signals are local. Some are comparative. Some point to a broader institutional pattern. The difference matters because a policy can be important without being universal.
 
 > [!TIP]
-> Before using a policy signal, label it: local, comparative, or broadly transferable.
+> A local signal can still be useful when the boundary is clear.
 
 **Question to ask:**  
 Is this a local case, a comparison case, or a broader pattern?
@@ -200,9 +200,9 @@ That means naming what changed, who is affected, what the signal does not say, w
 ## Questions Worth Asking
 
 1. What part of this signal is information, and what part would become advice?
-2. What context would a student, young professional, manager, founder, or educator need before acting?
+2. What would help a student, young professional, manager, founder, or educator understand the decision in front of them?
 3. Where are we treating a local policy story like a universal rule?
-4. What boundary should be named before this signal is shared?
+4. What limit or context would keep this signal honest?
 5. What operating choice, if any, follows from the signal?
 
 ---
@@ -223,7 +223,7 @@ That means naming what changed, who is affected, what the signal does not say, w
 | [US employers delivered another solid month of hiring in June](https://apnews.com/article/49c7a993b394e6ae3f801c8e3c0d39dd), AP News | 2026-07-02 | Provides work context that still needs role-level interpretation. |
 | [Weekly applications for unemployment benefits fall to the lowest level in 7 weeks](https://apnews.com/article/982d6cccad5a1b17b0b8cbfde585eeb6), AP News | 2026-07-03 | Adds a second work signal without becoming individual advice by itself. |
 | [Administrative assistants are among the workers most exposed to AI](https://apnews.com/article/artificial-intelligence-ai-administrative-assistants-19357b0794206c5b8b070cb6ceca4023), AP News | 2026-07-02 | Shows why technology signals need role-level interpretation. |
-| [Changes to student loans are taking effect July 1. Here's what to know](https://apnews.com/article/28e7b41b9b3fbdbca564c7c77c774173), AP News | 2026-07-01 | Useful as U.S.-specific student-loan context, not as a universal weekly thesis. |
+| [Changes to student loans are taking effect July 1. Here's what to know](https://apnews.com/article/28e7b41b9b3fbdbca564c7c77c774173), AP News | 2026-07-01 | Useful as U.S.-specific student-loan context, not as a universal rule. |
 | [Financial Aid Administrators Grapple With Last-Minute Loan Changes](https://www.insidehighered.com/news/students/financial-aid/2026/07/01/financial-aid-admins-grapple-last-minute-loan-changes), Inside Higher Ed | 2026-07-01 | Shows how complex rules create interpretation work for institutions. |
 | [6 HBCUs Launch Course-Sharing Partnership](https://www.insidehighered.com/news/student-success/academic-life/2026/07/02/6-hbcus-launch-course-sharing-partnership), Inside Higher Ed | 2026-07-02 | Shows course access as an institutional coordination problem. |
 | [Arts degrees to cost $50,000 until at least 2028](https://www.theguardian.com/australia-news/2026/jul/02/arts-degrees-cost-measures-to-lower-university-fees-put-on-hold-australia), The Guardian | 2026-07-01 | Adds Australia-specific affordability context and shows why jurisdiction matters. |
