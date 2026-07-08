@@ -33,15 +33,18 @@ function displayField(value?: string) {
 }
 
 function signalBand(importance: number) {
-  if (importance >= 93) return { className: 'signal-band-95', label: 'Peak' };
-  if (importance >= 88) return { className: 'signal-band-90', label: 'Prime' };
-  if (importance >= 83) return { className: 'signal-band-85', label: 'Strong' };
+  if (importance >= 98) return { className: 'signal-band-100', label: 'Peak' };
+  if (importance >= 94) return { className: 'signal-band-96', label: 'Peak' };
+  if (importance >= 90) return { className: 'signal-band-92', label: 'Prime' };
+  if (importance >= 86) return { className: 'signal-band-88', label: 'Prime' };
+  if (importance >= 82) return { className: 'signal-band-84', label: 'Strong' };
   if (importance >= 78) return { className: 'signal-band-80', label: 'High' };
-  if (importance >= 73) return { className: 'signal-band-75', label: 'Active' };
-  if (importance >= 68) return { className: 'signal-band-70', label: 'Emerging' };
-  if (importance >= 63) return { className: 'signal-band-65', label: 'Watch' };
+  if (importance >= 74) return { className: 'signal-band-76', label: 'Active' };
+  if (importance >= 70) return { className: 'signal-band-72', label: 'Emerging' };
+  if (importance >= 66) return { className: 'signal-band-68', label: 'Watch' };
+  if (importance >= 62) return { className: 'signal-band-64', label: 'Watch' };
   if (importance >= 58) return { className: 'signal-band-60', label: 'Quiet' };
-  return { className: 'signal-band-55', label: 'Background' };
+  return { className: 'signal-band-56', label: 'Background' };
 }
 
 function signalNumber(index: number) {
@@ -991,15 +994,18 @@ const quadrantSignals = signalRows.slice(0, 4);
     text-transform: none;
   }
 
-  .signal-band-95 { --signal-accent: #14358E; --signal-soft: #7FA3FF; --signal-deep: #0C245F; }
-  .signal-band-90 { --signal-accent: #2E5BD0; --signal-soft: #9DB8FF; --signal-deep: #163C9C; }
-  .signal-band-85 { --signal-accent: #0078B8; --signal-soft: #A8D2FF; --signal-deep: #005A8A; }
+  .signal-band-100 { --signal-accent: #0C245F; --signal-soft: #7FA3FF; --signal-deep: #061842; }
+  .signal-band-96 { --signal-accent: #14358E; --signal-soft: #8FACFF; --signal-deep: #0C245F; }
+  .signal-band-92 { --signal-accent: #2E5BD0; --signal-soft: #9DB8FF; --signal-deep: #163C9C; }
+  .signal-band-88 { --signal-accent: #006EA8; --signal-soft: #A8D2FF; --signal-deep: #004D76; }
+  .signal-band-84 { --signal-accent: #24766D; --signal-soft: #A8DDD6; --signal-deep: #16544E; }
   .signal-band-80 { --signal-accent: #575EDB; --signal-soft: #A9AEFF; --signal-deep: #343BB0; }
-  .signal-band-75 { --signal-accent: #8F55D8; --signal-soft: #C9A8FF; --signal-deep: #5F2DB0; }
-  .signal-band-70 { --signal-accent: #85611F; --signal-soft: #E6CB8E; --signal-deep: #5F4214; }
-  .signal-band-65 { --signal-accent: #24766D; --signal-soft: #A8DDD6; --signal-deep: #16544E; }
-  .signal-band-60 { --signal-accent: #5960CB; --signal-soft: #C8CBFF; --signal-deep: #373EA0; }
-  .signal-band-55 { --signal-accent: #63728F; --signal-soft: #D7DEEF; --signal-deep: #3F4D66; }
+  .signal-band-76 { --signal-accent: #8F55D8; --signal-soft: #C9A8FF; --signal-deep: #5F2DB0; }
+  .signal-band-72 { --signal-accent: #85611F; --signal-soft: #E6CB8E; --signal-deep: #5F4214; }
+  .signal-band-68 { --signal-accent: #5960CB; --signal-soft: #C8CBFF; --signal-deep: #373EA0; }
+  .signal-band-64 { --signal-accent: #4F7A9D; --signal-soft: #BCD8F0; --signal-deep: #2E5778; }
+  .signal-band-60 { --signal-accent: #63728F; --signal-soft: #D7DEEF; --signal-deep: #3F4D66; }
+  .signal-band-56 { --signal-accent: #7A8398; --signal-soft: #DDE3F0; --signal-deep: #4B556B; }
 
   @keyframes sourceWake {
     0%, 100% { transform: translateY(0); box-shadow: 0 14px 28px rgba(46, 91, 208, .08); }
