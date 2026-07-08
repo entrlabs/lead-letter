@@ -33,6 +33,7 @@ function displayField(value?: string) {
 }
 
 function signalBand(importance: number) {
+  if (importance >= 95) return { className: 'signal-band-95', label: 'Peak' };
   if (importance >= 90) return { className: 'signal-band-90', label: 'Prime' };
   if (importance >= 85) return { className: 'signal-band-85', label: 'Strong' };
   if (importance >= 80) return { className: 'signal-band-80', label: 'High' };
@@ -87,7 +88,7 @@ const quadrantFrames = [
     width: 240,
     height: 138,
     pointX: 164,
-    pointY: 300,
+    pointY: 334,
   },
   {
     key: 'low-later' as QuadrantKey,
@@ -99,7 +100,7 @@ const quadrantFrames = [
     width: 240,
     height: 138,
     pointX: 430,
-    pointY: 300,
+    pointY: 334,
   },
 ];
 
@@ -269,16 +270,18 @@ const quadrantSignals = signalRows.slice(0, 4);
     </div>
 
     <article class="action-column">
-      <span class="action-kicker">Decision Matrix</span>
+      <div class="action-meta">
+        <span class="action-kicker">Decision Matrix</span>
+        <div class="action-sequence" aria-hidden="true">
+          <span>Score</span>
+          <i></i>
+          <span>Place</span>
+          <i></i>
+          <span>Use</span>
+        </div>
+      </div>
       <strong>{insight.signal}</strong>
       <p>{insight.micro}</p>
-      <div class="action-sequence" aria-hidden="true">
-        <span>Score</span>
-        <i></i>
-        <span>Place</span>
-        <i></i>
-        <span>Use</span>
-      </div>
     </article>
   </div>
 
@@ -879,11 +882,11 @@ const quadrantSignals = signalRows.slice(0, 4);
     position: relative;
     display: grid;
     grid-column: 1 / -1;
-    grid-template-columns: minmax(110px, .2fr) minmax(260px, .65fr) minmax(220px, .45fr);
+    grid-template-columns: minmax(138px, .25fr) minmax(260px, .78fr) minmax(220px, .52fr);
     align-items: center;
-    gap: clamp(.8rem, 2vw, 1.4rem);
+    gap: clamp(.72rem, 1.8vw, 1.2rem);
     min-height: auto;
-    padding: clamp(1rem, 2vw, 1.2rem);
+    padding: clamp(.78rem, 1.6vw, 1rem);
     overflow: hidden;
     border: 1px solid rgba(46, 91, 208, .18);
     border-radius: 16px;
@@ -906,9 +909,16 @@ const quadrantSignals = signalRows.slice(0, 4);
     animation: outputTurn 11s linear infinite;
   }
 
-  .action-kicker {
+  .action-meta {
     position: relative;
     z-index: 1;
+    display: grid;
+    gap: .34rem;
+    align-content: center;
+  }
+
+  .action-kicker {
+    position: relative;
     color: var(--azure-deep);
     font-size: .6rem;
     letter-spacing: .14em;
@@ -934,18 +944,17 @@ const quadrantSignals = signalRows.slice(0, 4);
 
   .action-sequence {
     position: relative;
-    z-index: 1;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: .46rem;
+    gap: .34rem;
     color: var(--azure-deep);
-    font-size: .58rem;
-    letter-spacing: .1em;
+    font-size: .52rem;
+    letter-spacing: .08em;
   }
 
   .action-sequence i {
-    width: 18px;
+    width: 14px;
     height: 1px;
     background: rgba(46, 91, 208, .28);
   }
@@ -972,12 +981,13 @@ const quadrantSignals = signalRows.slice(0, 4);
     text-transform: none;
   }
 
+  .signal-band-95 { --signal-accent: #163C9C; --signal-soft: #7FA3FF; --signal-deep: #0F2D78; }
   .signal-band-90 { --signal-accent: #2E5BD0; --signal-soft: #9DB8FF; --signal-deep: #163C9C; }
   .signal-band-85 { --signal-accent: #5B8CFF; --signal-soft: #B9CAFF; --signal-deep: #2E5BD0; }
   .signal-band-80 { --signal-accent: #6E74F0; --signal-soft: #A9AEFF; --signal-deep: #3840BD; }
   .signal-band-75 { --signal-accent: #A06CF0; --signal-soft: #C9A8FF; --signal-deep: #6C36C2; }
   .signal-band-70 { --signal-accent: #C9A35E; --signal-soft: #E6CB8E; --signal-deep: #8C6526; }
-  .signal-band-65 { --signal-accent: #7FA3FF; --signal-soft: #C8D6FF; --signal-deep: #2E5BD0; }
+  .signal-band-65 { --signal-accent: #4FB6A8; --signal-soft: #A8DDD6; --signal-deep: #22776C; }
   .signal-band-60 { --signal-accent: #7F86E8; --signal-soft: #C8CBFF; --signal-deep: #4D55B5; }
   .signal-band-55 { --signal-accent: #8A97B8; --signal-soft: #D7DEEF; --signal-deep: #52617C; }
 
@@ -1117,7 +1127,7 @@ const quadrantSignals = signalRows.slice(0, 4);
 
     .action-column {
       grid-template-columns: 1fr;
-      min-height: 190px;
+      min-height: auto;
     }
   }
 
@@ -1175,13 +1185,18 @@ const quadrantSignals = signalRows.slice(0, 4);
       gap: .32rem;
     }
 
+    .matrix-quadrant-1,
+    .matrix-quadrant-2 {
+      margin-top: 12px;
+    }
+
     .matrix-quadrant-3 {
-      margin-left: -22px;
+      margin-left: -8px;
       margin-top: 20px;
     }
 
     .matrix-quadrant-4 {
-      margin-left: 22px;
+      margin-left: 8px;
       margin-top: 20px;
     }
 
@@ -1221,6 +1236,20 @@ const quadrantSignals = signalRows.slice(0, 4);
 
     .node-label em {
       display: none;
+    }
+
+    .matrix-cell-head {
+      gap: .12rem;
+    }
+
+    .matrix-cell-head span {
+      font-size: .5rem;
+      letter-spacing: .08em;
+    }
+
+    .matrix-cell-head strong {
+      font-size: .92rem;
+      line-height: .88;
     }
 
     .action-column {
