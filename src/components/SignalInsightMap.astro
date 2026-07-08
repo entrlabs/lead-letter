@@ -33,14 +33,14 @@ function displayField(value?: string) {
 }
 
 function signalBand(importance: number) {
-  if (importance >= 95) return { className: 'signal-band-95', label: 'Peak' };
-  if (importance >= 90) return { className: 'signal-band-90', label: 'Prime' };
-  if (importance >= 85) return { className: 'signal-band-85', label: 'Strong' };
-  if (importance >= 80) return { className: 'signal-band-80', label: 'High' };
-  if (importance >= 75) return { className: 'signal-band-75', label: 'Active' };
-  if (importance >= 70) return { className: 'signal-band-70', label: 'Emerging' };
-  if (importance >= 65) return { className: 'signal-band-65', label: 'Watch' };
-  if (importance >= 60) return { className: 'signal-band-60', label: 'Quiet' };
+  if (importance >= 93) return { className: 'signal-band-95', label: 'Peak' };
+  if (importance >= 88) return { className: 'signal-band-90', label: 'Prime' };
+  if (importance >= 83) return { className: 'signal-band-85', label: 'Strong' };
+  if (importance >= 78) return { className: 'signal-band-80', label: 'High' };
+  if (importance >= 73) return { className: 'signal-band-75', label: 'Active' };
+  if (importance >= 68) return { className: 'signal-band-70', label: 'Emerging' };
+  if (importance >= 63) return { className: 'signal-band-65', label: 'Watch' };
+  if (importance >= 58) return { className: 'signal-band-60', label: 'Quiet' };
   return { className: 'signal-band-55', label: 'Background' };
 }
 
