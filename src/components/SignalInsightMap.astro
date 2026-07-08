@@ -562,7 +562,7 @@ const quadrantSignals = signalRows.slice(0, 4);
     z-index: 1;
     min-height: 464px;
     height: 100%;
-    padding: 2.55rem 1.55rem 2rem 2.15rem;
+    padding: 2.55rem 1.55rem 2rem 3.15rem;
     overflow: hidden;
     border: 1px solid rgba(46, 91, 208, .13);
     border-radius: 16px;
@@ -574,7 +574,7 @@ const quadrantSignals = signalRows.slice(0, 4);
 
   .matrix-radar {
     position: absolute;
-    inset: 2.55rem 1.55rem 2rem 2.15rem;
+    inset: 2.55rem 1.55rem 2rem 3.15rem;
     z-index: 1;
     overflow: hidden;
     border-radius: 12px;
@@ -655,7 +655,7 @@ const quadrantSignals = signalRows.slice(0, 4);
   }
 
   .matrix-cross::after {
-    left: 2.15rem;
+    left: 3.15rem;
     right: 1.55rem;
     top: 50%;
     height: 1px;
@@ -680,9 +680,19 @@ const quadrantSignals = signalRows.slice(0, 4);
   }
 
   .matrix-axis-importance {
-    left: .65rem;
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
+    left: .7rem;
+    top: 2.55rem;
+    bottom: 2rem;
+    width: 1.35rem;
+    display: grid;
+    place-items: center;
+    padding: .55rem 0;
+    border: 1px solid rgba(46, 91, 208, .16);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .54);
+    box-shadow: 0 10px 22px rgba(46, 91, 208, .07);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
   }
 
   .matrix-axis-usefulness {
@@ -772,7 +782,7 @@ const quadrantSignals = signalRows.slice(0, 4);
 
   .matrix-point-layer {
     position: absolute;
-    inset: 2.55rem 1.55rem 2rem 2.15rem;
+    inset: 2.55rem 1.55rem 2rem 3.15rem;
     z-index: 6;
     pointer-events: none;
   }
