@@ -9,6 +9,9 @@ export type SignalInsightLane = {
   direction?: 'up' | 'down' | 'steady';
   brief?: string;
   importance?: number;
+  usefulness?: number;
+  timeframe?: 'now' | 'later';
+  quadrant?: 'high-now' | 'high-later' | 'low-now' | 'low-later';
   classification?: string;
   strength?: string;
   sourceWeek?: string;
@@ -25,8 +28,8 @@ export type SignalInsight = {
 
 const signalFields = [
   {
-    field: 'School',
-    type: 'learning',
+    field: 'Education',
+    type: 'education',
     keywords: ['student', 'students', 'school', 'college', 'university', 'education', 'degree', 'course', 'advising', 'financial aid', 'learning'],
   },
   {
@@ -36,37 +39,37 @@ const signalFields = [
   },
   {
     field: 'Tech',
-    type: 'technology',
+    type: 'tech',
     keywords: ['ai', 'technology', 'tech', 'tool', 'automation', 'digital', 'platform', 'data', 'system'],
   },
   {
-    field: 'Trust',
-    type: 'service',
+    field: 'Society',
+    type: 'society',
     keywords: ['trust', 'proof', 'evidence', 'credibility', 'claim', 'claims', 'customer', 'believe', 'verify', 'rely'],
   },
   {
-    field: 'Money',
-    type: 'service',
+    field: 'Market',
+    type: 'market',
     keywords: ['cost', 'price', 'debt', 'loan', 'funding', 'investment', 'affordability', 'capital', 'financial'],
   },
   {
-    field: 'Market',
-    type: 'work',
+    field: 'Founders',
+    type: 'founders',
     keywords: ['market', 'consumer', 'customer', 'demand', 'competition', 'founder', 'startup', 'venture'],
   },
   {
     field: 'Policy',
-    type: 'leadership',
+    type: 'policy',
     keywords: ['policy', 'law', 'rule', 'regulation', 'federal', 'government', 'institutional'],
   },
   {
-    field: 'People',
-    type: 'leadership',
+    field: 'Community',
+    type: 'community',
     keywords: ['people', 'leadership', 'culture', 'service', 'dignity', 'agency', 'support', 'community'],
   },
 ];
 
-const fallbackConcepts = ['School', 'Work', 'Tech', 'Trust', 'Money', 'People'];
+const fallbackConcepts = ['Education', 'Work', 'Tech', 'Society', 'Founders', 'Managers'];
 
 function normalize(value: unknown) {
   return String(value ?? '').toLowerCase();

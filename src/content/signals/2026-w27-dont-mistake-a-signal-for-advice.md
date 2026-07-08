@@ -89,17 +89,41 @@ signalInsight:
       type: "psych"
   lanes:
     - label: "Psych"
+      field: "Psych"
       level: "Confirmed"
       state: "Decision quality depends on interpretation before action."
+      importance: 90
+      usefulness: 92
+      timeframe: "now"
+      quadrant: "high-now"
+      meaning: "This is the main reader move for the week: interpret before turning information into action."
     - label: "Society"
+      field: "Society"
       level: "Confirmed"
       state: "Complex systems make interpretation part of service."
+      importance: 84
+      usefulness: 74
+      timeframe: "now"
+      quadrant: "high-now"
+      meaning: "People need clearer explanation when rules, tools, costs, and choices become hard to read."
     - label: "Founders"
+      field: "Founders"
       level: "Rising"
       state: "Customer and market signals need operating translation."
+      importance: 80
+      usefulness: 78
+      timeframe: "now"
+      quadrant: "low-now"
+      meaning: "Useful for product, pricing, support, and value decisions, but not the week's highest-risk signal."
     - label: "Education"
+      field: "Education"
       level: "Active"
       state: "Education signals need jurisdiction and scope."
+      importance: 76
+      usefulness: 42
+      timeframe: "later"
+      quadrant: "low-later"
+      meaning: "Worth watching with context, but bounded education-policy signals should not drive the whole issue."
 ---
 
 This week, the useful pattern was not a single headline.
