@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SendFoxForm from '../components/SendFoxForm.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
+import DailyFieldNotesRail from '../components/DailyFieldNotesRail.astro';
 import SignalInsightMap from '../components/SignalInsightMap.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 import { getSignalInsight } from '../utils/signalInsight';
@@ -10,9 +11,13 @@ import { getSignalInsight } from '../utils/signalInsight';
 const allSignals = (await getCollection('signals')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
+const allFieldNotes = (await getCollection('fieldnotes')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 
 const latest = allSignals[0];
 const recent = allSignals.slice(1, 5);
+const recentFieldNotes = allFieldNotes.slice(0, 4);
 const todayLabel = new Intl.DateTimeFormat('en-US', {
   month: 'long',
   day: 'numeric',
@@ -72,6 +77,8 @@ const latestInsight = latest ? getSignalInsight(latest) : undefined;
       </article>
     )}
   </section>
+
+  <DailyFieldNotesRail notes={recentFieldNotes} />
 
   {latest && latestInsight && <SignalInsightMap entry={latest} insight={latestInsight} />}
 

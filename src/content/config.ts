@@ -187,4 +187,20 @@ const signals = defineCollection({
   schema: signalSchema,
 });
 
-export const collections = { signals };
+const fieldNoteSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  date: z.coerce.date(),
+  author: z.string().default('Joseph E. Iesue'),
+  publication: z.string().default('EntrLabs - The Lead Letter'),
+  sourceBrief: z.string().optional(),
+  featured: z.boolean().default(false),
+  tags: z.array(z.string()).default([]),
+});
+
+const fieldnotes = defineCollection({
+  type: 'content',
+  schema: fieldNoteSchema,
+});
+
+export const collections = { signals, fieldnotes };

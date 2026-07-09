@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../utils/format';
+
+interface Props {
+  notes: CollectionEntry<'fieldnotes'>[];
+}
+
+const { notes } = Astro.props as Props;
+
+function fieldNoteUrl(entry: CollectionEntry<'fieldnotes'>) {
+  return `/fieldnotes/${entry.slug}/`;
+}
+---
+
+{notes.length > 0 && (
+  <section class="daily-field-notes reveal" aria-labelledby="daily-field-notes-heading">
+    <div class="field-note-rail-head">
+      <div>
+        <p class="field-note-eyebrow">Daily Field Notes</p>
+        <h2 id="daily-field-notes-heading">Short lessons from the daily brief</h2>
+      </div>
+      <a class="field-note-archive-link" href="/fieldnotes/">View all field notes</a>
+    </div>
+
+    <div class="field-note-rail" aria-label="Recent daily field notes">
+      {notes.map((entry) => (
+        <a class="field-note-card" href={fieldNoteUrl(entry)}>
+          <span class="field-note-date">{formatDate(entry.data.date)}</span>
+          <strong>{entry.data.title}</strong>
+          <p>{entry.data.description}</p>
+          <em>Read field note →</em>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

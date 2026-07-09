@@ -1,0 +1,122 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HYOHCompass from '../../components/HYOHCompass.astro';
+import CopyLinkButton from '../../components/CopyLinkButton.astro';
+import { formatDate } from '../../utils/format';
+
+export async function getStaticPaths() {
+  const fieldnotes = await getCollection('fieldnotes');
+  return fieldnotes.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'fieldnotes'>;
+}
+
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+
+const allFieldNotes = (await getCollection('fieldnotes')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const idx = allFieldNotes.findIndex((e) => e.slug === entry.slug);
+const newer = idx > 0 ? allFieldNotes[idx - 1] : null;
+const older = idx < allFieldNotes.length - 1 ? allFieldNotes[idx + 1] : null;
+
+function fieldNoteUrl(e: CollectionEntry<'fieldnotes'>) {
+  return `/fieldnotes/${e.slug}/`;
+}
+
+const canonicalUrl = `https://letters.entr.cc${fieldNoteUrl(entry)}`;
+---
+
+<BaseLayout
+  title={`${entry.data.title} — Daily Field Note`}
+  description={entry.data.description}
+  canonicalPath={fieldNoteUrl(entry)}
+  type="article"
+  publishedTime={entry.data.date}
+  author={entry.data.author}
+>
+  <article class="letter-page field-note-page">
+    <p class="kicker letter-kicker">
+      Daily Field Note · {formatDate(entry.data.date)}
+    </p>
+    <h1>{entry.data.title}</h1>
+    <p class="byline">
+      By <a href="https://josephiesue.com" target="_blank" rel="noopener">{entry.data.author}</a> · {entry.data.publication}
+    </p>
+    <hr class="hairline" />
+
+    <div class="letter-body">
+      <Content />
+    </div>
+
+    <p class="end-mark">Strength Through Service</p>
+
+    <div class="post-letter-cta">
+      <p>If this field note was useful, it may be useful to someone you lead. Share it — or join the list and get the next Signals Brief.</p>
+      <div class="cta-buttons">
+        <a class="btn-join" href="/#join">Get future issues</a>
+        <CopyLinkButton url={canonicalUrl} />
+      </div>
+    </div>
+
+    <HYOHCompass variant="cta" />
+
+    <nav class="prev-next">
+      {older ? <a href={fieldNoteUrl(older)}>Previous: {older.data.title}</a> : <span class="empty">Previous</span>}
+      {newer ? <a href={fieldNoteUrl(newer)}>Next: {newer.data.title}</a> : <span class="empty">Next</span>}
+    </nav>
+
+    <a class="back-to-archive" href="/fieldnotes/">Back to Field Notes</a>
+  </article>
+  <script>
+    const calloutLabels = {
+      abstract: 'Social copy',
+      example: 'Field note',
+      important: 'Important',
+      leaders: 'Leaders',
+      note: 'Main idea',
+      question: 'Prompt',
+      quote: 'Field note',
+      success: 'Reusable copy',
+      summary: 'Reader promise',
+      tip: 'Practice',
+      warning: 'Watchpoint',
+    };
+
+    document.querySelectorAll('.letter-body blockquote').forEach((quote) => {
+      if (quote.classList.contains('callout')) return;
+
+      const firstParagraph = quote.querySelector('p:first-child');
+      const marker = firstParagraph?.textContent?.trim().match(/^\[!(ABSTRACT|EXAMPLE|IMPORTANT|LEADERS|NOTE|QUESTION|QUOTE|SUCCESS|SUMMARY|TIP|WARNING)\](?:\s+([^\n]+))?/i);
+      if (!firstParagraph || !marker) return;
+
+      const type = marker[1].toLowerCase();
+      const calloutTitle = marker[2]?.trim();
+      quote.classList.add('callout', `callout-${type}`);
+      firstParagraph.innerHTML = firstParagraph.innerHTML.replace(/^\s*\[!(ABSTRACT|EXAMPLE|IMPORTANT|LEADERS|NOTE|QUESTION|QUOTE|SUCCESS|SUMMARY|TIP|WARNING)\](?:\s+[^\n<]+)?\s*/i, '');
+
+      const label = document.createElement('div');
+      label.className = 'callout-label';
+      label.textContent = calloutLabels[type] || 'Note';
+      quote.prepend(label);
+
+      if (calloutTitle) {
+        const title = document.createElement('div');
+        title.className = 'callout-title';
+        title.textContent = calloutTitle;
+        label.after(title);
+      }
+
+      if (!firstParagraph.textContent?.trim()) {
+        firstParagraph.remove();
+      }
+    });
+  </script>
+</BaseLayout>

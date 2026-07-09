@@ -1,0 +1,52 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HYOHCompass from '../../components/HYOHCompass.astro';
+import { formatDate } from '../../utils/format';
+
+const allFieldNotes = (await getCollection('fieldnotes')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const featured = allFieldNotes[0];
+const rest = allFieldNotes.slice(1);
+
+function fieldNoteUrl(entry: CollectionEntry<'fieldnotes'>) {
+  return `/fieldnotes/${entry.slug}/`;
+}
+---
+
+<BaseLayout title="Daily Field Notes — The Lead Letter" description="Daily Field Notes from EntrLabs - short public lessons on leadership, service, work, learning, and better judgment.">
+  <div class="archive-page field-notes-archive-page">
+    <section class="archive-hero reveal">
+      <p class="kicker">Field Notes Archive</p>
+      <h1>Daily Field Notes</h1>
+      <p class="archive-count">
+        {allFieldNotes.length} field note{allFieldNotes.length === 1 ? '' : 's'} and counting. Short lessons drawn from the daily brief.
+      </p>
+    </section>
+
+    {featured && (
+      <section class="archive-bento field-notes-bento">
+        <a class="archive-card archive-card-featured field-note-archive-card reveal" href={fieldNoteUrl(featured)}>
+          <p class="archive-row-meta">{formatDate(featured.data.date)} - Daily Field Note</p>
+          <h2 class="archive-row-title">{featured.data.title}</h2>
+          <p class="archive-row-desc">{featured.data.description}</p>
+        </a>
+
+        {rest.map((entry) => (
+          <a class="archive-card field-note-archive-card reveal" href={fieldNoteUrl(entry)}>
+            <p class="archive-row-meta">{formatDate(entry.data.date)} - Daily Field Note</p>
+            <h2 class="archive-row-title">{entry.data.title}</h2>
+            <p class="archive-row-desc">{entry.data.description}</p>
+            {entry.data.tags.length > 0 && (
+              <p class="archive-row-tags">{entry.data.tags.slice(0, 3).join(' / ')}</p>
+            )}
+          </a>
+        ))}
+      </section>
+    )}
+
+    <HYOHCompass variant="quiet" />
+  </div>
+</BaseLayout>
