@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const DEFAULT_SITE_URL = 'https://letters.entr.cc';
 const DEFAULT_BRAND_URL = DEFAULT_SITE_URL;
+const DEFAULT_ENTR_URL = 'https://entr.cc';
 const DEFAULT_AUTHOR_URL = 'https://www.josephiesue.com';
 const DEFAULT_PREHEADER = '"This publication helps you cut through the noise and improve your awareness to benefit your career and professional development." -Joseph E. Iesue';
 const BRAND = {
@@ -191,6 +192,7 @@ function readerPathHtml({ signalMapUrl, fieldNotesUrl }) {
 
 function buildHtmlEmail({ title, description, url, data, siteUrl }) {
   const brandUrl = trimTrailingSlash(process.env.ENTR_BRAND_URL || DEFAULT_BRAND_URL);
+  const entrUrl = trimTrailingSlash(process.env.ENTR_URL || DEFAULT_ENTR_URL);
   const date = formatDate(data.date);
   const meta = [issueLabel(data), date].filter(Boolean).join(' / ');
   const preheader = preheaderText();
@@ -253,6 +255,8 @@ function buildHtmlEmail({ title, description, url, data, siteUrl }) {
                   <a href="${htmlEscape(brandUrl)}" style="color: ${BRAND.azureDeep}; text-decoration: underline;">letters.entr.cc</a>
                   <span style="color: ${BRAND.line};"> / </span>
                   <a href="${htmlEscape(url)}" style="color: ${BRAND.azureDeep}; text-decoration: underline;">Read online</a>
+                  <span style="color: ${BRAND.line};"> / </span>
+                  <a href="${htmlEscape(entrUrl)}" style="color: ${BRAND.azureDeep}; text-decoration: underline;">entr.cc</a>
                 </p>
               </td>
             </tr>
@@ -291,6 +295,7 @@ function buildTextEmail({ title, description, url, data, siteUrl }) {
     '',
     'Weekly Signals Briefs on leadership, service, work, learning, and the discipline of helping people rise.',
     process.env.ENTR_BRAND_URL || DEFAULT_BRAND_URL,
+    process.env.ENTR_URL || DEFAULT_ENTR_URL,
   ];
 
   return lines.filter((line, index, array) => line || array[index - 1]).join('\n');
