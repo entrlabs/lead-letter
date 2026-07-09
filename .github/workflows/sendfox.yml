@@ -73,5 +73,5 @@ jobs:
           SENDFOX_API_ENDPOINT: ${{ vars.SENDFOX_API_ENDPOINT || '/campaigns' }}
           SENDFOX_API_METHOD: ${{ vars.SENDFOX_API_METHOD || 'POST' }}
           SENDFOX_PAYLOAD_STYLE: ${{ vars.SENDFOX_PAYLOAD_STYLE || 'campaign' }}
-          SENDFOX_SUBJECT_PREFIX: ${{ vars.SENDFOX_SUBJECT_PREFIX || 'The Lead Letter' }}
+          SENDFOX_SUBJECT_PREFIX: ${{ vars.SENDFOX_SUBJECT_PREFIX || '' }}
         run: npm run sendfox:lead-letter -- added-signal-files.txt
