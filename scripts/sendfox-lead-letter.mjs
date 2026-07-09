@@ -3,7 +3,8 @@ import path from 'node:path';
 
 const DEFAULT_SITE_URL = 'https://letters.entr.cc';
 const DEFAULT_BRAND_URL = DEFAULT_SITE_URL;
-const DEFAULT_PREHEADER = "This publication helps you cut through the noise and improve your awareness to benefit your career and professional development.";
+const DEFAULT_AUTHOR_URL = 'https://www.josephiesue.com';
+const DEFAULT_PREHEADER = "This publication helps you cut through the noise and improve your awareness to benefit your career and professional development. -Joseph E. Iesue";
 const BRAND = {
   ink: '#0a0f1c',
   raise: '#131c32',
@@ -124,6 +125,13 @@ function preheaderText() {
   return DEFAULT_PREHEADER;
 }
 
+function preheaderHtml() {
+  const text = 'This publication helps you cut through the noise and improve your awareness to benefit your career and professional development.';
+  const authorUrl = htmlEscape(process.env.LEAD_LETTER_AUTHOR_URL || DEFAULT_AUTHOR_URL);
+
+  return `${htmlEscape(text)} -<a href="${authorUrl}" style="color: ${BRAND.azureDeep}; text-decoration: underline;">Joseph E. Iesue</a>`;
+}
+
 function subjectLine(data, title) {
   const activeDate = formatDate(data.date) || 'This Week';
   return `${activeDate} Lead Letter: ${title}`;
@@ -231,7 +239,7 @@ function buildHtmlEmail({ title, description, url, data, siteUrl }) {
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="border-top: 1px solid ${BRAND.line}; border-bottom: 1px solid ${BRAND.line}; background: #f7f9ff;">
                   <tr>
                     <td style="padding: 18px 18px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.7; color: ${BRAND.raise};">
-                      ${htmlEscape(preheader)}
+                      ${preheaderHtml()}
                     </td>
                   </tr>
                 </table>
