@@ -1,0 +1,77 @@
+name: Send Lead Letter Email
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/content/signals/**'
+      - 'scripts/sendfox-*.mjs'
+      - 'package.json'
+      - '.github/workflows/sendfox.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  ASTRO_TELEMETRY_DISABLED: 1
+
+jobs:
+  sendfox:
+    name: Validate SendFox and prepare email
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Validate SendFox secrets
+        env:
+          SENDFOX_API_TOKEN: ${{ secrets.SENDFOX_API_TOKEN }}
+          SENDFOX_LIST_ID: ${{ secrets.SENDFOX_LIST_ID }}
+          SENDFOX_API_BASE: ${{ vars.SENDFOX_API_BASE || 'https://api.sendfox.com' }}
+          SENDFOX_LISTS_ENDPOINT: ${{ vars.SENDFOX_LISTS_ENDPOINT || '/lists' }}
+        run: npm run sendfox:check
+
+      - name: Find newly added Lead Letters
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            : > added-signal-files.txt
+            exit 0
+          fi
+
+          BASE="${{ github.event.before }}"
+          HEAD="${{ github.sha }}"
+
+          if [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            git diff-tree --no-commit-id --name-status -r "$HEAD" -- src/content/signals > changed-signal-files.txt
+          else
+            git diff --name-status "$BASE" "$HEAD" -- src/content/signals > changed-signal-files.txt
+          fi
+
+          awk '$1 == "A" { print $2 }' changed-signal-files.txt > added-signal-files.txt
+          cat added-signal-files.txt
+
+      - name: Allow Pages deploy to settle
+        if: github.event_name == 'push'
+        run: sleep 90
+
+      - name: Send Lead Letter to SendFox
+        env:
+          LEAD_LETTER_SITE_URL: https://letters.entr.cc
+          SENDFOX_API_TOKEN: ${{ secrets.SENDFOX_API_TOKEN }}
+          SENDFOX_LIST_ID: ${{ secrets.SENDFOX_LIST_ID }}
+          SENDFOX_SEND_ENABLED: ${{ vars.SENDFOX_SEND_ENABLED || 'false' }}
+          SENDFOX_API_BASE: ${{ vars.SENDFOX_API_BASE || 'https://api.sendfox.com' }}
+          SENDFOX_API_ENDPOINT: ${{ vars.SENDFOX_API_ENDPOINT || '/campaigns' }}
+          SENDFOX_API_METHOD: ${{ vars.SENDFOX_API_METHOD || 'POST' }}
+          SENDFOX_PAYLOAD_STYLE: ${{ vars.SENDFOX_PAYLOAD_STYLE || 'campaign' }}
+          SENDFOX_SUBJECT_PREFIX: ${{ vars.SENDFOX_SUBJECT_PREFIX || 'The Lead Letter' }}
+        run: npm run sendfox:lead-letter -- added-signal-files.txt
