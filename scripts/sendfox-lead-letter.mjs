@@ -5,6 +5,7 @@ const DEFAULT_SITE_URL = 'https://letters.entr.cc';
 const DEFAULT_BRAND_URL = DEFAULT_SITE_URL;
 const DEFAULT_ENTR_URL = 'https://entr.cc';
 const DEFAULT_AUTHOR_URL = 'https://www.josephiesue.com';
+const DEFAULT_LOGO_URL = `${DEFAULT_SITE_URL}/assets/entr-icon-lead-letter-blue-email.png`;
 const DEFAULT_PREHEADER = '"This publication helps you cut through the noise and improve your awareness to benefit your career and professional development." -Joseph E. Iesue';
 const BRAND = {
   ink: '#0a0f1c',
@@ -153,11 +154,13 @@ function ctaHtml(url) {
 }
 
 function leadLetterMarkHtml() {
+  const logoUrl = htmlEscape(process.env.LEAD_LETTER_LOGO_URL || DEFAULT_LOGO_URL);
+
   return `
     <table role="presentation" cellspacing="0" cellpadding="0" border="0">
       <tr>
-        <td style="width: 22px; height: 22px; border: 2px solid ${BRAND.azure}; transform: rotate(45deg); font-size: 0; line-height: 0;">
-          <span style="display: block; width: 8px; height: 8px; margin: 5px; background: #9db8ff;"></span>
+        <td style="width: 30px;">
+          <img src="${logoUrl}" width="30" height="30" alt="ENTR" style="display: block; width: 30px; height: 30px; border: 0; outline: none; text-decoration: none;">
         </td>
         <td style="padding-left: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: ${BRAND.ink};">The Lead Letter</td>
       </tr>
