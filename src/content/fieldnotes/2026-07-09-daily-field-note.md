@@ -57,3 +57,9 @@ The humane move is not to slow everything down. It is to make speed safer.
 
 > [!abstract] Social Copy
 > Speed is not the same as strength. The strongest systems build buffers before pressure arrives: clearer review, better bridges, extra practice, and backup paths people can actually use.
+
+## Sources
+
+- Source brief: 2026-07-09 - Daily Business Intelligence Brief
+- Farnam lens: [Margin of Safety: Expect the Unexpected](https://fs.blog/margin-of-safety/)
+- Publisher: Farnam Street / fs.blog
