@@ -4,7 +4,7 @@ import path from 'node:path';
 const DEFAULT_SITE_URL = 'https://letters.entr.cc';
 const DEFAULT_BRAND_URL = DEFAULT_SITE_URL;
 const DEFAULT_AUTHOR_URL = 'https://www.josephiesue.com';
-const DEFAULT_PREHEADER = "This publication helps you cut through the noise and improve your awareness to benefit your career and professional development. -Joseph E. Iesue";
+const DEFAULT_PREHEADER = '"This publication helps you cut through the noise and improve your awareness to benefit your career and professional development." -Joseph E. Iesue';
 const BRAND = {
   ink: '#0a0f1c',
   raise: '#131c32',
@@ -126,7 +126,7 @@ function preheaderText() {
 }
 
 function preheaderHtml() {
-  const text = 'This publication helps you cut through the noise and improve your awareness to benefit your career and professional development.';
+  const text = '"This publication helps you cut through the noise and improve your awareness to benefit your career and professional development."';
   const authorUrl = htmlEscape(process.env.LEAD_LETTER_AUTHOR_URL || DEFAULT_AUTHOR_URL);
 
   return `${htmlEscape(text)} -<a href="${authorUrl}" style="color: ${BRAND.azureDeep}; text-decoration: underline;">Joseph E. Iesue</a>`;
