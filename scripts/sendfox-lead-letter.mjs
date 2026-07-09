@@ -2,6 +2,16 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const DEFAULT_SITE_URL = 'https://letters.entr.cc';
+const DEFAULT_BRAND_URL = 'https://entr.cc';
+const BRAND = {
+  ink: '#111318',
+  muted: '#6f6a5f',
+  paper: '#f7f4ed',
+  surface: '#ffffff',
+  line: '#ded7c7',
+  gold: '#b98a3f',
+  goldDark: '#8a632a',
+};
 
 function requiredEnv(name) {
   const value = process.env[name];
@@ -75,6 +85,141 @@ function firstParagraph(markdown) {
     .find((paragraph) => paragraph.length > 0);
 }
 
+function formatDate(value) {
+  if (!value) return undefined;
+  const date = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(date.valueOf())) return value;
+
+  return new Intl.DateTimeFormat('en', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+}
+
+function issueLabel(data) {
+  const parts = [];
+  if (data.series) parts.push(data.series);
+  if (data.week) parts.push(data.week);
+  if (data.issue) parts.push(`Issue ${data.issue}`);
+  return parts.join(' / ');
+}
+
+function preheaderText(description) {
+  const suffix = ' One sharp idea, one practical move, and one question worth carrying forward.';
+  const text = `${description}${suffix}`;
+  return text.length > 180 ? `${text.slice(0, 177).trim()}...` : text;
+}
+
+function ctaHtml(url) {
+  const safeUrl = htmlEscape(url);
+
+  return `
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 32px 0 8px;">
+      <tr>
+        <td bgcolor="${BRAND.ink}" style="border-radius: 0;">
+          <a href="${safeUrl}" style="display: inline-block; padding: 14px 22px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ffffff; text-decoration: none;">Read the Brief</a>
+        </td>
+      </tr>
+    </table>
+  `;
+}
+
+function buildHtmlEmail({ title, description, url, data }) {
+  const brandUrl = trimTrailingSlash(process.env.ENTR_BRAND_URL || DEFAULT_BRAND_URL);
+  const date = formatDate(data.date);
+  const meta = [issueLabel(data), date].filter(Boolean).join(' / ');
+  const preheader = preheaderText(description);
+
+  return `<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>${htmlEscape(title)}</title>
+  </head>
+  <body style="margin: 0; padding: 0; background: ${BRAND.paper}; color: ${BRAND.ink};">
+    <div style="display: none; max-height: 0; overflow: hidden; opacity: 0; color: transparent; mso-hide: all;">${htmlEscape(preheader)}</div>
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background: ${BRAND.paper};">
+      <tr>
+        <td align="center" style="padding: 28px 16px;">
+          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="width: 100%; max-width: 620px; background: ${BRAND.surface}; border: 1px solid ${BRAND.line};">
+            <tr>
+              <td style="padding: 30px 32px 18px; border-bottom: 1px solid ${BRAND.line};">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: ${BRAND.ink};">ENTRLABS</td>
+                    <td align="right" style="font-family: Georgia, 'Times New Roman', serif; font-size: 13px; line-height: 1.4; color: ${BRAND.goldDark};">Strength Through Service</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 34px 32px 10px;">
+                <p style="margin: 0 0 14px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.4; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: ${BRAND.goldDark};">The Lead Letter</p>
+                <h1 style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 34px; line-height: 1.08; font-weight: 700; color: ${BRAND.ink};">${htmlEscape(title)}</h1>
+                ${meta ? `<p style="margin: 16px 0 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.6; color: ${BRAND.muted};">${htmlEscape(meta)}</p>` : ''}
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 32px 4px;">
+                <p style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 18px; line-height: 1.65; color: ${BRAND.ink};">${htmlEscape(description)}</p>
+                ${ctaHtml(url)}
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 24px 32px 32px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="border-top: 1px solid ${BRAND.line}; border-bottom: 1px solid ${BRAND.line};">
+                  <tr>
+                    <td style="padding: 18px 0; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.7; color: ${BRAND.muted};">
+                      One sharp idea. One practical move. One question worth carrying forward.
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 0 32px 34px;">
+                <p style="margin: 0 0 10px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.7; color: ${BRAND.muted};">EntrLabs translates leadership research, learning science, and organizational theory into practical systems for people, teams, and institutions that grow through service.</p>
+                <p style="margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.7; color: ${BRAND.muted};">
+                  <a href="${htmlEscape(brandUrl)}" style="color: ${BRAND.goldDark}; text-decoration: underline;">EntrLabs</a>
+                  <span style="color: ${BRAND.line};"> / </span>
+                  <a href="${htmlEscape(url)}" style="color: ${BRAND.goldDark}; text-decoration: underline;">Read online</a>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
+function buildTextEmail({ title, description, url, data }) {
+  const lines = [
+    'ENTRLABS / The Lead Letter',
+    issueLabel(data),
+    formatDate(data.date),
+    '',
+    title,
+    '',
+    description,
+    '',
+    'Read the brief:',
+    url,
+    '',
+    'One sharp idea. One practical move. One question worth carrying forward.',
+    '',
+    'Strength Through Service',
+    process.env.ENTR_BRAND_URL || DEFAULT_BRAND_URL,
+  ];
+
+  return lines.filter((line, index, array) => line || array[index - 1]).join('\n');
+}
+
 function buildEmail(letter, filePath) {
   const siteUrl = trimTrailingSlash(process.env.LEAD_LETTER_SITE_URL || DEFAULT_SITE_URL);
   const slug = letter.data.slug || slugFromFile(filePath);
@@ -83,24 +228,14 @@ function buildEmail(letter, filePath) {
   const description = letter.data.description || firstParagraph(letter.body) || title;
   const subjectPrefix = process.env.SENDFOX_SUBJECT_PREFIX || 'The Lead Letter';
   const subject = `${subjectPrefix}: ${title}`;
-  const text = [
-    title,
-    '',
-    description,
-    '',
-    `Read it here: ${url}`,
-  ].join('\n');
-
-  const html = [
-    `<h1>${htmlEscape(title)}</h1>`,
-    `<p>${htmlEscape(description)}</p>`,
-    `<p><a href="${htmlEscape(url)}">Read the full Lead Letter</a></p>`,
-  ].join('\n');
+  const preview = preheaderText(description);
+  const text = buildTextEmail({ title, description, url, data: letter.data });
+  const html = buildHtmlEmail({ title, description, url, data: letter.data });
 
   return {
     name: `Lead Letter - ${title}`,
     subject,
-    preview_text: description,
+    preview_text: preview,
     content_html: html,
     content_text: text,
     url,
@@ -185,7 +320,10 @@ async function main() {
     if (!sendEnabled) {
       console.log(`[dry run] ${email.subject}`);
       console.log(`[dry run] ${email.url}`);
-      console.log(JSON.stringify(payload, null, 2));
+      console.log(`[dry run] preview: ${email.preview_text}`);
+      if (process.env.SENDFOX_DEBUG_PAYLOAD === 'true') {
+        console.log(JSON.stringify(payload, null, 2));
+      }
       continue;
     }
 
