@@ -198,7 +198,7 @@ function buildHtmlEmail({ title, description, url, data }) {
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="border-top: 1px solid ${BRAND.line}; border-bottom: 1px solid ${BRAND.line}; background: #f7f9ff;">
                   <tr>
                     <td style="padding: 18px 18px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.7; color: ${BRAND.raise};">
-                      Public information is noisy. The Lead Letter helps you notice the signals that may shape career, education, work, and leadership decisions.
+                      ${htmlEscape(preheader)}
                     </td>
                   </tr>
                 </table>
