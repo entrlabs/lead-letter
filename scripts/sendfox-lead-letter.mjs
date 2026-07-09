@@ -150,11 +150,38 @@ function leadLetterMarkHtml() {
   `;
 }
 
-function buildHtmlEmail({ title, description, url, data }) {
+function readerPathHtml({ signalMapUrl, fieldNotesUrl }) {
+  return `
+    <tr>
+      <td style="padding: 0 34px 30px;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 1px solid ${BRAND.line}; background: #ffffff;">
+          <tr>
+            <td style="padding: 20px 20px 18px; border-bottom: 1px solid ${BRAND.line};">
+              <p style="margin: 0 0 8px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.4; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: ${BRAND.azureDeep};">Weekly Signal Map</p>
+              <p style="margin: 0 0 10px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.7; color: ${BRAND.raise};">Use the weekly Signal Map to see which information is important and useful now, then evaluate that information accordingly. Scores reflect how many articles and discussions are happening online and within companies this week around each topic.</p>
+              <a href="${htmlEscape(signalMapUrl)}" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.6; font-weight: 700; color: ${BRAND.azureDeep}; text-decoration: underline;">View the Signal Map</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 20px 20px 18px;">
+              <p style="margin: 0 0 8px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.4; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: ${BRAND.azureDeep};">Daily Field Notes</p>
+              <p style="margin: 0 0 10px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.7; color: ${BRAND.raise};">Daily Field Notes are short public lessons from The Lead Letter, updated each day. Read the archive when you want a quick signal, lesson, or prompt between weekly briefs.</p>
+              <a href="${htmlEscape(fieldNotesUrl)}" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.6; font-weight: 700; color: ${BRAND.azureDeep}; text-decoration: underline;">Read Daily Field Notes</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  `;
+}
+
+function buildHtmlEmail({ title, description, url, data, siteUrl }) {
   const brandUrl = trimTrailingSlash(process.env.ENTR_BRAND_URL || DEFAULT_BRAND_URL);
   const date = formatDate(data.date);
   const meta = [issueLabel(data), date].filter(Boolean).join(' / ');
   const preheader = preheaderText();
+  const signalMapUrl = `${siteUrl}/#latest-signal-map`;
+  const fieldNotesUrl = `${siteUrl}/fieldnotes/`;
 
   return `<!doctype html>
 <html>
@@ -204,6 +231,7 @@ function buildHtmlEmail({ title, description, url, data }) {
                 </table>
               </td>
             </tr>
+            ${readerPathHtml({ signalMapUrl, fieldNotesUrl })}
             <tr>
               <td style="padding: 0 34px 34px;">
                 <p style="margin: 0 0 10px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.7; color: ${BRAND.muted};">Weekly Signals Briefs on leadership, service, work, learning, and the discipline of helping people rise.</p>
@@ -222,7 +250,9 @@ function buildHtmlEmail({ title, description, url, data }) {
 </html>`;
 }
 
-function buildTextEmail({ title, description, url, data }) {
+function buildTextEmail({ title, description, url, data, siteUrl }) {
+  const signalMapUrl = `${siteUrl}/#latest-signal-map`;
+  const fieldNotesUrl = `${siteUrl}/fieldnotes/`;
   const lines = [
     'The Lead Letter',
     issueLabel(data),
@@ -236,6 +266,14 @@ function buildTextEmail({ title, description, url, data }) {
     url,
     '',
     DEFAULT_PREHEADER,
+    '',
+    'Weekly Signal Map:',
+    'Use the weekly Signal Map to see which information is important and useful now, then evaluate that information accordingly. Scores reflect how many articles and discussions are happening online and within companies this week around each topic.',
+    signalMapUrl,
+    '',
+    'Daily Field Notes:',
+    'Short public lessons from The Lead Letter, updated each day.',
+    fieldNotesUrl,
     '',
     'Weekly Signals Briefs on leadership, service, work, learning, and the discipline of helping people rise.',
     process.env.ENTR_BRAND_URL || DEFAULT_BRAND_URL,
@@ -254,8 +292,8 @@ function buildEmail(letter, filePath) {
     ? `${process.env.SENDFOX_SUBJECT_PREFIX}: ${title}`
     : subjectLine(letter.data, title);
   const preview = preheaderText();
-  const text = buildTextEmail({ title, description, url, data: letter.data });
-  const html = buildHtmlEmail({ title, description, url, data: letter.data });
+  const text = buildTextEmail({ title, description, url, data: letter.data, siteUrl });
+  const html = buildHtmlEmail({ title, description, url, data: letter.data, siteUrl });
 
   return {
     name: `Lead Letter - ${title}`,
