@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "sendfox:check": "node scripts/sendfox-check.mjs",
+    "sendfox:lists": "node scripts/sendfox-lists.mjs",
+    "sendfox:lead-letter": "node scripts/sendfox-lead-letter.mjs"
   },
   "dependencies": {
     "astro": "^4.16.0",
