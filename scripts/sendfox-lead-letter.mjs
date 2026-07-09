@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const DEFAULT_SITE_URL = 'https://letters.entr.cc';
 const DEFAULT_BRAND_URL = DEFAULT_SITE_URL;
-const DEFAULT_PREHEADER = "Read this week's Signals Brief that helps you be aware of public information that impacts your career and education decisions. Helping you cut through the noise and improve your awareness.";
+const DEFAULT_PREHEADER = "This publication helps you cut through the noise and improve your awareness to benefit your career and professional development.";
 const BRAND = {
   ink: '#0a0f1c',
   raise: '#131c32',

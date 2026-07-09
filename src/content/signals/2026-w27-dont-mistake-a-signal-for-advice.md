@@ -1,6 +1,6 @@
 ---
 title: "Don't Mistake a Signal for Advice"
-description: "A public weekly Signals Brief about interpreting public signals before turning them into decisions."
+description: "Read this week's Signals Brief that helps you be aware of public information that impacts your career and education decisions"
 date: 2026-07-05
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
