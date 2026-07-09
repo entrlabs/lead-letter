@@ -53,7 +53,9 @@ The humane move is not to slow everything down. It is to make speed safer.
 > [!question] For Educators And Advisors
 > Where do students need a bridge earlier: before the internship search, before the first job search, before the hard conversation, or before confidence quietly drops?
 
-## Reusable Copy
+## Useful Copy
+
+### Signal Text
 
 > [!abstract] Social Copy
 > Speed is not the same as strength. The strongest systems build buffers before pressure arrives: clearer review, better bridges, extra practice, and backup paths people can actually use.
