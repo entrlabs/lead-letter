@@ -55,8 +55,5 @@ The humane move is not to slow everything down. It is to make speed safer.
 
 ## Reusable Copy
 
-> [!success] Lead Letter Candidate
-> Service-minded leadership treats slack as care: it builds enough review, learning, and backup capacity before people are forced to need it.
-
 > [!abstract] Social Copy
 > Speed is not the same as strength. The strongest systems build buffers before pressure arrives: clearer review, better bridges, extra practice, and backup paths people can actually use.
