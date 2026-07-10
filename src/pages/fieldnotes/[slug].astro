@@ -84,6 +84,7 @@ const canonicalUrl = `https://letters.entr.cc${fieldNoteUrl(entry)}`;
       note: 'Main idea',
       question: 'Prompt',
       quote: 'Field note',
+      sponsor: 'Presented with Vantage Circle',
       success: 'Reusable copy',
       summary: 'Reader promise',
       tip: 'Practice',
@@ -94,13 +95,13 @@ const canonicalUrl = `https://letters.entr.cc${fieldNoteUrl(entry)}`;
       if (quote.classList.contains('callout')) return;
 
       const firstParagraph = quote.querySelector('p:first-child');
-      const marker = firstParagraph?.textContent?.trim().match(/^\[!(ABSTRACT|EXAMPLE|IMPORTANT|LEADERS|NOTE|QUESTION|QUOTE|SUCCESS|SUMMARY|TIP|WARNING)\](?:\s+([^\n]+))?/i);
+      const marker = firstParagraph?.textContent?.trim().match(/^\[!(ABSTRACT|EXAMPLE|IMPORTANT|LEADERS|NOTE|QUESTION|QUOTE|SPONSOR|SUCCESS|SUMMARY|TIP|WARNING)\](?:\s+([^\n]+))?/i);
       if (!firstParagraph || !marker) return;
 
       const type = marker[1].toLowerCase();
       const calloutTitle = marker[2]?.trim();
       quote.classList.add('callout', `callout-${type}`);
-      firstParagraph.innerHTML = firstParagraph.innerHTML.replace(/^\s*\[!(ABSTRACT|EXAMPLE|IMPORTANT|LEADERS|NOTE|QUESTION|QUOTE|SUCCESS|SUMMARY|TIP|WARNING)\](?:\s+[^\n<]+)?\s*/i, '');
+      firstParagraph.innerHTML = firstParagraph.innerHTML.replace(/^\s*\[!(ABSTRACT|EXAMPLE|IMPORTANT|LEADERS|NOTE|QUESTION|QUOTE|SPONSOR|SUCCESS|SUMMARY|TIP|WARNING)\](?:\s+[^\n<]+)?\s*/i, '');
 
       const label = document.createElement('div');
       label.className = 'callout-label';

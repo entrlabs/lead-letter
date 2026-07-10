@@ -1090,6 +1090,17 @@ a:hover {
   --callout-ring: rgba(110, 116, 240, 0.11);
 }
 
+.letter-body blockquote.callout-sponsor {
+  --callout-accent: #8a6a24;
+  --callout-soft: #f0d99a;
+  --callout-deep: #5f4214;
+  --callout-bg: rgba(255, 250, 236, 0.94);
+  --callout-glow: rgba(201, 163, 94, 0.18);
+  --callout-rule: rgba(201, 163, 94, 0.42);
+  --callout-border: rgba(201, 163, 94, 0.34);
+  --callout-ring: rgba(201, 163, 94, 0.13);
+}
+
 .letter-body table {
   display: block;
   width: 100%;
