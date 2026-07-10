@@ -386,6 +386,37 @@ async function postToSendFox(payload) {
   return body ? JSON.parse(body) : {};
 }
 
+async function sendCampaign(campaignId) {
+  if (!campaignId) {
+    throw new Error('SendFox did not return a campaign id to send.');
+  }
+
+  if (process.env.SENDFOX_TEST_SEND_ENABLED !== 'true') {
+    throw new Error('Refusing to send campaign without SENDFOX_TEST_SEND_ENABLED=true.');
+  }
+
+  const token = requiredEnv('SENDFOX_API_TOKEN');
+  const baseUrl = trimTrailingSlash(process.env.SENDFOX_API_BASE || 'https://api.sendfox.com');
+  const url = `${baseUrl}/campaigns/${campaignId}/send`;
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const body = await response.text();
+
+  if (!response.ok) {
+    throw new Error(`SendFox send returned ${response.status}: ${body}`);
+  }
+
+  return body ? JSON.parse(body) : {};
+}
+
 async function main() {
   const listFile = process.argv[2];
   if (!listFile) {
@@ -427,6 +458,11 @@ async function main() {
     console.log(`Created SendFox draft for ${email.url}`);
     if (result?.id) {
       console.log(`SendFox id: ${result.id}`);
+    }
+
+    if (process.env.SENDFOX_SEND_AFTER_CREATE === 'true') {
+      await sendCampaign(result?.id);
+      console.log(`Sent SendFox campaign ${result.id} to configured list.`);
     }
   }
 }

@@ -1,0 +1,58 @@
+name: Test Send Lead Letter Email
+
+on:
+  workflow_dispatch:
+    inputs:
+      signal_file:
+        description: Signals Brief markdown file to test
+        required: true
+        default: src/content/signals/2026-w27-dont-mistake-a-signal-for-advice.md
+      test_list_id:
+        description: SendFox test list ID containing only your email
+        required: true
+      send_to_test_list:
+        description: Send the draft to the test list after creating it
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+env:
+  ASTRO_TELEMETRY_DISABLED: 1
+
+jobs:
+  sendfox-test:
+    name: Create SendFox test draft
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Prepare selected Lead Letter
+        env:
+          SIGNAL_FILE: ${{ inputs.signal_file }}
+        run: |
+          node -e 'const fs = require("fs"); const p = process.env.SIGNAL_FILE; if (!/^src\/content\/signals\/[^/]+\.md$/.test(p)) throw new Error("signal_file must be a markdown file in src/content/signals"); if (!fs.existsSync(p)) throw new Error("Signal file not found: " + p); fs.writeFileSync("test-signal-files.txt", p + "\n");'
+
+      - name: Create SendFox draft or test send
+        env:
+          LEAD_LETTER_SITE_URL: https://letters.entr.cc
+          SENDFOX_API_TOKEN: ${{ secrets.SENDFOX_API_TOKEN }}
+          SENDFOX_LIST_ID: ${{ inputs.test_list_id }}
+          SENDFOX_SEND_ENABLED: 'true'
+          SENDFOX_TEST_SEND_ENABLED: ${{ inputs.send_to_test_list }}
+          SENDFOX_SEND_AFTER_CREATE: ${{ inputs.send_to_test_list }}
+          SENDFOX_API_BASE: ${{ vars.SENDFOX_API_BASE || 'https://api.sendfox.com' }}
+          SENDFOX_API_ENDPOINT: /campaigns
+          SENDFOX_API_METHOD: POST
+          SENDFOX_SUBJECT_PREFIX: ${{ vars.SENDFOX_SUBJECT_PREFIX || '' }}
+          SENDFOX_FROM_NAME: ${{ vars.SENDFOX_FROM_NAME || 'The Lead Letter' }}
+          SENDFOX_FROM_EMAIL: ${{ vars.SENDFOX_FROM_EMAIL || 'letters@entr.cc' }}
+        run: npm run sendfox:lead-letter -- test-signal-files.txt

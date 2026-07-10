@@ -72,6 +72,18 @@ Useful GitHub variables:
 
 The campaign payload uses SendFox's Lifetime-compatible body HTML shape: inline-styled `<body>...</body>` HTML, `from_name`, `from_email`, `lists`, and an unsubscribe link using `{{unsubscribe_url}}`.
 
+### Test Send
+
+Use the manual GitHub Actions workflow named `Test Send Lead Letter Email` to test a weekly email before sending to the real list.
+
+Inputs:
+
+- `signal_file`: the Signals Brief markdown file to test
+- `test_list_id`: a SendFox list ID that should contain only the test recipient
+- `send_to_test_list`: leave off to create a draft only; turn on to send that draft to the test list
+
+The test workflow uses the normal SendFox token but replaces the audience with the provided test list ID. The send step is guarded by `SENDFOX_TEST_SEND_ENABLED=true` and only runs from that manual workflow.
+
 ## Related Work
 
 - EntrLabs: https://entr.cc/entrlabs
