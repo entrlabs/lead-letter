@@ -75,5 +75,4 @@ That is not nostalgia. It is responsibility. A leader who changes the system wit
 
 - Source brief: 2026-07-10 - Daily Business Intelligence Brief
 - Mental model lens: [Chesterton's Fence: A Lesson in Thinking](https://fs.blog/chestertons-fence/)
-- Publisher: Farnam Street / fs.blog
 - Sponsor: [Vantage Circle AIRᵉ Framework](https://www.vantagecircle.com/services/aire-consultation/)

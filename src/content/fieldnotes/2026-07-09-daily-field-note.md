@@ -64,4 +64,3 @@ The humane move is not to slow everything down. It is to make speed safer.
 
 - Source brief: 2026-07-09 - Daily Business Intelligence Brief
 - Farnam lens: [Margin of Safety: Expect the Unexpected](https://fs.blog/margin-of-safety/)
-- Publisher: Farnam Street / fs.blog

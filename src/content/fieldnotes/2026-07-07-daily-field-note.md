@@ -62,4 +62,3 @@ The point is not to fear scale. The point is to test it backwards. What would ma
 
 - Source brief: 2026-07-07 - Daily Business Intelligence Brief
 - Farnam lens: [Inversion and The Power of Avoiding Stupidity](https://fs.blog/inversion/)
-- Publisher: Farnam Street / fs.blog

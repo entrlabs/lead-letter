@@ -64,4 +64,3 @@ Good leaders use signals without hiding behind them. They ask what the signal he
 
 - Source brief: 2026-07-06 - Daily Business Intelligence Brief
 - Farnam lens: [The Map Is Not the Territory](https://fs.blog/map-and-territory/)
-- Publisher: Farnam Street / fs.blog

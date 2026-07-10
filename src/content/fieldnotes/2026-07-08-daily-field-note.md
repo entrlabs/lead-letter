@@ -64,4 +64,3 @@ The service question is simple: what can this system actually handle, and where 
 
 - Source brief: 2026-07-08 - Daily Business Intelligence Brief
 - Farnam lens: [Circle of Competence: How to Find Your Edge](https://fs.blog/circle-of-competence/)
-- Publisher: Farnam Street / fs.blog
