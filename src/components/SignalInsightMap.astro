@@ -158,6 +158,20 @@ const quadrantSlots = [
   { dx: 62, dy: 12 },
 ];
 
+const mobileQuadrantAnchors: Record<QuadrantKey, { x: number; y: number }> = {
+  'high-now': { x: 26, y: 27 },
+  'high-later': { x: 74, y: 27 },
+  'low-now': { x: 26, y: 73 },
+  'low-later': { x: 74, y: 73 },
+};
+
+const mobileQuadrantSlots = [
+  { dx: -5, dy: -5 },
+  { dx: 9, dy: 9 },
+  { dx: -9, dy: 10 },
+  { dx: 8, dy: -8 },
+];
+
 const sourceTones = ['source-indigo', 'source-azure', 'source-violet', 'source-gold'];
 const quadrantUseCounts: Record<number, number> = {};
 
@@ -169,7 +183,10 @@ const signalRows = lanes.map((lane, index) => {
   const displayLabel = displayField(lane.field ?? lane.label);
   const frame = quadrantByKey[quadrantKey];
   const matrixIndex = quadrantFrames.findIndex((quadrant) => quadrant.key === quadrantKey);
-  const slot = quadrantSlots[quadrantUseCounts[matrixIndex] ?? 0] ?? quadrantSlots[0];
+  const slotIndex = quadrantUseCounts[matrixIndex] ?? 0;
+  const slot = quadrantSlots[slotIndex] ?? quadrantSlots[0];
+  const mobileAnchor = mobileQuadrantAnchors[quadrantKey];
+  const mobileSlot = mobileQuadrantSlots[slotIndex] ?? mobileQuadrantSlots[0];
   quadrantUseCounts[matrixIndex] = (quadrantUseCounts[matrixIndex] ?? 0) + 1;
 
   return {
@@ -190,6 +207,8 @@ const signalRows = lanes.map((lane, index) => {
     pointY: frame.pointY + slot.dy,
     pointXPct: (((frame.pointX + slot.dx) / 600) * 100).toFixed(2),
     pointYPct: (((frame.pointY + slot.dy) / 420) * 100).toFixed(2),
+    mobileXPct: Math.min(92, Math.max(8, mobileAnchor.x + mobileSlot.dx)).toFixed(2),
+    mobileYPct: Math.min(92, Math.max(8, mobileAnchor.y + mobileSlot.dy)).toFixed(2),
     quadrantLabel: frame.shortLabel,
     timingLabel: usefulness >= 60 ? 'Useful now' : 'Useful later',
   };
@@ -257,7 +276,7 @@ const quadrantSignals = signalRows.slice(0, 4);
           {quadrantSignals.map((signal) => (
             <article
               class={`matrix-signal-node matrix-quadrant-${signal.matrixIndex + 1} ${signal.bandClass}`}
-              style={`--x:${signal.pointXPct}%; --y:${signal.pointYPct}%; --priority-delay:${signal.pulseDelay}s; --score:${signal.importance}%;`}
+              style={`--x:${signal.pointXPct}%; --y:${signal.pointYPct}%; --mobile-x:${signal.mobileXPct}%; --mobile-y:${signal.mobileYPct}%; --priority-delay:${signal.pulseDelay}s; --score:${signal.importance}%;`}
               aria-label={`Signal ${signal.signalNumber}: ${signal.displayLabel}, ${signal.importance} importance, ${signal.quadrantLabel}`}
             >
               <span class="node-pulse" aria-hidden="true"></span>
@@ -1163,7 +1182,9 @@ const quadrantSignals = signalRows.slice(0, 4);
     }
 
     .source-card-body p {
-      display: none;
+      display: block;
+      font-size: .76rem;
+      line-height: 1.28;
     }
 
     .signal-theater {
@@ -1197,23 +1218,25 @@ const quadrantSignals = signalRows.slice(0, 4);
     }
 
     .matrix-signal-node {
+      left: var(--mobile-x);
+      top: var(--mobile-y);
       min-width: auto;
       gap: .32rem;
     }
 
     .matrix-quadrant-1,
     .matrix-quadrant-2 {
-      margin-top: 12px;
+      margin-top: 0;
     }
 
     .matrix-quadrant-3 {
-      margin-left: -8px;
-      margin-top: 20px;
+      margin-left: 0;
+      margin-top: 0;
     }
 
     .matrix-quadrant-4 {
-      margin-left: 8px;
-      margin-top: 20px;
+      margin-left: 0;
+      margin-top: 0;
     }
 
     .node-number {
@@ -1237,17 +1260,18 @@ const quadrantSignals = signalRows.slice(0, 4);
     }
 
     .node-label {
-      max-width: none;
-      min-width: 62px;
+      max-width: 78px;
+      min-width: 0;
       padding: .34rem .38rem;
+      border-radius: 10px;
     }
 
     .node-label strong {
-      font-size: .5rem;
-      line-height: 1.05;
+      font-size: .48rem;
+      line-height: 1.08;
       letter-spacing: .04em;
-      overflow-wrap: normal;
-      white-space: nowrap;
+      overflow-wrap: anywhere;
+      white-space: normal;
     }
 
     .node-label em {
