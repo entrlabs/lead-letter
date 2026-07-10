@@ -1101,6 +1101,14 @@ a:hover {
   --callout-ring: rgba(201, 163, 94, 0.13);
 }
 
+.letter-body .sponsor-disclaimer {
+  margin: -1.1rem 0 2.2rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
 .letter-body table {
   display: block;
   width: 100%;

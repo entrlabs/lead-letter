@@ -118,6 +118,13 @@ const canonicalUrl = `https://letters.entr.cc${fieldNoteUrl(entry)}`;
       if (!firstParagraph.textContent?.trim()) {
         firstParagraph.remove();
       }
+
+      if (type === 'sponsor') {
+        const disclaimer = document.createElement('p');
+        disclaimer.className = 'sponsor-disclaimer';
+        disclaimer.textContent = '* The views and statements herein do not represent Vantage Circle. Content created by EntrLabs.';
+        quote.insertAdjacentElement('afterend', disclaimer);
+      }
     });
   </script>
 </BaseLayout>
