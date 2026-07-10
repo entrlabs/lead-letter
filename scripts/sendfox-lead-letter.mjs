@@ -7,6 +7,9 @@ const DEFAULT_ENTR_URL = 'https://entr.cc';
 const DEFAULT_AUTHOR_URL = 'https://www.josephiesue.com';
 const DEFAULT_LOGO_URL = `${DEFAULT_SITE_URL}/assets/entr-icon-lead-letter-blue-email.png`;
 const DEFAULT_PREHEADER = '"This publication helps you cut through the noise and improve your awareness to benefit your career and professional development." -Joseph E. Iesue';
+const DEFAULT_FROM_NAME = 'The Lead Letter';
+const DEFAULT_FROM_EMAIL = 'letters@entr.cc';
+const UNSUBSCRIBE_URL = '{{unsubscribe_url}}';
 const BRAND = {
   ink: '#0a0f1c',
   raise: '#131c32',
@@ -127,6 +130,25 @@ function preheaderText() {
   return DEFAULT_PREHEADER;
 }
 
+function senderName() {
+  return process.env.SENDFOX_FROM_NAME || DEFAULT_FROM_NAME;
+}
+
+function senderEmail() {
+  return process.env.SENDFOX_FROM_EMAIL || DEFAULT_FROM_EMAIL;
+}
+
+function listIds() {
+  if (!process.env.SENDFOX_LIST_ID) return [];
+  const id = Number(process.env.SENDFOX_LIST_ID);
+
+  if (!Number.isInteger(id) || id <= 0) {
+    throw new Error('SENDFOX_LIST_ID must be a positive numeric SendFox list ID.');
+  }
+
+  return [id];
+}
+
 function preheaderHtml() {
   const text = '"This publication helps you cut through the noise and improve your awareness to benefit your career and professional development."';
   const authorUrl = htmlEscape(process.env.LEAD_LETTER_AUTHOR_URL || DEFAULT_AUTHOR_URL);
@@ -202,15 +224,7 @@ function buildHtmlEmail({ title, description, url, data, siteUrl }) {
   const signalMapUrl = `${siteUrl}/#latest-signal-map`;
   const fieldNotesUrl = `${siteUrl}/fieldnotes/`;
 
-  return `<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="x-apple-disable-message-reformatting">
-    <title>${htmlEscape(title)}</title>
-  </head>
-  <body style="margin: 0; padding: 0; background: ${BRAND.paperAlt}; color: ${BRAND.ink};">
+  return `<body style="margin: 0; padding: 0; background: ${BRAND.paperAlt}; color: ${BRAND.ink};">
     <div style="display: none; max-height: 0; overflow: hidden; opacity: 0; color: transparent; mso-hide: all;">${htmlEscape(preheader)}</div>
     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background: ${BRAND.paperAlt};">
       <tr>
@@ -261,14 +275,17 @@ function buildHtmlEmail({ title, description, url, data, siteUrl }) {
                   <span style="color: ${BRAND.line};"> / </span>
                   <a href="${htmlEscape(entrUrl)}" style="color: ${BRAND.azureDeep}; text-decoration: underline;">entr.cc</a>
                 </p>
+                <p style="margin: 16px 0 0; font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: ${BRAND.muted};">
+                  No longer want to receive The Lead Letter?
+                  <a href="${UNSUBSCRIBE_URL}" style="color: ${BRAND.azureDeep}; text-decoration: underline;">Unsubscribe here</a>.
+                </p>
               </td>
             </tr>
           </table>
         </td>
       </tr>
     </table>
-  </body>
-</html>`;
+  </body>`;
 }
 
 function buildTextEmail({ title, description, url, data, siteUrl }) {
@@ -299,6 +316,8 @@ function buildTextEmail({ title, description, url, data, siteUrl }) {
     'Weekly Signals Briefs on leadership, service, work, learning, and the discipline of helping people rise.',
     process.env.ENTR_BRAND_URL || DEFAULT_BRAND_URL,
     process.env.ENTR_URL || DEFAULT_ENTR_URL,
+    '',
+    `Unsubscribe: ${UNSUBSCRIBE_URL}`,
   ];
 
   return lines.filter((line, index, array) => line || array[index - 1]).join('\n');
@@ -318,35 +337,27 @@ function buildEmail(letter, filePath) {
   const html = buildHtmlEmail({ title, description, url, data: letter.data, siteUrl });
 
   return {
-    name: `Lead Letter - ${title}`,
+    title: `Lead Letter - ${title}`,
     subject,
     preview_text: preview,
-    content_html: html,
-    content_text: text,
+    html,
+    text,
     url,
-    list_id: process.env.SENDFOX_LIST_ID,
+    lists: listIds(),
+    from_name: senderName(),
+    from_email: senderEmail(),
   };
 }
 
 function buildPayload(email) {
-  const style = process.env.SENDFOX_PAYLOAD_STYLE || 'campaign';
-
-  if (style === 'broadcast') {
-    return {
-      list_id: email.list_id,
-      subject: email.subject,
-      html: email.content_html,
-      text: email.content_text,
-    };
-  }
-
   return {
-    name: email.name,
+    title: email.title,
     subject: email.subject,
     preview_text: email.preview_text,
-    list_id: email.list_id,
-    content_html: email.content_html,
-    content_text: email.content_text,
+    html: email.html,
+    from_name: email.from_name,
+    from_email: email.from_email,
+    ...(email.lists.length > 0 ? { lists: email.lists } : {}),
   };
 }
 
@@ -413,7 +424,7 @@ async function main() {
     }
 
     const result = await postToSendFox(payload);
-    console.log(`Created SendFox email for ${email.url}`);
+    console.log(`Created SendFox draft for ${email.url}`);
     if (result?.id) {
       console.log(`SendFox id: ${result.id}`);
     }

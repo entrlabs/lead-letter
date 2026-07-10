@@ -55,6 +55,23 @@ add Markdown file to src/content/signals/ -> push to main -> GitHub Actions buil
 
 No manual site editing should be required after the Markdown file is pushed.
 
+## SendFox Draft Flow
+
+The SendFox workflow can create a draft campaign when a new Signals Brief is added. It does not call the SendFox send endpoint.
+
+Required GitHub secrets:
+
+- `SENDFOX_API_TOKEN`
+- `SENDFOX_LIST_ID`
+
+Useful GitHub variables:
+
+- `SENDFOX_SEND_ENABLED`: set to `true` only when GitHub should create SendFox drafts
+- `SENDFOX_FROM_NAME`: defaults to `The Lead Letter`
+- `SENDFOX_FROM_EMAIL`: defaults to `letters@entr.cc`
+
+The campaign payload uses SendFox's Lifetime-compatible body HTML shape: inline-styled `<body>...</body>` HTML, `from_name`, `from_email`, `lists`, and an unsubscribe link using `{{unsubscribe_url}}`.
+
 ## Related Work
 
 - EntrLabs: https://entr.cc/entrlabs
