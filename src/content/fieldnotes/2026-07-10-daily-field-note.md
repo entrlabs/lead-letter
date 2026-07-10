@@ -62,7 +62,7 @@ That is not nostalgia. It is responsibility. A leader who changes the system wit
 > [!abstract] Social Copy
 > Change gets better when leaders understand what the old structure was protecting. Before removing the fence, ask who depended on it, what risk it absorbed, and what must replace it so people are not left carrying the cost quietly.
 
-## Presented With Vantage Circle
+## Vantage Circle’s Lens
 
 > [!sponsor] Sponsor Field Note
 > **Recognition is a leadership system, not a perk.**
