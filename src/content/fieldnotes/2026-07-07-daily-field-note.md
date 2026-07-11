@@ -29,7 +29,7 @@ Scale can look clean from the planning table. It becomes messy when access narro
 
 The point is not to fear scale. The point is to test it backwards. What would make this decision unfair, brittle, confusing, or impossible to trust? What would the people closest to the consequence notice first?
 
-## The Farnam Lens
+## Mental Model Lens
 
 > [!tip] Thinking Tool: Inversion
 > **Mental model:** [Inversion and The Power of Avoiding Stupidity](https://fs.blog/inversion/)  
@@ -58,7 +58,17 @@ The point is not to fear scale. The point is to test it backwards. What would ma
 > [!abstract] Social Copy
 > Before scaling a decision, invert it. Ask what would destroy access, clarity, capacity, or trust, then design away from that failure before people are forced to carry the cost.
 
+## Vantage Circle’s Lens
+
+> [!sponsor] Sponsor Field Note
+> **Recognition helps leaders catch preventable harm early.**
+>
+> Inversion asks what could break trust before scale makes the failure expensive. Recognition adds a human sensor: it surfaces who is protecting access, quality, and clarity before those contributions disappear into the background.
+>
+> [Explore the AIRe Framework (created by Vantage Circle)](https://www.vantagecircle.com/services/aire-consultation/) to be sure your employees feel recognized and rewarded for their valuable efforts.
+
 ## Sources
 
 - Source brief: 2026-07-07 - Daily Business Intelligence Brief
-- Farnam lens: [Inversion and The Power of Avoiding Stupidity](https://fs.blog/inversion/)
+- Mental model lens: [Inversion and The Power of Avoiding Stupidity](https://fs.blog/inversion/)
+- Sponsor: [Vantage Circle AIRᵉ Framework](https://www.vantagecircle.com/services/aire-consultation/)

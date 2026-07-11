@@ -31,7 +31,7 @@ This is the practical lesson underneath today's signals: people do better when t
 
 The humane move is not to slow everything down. It is to make speed safer.
 
-## The Farnam Lens
+## Mental Model Lens
 
 > [!tip] Thinking Tool: Margin Of Safety
 > **Mental model:** [Margin of Safety: Expect the Unexpected](https://fs.blog/margin-of-safety/)  
@@ -60,7 +60,17 @@ The humane move is not to slow everything down. It is to make speed safer.
 > [!abstract] Social Copy
 > Speed is not the same as strength. The strongest systems build buffers before pressure arrives: clearer review, better bridges, extra practice, and backup paths people can actually use.
 
+## Vantage Circle’s Lens
+
+> [!sponsor] Sponsor Field Note
+> **Recognition is part of the buffer.**
+>
+> Margin of safety is not only extra process or spare capacity. It is also the habit of noticing the people who review, bridge, coach, and absorb pressure before speed turns fragile. Recognition keeps that protective work from becoming invisible.
+>
+> [Explore the AIRe Framework (created by Vantage Circle)](https://www.vantagecircle.com/services/aire-consultation/) to be sure your employees feel recognized and rewarded for their valuable efforts.
+
 ## Sources
 
 - Source brief: 2026-07-09 - Daily Business Intelligence Brief
-- Farnam lens: [Margin of Safety: Expect the Unexpected](https://fs.blog/margin-of-safety/)
+- Mental model lens: [Margin of Safety: Expect the Unexpected](https://fs.blog/margin-of-safety/)
+- Sponsor: [Vantage Circle AIRᵉ Framework](https://www.vantagecircle.com/services/aire-consultation/)
