@@ -31,7 +31,7 @@ Promises become fragile when leaders do not know the edge of the system. A benef
 
 The service question is simple: what can this system actually handle, and where does it need backup, partnership, practice, or restraint?
 
-## The Farnam Lens
+## Mental Model Lens
 
 > [!tip] Thinking Tool: Circle Of Competence
 > **Mental model:** [Circle of Competence: How to Find Your Edge](https://fs.blog/circle-of-competence/)  
@@ -60,7 +60,17 @@ The service question is simple: what can this system actually handle, and where 
 > [!abstract] Social Copy
 > Resilience starts with honest boundaries. Leaders build trust by knowing what their systems can carry, where the edge is, and what backup people will need before the normal path breaks.
 
+## Vantage Circle’s Lens
+
+> [!sponsor] Sponsor Field Note
+> **Recognition marks the edge of real capacity.**
+>
+> A team’s circle of competence is easier to respect when leaders can see the work people are already carrying. Recognition gives managers a practical way to notice capacity, reinforce honest boundaries, and reward the backup work that keeps promises credible.
+>
+> [Explore the AIRe Framework (created by Vantage Circle)](https://www.vantagecircle.com/services/aire-consultation/) to be sure your employees feel recognized and rewarded for their valuable efforts.
+
 ## Sources
 
 - Source brief: 2026-07-08 - Daily Business Intelligence Brief
-- Farnam lens: [Circle of Competence: How to Find Your Edge](https://fs.blog/circle-of-competence/)
+- Mental model lens: [Circle of Competence: How to Find Your Edge](https://fs.blog/circle-of-competence/)
+- Sponsor: [Vantage Circle AIRᵉ Framework](https://www.vantagecircle.com/services/aire-consultation/)

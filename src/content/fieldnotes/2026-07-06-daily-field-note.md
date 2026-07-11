@@ -31,7 +31,7 @@ The humane move is translation. A student loan explainer is not a student's life
 
 Good leaders use signals without hiding behind them. They ask what the signal helps clarify, what it leaves out, and what evidence would make the next action safer.
 
-## The Farnam Lens
+## Mental Model Lens
 
 > [!tip] Thinking Tool: The Map Is Not The Territory
 > **Mental model:** [The Map Is Not the Territory](https://fs.blog/map-and-territory/)  
@@ -60,7 +60,17 @@ Good leaders use signals without hiding behind them. They ask what the signal he
 > [!abstract] Social Copy
 > A useful signal is not the headline. It is the next honest action the headline helps someone choose. Good advising and leadership turn maps into decisions people can test in the real world.
 
+## Vantage Circle’s Lens
+
+> [!sponsor] Sponsor Field Note
+> **Recognition makes translation visible.**
+>
+> When teams face policy changes, labor-market signals, and AI forecasts, the hidden work is translation. Recognition helps leaders notice the employees who turn broad signals into plain next steps, safer decisions, and support that people can actually use.
+>
+> [Explore the AIRe Framework (created by Vantage Circle)](https://www.vantagecircle.com/services/aire-consultation/) to be sure your employees feel recognized and rewarded for their valuable efforts.
+
 ## Sources
 
 - Source brief: 2026-07-06 - Daily Business Intelligence Brief
-- Farnam lens: [The Map Is Not the Territory](https://fs.blog/map-and-territory/)
+- Mental model lens: [The Map Is Not the Territory](https://fs.blog/map-and-territory/)
+- Sponsor: [Vantage Circle AIRᵉ Framework](https://www.vantagecircle.com/services/aire-consultation/)

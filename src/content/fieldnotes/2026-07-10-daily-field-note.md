@@ -65,9 +65,9 @@ That is not nostalgia. It is responsibility. A leader who changes the system wit
 ## Vantage Circle’s Lens
 
 > [!sponsor] Sponsor Field Note
-> **Recognition is a leadership system, not a perk.**
+> **Recognition shows what the fence was protecting.**
 >
-> The best leaders do more than redesign work. They make valuable effort visible, reinforce the behaviors that matter, and help people feel seen before pressure turns into quiet exhaustion.
+> Before leaders remove a process or redesign a system, they should notice the effort that process was protecting. Recognition helps expose the quiet coordination, emotional labor, and quality control that can disappear when change moves faster than understanding.
 >
 > [Explore the AIRe Framework (created by Vantage Circle)](https://www.vantagecircle.com/services/aire-consultation/) to be sure your employees feel recognized and rewarded for their valuable efforts.
 
