@@ -146,6 +146,34 @@ The practical question is not only, "Is support available?" It is, "Can the pers
 
 ---
 
+## The Support Map
+
+Use this issue as a simple map.
+
+When pressure rises, look for four things:
+
+1. **Pressure:** What is getting harder?
+2. **First contact:** Where does someone go first?
+3. **Trust barrier:** Why might they avoid the help?
+4. **Backup channel:** What happens if the first path fails?
+
+> [!TIP]
+> A support system is only useful when people can find it, trust it, and use it before the moment gets worse.
+
+---
+
+## What This Looks Like
+
+A student may need help before they know how to ask for it. If support depends only on disclosure, paperwork, or expert navigation, the students who need help most may stay unseen.
+
+A founder may file the paperwork to start a business, but still need reachable advice on cash, customers, hiring, pricing, and local constraints. Starting is not the same as surviving.
+
+A manager may get a new tool before the team has a review process. If output speeds up but judgment, feedback, and coordination do not, the bottleneck only moves.
+
+The same pattern shows up in communities. Resilience is stronger when local leaders know the people affected, the partners who can act, and the backup channel before a formal system strains.
+
+---
+
 ## 1. Support Has to Be Reachable
 
 Support is not only a good intention. It is a design problem.
@@ -217,6 +245,30 @@ Leadership this week is about moving help closer to pressure.
 That does not mean solving every problem for people. It means making the system easier to use before people are exhausted, confused, or already in crisis. Good leaders ask where support lives, who can reach it, what trust barrier blocks it, and what backup channel exists if the first path fails.
 
 The service lesson is plain: care after harm matters, but prevention is part of the work.
+
+---
+
+## Use This This Week
+
+**For students:** Name one support contact before the next deadline, application, course change, or work decision.
+
+**For founders:** Pick the constraint closest to breaking: cash, labor, suppliers, customers, pricing, or owner stamina.
+
+**For managers:** Write down the translation work you are doing silently. What should be trained, simplified, automated, or stopped?
+
+**For educators and advisers:** Ask students for one artifact, one rule boundary, one support contact, and one next practice step.
+
+**For community leaders:** Find the backup channel before the main channel fails.
+
+---
+
+## The Tension
+
+Support should be close, but not controlling.
+
+If help waits too long, people can fall through gaps. If help reaches too far, it can become paternalism, surveillance, or another system people have to manage.
+
+The goal is not to remove agency. It is to make help easier to find before pressure turns into failure.
 
 ---
 
