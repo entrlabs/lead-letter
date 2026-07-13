@@ -256,4 +256,4 @@ That means naming what changed, who is affected, what the signal does not say, w
 
 ---
 
-The Lead Letter is a weekly note on leadership, learning, work, and better decisions.
+The Lead Letter is a publication on leadership, learning, work, and better decisions. We provide signal briefings and daily field notes to raise your situational awareness of what is important and how to use this information.

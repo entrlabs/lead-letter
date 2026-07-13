@@ -309,4 +309,4 @@ The goal is not to remove agency. It is to make help easier to find before press
 
 ---
 
-The Lead Letter is a weekly note on leadership, learning, work, and better decisions.
+The Lead Letter is a publication on leadership, learning, work, and better decisions. We provide signal briefings and daily field notes to raise your situational awareness of what is important and how to use this information.

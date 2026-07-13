@@ -126,4 +126,4 @@ For a small business, that may mean saying no to a shiny tool. For a university,
 
 ---
 
-*Signals Brief is a weekly note from The Lead Letter on leadership, learning, work, and better decisions.*
+The Lead Letter is a publication on leadership, learning, work, and better decisions. We provide signal briefings and daily field notes to raise your situational awareness of what is important and how to use this information.
