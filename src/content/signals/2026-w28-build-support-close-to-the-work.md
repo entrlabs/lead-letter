@@ -250,15 +250,23 @@ The service lesson is plain: care after harm matters, but prevention is part of 
 
 ## Use This This Week
 
-**For students:** Name one support contact before the next deadline, application, course change, or work decision.
-
-**For founders:** Pick the constraint closest to breaking: cash, labor, suppliers, customers, pricing, or owner stamina.
-
-**For managers:** Write down the translation work you are doing silently. What should be trained, simplified, automated, or stopped?
-
-**For educators and advisers:** Ask students for one artifact, one rule boundary, one support contact, and one next practice step.
-
-**For community leaders:** Find the backup channel before the main channel fails.
+<div class="editorial-panel-list">
+  <article class="editorial-panel">
+    <p><strong>For students:</strong> Name one support contact before the next deadline, application, course change, or work decision.</p>
+  </article>
+  <article class="editorial-panel">
+    <p><strong>For founders:</strong> Pick the constraint closest to breaking: cash, labor, suppliers, customers, pricing, or owner stamina.</p>
+  </article>
+  <article class="editorial-panel">
+    <p><strong>For managers:</strong> Write down the translation work you are doing silently. What should be trained, simplified, automated, or stopped?</p>
+  </article>
+  <article class="editorial-panel">
+    <p><strong>For educators and advisers:</strong> Ask students for one artifact, one rule boundary, one support contact, and one next practice step.</p>
+  </article>
+  <article class="editorial-panel">
+    <p><strong>For community leaders:</strong> Find the backup channel before the main channel fails.</p>
+  </article>
+</div>
 
 ---
 
@@ -296,17 +304,17 @@ The goal is not to remove agency. It is to make help easier to find before press
 
 These possible events could increase pressure on the week's signals, but they remain watch items until independently confirmed.
 
-<div class="event-risk-list">
-  <article class="event-risk-panel">
+<div class="editorial-panel-list">
+  <article class="editorial-panel">
     <p><strong>Strait of Hormuz disruption:</strong> could raise energy, freight, insurance, and supplier pressure for founders and operating teams.</p>
   </article>
-  <article class="event-risk-panel">
+  <article class="editorial-panel">
     <p><strong>Wider Gulf escalation or reduced nuclear-monitoring visibility:</strong> could narrow governments' diplomatic and administrative room to maneuver.</p>
   </article>
-  <article class="event-risk-panel">
+  <article class="editorial-panel">
     <p><strong>International disease transmission:</strong> could test whether detection, communication, and care are close enough to reach before systems strain.</p>
   </article>
-  <article class="event-risk-panel">
+  <article class="editorial-panel">
     <p><strong>Energy and transport infrastructure disruption:</strong> could turn military events into measurable logistics and public-service problems.</p>
   </article>
 </div>
