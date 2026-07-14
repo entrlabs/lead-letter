@@ -292,6 +292,19 @@ The goal is not to remove agency. It is to make help easier to find before press
 
 ---
 
+## Event-Risk Watch
+
+These possible events could increase pressure on the week's signals, but they remain watch items until independently confirmed.
+
+- **Strait of Hormuz disruption:** could raise energy, freight, insurance, and supplier pressure for founders and operating teams.
+- **Wider Gulf escalation or reduced nuclear-monitoring visibility:** could narrow governments' diplomatic and administrative room to maneuver.
+- **International disease transmission:** could test whether detection, communication, and care are close enough to reach before systems strain.
+- **Energy and transport infrastructure disruption:** could turn military events into measurable logistics and public-service problems.
+
+The decision rule is simple: do not promote an event because it is dramatic. Promote it only when credible reporting confirms both the event and the mechanism connecting it to the signal.
+
+---
+
 ## Sources
 
 | Source | Date | Why it matters |
@@ -306,6 +319,7 @@ The goal is not to remove agency. It is to make help easier to find before press
 | [AI Writes Faster Than Humans Can Review](https://arxiv.org/abs/2607.01904), arXiv | 2026-07-02 | Helps explain why review, judgment, and coordination capacity can become bottlenecks. |
 | [How 4 Programs Instill Learning by Doing](https://www.insidehighered.com/news/student-success/college-experience/2026/07/07/how-4-programs-instill-learning-doing), Inside Higher Ed | 2026-07-07 | Shows readiness as practice, not only advice or credential language. |
 | [How a Legal Scholar Thinks OBBBA Will Change Higher Ed](https://www.insidehighered.com/news/government/student-aid-policy/2026/07/06/how-legal-scholar-thinks-obbba-will-change-higher-ed), Inside Higher Ed | 2026-07-06 | Adds U.S.-specific higher-education policy context that should stay properly scoped. |
+| SitDeck daily briefings: [July 7](https://app.sitdeck.com/briefing/956b3cc9-157c-4062-939d-1107beff535f), [July 8](https://app.sitdeck.com/briefing/d46c0207-ab57-41f2-b38c-1cf407d92d22), [July 9](https://app.sitdeck.com/briefing/910ae026-4802-473d-95ff-9f6257884dbd), [July 10](https://app.sitdeck.com/briefing/bac3a3db-cb32-4a60-ae4d-d8bd4c8a7123), and [July 12](https://app.sitdeck.com/briefing/3faf1643-5ee8-4723-b6e5-a968436a7782) | 2026-07-07–2026-07-12 | Secondary watch sources used only for the restrained Event-Risk Watch; not treated as independent confirmation. |
 
 ---
 
