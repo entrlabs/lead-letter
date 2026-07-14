@@ -296,10 +296,20 @@ The goal is not to remove agency. It is to make help easier to find before press
 
 These possible events could increase pressure on the week's signals, but they remain watch items until independently confirmed.
 
-- **Strait of Hormuz disruption:** could raise energy, freight, insurance, and supplier pressure for founders and operating teams.
-- **Wider Gulf escalation or reduced nuclear-monitoring visibility:** could narrow governments' diplomatic and administrative room to maneuver.
-- **International disease transmission:** could test whether detection, communication, and care are close enough to reach before systems strain.
-- **Energy and transport infrastructure disruption:** could turn military events into measurable logistics and public-service problems.
+<div class="event-risk-list">
+  <article class="event-risk-panel">
+    <p><strong>Strait of Hormuz disruption:</strong> could raise energy, freight, insurance, and supplier pressure for founders and operating teams.</p>
+  </article>
+  <article class="event-risk-panel">
+    <p><strong>Wider Gulf escalation or reduced nuclear-monitoring visibility:</strong> could narrow governments' diplomatic and administrative room to maneuver.</p>
+  </article>
+  <article class="event-risk-panel">
+    <p><strong>International disease transmission:</strong> could test whether detection, communication, and care are close enough to reach before systems strain.</p>
+  </article>
+  <article class="event-risk-panel">
+    <p><strong>Energy and transport infrastructure disruption:</strong> could turn military events into measurable logistics and public-service problems.</p>
+  </article>
+</div>
 
 The decision rule is simple: do not promote an event because it is dramatic. Promote it only when credible reporting confirms both the event and the mechanism connecting it to the signal.
 
