@@ -71,7 +71,7 @@ Good leaders make that layer visible. They ask who coordinates the work, whether
 > [!abstract] Social Copy
 > Before asking people to do more, find the missing operating layer. Reachable advice, capable coordinators, trusted leadership, and credible checks turn good intentions into dependable action.
 
-## Vantage Circle's Lens
+## Vantage Circle’s Lens
 
 > [!sponsor] Sponsor Field Note
 > Recognition should make the bridge-builders visible. Advisers, coordinators, managers, and colleagues often do the quiet work that turns intention into action. Naming that contribution helps reinforce service, trust, and follow-through without pretending appreciation can replace the support people need.
