@@ -23,6 +23,18 @@ function expectedPlacement(importance, usefulness) {
   };
 }
 
+function wordCount(value) {
+  return value.replace(/[^A-Za-z0-9' -]/g, '').split(/\s+/).filter(Boolean).length;
+}
+
+function requireForwardFacingName(value, context) {
+  if (!/\b(next|will|becoming|toward|increasingly|ahead)\b/i.test(value)) {
+    throw new Error(
+      `${context} must name a future implication with language such as next, will, becoming, toward, increasingly, or ahead; found "${value}".`,
+    );
+  }
+}
+
 function parseLatestMetadata(filename, source) {
   const frontmatter = requireMatch(source, /^---\s*\n([\s\S]*?)\n---/, `${filename}: missing YAML frontmatter.`);
   const date = requireMatch(frontmatter, /^date:\s*(.+)$/m, `${filename}: missing date.`);
@@ -33,6 +45,12 @@ function parseLatestMetadata(filename, source) {
 }
 
 function validateSignalMap(entry) {
+  const board = requireMatch(
+    entry.frontmatter,
+    /^signalBoard:\s*\n([\s\S]*?)^signalInsight:/m,
+    `${entry.filename}: signalBoard is required and must appear before signalInsight.`,
+  );
+  const boardSignal = requireMatch(board, /^signal:\s*(.+)$/m, `${entry.filename}: signalBoard.signal is required.`);
   const insight = requireMatch(
     entry.frontmatter,
     /^signalInsight:\s*\n([\s\S]*)$/m,
@@ -43,9 +61,26 @@ function validateSignalMap(entry) {
     /^  signal:\s*(.+)$/m,
     `${entry.filename}: signalInsight.signal is required.`,
   );
-  const mapSignalWords = mapSignal.replace(/[^A-Za-z0-9' -]/g, '').split(/\s+/).filter(Boolean).length;
+  const mapSignalWords = wordCount(mapSignal);
   if (mapSignalWords < 4 || mapSignalWords > 9) {
     throw new Error(`${entry.filename}: signalInsight.signal must be a compact 4-9 words for the Signal Map; found ${mapSignalWords}.`);
+  }
+  requireForwardFacingName(entry.title, `${entry.filename}: title`);
+  requireForwardFacingName(mapSignal, `${entry.filename}: signalInsight.signal`);
+  if (boardSignal !== mapSignal) {
+    throw new Error(`${entry.filename}: signalBoard.signal and signalInsight.signal must match exactly.`);
+  }
+  const boardLaneBlock = requireMatch(
+    board,
+    /^  lanes:\s*\n([\s\S]*)$/m,
+    `${entry.filename}: signalBoard.lanes is required.`,
+  );
+  const boardLanes = boardLaneBlock.split(/^\s{0,4}- label:\s*/m).slice(1).map((lane, index) => ({
+    field: requireMatch(lane, /^      field:\s*(.+)$/m, `${entry.filename}: signalBoard lane ${index + 1} is missing field.`),
+    state: requireMatch(lane, /^      state:\s*(.+)$/m, `${entry.filename}: signalBoard lane ${index + 1} is missing state.`),
+  }));
+  if (boardLanes.length !== 4) {
+    throw new Error(`${entry.filename}: expected exactly four signalBoard lanes; found ${boardLanes.length}.`);
   }
   const laneBlock = requireMatch(
     insight,
@@ -58,7 +93,7 @@ function validateSignalMap(entry) {
     throw new Error(`${entry.filename}: expected exactly four signalInsight lanes; found ${lanes.length}.`);
   }
 
-  return lanes.map((lane, index) => {
+  const parsedLanes = lanes.map((lane, index) => {
     const label = lane.split(/\r?\n/, 1)[0].trim().replace(/^['"]|['"]$/g, '');
     const field = requireMatch(lane, /^      field:\s*(.+)$/m, `${entry.filename}: lane ${index + 1} is missing field.`);
     const state = requireMatch(lane, /^      state:\s*(.+)$/m, `${entry.filename}: ${field} lane is missing state.`);
@@ -69,6 +104,11 @@ function validateSignalMap(entry) {
     const quadrant = requireMatch(lane, /^      quadrant:\s*(high-now|high-later|low-now|low-later)$/m, `${entry.filename}: ${field} lane is missing quadrant.`);
     const expected = expectedPlacement(importance, usefulness);
 
+    requireForwardFacingName(state, `${entry.filename}: ${field} state`);
+    if (boardLanes[index]?.field !== field || boardLanes[index]?.state !== state) {
+      throw new Error(`${entry.filename}: signalBoard and signalInsight must use the same ordered ${field} lane and state.`);
+    }
+
     if (timeframe !== expected.timeframe || quadrant !== expected.quadrant) {
       throw new Error(
         `${entry.filename}: ${field} scores require timeframe=${expected.timeframe} and quadrant=${expected.quadrant}; found ${timeframe}/${quadrant}.`,
@@ -78,8 +118,10 @@ function validateSignalMap(entry) {
       throw new Error(`${entry.filename}: ${field} state and meaning must explain the signal in plain language.`);
     }
 
-    return { label, field };
+    return { label, field, state };
   });
+
+  return { mapSignal, lanes: parsedLanes };
 }
 
 function estimateReadability(source) {
@@ -107,9 +149,9 @@ function estimateReadability(source) {
 
 function validateEditorialStructure(entry) {
   const requiredSections = [
-    '## What This Looks Like',
+    '## What This Will Look Like',
     '## Leaders',
-    '## Use This This Week',
+    '## Use This Week',
     '## Questions Worth Asking',
     '## What To Watch Next',
     '## Sources',
@@ -121,15 +163,26 @@ function validateEditorialStructure(entry) {
   if (!/> \[!NOTE\] Signal:/i.test(entry.source)) {
     throw new Error(`${entry.filename}: the opening Signal callout is missing.`);
   }
-  if ((entry.source.match(/\*\*(?:Question to ask|Founder question|Education question|University leadership question):?\*\*/g) ?? []).length < 4) {
-    throw new Error(`${entry.filename}: each main signal needs a practical reader question.`);
+  const mainSignalHeadings = entry.source.match(/^## [1-4]\. .+$/gm) ?? [];
+  if (mainSignalHeadings.length !== 4) {
+    throw new Error(`${entry.filename}: expected four numbered public signal sections; found ${mainSignalHeadings.length}.`);
+  }
+  for (const heading of mainSignalHeadings) {
+    requireForwardFacingName(heading, `${entry.filename}: main signal heading`);
+  }
+  if ((entry.source.match(/\*\*Forward question:\*\*/g) ?? []).length !== 4) {
+    throw new Error(`${entry.filename}: each of the four main signals needs one forward question.`);
+  }
+  const articleBeforeSources = entry.source.split(/^## Sources$/m, 1)[0];
+  if (/^\s*\|/m.test(articleBeforeSources) || /<table\b/i.test(articleBeforeSources)) {
+    throw new Error(`${entry.filename}: body tables are not allowed; use prose, lists, callouts, or editorial panels before Sources.`);
   }
   if ((entry.source.match(/https:\/\//g) ?? []).length < 4) {
     throw new Error(`${entry.filename}: fewer than four linked public sources were found.`);
   }
 }
 
-async function validateRenderedDesign(entry, lanes) {
+async function validateRenderedDesign(entry, mapSignal, lanes) {
   const homepage = await readFile(new URL('index.html', distDirectory), 'utf8');
   const article = await readFile(new URL(`${entry.slug}/index.html`, distDirectory), 'utf8');
 
@@ -139,15 +192,25 @@ async function validateRenderedDesign(entry, lanes) {
   if (!homepage.includes(`Signal map for ${entry.title}`)) {
     throw new Error(`Homepage Signal Map is not bound to the latest brief, "${entry.title}".`);
   }
+  if (!homepage.includes(mapSignal)) {
+    throw new Error(`Homepage Signal Map does not show the latest signal, "${mapSignal}".`);
+  }
   for (const lane of lanes) {
     if (!new RegExp(`<em[^>]*>${escapeRegExp(lane.field)}</em>`).test(homepage)) {
       throw new Error(`Homepage Signal Map is missing the ${lane.field} lane.`);
+    }
+    if (!homepage.includes(lane.state)) {
+      throw new Error(`Homepage Signal Map does not show the latest ${lane.field} signal state, "${lane.state}".`);
     }
   }
 
   const panelCount = (article.match(/<article class="editorial-panel">/g) ?? []).length;
   if (!article.includes('class="editorial-panel-list"') || panelCount < 4) {
     throw new Error(`Latest brief must render the role actions as designed editorial panels; found ${panelCount}.`);
+  }
+  const renderedTables = (article.match(/<table\b/g) ?? []).length;
+  if (renderedTables !== 1) {
+    throw new Error(`Latest brief must render only the established Sources table; found ${renderedTables} tables.`);
   }
 }
 
@@ -160,10 +223,10 @@ const latest = entries.sort((a, b) => Date.parse(b.date) - Date.parse(a.date) ||
 
 if (!latest) throw new Error('No Signals Brief files were found.');
 
-const lanes = validateSignalMap(latest);
+const { mapSignal, lanes } = validateSignalMap(latest);
 validateEditorialStructure(latest);
 const readability = estimateReadability(latest.source);
-await validateRenderedDesign(latest, lanes);
+await validateRenderedDesign(latest, mapSignal, lanes);
 
 console.log(
   `Validated ${latest.filename}: four Signal Map lanes, ${lanes.length} rendered lanes, designed action panels, and ${readability.averageSentenceWords.toFixed(1)} words per sentence.`,
