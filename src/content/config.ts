@@ -41,16 +41,6 @@ function sortableWeek(week?: string) {
   return match ? Number(`${match[1]}${match[2]}`) : undefined;
 }
 
-function expectedQuadrant(importance: number, usefulness: number) {
-  const highImportance = importance >= 82;
-  const usefulNow = usefulness >= 60;
-
-  if (highImportance && usefulNow) return 'high-now';
-  if (highImportance) return 'high-later';
-  if (usefulNow) return 'low-now';
-  return 'low-later';
-}
-
 const signalSchema = z.object({
   title: z.string(),
   description: z.string(),
@@ -138,46 +128,6 @@ const signalSchema = z.object({
         path: [...path, 'usefulness'],
         message: 'Signal Map lanes must include a usefulness score from 0 to 100.',
       });
-    }
-
-    if (!lane.timeframe) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: [...path, 'timeframe'],
-        message: 'Signal Map lanes must include timeframe: now or later.',
-      });
-    }
-
-    if (!lane.quadrant) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: [...path, 'quadrant'],
-        message: 'Signal Map lanes must include quadrant: high-now, high-later, low-now, or low-later.',
-      });
-    }
-
-    if (typeof lane.usefulness === 'number' && lane.timeframe) {
-      const expectedTimeframe = lane.usefulness >= 60 ? 'now' : 'later';
-
-      if (lane.timeframe !== expectedTimeframe) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          path: [...path, 'timeframe'],
-          message: `Signal Map timeframe must match usefulness score; expected "${expectedTimeframe}".`,
-        });
-      }
-    }
-
-    if (typeof lane.importance === 'number' && typeof lane.usefulness === 'number' && lane.quadrant) {
-      const expected = expectedQuadrant(lane.importance, lane.usefulness);
-
-      if (lane.quadrant !== expected) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          path: [...path, 'quadrant'],
-          message: `Signal Map quadrant must match importance/usefulness scores; expected "${expected}".`,
-        });
-      }
     }
   });
 });

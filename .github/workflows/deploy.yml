@@ -47,6 +47,9 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Validate latest Signals Brief and Signal Map
+        run: npm run check:weekly-brief
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -64,7 +64,7 @@ signalBoard:
       brief: Build practice, feedback, and help around adults, workers, parents, online students, and returning learners.
 signalInsight:
   primaryTheme: Market
-  signal: A signal is useful only when it tells you what changed, what decision it affects, and what it still cannot prove.
+  signal: Make the signal earn the decision.
   micro: The useful move this week is to turn mixed evidence into a practical decision check before changing a plan, budget, course, or strategy.
   concepts:
     - label: Decision Discipline
@@ -157,6 +157,18 @@ Use this filter before acting on a metric, survey, headline, or policy change. I
 > [!TIP]
 > Do not ask a signal to do more work than the evidence can carry.
 
+### Write the evidence note before the recommendation
+
+The discipline becomes clearer when the evidence is forced into four columns. A source usually supports one next decision. It rarely supports an entire strategy.
+
+| Evidence | What it proves | What it does not prove | Decision it supports |
+|---|---|---|---|
+| June U.S. retail sales | Estimated sales moved within the release's stated period and categories. | It does not isolate price, volume, product mix, local conditions, or cause. | Recheck demand assumptions and investigate the categories that matter before changing inventory or growth plans. |
+| NFIB small-business survey | Responding owners reported a particular mix of optimism and operating pressure. | It does not describe every small business or prove what customers will buy next. | Decide which cost, labor, pricing, or uncertainty risks need direct validation in the business. |
+| Business Formation Statistics | Formation activity is moving through an official, defined pipeline. | It does not prove customer demand, margin, cash durability, or survival. | Size the founder pipeline and support need; do not use it as a proxy for healthy firms. |
+| Higher-education CBO survey | Many surveyed finance leaders see program-count and cost-understanding problems. | It does not show that any specific program should close or that every institution has the same economics. | Audit the local cost model and make it understandable before changing the portfolio. |
+| Adult-learner and readiness reporting | Traditional schedules and one-time exposure leave important learners and practice needs out. | It does not prove one redesign will work for every learner or delivery mode. | Pilot a more flexible readiness activity and measure access, completion, revision, and outcomes. |
+
 ---
 
 ## What This Looks Like
@@ -199,6 +211,19 @@ That is not only a higher-education issue. The OECD's July 2026 report on center
 
 What it means: a plan is not ready just because leaders can describe it. Capacity is not decoration after strategy. It is part of the strategy.
 
+A capacity map makes the missing operating system visible:
+
+| Capacity | Question that has to be answered | Minimum evidence of readiness |
+|---|---|---|
+| Owner | Who can make the decision and resolve tradeoffs? | One accountable name, not a committee label. |
+| Time | What work will stop, shrink, or move? | Time reserved on the people doing the work. |
+| Budget | What does implementation and maintenance cost? | A funded amount with a source and boundary. |
+| Data | What shared facts will guide the work? | A defined measure, owner, baseline, and access path. |
+| Coordination | Where do dependencies meet? | A named handoff, escalation path, and decision right. |
+| Review rhythm | When will the plan be examined and changed? | A scheduled review with success, warning, and stop conditions. |
+
+If one row is blank, the plan may still be worth pursuing. But the blank is a risk to resolve, not work to push silently onto the team.
+
 > [!WARNING]
 > A plan without owners, resources, data, coordination, and review is often just pressure with better language.
 
@@ -216,6 +241,10 @@ The U.S. Census Bureau's Business Formation Statistics are useful because they s
 Together, these sources point to one founder lesson. Do not let launch evidence pretend to be survival evidence.
 
 A founder needs to know what stage the evidence proves. Is it just formation? Customer interest? Repeat demand? A workable margin? Cash discipline? Delivery capacity? A support routine when the owner gets stuck?
+
+The evidence should become harder as the claim becomes stronger. A filing proves legal formation. Interviews can clarify a problem. A deposit or paid pilot begins to prove willingness to pay. Repeat purchases test whether value lasts. Contribution margin tests whether revenue creates room to operate. Cash conversion and delivery quality test whether the company can survive its own growth.
+
+That ladder prevents a familiar mistake: presenting the easiest evidence to collect as proof of the hardest outcome to achieve. A pitch can open a conversation. It cannot stand in for customers. A customer count can show reach. It cannot stand in for retention, margin, or cash.
 
 > [!TIP]
 > Label founder evidence by stage: launch, interest, repeat demand, margin, cash, delivery, and support.
@@ -235,11 +264,36 @@ That matters because many students do not live in the ideal version of a school 
 
 What it means: readiness has to fit the real learner, not just the ideal learner. If the system ignores real schedules and obligations, the advice may sound good and still fail.
 
+Redesign one activity all the way through. Consider a required ninety-minute live case presentation. Turn it into a short case packet that works on a phone. Let students respond live or later. Publish the rubric. Allow one low-stakes draft, give feedback within a clear window, and require a revision.
+
+The standard does not have to fall. This route works better for students who have a job or care for a child. It also helps students who return after years away or join online.
+
+Then measure more than attendance. Look at who starts, who completes, who receives feedback, who revises, and whether performance improves. Flexibility without evidence can become another promise. Evidence without flexible access can describe only the students the original design already served.
+
 > [!LEADERS]
 > Design support for the real learner, not only the learner who already knows how to use the system.
 
 **Education question:**  
 Where does a student practice, get feedback, revise, and find help before the stakes rise?
+
+---
+
+## 5. Make University Cost Data Understandable Before It Becomes Decisive
+
+The higher-education survey warns that leaders may lack the facts needed for fair decisions. It is not a command to cut programs. If leaders do not understand per-student costs, a program review can become a contest between the loudest story and the simplest spreadsheet.
+
+Useful program data should give everyone the same basic picture. This includes faculty, finance teams, student-support leaders, and governing boards. Show direct and shared costs, enrollment trends, course demand, completion, student outcomes, and mission value. Explain how leaders assigned shared costs. People do not need the same expertise, but they do need clear definitions they can question.
+
+Three questions should come before a program decision:
+
+1. **Is the number legible?** Can the people affected explain how it was calculated and what changed it?
+2. **Is the comparison fair?** Are programs with different purposes, delivery models, and student populations being treated as if they are interchangeable?
+3. **Is the decision reversible?** Can leaders pilot consolidation, scheduling, advising, or curriculum changes before removing capacity that will be expensive to rebuild?
+
+What it means: cost data should improve shared judgment. When a number is important enough to close, merge, grow, or redesign a program, it is important enough to make understandable first.
+
+**University leadership question:**
+What would a reasonable faculty member, student-support leader, and board member each need to understand before trusting this decision?
 
 ---
 
@@ -255,15 +309,23 @@ That one habit protects people from overreaction, false confidence, and strategy
 
 ## Use This This Week
 
-**For students:** Before citing a source, write what it proves, what it does not prove, and what decision it supports.
-
-**For founders:** Separate launch evidence from survival evidence. Do not let a filing, pitch, or survey replace customer and cash proof.
-
-**For managers:** Turn one plan into a capacity map: owner, time, budget, data, coordination point, and review rhythm.
-
-**For educators and advisers:** Redesign one readiness activity for working, parenting, online, returning, or time-constrained students.
-
-**For university leaders:** Ask whether cost, enrollment, and program decisions are supported by data people actually understand.
+<div class="editorial-panel-list">
+  <article class="editorial-panel">
+    <p><strong>For students:</strong> Before citing a source, write what it proves, what it does not prove, and what decision it supports.</p>
+  </article>
+  <article class="editorial-panel">
+    <p><strong>For founders:</strong> Separate launch evidence from survival evidence. Do not let a filing, pitch, or survey replace customer and cash proof.</p>
+  </article>
+  <article class="editorial-panel">
+    <p><strong>For managers:</strong> Turn one plan into a capacity map: owner, time, budget, data, coordination point, and review rhythm.</p>
+  </article>
+  <article class="editorial-panel">
+    <p><strong>For educators and advisers:</strong> Redesign one readiness activity for working, parenting, online, returning, or time-constrained students.</p>
+  </article>
+  <article class="editorial-panel">
+    <p><strong>For university leaders:</strong> Ask whether cost, enrollment, and program decisions are supported by data people actually understand.</p>
+  </article>
+</div>
 
 ---
 

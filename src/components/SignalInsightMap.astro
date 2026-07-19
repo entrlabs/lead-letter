@@ -141,7 +141,6 @@ function usefulnessFor(lane: typeof lanes[number]) {
 }
 
 function quadrantKeyFor(lane: typeof lanes[number], importance: number, usefulness: number): QuadrantKey {
-  if (lane.quadrant) return lane.quadrant;
   const highImportance = importance >= 82;
   const usefulNow = usefulness >= 60;
 

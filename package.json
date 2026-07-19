@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check:weekly-brief": "node scripts/check-weekly-brief.mjs",
     "preview": "astro preview",
     "sendfox:check": "node scripts/sendfox-check.mjs",
     "sendfox:lists": "node scripts/sendfox-lists.mjs",
