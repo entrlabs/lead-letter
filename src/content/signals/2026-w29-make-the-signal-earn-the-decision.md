@@ -14,8 +14,6 @@ tags:
   - managers
   - founders
   - education
-  - decision-quality
-  - capacity
 signalBoard:
   signal: "Make the signal earn the decision."
   micro: "A number, survey, rule, or headline becomes useful only when it changes a real decision and names its limits."
@@ -129,7 +127,7 @@ signalInsight:
       importance: 80
       usefulness: 79
       timeframe: "now"
-      quadrant: "high-now"
+      quadrant: "low-now"
 ---
 
 This week was full of movement.
