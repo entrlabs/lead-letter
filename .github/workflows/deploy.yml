@@ -12,6 +12,7 @@ on:
       - 'package-lock.json'
       - 'tsconfig.json'
       - 'scripts/check-weekly-brief.mjs'
+      - 'scripts/check-field-note.mjs'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -45,8 +46,8 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
-      - name: Build and validate latest Signals Brief
-        run: npm run validate:weekly-brief
+      - name: Build and validate latest publications
+        run: npm run validate:publication
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
