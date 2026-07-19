@@ -268,7 +268,7 @@ That is decision quality in practice. It turns information into readiness withou
 
 ## Use This Week
 
-<div class="editorial-panel-list">
+<div class="editorial-panel-list role-panel-list">
   <article class="editorial-panel">
     <p><strong>For students:</strong> Build a three-line evidence note before your next source-based decision: what it proves, what it cannot prove, and what choice it supports.</p>
   </article>
@@ -310,11 +310,25 @@ Good judgment keeps evidence and action connected without pretending they are th
 
 ## What To Watch Next
 
-- Whether official United States industrial-production data strengthens or weakens the operating picture.
-- Whether universities turn cost pressure into clearer data, better coordination, or rushed program cuts.
-- Whether founder support shifts toward customer return, margins, cash control, and delivery after launch.
-- Whether adult and nontraditional learner programs report stronger completion, revision, and outcome evidence.
-- Whether cloud and platform rules make dependency planning a larger management task.
+The next evidence should show whether these signals are becoming operating changes or staying as useful warnings.
+
+<div class="editorial-panel-list watch-panel-list">
+  <article class="editorial-panel watch-panel">
+    <p><strong>Market evidence:</strong> Watch whether official United States industrial-production data strengthens or weakens the operating picture.</p>
+  </article>
+  <article class="editorial-panel watch-panel">
+    <p><strong>University decisions:</strong> Watch whether cost pressure produces clearer data and coordination or rushed program cuts.</p>
+  </article>
+  <article class="editorial-panel watch-panel">
+    <p><strong>Founder survival:</strong> Watch whether support moves toward customer return, margins, cash control, and delivery after launch.</p>
+  </article>
+  <article class="editorial-panel watch-panel">
+    <p><strong>Learner outcomes:</strong> Watch whether adult and nontraditional learner programs report completion, revision, and outcome evidence.</p>
+  </article>
+  <article class="editorial-panel watch-panel">
+    <p><strong>Management capacity:</strong> Watch whether cloud and platform rules make dependency planning a larger operating task.</p>
+  </article>
+</div>
 
 ---
 

@@ -173,6 +173,15 @@ function validateEditorialStructure(entry) {
   if ((entry.source.match(/\*\*Forward question:\*\*/g) ?? []).length !== 4) {
     throw new Error(`${entry.filename}: each of the four main signals needs one forward question.`);
   }
+  if (!entry.source.includes('<div class="editorial-panel-list role-panel-list">')) {
+    throw new Error(`${entry.filename}: Use This Week must use the designed role-panel list.`);
+  }
+  if (!entry.source.includes('<div class="editorial-panel-list watch-panel-list">')) {
+    throw new Error(`${entry.filename}: What To Watch Next must use the designed watch-panel list, not plain bullets.`);
+  }
+  if ((entry.source.match(/<article class="editorial-panel watch-panel">/g) ?? []).length < 3) {
+    throw new Error(`${entry.filename}: What To Watch Next needs at least three designed watch panels.`);
+  }
   const articleBeforeSources = entry.source.split(/^## Sources$/m, 1)[0];
   if (/^\s*\|/m.test(articleBeforeSources) || /<table\b/i.test(articleBeforeSources)) {
     throw new Error(`${entry.filename}: body tables are not allowed; use prose, lists, callouts, or editorial panels before Sources.`);
@@ -204,9 +213,13 @@ async function validateRenderedDesign(entry, mapSignal, lanes) {
     }
   }
 
-  const panelCount = (article.match(/<article class="editorial-panel">/g) ?? []).length;
-  if (!article.includes('class="editorial-panel-list"') || panelCount < 4) {
-    throw new Error(`Latest brief must render the role actions as designed editorial panels; found ${panelCount}.`);
+  const rolePanelCount = (article.match(/<article class="editorial-panel">/g) ?? []).length;
+  const watchPanelCount = (article.match(/<article class="editorial-panel watch-panel">/g) ?? []).length;
+  if (!article.includes('class="editorial-panel-list role-panel-list"') || rolePanelCount < 4) {
+    throw new Error(`Latest brief must render Use This Week as designed role panels; found ${rolePanelCount}.`);
+  }
+  if (!article.includes('class="editorial-panel-list watch-panel-list"') || watchPanelCount < 3) {
+    throw new Error(`Latest brief must render What To Watch Next as designed watch panels; found ${watchPanelCount}.`);
   }
   const renderedTables = (article.match(/<table\b/g) ?? []).length;
   if (renderedTables !== 1) {
@@ -229,5 +242,5 @@ const readability = estimateReadability(latest.source);
 await validateRenderedDesign(latest, mapSignal, lanes);
 
 console.log(
-  `Validated ${latest.filename}: four Signal Map lanes, ${lanes.length} rendered lanes, designed action panels, and ${readability.averageSentenceWords.toFixed(1)} words per sentence.`,
+  `Validated ${latest.filename}: four Signal Map lanes, ${lanes.length} rendered lanes, designed role and watch panels, and ${readability.averageSentenceWords.toFixed(1)} words per sentence.`,
 );
