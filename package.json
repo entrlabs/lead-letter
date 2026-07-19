@@ -7,6 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "check:weekly-brief": "node scripts/check-weekly-brief.mjs",
+    "validate:weekly-brief": "npm run build && npm run check:weekly-brief",
     "preview": "astro preview",
     "sendfox:check": "node scripts/sendfox-check.mjs",
     "sendfox:lists": "node scripts/sendfox-lists.mjs",
