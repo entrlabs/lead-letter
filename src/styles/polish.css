@@ -2,6 +2,7 @@
 
 :root {
   --entr-icon-mask: url('/assets/entr-icon.svg');
+  --entr-spectrum-icon: url('/assets/entr-letters-spectrum.svg');
 }
 
 body {
@@ -61,9 +62,7 @@ html.page-leaving body {
   flex: 0 0 auto;
   width: 27px;
   height: 42px;
-  background: linear-gradient(180deg, var(--azure), var(--azure-deep));
-  -webkit-mask: var(--entr-icon-mask) center / contain no-repeat;
-  mask: var(--entr-icon-mask) center / contain no-repeat;
+  background: var(--entr-spectrum-icon) center / contain no-repeat;
   filter: drop-shadow(0 12px 22px rgba(46, 91, 208, 0.18));
 }
 
@@ -866,7 +865,7 @@ html.page-leaving body {
   width: 22px;
   height: 34px;
   border: 0;
-  background: linear-gradient(180deg, #fff, var(--azure-soft));
+  background: var(--entr-spectrum-icon) center / contain no-repeat;
   filter: drop-shadow(0 10px 18px rgba(91, 140, 255, 0.24));
   transform: none;
 }
