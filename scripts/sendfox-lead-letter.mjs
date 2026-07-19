@@ -179,12 +179,12 @@ function leadLetterMarkHtml() {
   const logoUrl = htmlEscape(process.env.LEAD_LETTER_LOGO_URL || DEFAULT_LOGO_URL);
 
   return `
-    <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" style="background-color: #ffffff; background-image: linear-gradient(#ffffff, #ffffff);">
       <tr>
         <td style="width: 30px;">
           <img src="${logoUrl}" width="30" height="30" alt="ENTR" style="display: block; width: 30px; height: 30px; border: 0; outline: none; text-decoration: none;">
         </td>
-        <td style="padding-left: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: ${BRAND.ink};">The Lead Letter</td>
+        <td style="padding-left: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: ${BRAND.ink} !important; -webkit-text-fill-color: ${BRAND.ink} !important;">The Lead Letter</td>
       </tr>
     </table>
   `;
