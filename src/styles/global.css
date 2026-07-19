@@ -1173,6 +1173,7 @@ a:hover {
   font-size: 0.72rem;
   margin: 48px 0;
   text-align: center;
+  white-space: nowrap;
 }
 
 .post-letter-cta {
