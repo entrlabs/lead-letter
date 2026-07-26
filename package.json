@@ -10,9 +10,10 @@
     "validate:weekly-brief": "npm run build && npm run check:weekly-brief",
     "check:field-note": "node scripts/check-field-note.mjs",
     "validate:field-note": "npm run build && npm run check:field-note",
-    "validate:publication": "npm run build && npm run check:weekly-brief && npm run check:field-note",
+    "validate:publication": "npm run build && npm run check:weekly-brief && npm run check:field-note && npm run check:sendfox-email",
     "preview": "astro preview",
     "sendfox:check": "node scripts/sendfox-check.mjs",
+    "check:sendfox-email": "node scripts/check-sendfox-email.mjs",
     "sendfox:lists": "node scripts/sendfox-lists.mjs",
     "sendfox:lead-letter": "node scripts/sendfox-lead-letter.mjs"
   },

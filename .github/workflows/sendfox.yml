@@ -59,6 +59,9 @@ jobs:
           awk '$1 == "A" { print $2 }' changed-signal-files.txt > added-signal-files.txt
           cat added-signal-files.txt
 
+      - name: Validate forward-facing email
+        run: npm run check:sendfox-email
+
       - name: Allow Pages deploy to settle
         if: github.event_name == 'push'
         run: sleep 90
@@ -69,6 +72,8 @@ jobs:
           SENDFOX_API_TOKEN: ${{ secrets.SENDFOX_API_TOKEN }}
           SENDFOX_LIST_ID: ${{ secrets.SENDFOX_LIST_ID }}
           SENDFOX_SEND_ENABLED: ${{ vars.SENDFOX_SEND_ENABLED || 'false' }}
+          SENDFOX_DEDUPLICATE_CAMPAIGNS: 'true'
+          SENDFOX_CAMPAIGN_TITLE_PREFIX: Lead Letter Weekly
           SENDFOX_API_BASE: ${{ vars.SENDFOX_API_BASE || 'https://api.sendfox.com' }}
           SENDFOX_API_ENDPOINT: ${{ vars.SENDFOX_API_ENDPOINT || '/campaigns' }}
           SENDFOX_API_METHOD: ${{ vars.SENDFOX_API_METHOD || 'POST' }}
