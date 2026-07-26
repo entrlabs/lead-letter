@@ -25,7 +25,7 @@ const todayLabel = new Intl.DateTimeFormat('en-US', {
 }).format(new Date());
 
 function signalUrl(entry: CollectionEntry<'signals'>) {
-  return `/${entry.slug}/`;
+  return `/${entry.data.slug ?? entry.slug}/`;
 }
 
 function latestBoxDescription(description: string) {

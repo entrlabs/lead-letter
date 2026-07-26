@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import { formatLetterTitle } from '../utils/format';
 
 function publicSlug(entry) {
-  return entry.slug;
+  return entry.data.slug ?? entry.slug;
 }
 
 export async function GET(context) {

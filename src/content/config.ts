@@ -51,6 +51,7 @@ const signalSchema = z.object({
   featured: z.boolean().default(false),
   week: z.string().optional(),
   series: z.string().default('Signals Brief'),
+  slug: z.string().optional(),
   tags: z.array(z.enum(topicTags)).default([]),
   signalBoard: z.object({
     signal: z.string(),

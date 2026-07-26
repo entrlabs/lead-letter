@@ -224,7 +224,7 @@ const quadrantSignals = signalRows.slice(0, 4);
       <h2 id="latest-signal-map">Signal Map</h2>
     </div>
     <p class="signal-map-intro">A live decision field for the week: each signal is placed by importance and usefulness so the next move is easier to read.</p>
-    <a href={`/${entry.slug}/`}>Read the full story</a>
+    <a href={`/${entry.data.slug ?? entry.slug}/`}>Read the full story</a>
   </div>
 
   <div class="signal-engine" aria-label={`Signal map for ${entry.data.title}`}>

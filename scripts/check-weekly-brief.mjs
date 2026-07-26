@@ -71,11 +71,15 @@ function validateIssueIdentity(entry) {
   if (Number(weekMatch[2]) !== entry.issue) {
     throw new Error(`${entry.filename}: issue ${entry.issue} must match ${entry.week}.`);
   }
-  if (entry.slug !== basename(entry.filename, '.md')) {
-    throw new Error(`${entry.filename}: slug must match the filename exactly.`);
+  const expectedFilename = `${weekMatch[1]}-w${weekMatch[2]}-${entry.date.slice(5)}.md`;
+  if (entry.filename !== expectedFilename) {
+    throw new Error(`${entry.filename}: filename must be ${expectedFilename}.`);
   }
-  if (!entry.filename.startsWith(`${weekMatch[1]}-w${weekMatch[2]}-`)) {
-    throw new Error(`${entry.filename}: filename must begin with ${weekMatch[1]}-w${weekMatch[2]}-.`);
+  if (!entry.slug.startsWith(`${weekMatch[1]}-w${weekMatch[2]}-`)) {
+    throw new Error(`${entry.filename}: public slug must begin with ${weekMatch[1]}-w${weekMatch[2]}-.`);
+  }
+  if (/^\d{4}-w\d{2}-\d{2}-\d{2}$/.test(entry.slug)) {
+    throw new Error(`${entry.filename}: public slug must remain reader-facing, not date-only.`);
   }
   if (entry.author !== 'Joseph E. Iesue') throw new Error(`${entry.filename}: author must be Joseph E. Iesue.`);
   if (entry.publication !== 'EntrLabs - The Lead Letter') throw new Error(`${entry.filename}: publication metadata is incorrect.`);

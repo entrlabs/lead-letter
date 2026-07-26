@@ -12,7 +12,7 @@ const featured = allSignals[0];
 const rest = allSignals.slice(1);
 
 function signalUrl(entry: CollectionEntry<'signals'>) {
-  return `/${entry.slug}/`;
+  return `/${entry.data.slug ?? entry.slug}/`;
 }
 ---
 <BaseLayout title="The Archive — The Lead Letter" description="Every Signal Brief, in order.">
