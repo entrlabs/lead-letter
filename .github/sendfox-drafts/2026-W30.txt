@@ -1,0 +1,1 @@
+src/content/signals/2026-w30-make-every-handoff-ownable.md

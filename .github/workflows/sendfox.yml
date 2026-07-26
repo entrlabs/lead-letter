@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'src/content/signals/**'
+      - '.github/sendfox-drafts/**'
       - 'scripts/sendfox-*.mjs'
       - 'package.json'
       - '.github/workflows/sendfox.yml'
@@ -49,20 +50,23 @@ jobs:
         env:
           DISPATCH_SIGNAL_FILE: ${{ inputs.signal_file }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            case "$DISPATCH_SIGNAL_FILE" in
+          validate_signal_file() {
+            case "$1" in
               src/content/signals/*.md) ;;
               *)
-                echo "signal_file must be a Markdown file inside src/content/signals."
+                echo "Signals Brief must be a Markdown file inside src/content/signals: $1"
                 exit 1
                 ;;
             esac
 
-            if [ ! -f "$DISPATCH_SIGNAL_FILE" ]; then
-              echo "Signals Brief not found: $DISPATCH_SIGNAL_FILE"
+            if [ ! -f "$1" ]; then
+              echo "Signals Brief not found: $1"
               exit 1
             fi
+          }
 
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            validate_signal_file "$DISPATCH_SIGNAL_FILE"
             printf '%s\n' "$DISPATCH_SIGNAL_FILE" > added-signal-files.txt
             exit 0
           fi
@@ -71,12 +75,21 @@ jobs:
           HEAD="${{ github.sha }}"
 
           if [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
-            git diff-tree --no-commit-id --name-status -r "$HEAD" -- src/content/signals > changed-signal-files.txt
+            git diff-tree --no-commit-id --name-status -r "$HEAD" -- src/content/signals .github/sendfox-drafts > changed-signal-files.txt
           else
-            git diff --name-status "$BASE" "$HEAD" -- src/content/signals > changed-signal-files.txt
+            git diff --name-status "$BASE" "$HEAD" -- src/content/signals .github/sendfox-drafts > changed-signal-files.txt
           fi
 
-          awk '$1 == "A" { print $2 }' changed-signal-files.txt > added-signal-files.txt
+          awk '$1 == "A" && $2 ~ /^src\/content\/signals\/.*\.md$/ { print $2 }' changed-signal-files.txt > added-signal-files.txt
+          awk '$1 == "A" && $2 ~ /^\.github\/sendfox-drafts\/.*\.txt$/ { print $2 }' changed-signal-files.txt > added-draft-request-files.txt
+
+          while IFS= read -r request_file; do
+            signal_file="$(sed -n '1p' "$request_file")"
+            validate_signal_file "$signal_file"
+            printf '%s\n' "$signal_file" >> added-signal-files.txt
+          done < added-draft-request-files.txt
+
+          sort -u -o added-signal-files.txt added-signal-files.txt
           cat added-signal-files.txt
 
       - name: Validate forward-facing email
