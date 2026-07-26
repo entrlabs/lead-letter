@@ -45,7 +45,7 @@ function validateIdentity(entry) {
 }
 
 function validateReaderFacingCopy(entry, previousEntries) {
-  const actionVerb = /^(ask|build|check|choose|connect|create|decide|design|explain|find|focus|give|keep|learn|make|match|measure|move|name|notice|plan|practice|prepare|protect|prove|put|read|reduce|set|show|start|strengthen|support|test|treat|turn|use|watch|work|write)\b/i;
+  const actionVerb = /^(add|ask|build|check|choose|connect|count|create|decide|design|diagnose|explain|find|focus|give|keep|learn|make|match|measure|move|name|notice|plan|practice|prepare|protect|prove|put|read|reduce|set|show|start|strengthen|support|test|treat|turn|use|watch|work|write)\b/i;
   const titleWords = wordCount(entry.title);
   if (titleWords < 4 || titleWords > 9 || !actionVerb.test(entry.title)) {
     throw new Error(`${entry.filename}: title must be a direct 4-9 word reader action.`);
@@ -131,7 +131,7 @@ function validateReadability(entry) {
   return { averageSentenceWords, longSentences: longSentences.length };
 }
 
-async function validateRendered(entry) {
+async function validateRendered(entry, expectLatest) {
   const slug = basename(entry.filename, '.md');
   const article = await readFile(new URL(`fieldnotes/${slug}/index.html`, distDirectory), 'utf8');
   const index = await readFile(new URL('fieldnotes/index.html', distDirectory), 'utf8');
@@ -148,9 +148,9 @@ async function validateRendered(entry) {
   }
   const href = `/fieldnotes/${slug}/`;
   if (!index.includes(`href="${href}"`) || !index.includes(entry.title)) {
-    throw new Error(`${entry.filename}: Field Notes index is not bound to the latest note.`);
+    throw new Error(`${entry.filename}: Field Notes index does not include the note.`);
   }
-  if (!homepage.includes(`href="${href}"`) || !homepage.includes(entry.title)) {
+  if (expectLatest && (!homepage.includes(`href="${href}"`) || !homepage.includes(entry.title))) {
     throw new Error(`${entry.filename}: homepage Field Notes rail is not bound to the latest note.`);
   }
 }
@@ -161,10 +161,23 @@ const sorted = entries.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 const latest = sorted[0];
 if (!latest) throw new Error('No public Field Notes were found.');
 
-validateIdentity(latest);
-validateReaderFacingCopy(latest, sorted.slice(1));
-validateStructure(latest);
-const readability = validateReadability(latest);
-await validateRendered(latest);
+const validateFrom = process.env.FIELD_NOTE_VALIDATE_FROM;
+if (validateFrom && !/^\d{4}-\d{2}-\d{2}$/.test(validateFrom)) {
+  throw new Error('FIELD_NOTE_VALIDATE_FROM must use YYYY-MM-DD.');
+}
+const selected = validateFrom
+  ? sorted.filter((entry) => entry.date >= validateFrom)
+  : [latest];
+if (selected.length === 0) {
+  throw new Error(`No public Field Notes were found on or after ${validateFrom}.`);
+}
 
-console.log(`Validated ${latest.filename}: forward-facing copy, evidence limits, required design sections, rendered route/index binding, and ${readability.averageSentenceWords.toFixed(1)} words per sentence.`);
+for (const entry of selected) {
+  const previousEntries = sorted.filter((candidate) => candidate.date < entry.date);
+  validateIdentity(entry);
+  validateReaderFacingCopy(entry, previousEntries);
+  validateStructure(entry);
+  const readability = validateReadability(entry);
+  await validateRendered(entry, entry === latest);
+  console.log(`Validated ${entry.filename}: forward-facing copy, evidence limits, required design sections, rendered route/index binding, and ${readability.averageSentenceWords.toFixed(1)} words per sentence.`);
+}

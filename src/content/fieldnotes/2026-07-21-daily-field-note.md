@@ -1,6 +1,6 @@
 ---
-title: "Make Information Usable Before Decisions"
-description: "Turn options, feedback, public records, and reflection into information people can use in time."
+title: "Make Information Useful Before Decisions Close"
+description: "Use a four-part check to turn options, feedback, public records, and reflection into better choices."
 date: 2026-07-21
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -8,79 +8,77 @@ sourceBrief: "2026-07-21 - Daily Business Intelligence Brief"
 featured: true
 tags:
   - leadership
-  - management
-  - entrepreneurship
-  - policy
-  - education
+  - decision-quality
   - field-note
+  - management
+  - education
+  - transparency
 ---
 
 > [!quote] Field Note
-> Information becomes capacity only when the person making the decision can receive it, understand it, and act on it.
+> Information becomes capacity only when the next person can use it before the decision closes.
 
 > [!summary] The Reader Promise
-> Learn a four-part check for turning options, feedback, public records, and reflection into better choices.
+> This note gives readers a four-part check for turning options, feedback, public records, and reflection into better choices.
 
 ## The Field Note
 
-> [!example] Audit the Handoff
-> Before a consequential choice, check four things: Is the right information available? Is it clear? Will it arrive in time? Does it point to a next action?
+> [!example] Check the Information Handoff
+> Before a consequential choice, check whether the right information is available, clear, timely, and connected to a next action.
 
-Today's sources show four different information handoffs.
+Today's brief is about information handoffs.
 
-Stanford's 2026 Search Fund Study shows that entrepreneurship can include finding, buying, and operating an existing company. That option matters only when aspiring founders understand the search time, capital needs, operating responsibility, and limits.
+Stanford's search-fund research broadens how students and future founders can see entrepreneurship. Ownership can start by finding, buying, and leading an existing company, not only by starting from zero. The useful question is what evidence a searcher needs before the acquisition decision closes.
 
-A Management Science experiment found that managers sometimes withheld useful performance feedback. The problem was not missing data. The problem was a broken handoff between the person who held the signal and the person who needed it.
+A Management Science feedback study shows the workplace version. In a controlled experiment, some managers withheld useful performance information. People cannot improve, challenge a judgment, or make a better next move when feedback stays hidden or vague.
 
-The United Nations reports that 141 countries have access-to-information laws. Yet a stress test across 76 countries found that many requests received no substantive answer. A right on paper becomes useful only when a public system responds.
+The United Nations Goal 16 report shows the public version. Many countries have access-to-information laws, but a formal right does not always become a usable answer. Public information needs response routines, records systems, and enforcement.
 
-An accepted study of 261 business students found an association between stress, nonreactive mindfulness, and ethical decision processes. It suggests a practical pause: notice the pressure before an automatic reaction becomes a choice.
+A Frontiers in Psychology study adds the personal judgment version. Its student sample supports an association between nonreactive mindfulness and ethical decisions under stress. It does not prove that a brief pause causes better ethics. It supports a careful teaching question: what helps someone observe and orient before acting?
 
-These sources do not prove one universal solution. The search-fund evidence covers a specialized model. The feedback study used an online experiment. The transparency data span different countries and reference years. The student study does not prove that mindfulness training causes better ethical behavior.
-
-The useful practice is smaller and sturdier: inspect the handoff before asking for more information.
+A policy, rubric, dashboard, study, or report is not useful merely because it exists. It becomes useful when the person facing the next decision can receive it, understand it, and act on it in time.
 
 ## Mental Model Lens
 
 > [!tip] Thinking Tool: OODA Loop
-> **Mental model:** [The OODA Loop](https://fs.blog/ooda-loop/)<br>
-> **Useful idea:** Decisions improve through a repeated cycle of observing, orienting, deciding, acting, and learning from the next signal.<br>
-> **Short quote:** "Observe, Orient, Decide, and Act."<br>
-> **Use today:** Name the information you still need, the bias that may distort it, and the next observation that would change your mind.
+> **Mental model:** [OODA Loop](https://fs.blog/ooda-loop/)  
+> **Useful idea:** Good decisions need a repeated cycle of observing, orienting, deciding, acting, and learning from the next signal.  
+> **Short quote:** “Observe, orient, decide, and act.”  
+> **Use today:** Before a consequential choice, name the information you still need, the bias that may distort it, and the next observation that would change your mind.
 
-> [!note] Why It Matters
-> More data cannot repair a handoff that is late, vague, hidden, or disconnected from action.
+> [!note] Evidence Limit
+> These sources do not prove one universal ownership path, feedback policy, transparency reform, or causal effect of mindfulness training on ethical behavior.
 
 ## Use It Today
 
 > [!question] For Students
-> Before your next education or career choice, write what evidence would change your mind and when you need to receive it.
+> Ask what evidence should change your next education, career, or ownership choice, and whether you will receive it in time.
 
 > [!question] For Managers And Founders
-> Choose one feedback or ownership decision. Make the evidence, assumptions, timing, and next action visible to the person who must act.
+> Identify one feedback or ownership decision where hidden assumptions need a structured information handoff.
 
 > [!question] For Educators And Advisors
-> Inspect one rubric, evaluation, or advising process. Does it deliver a clear answer before the learner's decision closes?
+> Make one rubric, evaluation, or decision path clearer before the learner must act.
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> A policy, dashboard, rubric, or report is not useful merely because it exists. It becomes useful when the next person can receive it, understand it, and act in time.
+> A policy, dashboard, rubric, or report is not useful merely because it exists. It becomes useful when the next person can act on it in time.
 
-## Vantage Circle's Lens
+## Vantage Circle’s Lens
 
 > [!sponsor] Sponsor Field Note
-> Recognition should include people who make information usable. The manager who gives clear feedback, the teammate who names a hidden assumption, and the adviser who responds before a deadline all protect trust and better judgment.
+> Recognition should include the people who make information usable. The teammate who gives timely feedback, clarifies a decision path, or helps others see the next useful signal protects trust and performance.
 >
 > [Explore the AIRe Framework (created by Vantage Circle)](https://www.vantagecircle.com/services/aire-consultation/) to be sure your employees feel recognized and rewarded for their valuable efforts.
 
 ## Sources
 
-- [Stanford Graduate School of Business - Search Funds Keep Offering a Proven Path to Ownership](https://www.gsb.stanford.edu/insights/search-funds-keep-offering-proven-path-ownership)
-- [Management Science - The Signals We Give: Performance Feedback, Gender, and Competition](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2024.05001)
-- [University of Portsmouth - A quarter of managers withhold feedback](https://www.port.ac.uk/news-events-and-blogs/news/a-quarter-of-managers-withhold-feedback)
-- [United Nations Statistics Division - Goal 16, Sustainable Development Goals Report 2026](https://unstats.un.org/sdgs/report/2026/Goal-16/)
-- [Frontiers in Psychology - Ethical Decision-Making under Stress](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1879880/abstract)
-- [Farnam Street - The OODA Loop](https://fs.blog/ooda-loop/)
+- [Stanford Graduate School of Business — Search Funds Keep Offering a Proven Path to Ownership](https://www.gsb.stanford.edu/insights/search-funds-keep-offering-proven-path-ownership)
+- [Management Science — The Signals We Give](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2024.05001)
+- [University of Portsmouth — A Quarter of Managers Withhold Feedback](https://www.port.ac.uk/news-events-and-blogs/news/a-quarter-of-managers-withhold-feedback)
+- [United Nations Statistics Division — Sustainable Development Goal 16](https://unstats.un.org/sdgs/report/2026/Goal-16/)
+- [Frontiers in Psychology — Ethical Decision-Making Under Stress](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1879880/abstract)
+- [Farnam Street — OODA Loop](https://fs.blog/ooda-loop/)
