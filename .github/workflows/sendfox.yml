@@ -10,6 +10,11 @@ on:
       - 'package.json'
       - '.github/workflows/sendfox.yml'
   workflow_dispatch:
+    inputs:
+      signal_file:
+        description: Existing Signals Brief path to draft, for example src/content/signals/2026-w30-make-every-handoff-ownable.md
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -41,9 +46,24 @@ jobs:
         run: npm run sendfox:check
 
       - name: Find newly added Lead Letters
+        env:
+          DISPATCH_SIGNAL_FILE: ${{ inputs.signal_file }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            : > added-signal-files.txt
+            case "$DISPATCH_SIGNAL_FILE" in
+              src/content/signals/*.md) ;;
+              *)
+                echo "signal_file must be a Markdown file inside src/content/signals."
+                exit 1
+                ;;
+            esac
+
+            if [ ! -f "$DISPATCH_SIGNAL_FILE" ]; then
+              echo "Signals Brief not found: $DISPATCH_SIGNAL_FILE"
+              exit 1
+            fi
+
+            printf '%s\n' "$DISPATCH_SIGNAL_FILE" > added-signal-files.txt
             exit 0
           fi
 
@@ -60,7 +80,14 @@ jobs:
           cat added-signal-files.txt
 
       - name: Validate forward-facing email
-        run: npm run check:sendfox-email
+        run: |
+          if [ -s added-signal-files.txt ]; then
+            while IFS= read -r signal_file; do
+              npm run check:sendfox-email -- "$signal_file"
+            done < added-signal-files.txt
+          else
+            npm run check:sendfox-email
+          fi
 
       - name: Allow Pages deploy to settle
         if: github.event_name == 'push'
