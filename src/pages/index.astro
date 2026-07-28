@@ -4,9 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SendFoxForm from '../components/SendFoxForm.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
 import DailyFieldNotesRail from '../components/DailyFieldNotesRail.astro';
+import CodexEditionsRail from '../components/CodexEditionsRail.astro';
 import SignalInsightMap from '../components/SignalInsightMap.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 import { getSignalInsight } from '../utils/signalInsight';
+import { sortCodexEditions } from '../utils/codex';
 
 const allSignals = (await getCollection('signals')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -14,10 +16,12 @@ const allSignals = (await getCollection('signals')).sort(
 const allFieldNotes = (await getCollection('fieldnotes')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
+const allCodexEditions = sortCodexEditions(await getCollection('codex'));
 
 const latest = allSignals[0];
 const recent = allSignals.slice(1, 5);
 const recentFieldNotes = allFieldNotes.slice(0, 4);
+const recentCodexEditions = allCodexEditions.slice(0, 3);
 const todayLabel = new Intl.DateTimeFormat('en-US', {
   month: 'long',
   day: 'numeric',
@@ -81,6 +85,8 @@ const latestInsight = latest ? getSignalInsight(latest) : undefined;
   <DailyFieldNotesRail notes={recentFieldNotes} />
 
   {latest && latestInsight && <SignalInsightMap entry={latest} insight={latestInsight} />}
+
+  <CodexEditionsRail editions={recentCodexEditions} />
 
   <section class="home-lower reveal">
     <div class="from-archive">

@@ -1,0 +1,79 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HYOHCompass from '../../components/HYOHCompass.astro';
+import CopyLinkButton from '../../components/CopyLinkButton.astro';
+import {
+  codexDescription,
+  codexUrl,
+  sortCodexEditions,
+} from '../../utils/codex';
+
+export async function getStaticPaths() {
+  const editions = sortCodexEditions(await getCollection('codex'));
+  return editions.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'codex'>;
+}
+
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+
+const allCodexEditions = sortCodexEditions(await getCollection('codex'));
+const index = allCodexEditions.findIndex((edition) => edition.slug === entry.slug);
+const newer = index > 0 ? allCodexEditions[index - 1] : null;
+const older = index < allCodexEditions.length - 1 ? allCodexEditions[index + 1] : null;
+const canonicalUrl = `https://letters.entr.cc${codexUrl(entry)}`;
+const description = codexDescription(entry);
+---
+
+<BaseLayout
+  title={`${entry.data.title} — ${entry.data.edition}`}
+  description={description}
+  canonicalPath={codexUrl(entry)}
+  type="article"
+  author={entry.data.author}
+>
+  <article class="letter-page codex-page">
+    <header class="codex-edition-header">
+      <p class="kicker letter-kicker">
+        {entry.data.edition} · {entry.data.type} framework
+      </p>
+      <h1>{entry.data.title}</h1>
+      <p class="codex-source">Source · {entry.data.source}</p>
+      <p class="byline">
+        By <a href="https://josephiesue.com" target="_blank" rel="noopener">{entry.data.author}</a> · {entry.data.publication}
+      </p>
+    </header>
+
+    <hr class="hairline" />
+
+    <div class="letter-body codex-body">
+      <Content />
+    </div>
+
+    <p class="end-mark">Study the principle. Carry the practice.</p>
+
+    <div class="post-letter-cta">
+      <p>If this edition sharpened your thinking, share it with someone building the same practice — or join the list for future publications.</p>
+      <div class="cta-buttons">
+        <a class="btn-join" href="/#join">Get future issues</a>
+        <CopyLinkButton url={canonicalUrl} />
+      </div>
+    </div>
+
+    <HYOHCompass variant="cta" />
+
+    <nav class="prev-next">
+      {older ? <a href={codexUrl(older)}>Previous: {older.data.title}</a> : <span class="empty">Previous</span>}
+      {newer ? <a href={codexUrl(newer)}>Next: {newer.data.title}</a> : <span class="empty">Next</span>}
+    </nav>
+
+    <a class="back-to-archive" href="/codex/">Back to the Codex</a>
+  </article>
+</BaseLayout>
