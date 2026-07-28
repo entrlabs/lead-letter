@@ -154,4 +154,39 @@ const fieldnotes = defineCollection({
   schema: fieldNoteSchema,
 });
 
-export const collections = { signals, fieldnotes };
+function wordCount(value: string) {
+  return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+const codexSchema = z.object({
+  type: z.enum(['internal', 'external']),
+  edition: z.string().regex(/^Codex\s+#\d{3}$/i, 'Edition must use the format "Codex #014".'),
+  title: z.string().superRefine((value, ctx) => {
+    const words = wordCount(value);
+    if (words < 2 || words > 8) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Codex title must contain 2 to 8 words.',
+      });
+    }
+  }),
+  source: z.string().superRefine((value, ctx) => {
+    const words = wordCount(value);
+    if (words < 2 || words > 10) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Codex source must contain 2 to 10 words.',
+      });
+    }
+  }),
+  draft: z.boolean().default(false),
+  author: z.string().default('Joseph E. Iesue'),
+  publication: z.string().default('EntrLabs - The Lead Letter'),
+});
+
+const codex = defineCollection({
+  type: 'content',
+  schema: codexSchema,
+});
+
+export const collections = { signals, fieldnotes, codex };

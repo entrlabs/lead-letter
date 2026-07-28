@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { codexDescription, codexUrl } from '../utils/codex';
+
+interface Props {
+  editions: CollectionEntry<'codex'>[];
+}
+
+const { editions } = Astro.props as Props;
+---
+
+<section class="codex-editions reveal" aria-labelledby="codex-editions-heading">
+  <div class="codex-rail-head">
+    <div>
+      <p class="codex-eyebrow">The deepest cadence</p>
+      <h2 id="codex-editions-heading">Codex Editions</h2>
+      <p class="codex-rail-intro">
+        Numbered, principle-by-principle studies of the frameworks behind leadership, strategy, management, and resilient work.
+      </p>
+    </div>
+    <a class="codex-archive-link" href="/codex/">Explore the Codex</a>
+  </div>
+
+  {editions.length > 0 ? (
+    <div class="codex-rail" aria-label="Recent Codex Editions">
+      {editions.map((entry) => (
+        <a class="codex-card" href={codexUrl(entry)}>
+          <span class="codex-card-meta">
+            <strong>{entry.data.edition}</strong>
+            <em>{entry.data.type}</em>
+          </span>
+          <span class="codex-card-title">{entry.data.title}</span>
+          <p>{codexDescription(entry)}</p>
+          <span class="codex-card-source">{entry.data.source}</span>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <a class="codex-empty-card" href="/codex/">
+      <span>Codex Editions</span>
+      <strong>Built to be studied, shared, and returned to.</strong>
+      <em>Open the archive →</em>
+    </a>
+  )}
+</section>
