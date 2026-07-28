@@ -84,9 +84,9 @@ const latestInsight = latest ? getSignalInsight(latest) : undefined;
 
   <DailyFieldNotesRail notes={recentFieldNotes} />
 
-  {latest && latestInsight && <SignalInsightMap entry={latest} insight={latestInsight} />}
-
   <CodexEditionsRail editions={recentCodexEditions} />
+
+  {latest && latestInsight && <SignalInsightMap entry={latest} insight={latestInsight} />}
 
   <section class="home-lower reveal">
     <div class="from-archive">
