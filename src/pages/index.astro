@@ -5,6 +5,7 @@ import SendFoxForm from '../components/SendFoxForm.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
 import DailyFieldNotesRail from '../components/DailyFieldNotesRail.astro';
 import FrameworksRail from '../components/FrameworksRail.astro';
+import PublicationNav from '../components/PublicationNav.astro';
 import SignalInsightMap from '../components/SignalInsightMap.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 import { getSignalInsight } from '../utils/signalInsight';
@@ -59,26 +60,29 @@ const latestInsight = latest ? getSignalInsight(latest) : undefined;
     </div>
 
     {latest && (
-      <article class="latest-feature reveal">
-        <div class="latest-feature-content">
-          <div class="latest-feature-copy">
-            <p class="feature-label">Latest Signals Brief</p>
-            <h2><a href={signalUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
-            <p>{latestBoxDescription(latest.data.description)}</p>
+      <div class="latest-feature-stack reveal">
+        <article class="latest-feature">
+          <div class="latest-feature-content">
+            <div class="latest-feature-copy">
+              <p class="feature-label">Latest Signals Brief</p>
+              <h2><a href={signalUrl(latest)}>{formatLetterTitle(latest.data.title)}</a></h2>
+              <p>{latestBoxDescription(latest.data.description)}</p>
+            </div>
+            <div class="latest-cube" aria-hidden="true">
+              <span class="cube-face cube-top"></span>
+              <span class="cube-face cube-left"></span>
+              <span class="cube-face cube-right"></span>
+              <span class="cube-grid"></span>
+            </div>
           </div>
-          <div class="latest-cube" aria-hidden="true">
-            <span class="cube-face cube-top"></span>
-            <span class="cube-face cube-left"></span>
-            <span class="cube-face cube-right"></span>
-            <span class="cube-grid"></span>
+          <div class="feature-meta">
+            <span>{formatDate(latest.data.date)}</span>
+            <span>{formatIssue(latest.data.issue)}</span>
+            <span>6 min read</span>
           </div>
-        </div>
-        <div class="feature-meta">
-          <span>{formatDate(latest.data.date)}</span>
-          <span>{formatIssue(latest.data.issue)}</span>
-          <span>6 min read</span>
-        </div>
-      </article>
+        </article>
+        <PublicationNav />
+      </div>
     )}
   </section>
 

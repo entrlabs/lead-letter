@@ -1,0 +1,48 @@
+---
+const sections = [
+  {
+    label: 'Signals Briefs',
+    cadence: 'Weekly',
+    href: '/archive/',
+    accent: 'signals',
+  },
+  {
+    label: 'Field Notes',
+    cadence: 'Daily',
+    href: '/fieldnotes/',
+    accent: 'field-notes',
+  },
+  {
+    label: 'Frameworks',
+    cadence: 'Reference',
+    href: '/frameworks/',
+    accent: 'frameworks',
+  },
+  {
+    label: 'Signal Map',
+    cadence: 'This week',
+    href: '/#latest-signal-map',
+    accent: 'signal-map',
+    direction: 'down',
+  },
+] as const;
+---
+
+<nav class="publication-nav" aria-label="Explore The Lead Letter">
+  {sections.map((section) => (
+    <a
+      class={`publication-nav-link publication-nav-link--${section.accent}`}
+      href={section.href}
+    >
+      <span>{section.cadence}</span>
+      <strong>{section.label}</strong>
+      <svg
+        class:list={{ 'publication-nav-arrow': true, 'publication-nav-arrow--down': section.direction === 'down' }}
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+      >
+        <path d="M4 10h11M11 6l4 4-4 4"></path>
+      </svg>
+    </a>
+  ))}
+</nav>
