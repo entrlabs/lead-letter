@@ -1,6 +1,7 @@
 ---
 type: internal
-edition: "Codex #000"
+form: framework
+edition: "Framework #000"
 title: Framework Title
 source: Source Name
 draft: true

@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import {
+  frameworkDescription,
+  frameworkFormLabel,
+  frameworkUrl,
+} from '../utils/frameworks';
+
+interface Props {
+  frameworks: CollectionEntry<'frameworks'>[];
+}
+
+const { frameworks } = Astro.props as Props;
+---
+
+<section class="framework-editions reveal" aria-labelledby="framework-editions-heading">
+  <div class="framework-rail-head">
+    <div>
+      <p class="framework-eyebrow">The deepest cadence</p>
+      <h2 id="framework-editions-heading">Frameworks</h2>
+      <p class="framework-rail-intro">
+        Frameworks, models, theories, methods, and management systems for leadership, strategy, enterprise, and resilient work.
+      </p>
+    </div>
+    <a class="framework-archive-link" href="/frameworks/">Explore Frameworks</a>
+  </div>
+
+  {frameworks.length > 0 ? (
+    <div class="framework-rail" aria-label="Recent Frameworks">
+      {frameworks.map((entry) => (
+        <a class="framework-card" href={frameworkUrl(entry)}>
+          <span class="framework-card-meta">
+            <strong>{entry.data.edition}</strong>
+            <em>{entry.data.type} · {frameworkFormLabel(entry)}</em>
+          </span>
+          <span class="framework-card-title">{entry.data.title}</span>
+          <p>{frameworkDescription(entry)}</p>
+          <span class="framework-card-source">{entry.data.source}</span>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <a class="framework-empty-card" href="/frameworks/">
+      <span>Frameworks</span>
+      <strong>Built to be studied, shared, and returned to.</strong>
+      <em>Open the archive →</em>
+    </a>
+  )}
+</section>

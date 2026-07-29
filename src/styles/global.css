@@ -602,10 +602,10 @@ a:hover {
   font-weight: 900;
 }
 
-/* Codex Editions
+/* Frameworks
    ========================================================================== */
 
-.codex-editions {
+.framework-editions {
   position: relative;
   margin: clamp(34px, 6vw, 70px) 0;
   padding: clamp(24px, 5vw, 54px);
@@ -620,7 +620,7 @@ a:hover {
   box-shadow: 0 28px 70px rgba(10, 15, 28, 0.16);
 }
 
-.codex-editions::after {
+.framework-editions::after {
   content: "";
   position: absolute;
   right: -4rem;
@@ -632,14 +632,14 @@ a:hover {
   pointer-events: none;
 }
 
-.codex-rail-head,
-.codex-rail,
-.codex-empty-card {
+.framework-rail-head,
+.framework-rail,
+.framework-empty-card {
   position: relative;
   z-index: 1;
 }
 
-.codex-rail-head {
+.framework-rail-head {
   display: flex;
   align-items: end;
   justify-content: space-between;
@@ -647,19 +647,19 @@ a:hover {
   margin-bottom: 28px;
 }
 
-.codex-rail-head > div {
+.framework-rail-head > div {
   max-width: 720px;
 }
 
-.codex-eyebrow,
-.codex-card-meta,
-.codex-card-source,
-.codex-source {
+.framework-eyebrow,
+.framework-card-meta,
+.framework-card-source,
+.framework-source {
   font-family: var(--font-label);
   font-weight: 800;
 }
 
-.codex-eyebrow {
+.framework-eyebrow {
   margin: 0 0 0.35rem;
   color: var(--azure-soft);
   font-size: 0.7rem;
@@ -667,13 +667,13 @@ a:hover {
   text-transform: uppercase;
 }
 
-.codex-rail-head h2 {
+.framework-rail-head h2 {
   margin: 0 0 0.22em;
   color: #fff;
   font-size: clamp(2rem, 4.5vw, 4.25rem);
 }
 
-.codex-rail-intro {
+.framework-rail-intro {
   max-width: 62ch;
   margin: 0;
   color: #b9c5dc;
@@ -681,7 +681,7 @@ a:hover {
   line-height: 1.6;
 }
 
-.codex-archive-link {
+.framework-archive-link {
   flex: 0 0 auto;
   color: var(--azure-soft);
   font-family: var(--font-label);
@@ -689,24 +689,24 @@ a:hover {
   font-weight: 900;
 }
 
-.codex-archive-link:hover {
+.framework-archive-link:hover {
   color: #fff;
 }
 
-.codex-rail {
+.framework-rail {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
-.codex-card,
-.codex-empty-card {
+.framework-card,
+.framework-empty-card {
   border: 1px solid rgba(157, 184, 255, 0.24);
   background: rgba(255, 255, 255, 0.055);
   color: #fff;
 }
 
-.codex-card {
+.framework-card {
   min-height: 310px;
   display: flex;
   flex-direction: column;
@@ -714,19 +714,19 @@ a:hover {
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.codex-card:hover,
-.codex-empty-card:hover {
+.framework-card:hover,
+.framework-empty-card:hover {
   border-color: rgba(157, 184, 255, 0.62);
   background: rgba(255, 255, 255, 0.09);
   color: #fff;
   text-decoration: none;
 }
 
-.codex-card:hover {
+.framework-card:hover {
   transform: translateY(-3px);
 }
 
-.codex-card-meta {
+.framework-card-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -738,11 +738,11 @@ a:hover {
   text-transform: uppercase;
 }
 
-.codex-card-meta em {
+.framework-card-meta em {
   font-style: normal;
 }
 
-.codex-card-title {
+.framework-card-title {
   color: #fff;
   font-family: var(--font-display);
   font-size: clamp(1.45rem, 2.5vw, 2.45rem);
@@ -750,7 +750,7 @@ a:hover {
   line-height: 1;
 }
 
-.codex-card p {
+.framework-card p {
   display: -webkit-box;
   margin: 1.25rem 0;
   overflow: hidden;
@@ -761,7 +761,7 @@ a:hover {
   -webkit-line-clamp: 4;
 }
 
-.codex-card-source {
+.framework-card-source {
   margin-top: auto;
   color: #8fa5ce;
   font-size: 0.68rem;
@@ -769,7 +769,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-.codex-empty-card {
+.framework-empty-card {
   min-height: 200px;
   display: grid;
   grid-template-columns: 0.4fr 1fr auto;
@@ -778,8 +778,8 @@ a:hover {
   padding: clamp(24px, 4vw, 40px);
 }
 
-.codex-empty-card span,
-.codex-empty-card em {
+.framework-empty-card span,
+.framework-empty-card em {
   color: var(--azure-soft);
   font-family: var(--font-label);
   font-size: 0.72rem;
@@ -789,7 +789,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-.codex-empty-card strong {
+.framework-empty-card strong {
   max-width: 17ch;
   color: #fff;
   font-family: var(--font-display);
@@ -1005,11 +1005,11 @@ a:hover {
     linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(241, 245, 255, 0.82));
 }
 
-.codex-archive-hero::before {
+.framework-archive-hero::before {
   background: linear-gradient(90deg, var(--indigo), rgba(110, 116, 240, 0));
 }
 
-.codex-archive-card {
+.framework-archive-card {
   border-color: rgba(56, 64, 189, 0.25);
   background:
     linear-gradient(90deg, rgba(110, 116, 240, 0.045) 1px, transparent 1px),
@@ -1019,12 +1019,12 @@ a:hover {
   background-size: 34px 34px, 34px 34px, auto, auto;
 }
 
-.codex-archive-card .archive-row-meta {
+.framework-archive-card .archive-row-meta {
   color: var(--indigo-deep);
   text-transform: uppercase;
 }
 
-.codex-archive-empty {
+.framework-archive-empty {
   max-width: 780px;
   margin: 22px 0 80px;
   padding: clamp(28px, 6vw, 58px);
@@ -1034,16 +1034,16 @@ a:hover {
     rgba(255, 255, 255, 0.68);
 }
 
-.codex-archive-empty .codex-eyebrow {
+.framework-archive-empty .framework-eyebrow {
   color: var(--indigo-deep);
 }
 
-.codex-archive-empty h2 {
+.framework-archive-empty h2 {
   max-width: 14ch;
   font-size: clamp(1.8rem, 4vw, 3.8rem);
 }
 
-.codex-archive-empty > p:last-child {
+.framework-archive-empty > p:last-child {
   max-width: 58ch;
   margin-bottom: 0;
   color: var(--muted);
@@ -1121,11 +1121,11 @@ a:hover {
   font-size: clamp(2.8rem, 7.8vw, 6.1rem);
 }
 
-.codex-page {
+.framework-page {
   max-width: 880px;
 }
 
-.codex-edition-header {
+.framework-edition-header {
   position: relative;
   overflow: hidden;
   margin-bottom: 2.6rem;
@@ -1139,7 +1139,7 @@ a:hover {
   background-size: 38px 38px, 38px 38px, auto, auto;
 }
 
-.codex-edition-header::after {
+.framework-edition-header::after {
   content: "";
   position: absolute;
   right: -3.5rem;
@@ -1150,49 +1150,49 @@ a:hover {
   transform: rotate(45deg);
 }
 
-.codex-edition-header > * {
+.framework-edition-header > * {
   position: relative;
   z-index: 1;
 }
 
-.codex-edition-header .kicker,
-.codex-source {
+.framework-edition-header .kicker,
+.framework-source {
   color: var(--azure-soft);
 }
 
-.codex-edition-header h1 {
+.framework-edition-header h1 {
   color: #fff;
   font-size: clamp(2.75rem, 7vw, 5.7rem);
 }
 
-.codex-edition-header .byline {
+.framework-edition-header .byline {
   margin-bottom: 0;
   color: #aebbd2;
 }
 
-.codex-edition-header .byline a {
+.framework-edition-header .byline a {
   color: #dce5f6;
 }
 
-.codex-source {
+.framework-source {
   margin: 1.4rem 0 0.65rem;
   font-size: 0.72rem;
   text-transform: uppercase;
 }
 
-.codex-page > .hairline {
+.framework-page > .hairline {
   display: none;
 }
 
-.codex-body > h2:first-child {
+.framework-body > h2:first-child {
   margin-top: 0;
 }
 
-.codex-body h2 {
+.framework-body h2 {
   color: var(--indigo-deep);
 }
 
-.codex-body h3 {
+.framework-body h3 {
   position: relative;
   margin-top: 2rem;
   padding: 1.1rem 1.2rem 0;
@@ -1200,7 +1200,7 @@ a:hover {
   color: var(--ink);
 }
 
-.codex-body h3 + p {
+.framework-body h3 + p {
   margin: 0 1.2rem 0.8rem;
   color: var(--indigo-deep);
   font-family: var(--font-label);
@@ -1208,17 +1208,17 @@ a:hover {
   line-height: 1.5;
 }
 
-.codex-body h3 + p + p {
+.framework-body h3 + p + p {
   margin-right: 1.2rem;
   margin-left: 1.2rem;
 }
 
-.codex-body h2:nth-of-type(4) + ul {
+.framework-body h2:nth-of-type(4) + ul {
   padding: 0;
   list-style: none;
 }
 
-.codex-body h2:nth-of-type(4) + ul li {
+.framework-body h2:nth-of-type(4) + ul li {
   margin-bottom: 1rem;
   padding: 1rem 1.1rem;
   border-left: 3px solid var(--indigo);
@@ -1713,11 +1713,11 @@ a:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .codex-rail {
+  .framework-rail {
     grid-template-columns: 1fr;
   }
 
-  .codex-card {
+  .framework-card {
     min-height: 250px;
   }
 }
@@ -1768,13 +1768,13 @@ a:hover {
 
   .section-heading-row,
   .field-note-rail-head,
-  .codex-rail-head,
+  .framework-rail-head,
   .archive-preview-list li {
     display: block;
   }
 
   .field-note-archive-link,
-  .codex-archive-link {
+  .framework-archive-link {
     display: inline-block;
     margin-top: 10px;
   }
@@ -1793,7 +1793,7 @@ a:hover {
     scroll-snap-align: start;
   }
 
-  .codex-empty-card {
+  .framework-empty-card {
     min-height: 250px;
     display: flex;
     flex-direction: column;
@@ -1801,18 +1801,18 @@ a:hover {
     justify-content: space-between;
   }
 
-  .codex-page {
+  .framework-page {
     padding-top: 28px;
   }
 
-  .codex-edition-header {
+  .framework-edition-header {
     margin-right: -8px;
     margin-left: -8px;
   }
 
-  .codex-body h3,
-  .codex-body h3 + p,
-  .codex-body h3 + p + p {
+  .framework-body h3,
+  .framework-body h3 + p,
+  .framework-body h3 + p + p {
     margin-right: 0;
     margin-left: 0;
   }

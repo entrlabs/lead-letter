@@ -1,15 +1,15 @@
-# Codex Edition Markdown Template
+# Framework Markdown Template
 
 Save each published edition as its own Markdown file in:
 
 ```text
-src/content/codex/
+src/content/frameworks/
 ```
 
 Use a stable, descriptive filename such as:
 
 ```text
-codex-014-service-leadership.md
+framework-014-service-leadership.md
 ```
 
 Copy the structure below. The Astro content schema validates the four required
@@ -18,7 +18,8 @@ frontmatter fields. The editorial limits remain visible here for authors.
 ```md
 ---
 type: internal
-edition: "Codex #014"
+form: framework
+edition: "Framework #014"
 title: Service Leadership
 source: ENTR Exclusive Framework
 draft: false
@@ -61,7 +62,9 @@ Optional Instagram caption and hashtags. Aim for 60 words; do not exceed 150.
 Frontmatter limits:
 
 - `type`: `internal` or `external`
-- `edition`: `Codex #` plus three digits
+- `form`: `framework`, `model`, `theory`, `methodology`,
+  `management-system`, `doctrine`, or `structured-work`
+- `edition`: `Framework #` plus three digits
 - `title`: 2–8 words
 - `source`: 2–10 words
 - `draft`: optional; set to `true` to keep a working edition off the public site

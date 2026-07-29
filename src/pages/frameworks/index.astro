@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HYOHCompass from '../../components/HYOHCompass.astro';
+import {
+  frameworkDescription,
+  frameworkFormLabel,
+  frameworkUrl,
+  sortFrameworks,
+} from '../../utils/frameworks';
+
+const allFrameworks = sortFrameworks(await getCollection('frameworks'));
+const featured = allFrameworks[0];
+const rest = allFrameworks.slice(1);
+---
+
+<BaseLayout
+  title="Frameworks — The Lead Letter"
+  description="Frameworks, models, theories, methods, and management systems for leadership, strategy, enterprise, and resilient work."
+>
+  <div class="archive-page framework-archive-page">
+    <section class="archive-hero framework-archive-hero reveal">
+      <p class="kicker">The Lead Letter Frameworks</p>
+      <h1>Frameworks</h1>
+      <p class="archive-count">
+        {allFrameworks.length > 0
+          ? `${allFrameworks.length} framework${allFrameworks.length === 1 ? '' : 's'} and counting. Occasional deep dives, built to be studied and returned to.`
+          : 'Occasional deep dives, built to be studied, shared, and returned to.'}
+      </p>
+    </section>
+
+    {featured ? (
+      <section class="archive-bento framework-bento">
+        <a class="archive-card archive-card-featured framework-archive-card reveal" href={frameworkUrl(featured)}>
+          <p class="archive-row-meta">{featured.data.edition} · {featured.data.type} · {frameworkFormLabel(featured)} · {featured.data.source}</p>
+          <h2 class="archive-row-title">{featured.data.title}</h2>
+          <p class="archive-row-desc">{frameworkDescription(featured)}</p>
+        </a>
+
+        {rest.map((entry) => (
+          <a class="archive-card framework-archive-card reveal" href={frameworkUrl(entry)}>
+            <p class="archive-row-meta">{entry.data.edition} · {entry.data.type} · {frameworkFormLabel(entry)} · {entry.data.source}</p>
+            <h2 class="archive-row-title">{entry.data.title}</h2>
+            <p class="archive-row-desc">{frameworkDescription(entry)}</p>
+          </a>
+        ))}
+      </section>
+    ) : (
+      <section class="framework-archive-empty reveal">
+        <p class="framework-eyebrow">The archive is ready</p>
+        <h2>The first framework begins here.</h2>
+        <p>
+          Frameworks turn internal and external models, theories, methods, and systems into clear, numbered explanations for careful study and off-site use.
+        </p>
+      </section>
+    )}
+
+    <HYOHCompass variant="quiet" />
+  </div>
+</BaseLayout>

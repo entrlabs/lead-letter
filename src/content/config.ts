@@ -158,15 +158,24 @@ function wordCount(value: string) {
   return value.trim().split(/\s+/).filter(Boolean).length;
 }
 
-const codexSchema = z.object({
+const frameworkSchema = z.object({
   type: z.enum(['internal', 'external']),
-  edition: z.string().regex(/^Codex\s+#\d{3}$/i, 'Edition must use the format "Codex #014".'),
+  form: z.enum([
+    'framework',
+    'model',
+    'theory',
+    'methodology',
+    'management-system',
+    'doctrine',
+    'structured-work',
+  ]).default('framework'),
+  edition: z.string().regex(/^Framework\s+#\d{3}$/i, 'Edition must use the format "Framework #014".'),
   title: z.string().superRefine((value, ctx) => {
     const words = wordCount(value);
     if (words < 2 || words > 8) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: 'Codex title must contain 2 to 8 words.',
+        message: 'Framework title must contain 2 to 8 words.',
       });
     }
   }),
@@ -175,7 +184,7 @@ const codexSchema = z.object({
     if (words < 2 || words > 10) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: 'Codex source must contain 2 to 10 words.',
+        message: 'Framework source must contain 2 to 10 words.',
       });
     }
   }),
@@ -184,9 +193,9 @@ const codexSchema = z.object({
   publication: z.string().default('EntrLabs - The Lead Letter'),
 });
 
-const codex = defineCollection({
+const frameworks = defineCollection({
   type: 'content',
-  schema: codexSchema,
+  schema: frameworkSchema,
 });
 
-export const collections = { signals, fieldnotes, codex };
+export const collections = { signals, fieldnotes, frameworks };
