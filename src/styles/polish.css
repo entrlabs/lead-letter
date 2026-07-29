@@ -6,7 +6,7 @@
 }
 
 body {
-  animation: pageEnter 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: pageEnter 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 html.page-leaving body {
