@@ -1,21 +1,33 @@
 ---
+interface Props {
+  latestSignalHref: string;
+  latestFieldNoteHref?: string;
+  latestFrameworkHref?: string;
+}
+
+const {
+  latestSignalHref,
+  latestFieldNoteHref = '/fieldnotes/',
+  latestFrameworkHref = '/frameworks/',
+} = Astro.props as Props;
+
 const sections = [
   {
     label: 'Signals Briefs',
     cadence: 'Weekly',
-    href: '/archive/',
+    href: latestSignalHref,
     accent: 'signals',
   },
   {
     label: 'Field Notes',
     cadence: 'Daily',
-    href: '/fieldnotes/',
+    href: latestFieldNoteHref,
     accent: 'field-notes',
   },
   {
     label: 'Frameworks',
     cadence: 'Reference',
-    href: '/frameworks/',
+    href: latestFrameworkHref,
     accent: 'frameworks',
   },
   {
@@ -31,7 +43,7 @@ const sections = [
 <div class="publication-nav-shell">
   <div class="publication-nav-instruction" id="publication-nav-instruction">
     <strong>Explore The Lead Letter</strong>
-    <span>Choose a section below to browse by cadence or jump to this week&rsquo;s Signal Map.</span>
+    <span>Pick a button to see the latest in each section.</span>
   </div>
 
   <nav

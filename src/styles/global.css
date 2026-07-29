@@ -513,14 +513,14 @@ a:hover {
   background-size: 38px 38px, auto;
   color: #b9c5dc;
   font-family: var(--font-label);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   line-height: 1.35;
 }
 
 .publication-nav-instruction strong {
   flex: 0 0 auto;
   color: var(--azure-soft);
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -539,7 +539,9 @@ a:hover {
   border: 1px solid var(--border);
   border-top: 0;
   background: #fff;
+  overscroll-behavior-inline: contain;
   scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
 }
 
 .publication-nav-link {
@@ -603,7 +605,7 @@ a:hover {
 
 .publication-nav-label {
   font-family: var(--font-label);
-  font-size: 0.73rem;
+  font-size: 0.76rem;
   font-weight: 900;
   letter-spacing: -0.01em;
   line-height: 1.15;
@@ -1901,19 +1903,24 @@ a:hover {
   }
 
   .publication-nav {
-    grid-auto-columns: minmax(145px, 42vw);
+    grid-auto-columns: minmax(148px, 47vw);
     scroll-snap-type: x mandatory;
   }
 
   .publication-nav-instruction {
     display: grid;
-    gap: 3px;
-    padding-block: 10px;
+    gap: 4px;
+    padding: 10px 14px;
   }
 
   .publication-nav-link {
     min-height: 90px;
+    padding-inline: 14px;
     scroll-snap-align: start;
+  }
+
+  .publication-nav-label {
+    font-size: 0.8rem;
   }
 
   .feature-label {

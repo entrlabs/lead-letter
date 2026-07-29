@@ -9,7 +9,7 @@ import PublicationNav from '../components/PublicationNav.astro';
 import SignalInsightMap from '../components/SignalInsightMap.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 import { getSignalInsight } from '../utils/signalInsight';
-import { sortFrameworks } from '../utils/frameworks';
+import { frameworkUrl, sortFrameworks } from '../utils/frameworks';
 
 const allSignals = (await getCollection('signals')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -20,6 +20,8 @@ const allFieldNotes = (await getCollection('fieldnotes')).sort(
 const allFrameworks = sortFrameworks(await getCollection('frameworks'));
 
 const latest = allSignals[0];
+const latestFieldNote = allFieldNotes[0];
+const latestFramework = allFrameworks[0];
 const recent = allSignals.slice(1, 5);
 const recentFieldNotes = allFieldNotes.slice(0, 4);
 const recentFrameworks = allFrameworks.slice(0, 3);
@@ -81,7 +83,11 @@ const latestInsight = latest ? getSignalInsight(latest) : undefined;
             <span>6 min read</span>
           </div>
         </article>
-        <PublicationNav />
+        <PublicationNav
+          latestSignalHref={signalUrl(latest)}
+          latestFieldNoteHref={latestFieldNote ? `/fieldnotes/${latestFieldNote.slug}/` : undefined}
+          latestFrameworkHref={latestFramework ? frameworkUrl(latestFramework) : undefined}
+        />
       </div>
     )}
   </section>
