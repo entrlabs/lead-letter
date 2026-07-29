@@ -28,21 +28,32 @@ const sections = [
 ] as const;
 ---
 
-<nav class="publication-nav" aria-label="Explore The Lead Letter">
-  {sections.map((section) => (
-    <a
-      class={`publication-nav-link publication-nav-link--${section.accent}`}
-      href={section.href}
-    >
-      <span>{section.cadence}</span>
-      <strong>{section.label}</strong>
-      <svg
-        class:list={{ 'publication-nav-arrow': true, 'publication-nav-arrow--down': section.direction === 'down' }}
-        viewBox="0 0 20 20"
-        aria-hidden="true"
+<div class="publication-nav-shell">
+  <div class="publication-nav-instruction" id="publication-nav-instruction">
+    <strong>Explore The Lead Letter</strong>
+    <span>Choose a section below to browse by cadence or jump to this week&rsquo;s Signal Map.</span>
+  </div>
+
+  <nav
+    class="publication-nav"
+    aria-label="Explore The Lead Letter"
+    aria-describedby="publication-nav-instruction"
+  >
+    {sections.map((section) => (
+      <a
+        class={`publication-nav-link publication-nav-link--${section.accent}`}
+        href={section.href}
       >
-        <path d="M4 10h11M11 6l4 4-4 4"></path>
-      </svg>
-    </a>
-  ))}
-</nav>
+        <strong class="publication-nav-label">{section.label}</strong>
+        <svg
+          class:list={{ 'publication-nav-arrow': true, 'publication-nav-arrow--down': section.direction === 'down' }}
+          viewBox="0 0 20 20"
+          aria-hidden="true"
+        >
+          <path d="M4 10h11M11 6l4 4-4 4"></path>
+        </svg>
+        <span class="publication-nav-cadence">{section.cadence}</span>
+      </a>
+    ))}
+  </nav>
+</div>

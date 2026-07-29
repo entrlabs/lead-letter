@@ -495,28 +495,62 @@ a:hover {
   text-transform: uppercase;
 }
 
+.publication-nav-shell {
+  margin-top: -1px;
+  box-shadow: 0 12px 32px rgba(46, 91, 208, 0.08);
+}
+
+.publication-nav-instruction {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 15px;
+  border: 1px solid rgba(10, 15, 28, 0.2);
+  background:
+    linear-gradient(90deg, rgba(157, 184, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(145deg, #0b1120, #121d35);
+  background-size: 38px 38px, auto;
+  color: #b9c5dc;
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.publication-nav-instruction strong {
+  flex: 0 0 auto;
+  color: var(--azure-soft);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.publication-nav-instruction span {
+  min-width: 0;
+}
+
 .publication-nav {
   --publication-nav-accent: var(--azure-deep);
   display: grid;
   grid-auto-columns: minmax(112px, 1fr);
   grid-auto-flow: column;
-  margin-top: -1px;
   overflow-x: auto;
   border: 1px solid var(--border);
-  background: rgba(248, 250, 255, 0.96);
-  box-shadow: 0 12px 32px rgba(46, 91, 208, 0.08);
+  border-top: 0;
+  background: #fff;
   scrollbar-width: thin;
 }
 
 .publication-nav-link {
   --publication-nav-accent: var(--azure-deep);
   position: relative;
-  min-height: 88px;
+  min-height: 94px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-rows: auto 1fr;
-  align-items: end;
-  gap: 4px 8px;
+  grid-template-rows: 1fr auto;
+  align-items: start;
+  gap: 10px 8px;
   padding: 14px 15px;
   overflow: hidden;
   border-right: 1px solid var(--hairline);
@@ -553,9 +587,11 @@ a:hover {
   transform: scaleX(1);
 }
 
-.publication-nav-link > span {
+.publication-nav-cadence {
   grid-column: 1 / -1;
-  align-self: start;
+  align-self: end;
+  padding-top: 9px;
+  border-top: 1px solid var(--hairline);
   color: var(--muted);
   font-family: var(--font-label);
   font-size: 0.58rem;
@@ -565,7 +601,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-.publication-nav-link > strong {
+.publication-nav-label {
   font-family: var(--font-label);
   font-size: 0.73rem;
   font-weight: 900;
@@ -1869,8 +1905,14 @@ a:hover {
     scroll-snap-type: x mandatory;
   }
 
+  .publication-nav-instruction {
+    display: grid;
+    gap: 3px;
+    padding-block: 10px;
+  }
+
   .publication-nav-link {
-    min-height: 82px;
+    min-height: 90px;
     scroll-snap-align: start;
   }
 
