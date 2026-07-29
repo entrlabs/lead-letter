@@ -17,24 +17,28 @@ const latestFramework = allFrameworks[0];
 const links = [
   {
     label: 'Signals Brief',
+    mobileLabel: 'Signals Brief',
     cadence: 'Weekly',
     href: latestSignal ? `/${latestSignal.data.slug ?? latestSignal.slug}/` : '/archive/',
     accent: 'signals',
   },
   {
     label: 'Field Note',
+    mobileLabel: 'Field Notes',
     cadence: 'Daily',
     href: latestFieldNote ? `/fieldnotes/${latestFieldNote.slug}/` : '/fieldnotes/',
     accent: 'field-notes',
   },
   {
     label: 'Framework',
+    mobileLabel: 'Frameworks',
     cadence: 'Reference',
     href: latestFramework ? frameworkUrl(latestFramework) : '/frameworks/',
     accent: 'frameworks',
   },
   {
     label: 'Signal Map',
+    mobileLabel: 'Signal Map',
     cadence: 'This week',
     href: '/#latest-signal-map',
     accent: 'signal-map',
@@ -44,7 +48,8 @@ const links = [
 
 <details class="reading-jump">
   <summary>
-    <span class="reading-jump-summary-label">Read latest</span>
+    <span class="reading-jump-summary-label reading-jump-summary-label--desktop">Read latest</span>
+    <span class="reading-jump-summary-label reading-jump-summary-label--mobile">Click to another section</span>
     <svg class="reading-jump-summary-icon" viewBox="0 0 20 20" aria-hidden="true">
       <path d="M5 10h10M10 5v10"></path>
     </svg>
@@ -63,7 +68,8 @@ const links = [
         >
           <span>
             <small>{link.cadence}</small>
-            <strong>{link.label}</strong>
+            <strong class="reading-jump-link-label reading-jump-link-label--desktop">{link.label}</strong>
+            <strong class="reading-jump-link-label reading-jump-link-label--mobile">{link.mobileLabel}</strong>
           </span>
           <svg viewBox="0 0 20 20" aria-hidden="true">
             <path d="M4 10h11M11 6l4 4-4 4"></path>
@@ -75,9 +81,58 @@ const links = [
 </details>
 
 <script>
+  const readingJumpControls = document.querySelectorAll<HTMLDetailsElement>('.reading-jump');
+  const mobileReadingJump = window.matchMedia('(max-width: 720px)');
+
+  readingJumpControls.forEach((control) => {
+    const article = document.querySelector<HTMLElement>('.letter-page');
+    const panel = control.querySelector<HTMLElement>('.reading-jump-panel');
+    const summary = control.querySelector<HTMLElement>('summary');
+    let previousMode: 'pinned' | 'compact' | 'mobile' | undefined;
+    let resizeFrame = 0;
+
+    const updateReadingJumpMode = () => {
+      if (!article || !panel || !summary) return;
+
+      const articleRight = article.getBoundingClientRect().right;
+      const summaryLeft = summary.getBoundingClientRect().left;
+      const panelLeft = summaryLeft - 10 - panel.offsetWidth;
+      const hasSideRoom = panelLeft >= articleRight + 24;
+      const nextMode = mobileReadingJump.matches
+        ? 'mobile'
+        : hasSideRoom
+          ? 'pinned'
+          : 'compact';
+
+      control.classList.toggle('reading-jump--pinned', nextMode === 'pinned');
+      control.classList.toggle('reading-jump--compact', nextMode === 'compact');
+
+      if (nextMode !== previousMode) {
+        if (nextMode === 'pinned') {
+          control.setAttribute('open', '');
+        } else {
+          control.removeAttribute('open');
+        }
+      }
+
+      previousMode = nextMode;
+    };
+
+    const queueReadingJumpUpdate = () => {
+      window.cancelAnimationFrame(resizeFrame);
+      resizeFrame = window.requestAnimationFrame(updateReadingJumpMode);
+    };
+
+    updateReadingJumpMode();
+    window.addEventListener('resize', queueReadingJumpUpdate, { passive: true });
+  });
+
   document.addEventListener('click', (event) => {
     document.querySelectorAll<HTMLDetailsElement>('.reading-jump[open]').forEach((control) => {
-      if (!control.contains(event.target as Node)) {
+      if (
+        !control.classList.contains('reading-jump--pinned') &&
+        !control.contains(event.target as Node)
+      ) {
         control.removeAttribute('open');
       }
     });
