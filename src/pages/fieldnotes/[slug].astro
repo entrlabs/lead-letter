@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HYOHCompass from '../../components/HYOHCompass.astro';
 import CopyLinkButton from '../../components/CopyLinkButton.astro';
+import FloatingLatestNav from '../../components/FloatingLatestNav.astro';
 import { formatDate } from '../../utils/format';
 
 export async function getStaticPaths() {
@@ -75,6 +76,7 @@ const canonicalUrl = `https://letters.entr.cc${fieldNoteUrl(entry)}`;
 
     <a class="back-to-archive" href="/fieldnotes/">Back to Field Notes</a>
   </article>
+  <FloatingLatestNav />
   <script>
     const calloutLabels = {
       abstract: 'Social copy',

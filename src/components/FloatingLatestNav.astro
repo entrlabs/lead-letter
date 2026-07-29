@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import { frameworkUrl, sortFrameworks } from '../utils/frameworks';
+
+const allSignals = (await getCollection('signals')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const allFieldNotes = (await getCollection('fieldnotes')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const allFrameworks = sortFrameworks(await getCollection('frameworks'));
+
+const latestSignal = allSignals[0];
+const latestFieldNote = allFieldNotes[0];
+const latestFramework = allFrameworks[0];
+
+const links = [
+  {
+    label: 'Signals Brief',
+    cadence: 'Weekly',
+    href: latestSignal ? `/${latestSignal.data.slug ?? latestSignal.slug}/` : '/archive/',
+    accent: 'signals',
+  },
+  {
+    label: 'Field Note',
+    cadence: 'Daily',
+    href: latestFieldNote ? `/fieldnotes/${latestFieldNote.slug}/` : '/fieldnotes/',
+    accent: 'field-notes',
+  },
+  {
+    label: 'Framework',
+    cadence: 'Reference',
+    href: latestFramework ? frameworkUrl(latestFramework) : '/frameworks/',
+    accent: 'frameworks',
+  },
+  {
+    label: 'Signal Map',
+    cadence: 'This week',
+    href: '/#latest-signal-map',
+    accent: 'signal-map',
+  },
+] as const;
+---
+
+<details class="reading-jump">
+  <summary>
+    <span class="reading-jump-summary-label">Read latest</span>
+    <svg class="reading-jump-summary-icon" viewBox="0 0 20 20" aria-hidden="true">
+      <path d="M5 10h10M10 5v10"></path>
+    </svg>
+  </summary>
+
+  <div class="reading-jump-panel">
+    <div class="reading-jump-heading">
+      <strong>Read the latest</strong>
+      <span>Choose a section.</span>
+    </div>
+    <nav aria-label="Read the latest from The Lead Letter">
+      {links.map((link) => (
+        <a
+          class={`reading-jump-link reading-jump-link--${link.accent}`}
+          href={link.href}
+        >
+          <span>
+            <small>{link.cadence}</small>
+            <strong>{link.label}</strong>
+          </span>
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M4 10h11M11 6l4 4-4 4"></path>
+          </svg>
+        </a>
+      ))}
+    </nav>
+  </div>
+</details>
+
+<script>
+  document.addEventListener('click', (event) => {
+    document.querySelectorAll<HTMLDetailsElement>('.reading-jump[open]').forEach((control) => {
+      if (!control.contains(event.target as Node)) {
+        control.removeAttribute('open');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+
+    document.querySelectorAll<HTMLDetailsElement>('.reading-jump[open]').forEach((control) => {
+      control.removeAttribute('open');
+      control.querySelector<HTMLElement>('summary')?.focus();
+    });
+  });
+</script>

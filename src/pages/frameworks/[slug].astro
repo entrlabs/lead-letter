@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HYOHCompass from '../../components/HYOHCompass.astro';
 import CopyLinkButton from '../../components/CopyLinkButton.astro';
+import FloatingLatestNav from '../../components/FloatingLatestNav.astro';
 import {
   frameworkDescription,
   frameworkFormLabel,
@@ -77,4 +78,5 @@ const description = frameworkDescription(entry);
 
     <a class="back-to-archive" href="/frameworks/">Back to Frameworks</a>
   </article>
+  <FloatingLatestNav />
 </BaseLayout>

@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HYOHCompass from '../components/HYOHCompass.astro';
 import CopyLinkButton from '../components/CopyLinkButton.astro';
+import FloatingLatestNav from '../components/FloatingLatestNav.astro';
 import { formatDate, formatIssue, formatLetterTitle } from '../utils/format';
 
 function entryPublicSlug(entry: CollectionEntry<'signals'>) {
@@ -80,6 +81,7 @@ const displayTitle = formatLetterTitle(entry.data.title);
 
     <a class="back-to-archive" href="/archive/">Back to Archive</a>
   </article>
+  <FloatingLatestNav />
   <script>
     const calloutLabels = {
       note: 'Main idea',

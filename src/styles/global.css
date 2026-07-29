@@ -1252,6 +1252,184 @@ a:hover {
 /* Individual letter
    ========================================================================== */
 
+.reading-jump {
+  --reading-jump-accent: var(--azure-deep);
+  position: fixed;
+  z-index: 80;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-family: var(--font-label);
+}
+
+.reading-jump > summary {
+  width: 46px;
+  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 11px 12px;
+  border: 1px solid rgba(157, 184, 255, 0.3);
+  border-right: 0;
+  background:
+    linear-gradient(180deg, rgba(157, 184, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(145deg, #0b1120, #121d35);
+  background-size: 38px 38px, auto;
+  color: #fff;
+  cursor: pointer;
+  list-style: none;
+  box-shadow: 0 16px 38px rgba(10, 15, 28, 0.2);
+}
+
+.reading-jump > summary::-webkit-details-marker {
+  display: none;
+}
+
+.reading-jump > summary:hover,
+.reading-jump > summary:focus-visible {
+  color: var(--azure-soft);
+}
+
+.reading-jump-summary-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reading-jump-summary-icon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: square;
+  stroke-width: 1.8;
+  transition: transform 180ms ease;
+}
+
+.reading-jump[open] .reading-jump-summary-icon {
+  transform: rotate(45deg);
+}
+
+.reading-jump-panel {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 10px);
+  width: 268px;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(10, 15, 28, 0.2);
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  box-shadow: 0 22px 54px rgba(10, 15, 28, 0.2);
+  transform: translate(8px, -50%);
+  transition:
+    opacity 160ms ease,
+    transform 180ms ease,
+    visibility 0s linear 180ms;
+}
+
+.reading-jump[open] .reading-jump-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(0, -50%);
+  transition-delay: 0s;
+}
+
+.reading-jump-heading {
+  display: grid;
+  gap: 2px;
+  padding: 13px 14px 12px;
+  background:
+    linear-gradient(90deg, rgba(157, 184, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(145deg, #0b1120, #121d35);
+  background-size: 38px 38px, auto;
+}
+
+.reading-jump-heading strong {
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.reading-jump-heading span {
+  color: #b9c5dc;
+  font-size: 0.66rem;
+}
+
+.reading-jump-link {
+  --reading-jump-accent: var(--azure-deep);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 13px 11px 14px;
+  border-left: 3px solid var(--reading-jump-accent);
+  border-bottom: 1px solid var(--hairline);
+  color: var(--ink);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.reading-jump-link:last-child {
+  border-bottom: 0;
+}
+
+.reading-jump-link:hover,
+.reading-jump-link:focus-visible {
+  background: rgba(91, 140, 255, 0.08);
+  color: var(--reading-jump-accent);
+  text-decoration: none;
+}
+
+.reading-jump-link > span {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.reading-jump-link small {
+  color: var(--muted);
+  font-size: 0.57rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.reading-jump-link strong {
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.reading-jump-link > svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 1.7;
+}
+
+.reading-jump-link--field-notes {
+  --reading-jump-accent: #235ab5;
+}
+
+.reading-jump-link--frameworks {
+  --reading-jump-accent: var(--indigo-deep);
+}
+
+.reading-jump-link--signal-map {
+  --reading-jump-accent: #6e3f97;
+}
+
 .letter-page {
   max-width: 780px;
   padding-top: clamp(48px, 8vw, 90px);
@@ -1885,6 +2063,51 @@ a:hover {
 
   .footer-col {
     width: 100%;
+  }
+
+  .letter-page {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
+  }
+
+  .reading-jump {
+    top: auto;
+    right: 12px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    left: 12px;
+    transform: none;
+  }
+
+  .reading-jump > summary {
+    width: 100%;
+    min-height: 50px;
+    flex-direction: row;
+    padding: 12px 14px;
+    border: 1px solid rgba(157, 184, 255, 0.34);
+  }
+
+  .reading-jump-summary-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 0.72rem;
+  }
+
+  .reading-jump-panel {
+    top: auto;
+    right: 0;
+    bottom: calc(100% + 8px);
+    width: 100%;
+    max-height: min(62vh, 390px);
+    overflow-y: auto;
+    transform: translateY(10px);
+  }
+
+  .reading-jump[open] .reading-jump-panel {
+    transform: translateY(0);
+  }
+
+  .reading-jump-link {
+    min-height: 54px;
+    padding: 12px 14px;
   }
 }
 
