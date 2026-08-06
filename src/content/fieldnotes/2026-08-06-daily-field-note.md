@@ -44,6 +44,9 @@ That single discipline protects students, teams, and institutions from acting on
 > **Short quote:** "The only way to win the game is to guess strings of numbers that would prove your beloved hypothesis wrong."  
 > **Use today:** Pick one signal and define one observation that would change your next move.
 
+> [!note] Evidence Limit
+> This note uses a small source set and does not prove every claim in every setting.
+
 ## Use It Today
 
 > [!question] For Students
