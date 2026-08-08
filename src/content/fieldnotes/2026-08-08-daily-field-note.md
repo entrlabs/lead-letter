@@ -1,6 +1,6 @@
 ---
-title: "Test What Could Still Go Wrong"
-description: "Turn one daily signal into one testable condition and decide only after evidence shows what would make your move fail."
+title: "Set one claim test before you act"
+description: "Set one decision test before acting so a stronger signal only passes if your next move stays useful under pressure."
 date: 2026-08-08
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
