@@ -10,12 +10,14 @@
     "validate:weekly-brief": "npm run build && npm run check:weekly-brief",
     "check:field-note": "node scripts/check-field-note.mjs",
     "validate:field-note": "npm run build && npm run check:field-note",
-    "validate:publication": "npm run build && npm run check:weekly-brief && npm run check:field-note && npm run check:sendfox-email",
+    "validate:publication": "npm run build && npm run check:weekly-brief && npm run check:field-note && npm run check:sendfox-email && npm run check:sendfox-monthly",
     "preview": "astro preview",
     "sendfox:check": "node scripts/sendfox-check.mjs",
     "check:sendfox-email": "node scripts/check-sendfox-email.mjs",
+    "check:sendfox-monthly": "node scripts/check-sendfox-monthly.mjs",
     "sendfox:lists": "node scripts/sendfox-lists.mjs",
-    "sendfox:lead-letter": "node scripts/sendfox-lead-letter.mjs"
+    "sendfox:lead-letter": "node scripts/sendfox-lead-letter.mjs",
+    "sendfox:monthly": "node scripts/sendfox-monthly-roundup.mjs"
   },
   "dependencies": {
     "astro": "^4.16.0",

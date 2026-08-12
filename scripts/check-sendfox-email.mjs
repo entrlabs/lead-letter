@@ -2,6 +2,7 @@ import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
 const signalDirectory = new URL('../src/content/signals/', import.meta.url);
 const generatorPath = new URL('./sendfox-lead-letter.mjs', import.meta.url);
@@ -47,8 +48,8 @@ const temporaryDirectory = await mkdtemp(path.join(tmpdir(), 'lead-letter-email-
 const listPath = path.join(temporaryDirectory, 'signal-files.txt');
 
 try {
-  await writeFile(listPath, `${fileUrl.pathname}\n`, 'utf8');
-  const result = spawnSync(process.execPath, [generatorPath.pathname, listPath], {
+  await writeFile(listPath, `${fileURLToPath(fileUrl)}\n`, 'utf8');
+  const result = spawnSync(process.execPath, [fileURLToPath(generatorPath), listPath], {
     encoding: 'utf8',
     env: {
       ...process.env,

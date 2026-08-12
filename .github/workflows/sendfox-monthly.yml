@@ -1,0 +1,51 @@
+name: Prepare Monthly Lead Letter Catch-Up
+
+on:
+  schedule:
+    - cron: '0 12 15 * *'
+  workflow_dispatch:
+    inputs:
+      as_of:
+        description: Optional selection cutoff in YYYY-MM-DD format
+        required: false
+        type: string
+      field_note_files:
+        description: Optional comma-separated pair of Field Note filenames
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  ASTRO_TELEMETRY_DISABLED: 1
+
+jobs:
+  monthly-email:
+    name: Validate and create monthly SendFox draft
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Validate monthly email
+        run: npm run check:sendfox-monthly
+
+      - name: Create monthly SendFox draft
+        env:
+          LEAD_LETTER_SITE_URL: https://letters.entr.cc
+          SENDFOX_API_TOKEN: ${{ secrets.SENDFOX_API_TOKEN }}
+          SENDFOX_LIST_ID: ${{ secrets.SENDFOX_LIST_ID }}
+          SENDFOX_SEND_ENABLED: ${{ vars.SENDFOX_MONTHLY_ENABLED || 'false' }}
+          SENDFOX_DEDUPLICATE_CAMPAIGNS: 'true'
+          SENDFOX_MONTHLY_AS_OF: ${{ inputs.as_of }}
+          SENDFOX_MONTHLY_FIELD_NOTE_FILES: ${{ inputs.field_note_files }}
+          SENDFOX_API_BASE: ${{ vars.SENDFOX_API_BASE || 'https://api.sendfox.com' }}
+          SENDFOX_FROM_NAME: ${{ vars.SENDFOX_FROM_NAME || 'The Lead Letter' }}
+          SENDFOX_FROM_EMAIL: ${{ vars.SENDFOX_FROM_EMAIL || 'letters@entr.cc' }}
+        run: npm run sendfox:monthly

@@ -84,6 +84,14 @@ Inputs:
 
 The test workflow uses the normal SendFox token but replaces the audience with the provided test list ID. The send step is guarded by `SENDFOX_TEST_SEND_ENABLED=true` and only runs from that manual workflow.
 
+### Monthly Catch-Up
+
+The `Prepare Monthly Lead Letter Catch-Up` workflow runs on the 15th of each month at 12:00 UTC. It creates a SendFox draft containing the four latest Signals Briefs in newest-to-oldest order, followed by two directly linked Field Notes. It never calls the SendFox send endpoint.
+
+Set `SENDFOX_MONTHLY_ENABLED=true` as a GitHub Actions variable to allow scheduled draft creation. Leave it false to keep scheduled runs as validated dry runs.
+
+The two Field Notes can be curated in a manual workflow run with a comma-separated pair of filenames. Without a curated pair, the generator uses the latest eligible Field Note and one from the middle of the four-week window. Use `as_of` in a manual run to preview the selection for a particular date.
+
 ## Related Work
 
 - EntrLabs: https://entr.cc/entrlabs
