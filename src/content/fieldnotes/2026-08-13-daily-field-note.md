@@ -1,5 +1,5 @@
 ---
-title: "Test the Pathway Before You Scale"
+title: "Test the Pathway, Not Just the Promise"
 description: "Use a pathway check to see whether a research, policy, or founder initiative can produce a useful result after launch."
 date: 2026-08-13
 author: "Joseph E. Iesue"
