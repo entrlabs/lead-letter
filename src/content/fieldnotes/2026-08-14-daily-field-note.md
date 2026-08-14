@@ -1,6 +1,6 @@
 ---
-title: "Make the Path Visible Before You Scale"
-description: "Use a pathway check to find the missing handoff between an institution’s stated purpose and a user’s real experience."
+title: "Find the Failure Condition First"
+description: "Use a failure-condition check to strengthen a founder, education, community, or technology decision before adding more activity."
 date: 2026-08-14
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,56 +10,58 @@ tags:
   - leadership
   - field-note
   - decision-quality
-  - education
   - entrepreneurship
-  - policy
+  - education
+  - community
 ---
 
 > [!quote] Field Note
-> A system becomes easier to trust when people can see its purpose, pathway, and first point of failure.
+> Durable progress starts by removing the conditions that make good work fail.
 
 > [!summary] The Reader Promise
-> Use a pathway check to find the missing handoff between an institution’s stated purpose and a user’s real experience.
+> Use a failure-condition check to strengthen a founder, education, community, or technology decision before adding more activity.
 
 ## The Field Note
 
-> [!example] Make the Path Visible Before You Scale
-> Before scaling an initiative, compare its stated pathway with the steps a real person must take.
+> [!example] Find the Failure Condition First
+> Before adding a new promise, name the condition that would make it fail and the capability needed to address it.
 
-AACSB’s August 10 case on Kent State’s Crawford Hall describes several ways to make campus connections visible. These include stakeholder input, transparent spaces, flexible rooms, and shared facilities. The World Bank’s jobs FAQ makes a similar systems point. Firms need infrastructure, clear rules, and capital. Training alone cannot produce more jobs.
+Kauffman's account of its Collective Impact initiative says hard economic problems need shared work, clear rules, and long-term trust. Its planning cycle helped coalitions build readiness before one coalition received funds to act.
 
-The IMF’s public topic map places technology, finance, fiscal policy, and governance in one wider policy context. These sources do not prove that one building or policy causes better outcomes. They support a narrower practice. Ask who can see the pathway. Find where the handoff breaks. Define evidence that would show the system improved.
+The World Bank's SME Finance page makes a related point for founders. Finance, policy, institutions, and digital tools shape whether a small firm can start, last, and grow. MIT Sloan adds a system warning: an efficiency gain can create new demand. UNESCO and the IMF show why education and technology choices also carry public and governance questions.
+
+These sources do not prove that one model or policy works everywhere. They do support a practical move. Write the intended result, three failure conditions, the partner or skill needed, and one early warning sign before scaling.
 
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
-> **Mental model:** [The Map Is Not the Territory](https://fs.blog/map-and-territory/)
-> **Useful idea:** A process map or strategy document is a simplified representation; test it against changing reality.
-> **Short quote:** “It is dangerous to mistake the map for the territory.”
-> **Use today:** Ask one user to describe the real path, then compare it with the official path.
+> **Mental model:** [Inversion and The Power of Avoiding Stupidity](https://fs.blog/inversion/)
+> **Useful idea:** Think backward about what could block the result or create harm. Then remove or test those conditions.
+> **Short quote:** "Spend less time trying to be brilliant and more time trying to avoid obvious stupidity."
+> **Use today:** Write three ways a plan could fail before adding another action.
 
 > [!note] Evidence Limit
-> These sources are an institutional case, policy guidance, a topic map, and a practitioner model. They do not prove that one intervention causes better outcomes.
+> These sources are public frameworks and expert analysis, not one causal test of a single plan.
 
 ## Use It Today
 
 > [!question] For Students
-> Compare a program’s promise with the steps a real user must complete.
+> Ask what assumption would make a programme or policy fail before judging its first result.
 
 > [!question] For Managers And Founders
-> Ask an affected person where the process map differs from daily work.
+> Identify the outside limit or new demand that could stop a good idea from helping.
 
 > [!question] For Educators And Advisors
-> Make one support pathway visible and test it with the people expected to use it.
+> Test whether a new plan has shared measures, clear roles, and room to learn.
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> Before you scale the promise, map the path. The missing handoff is often where the real work begins.
+> Before adding more activity, name what would make the plan fail. Good work needs the conditions that let it survive contact with the system.
 
-## Vantage Circle’s Lens
+## Vantage Circle's Lens
 
 > [!sponsor] Sponsor Field Note
 > Recognition is stronger when leaders can see both the result and the people whose effort made it possible.
@@ -68,7 +70,9 @@ The IMF’s public topic map places technology, finance, fiscal policy, and gove
 
 ## Sources
 
-- [AACSB, The Best Facility Design Is an Open Invitation](https://www.aacsb.edu/insights/articles/2026/08/the-best-facility-design-is-an-open-invitation)
-- [World Bank Group, Jobs FAQ](https://www.worldbank.org/ext/en/jobs/faq)
+- [Kauffman Foundation, Collective Impact](https://www.kauffman.org/currents/why-collective-impact-matters/)
+- [World Bank, SME Finance](https://www.worldbank.org/ext/en/topic/competitiveness/small-and-medium-enterprises-smes-finance)
+- [MIT Sloan, AI and climate](https://mitsloan.mit.edu/ideas-made-to-matter/can-ais-climate-benefits-outweigh-its-costs)
+- [UNESCO, Futures of Education](https://www.unesco.org/en/futures-education)
 - [IMF Topics](https://www.imf.org/en/topics)
-- [Farnam Street, The Map Is Not the Territory](https://fs.blog/map-and-territory/)
+- [Farnam Street, Inversion](https://fs.blog/inversion/)
