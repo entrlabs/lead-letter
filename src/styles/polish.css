@@ -132,6 +132,22 @@ html.page-leaving body {
   color: var(--azure-deep);
 }
 
+.site-header nav a.library {
+  padding: 9px 14px;
+  border: 1px solid rgba(46, 91, 208, 0.32);
+  border-radius: 999px;
+  background: rgba(238, 243, 255, 0.82);
+  color: var(--azure-deep);
+  box-shadow: 0 8px 18px rgba(46, 91, 208, 0.08);
+}
+
+.site-header nav a.library:hover,
+.site-header nav a.library:focus-visible {
+  background: var(--azure-deep);
+  color: #fff;
+  text-decoration: none;
+}
+
 .home-hero {
   position: relative;
   isolation: isolate;
