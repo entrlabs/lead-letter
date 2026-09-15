@@ -232,6 +232,75 @@ function validateNoRecentPromiseRepeat(latest, previousEntries, mapSignal, lanes
   }
 }
 
+function introParagraphs(entry) {
+  const body = entry.source.replace(/^---\s*\n[\s\S]*?\n---\s*/, '');
+  const opening = body.split(/^> \[!NOTE]/m, 1)[0];
+  return opening
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
+    .filter((paragraph) => paragraph && !paragraph.startsWith('---'));
+}
+
+function normalizedWords(value) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean);
+}
+
+function validateFirstReaderOpening(entry) {
+  const paragraphs = introParagraphs(entry);
+  const opening = paragraphs.slice(0, 2).join(' ');
+  const wordTotal = wordCount(opening);
+  const concreteAudience = /\b(student|students|business|businesses|school|schools|founder|founders|manager|managers|program|policy|work|university|universities|customer|customers|team|teams)\b/i;
+  const practicalAction = /\b(fund|copy|choose|plan|ask|use|check|decide|build|support|back)\b/i;
+
+  if (paragraphs.length < 2 || wordTotal < 40 || wordTotal > 150) {
+    throw new Error(`${entry.filename}: opening needs two concise paragraphs that orient a first-time reader.`);
+  }
+  if (!concreteAudience.test(opening) || !practicalAction.test(opening)) {
+    throw new Error(`${entry.filename}: opening must name a familiar real-world example and a useful reader action.`);
+  }
+}
+
+function sourceUrls(entry) {
+  const sources = entry.source.split(/^## Sources$/m)[1] ?? '';
+  return new Set([...sources.matchAll(/https:\/\/[^)\s|]+/g)].map((match) => match[0]));
+}
+
+function validateNoRecentSourceReuse(latest, previousEntries) {
+  const latestUrls = sourceUrls(latest);
+  const reused = [];
+
+  for (const previous of previousEntries.slice(0, 4)) {
+    for (const url of sourceUrls(previous)) {
+      if (latestUrls.has(url)) reused.push(`${previous.filename}: ${url}`);
+    }
+  }
+
+  if (reused.length) {
+    throw new Error(`${latest.filename}: reuse of a recent Signals source is not allowed. Find new evidence or treat the old item as background: ${reused.join(', ')}`);
+  }
+}
+
+function validateNoRepeatedOpeningIdea(latest, previousEntries) {
+  const latestWords = normalizedWords(introParagraphs(latest).slice(0, 2).join(' '));
+  const phrases = new Set();
+  for (let index = 0; index <= latestWords.length - 9; index += 1) {
+    phrases.add(latestWords.slice(index, index + 9).join(' '));
+  }
+
+  for (const previous of previousEntries.slice(0, 4)) {
+    const previousOpening = normalizedWords(introParagraphs(previous).slice(0, 2).join(' ')).join(' ');
+    for (const phrase of phrases) {
+      if (previousOpening.includes(phrase)) {
+        throw new Error(`${latest.filename}: opening repeats a nine-word idea from ${previous.filename}. Write a distinct reader promise.`);
+      }
+    }
+  }
+}
+
 function extractScoreVector(entry) {
   const insight = requireMatch(entry.frontmatter, /^signalInsight:\s*\n([\s\S]*)$/m, `${entry.filename}: signalInsight is required.`);
   const laneBlock = requireMatch(insight, /^  lanes:\s*\n([\s\S]*)$/m, `${entry.filename}: signalInsight.lanes is required.`);
@@ -416,6 +485,9 @@ validateIssueIdentity(latest);
 const { mapSignal, lanes } = validateSignalMap(latest);
 validateWeekOverWeekScores(latest, previous, lanes);
 validateNoRecentPromiseRepeat(latest, sortedEntries.slice(1), mapSignal, lanes);
+validateFirstReaderOpening(latest);
+validateNoRecentSourceReuse(latest, sortedEntries.slice(1));
+validateNoRepeatedOpeningIdea(latest, sortedEntries.slice(1));
 validateEditorialStructure(latest);
 const readability = estimateReadability(latest.source);
 await validateRenderedDesign(latest, mapSignal, lanes);
