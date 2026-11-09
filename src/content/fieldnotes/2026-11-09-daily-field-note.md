@@ -1,6 +1,6 @@
 ---
-title: "Name What the Strategy Must Carry"
-description: "Name the owner, capability, feedback loop, and durable support behind a new strategy before you judge its results."
+title: "Measure What Learners Can Actually Do"
+description: "Choose a realistic task and observable standard before claiming that a learning program builds useful capability."
 date: 2026-11-09
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,19 +10,21 @@ tags: [capacity, decision-making, organizational-design]
 ---
 
 > [!quote] Field Note
-> A strategy works better when its owner, skill, feedback, and lasting support are clear.
+> A confident learner and a capable learner are not always the same.
 
 > [!summary] The Reader Promise
-> Name the owner, capability, feedback loop, and durable support behind a new strategy before you judge its results.
+> Choose a realistic task and observable standard before claiming that a learning program builds useful capability.
 
 ## The Field Note
 
-Change can hide the work that makes it possible. Debt service can cut the public funds available for long-term work. Local business units can move decisions closer to customers while demanding stronger general managers. A research-impact framework can help schools connect knowledge with use. A shared funding model can depend on skills that outlast one grant.
+A good evaluation begins with the work learners need to do. AACSB’s research-intelligence article shows why a single ranking needs context. Total output and output relative to faculty size answer different questions. Neither explains every cause of performance.
 
-These sources use different kinds of evidence. They do not prove that every firm should decentralize, that every framework creates impact, or that one funding model has measured results. They support one practice: before a change begins, make its skill and owner clear.
+The same care helps when assessing a course or pathway. Kauffman’s workforce feature follows one successful transition into work. That story is useful, but it does not show how every participant fared.
+
+Choose a task that matters outside the classroom. Set a visible standard, collect the work, and ask for feedback from someone who uses it. Keep confidence, demonstrated skill, and later employment as separate outcomes. Each deserves its own evidence.
 
 > [!example] Try this
-> For one planned change, write down its owner, needed skill, feedback, and lasting support. Then name the clearest avoidable failure.
+> Take one learning objective. Write the task that would demonstrate it, who can judge the work, and what successful performance looks like.
 
 ## Mental Model Lens
 
@@ -35,20 +37,30 @@ These sources use different kinds of evidence. They do not prove that every firm
 ## Use It Today
 
 > [!question] For Students
-> Ask which person, skill, or feedback path a change assumes without naming.
+> Save a work sample that shows a skill, then ask for feedback on the result rather than your effort alone.
 
 > [!question] For Managers And Founders
-> Before changing the operating model, name the skill, owner, feedback, and support that must last.
+> Ask a training provider which tasks participants can demonstrate after the program.
 
 > [!question] For Educators And Advisors
-> Separate a school framework, a practice article, broad data, and an index listing before drawing a conclusion.
+> Compare learner self-ratings with an assessed work sample and record where they disagree.
+
+## Reading Room
+
+**[Enhancing Employability Through an Authentic Experiential Learning Exercise](https://doi.org/10.1177/10525629251394311); Black et al., 2025, *Journal of Management Education*.**
+
+*Based on the abstract. Abstract available; full-text access not verified.*
+
+Black and Warhurst describe a classroom exercise in which students advise on a human-resources problem as consultants. Students and instructors reported gains in skills and professional understanding. The evaluation concerns perceptions of learning, so it cannot establish later employment gains or independently measured workplace performance. First published online in 2025, the paper offers a practical starting point for designing an authentic task. Ask learners to produce advice for a defined audience, explain their choices, and respond to criticism. Then assess the work itself alongside their reflections. Feeling more ready is valuable, but it is a different outcome from demonstrating readiness.
+
+[Read the paper](https://doi.org/10.1177/10525629251394311).
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> Before judging a strategy by its results, name the owner, skill, feedback, and lasting support behind them.
+> A confident learner and a capable learner are not always the same. Choose a realistic task and observable standard before claiming that a learning program builds useful capability.
 
 ## Vantage Circle's Lens
 
@@ -57,8 +69,7 @@ These sources use different kinds of evidence. They do not prove that every firm
 
 ## Sources
 
-- [Developing Countries' External Debt Surges to Record $9.4 Trillion, World Bank Group](https://www.worldbank.org/en/news/press-release/2026/11/05/developing-countries-external-debt-surges-to-record-9-4-trillion)
-- [The Risks of Decentralizing Your Organization, Harvard Business Review](https://hbr.org/2026/11/the-risks-of-decentralizing-your-organization)
-- [A Framework for Research Impact, AACSB International](https://www.aacsb.edu/insights/reports/2026/a-framework-for-research-impact)
-- [Grant supports capacity for collaborative funding model, Kauffman Foundation](https://www.kauffman.org/currents/collaborative-funding-model-kids-win-missouri/)
+- [Beyond Rankings: Building Better Research Intelligence, AACSB International](https://www.aacsb.edu/insights/articles/2026/10/beyond-rankings-building-better-research-intelligence)
+- [Guadalupe Centers clears a path to increase economic mobility in Kansas City's Latino communities, Kauffman Foundation](https://www.kauffman.org/currents/guadalupe-centers-economic-mobility-latino-communities/)
+- [Enhancing Employability Through an Authentic Experiential Learning Exercise, Journal of Management Education](https://doi.org/10.1177/10525629251394311)
 - [Inversion and The Power of Avoiding Stupidity, Farnam Street](https://fs.blog/inversion/)

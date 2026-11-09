@@ -1,6 +1,6 @@
 ---
-title: "Make Capacity Visible Before You Scale"
-description: "Name the constraint, identify who shares it, and keep a human decision owner attached to the next step."
+title: "Name the Capacity a Pilot Needs"
+description: "Name the person, process, and cost that a promising pilot needs before you expand it."
 date: 2026-11-04
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,21 +10,21 @@ tags: [capacity, decision-making, leadership]
 ---
 
 > [!quote] Field Note
-> Capacity becomes useful when you can see the burden, the shared support, and the person who owns the next decision.
+> A pilot needs support that survives the launch.
 
 > [!summary] The Reader Promise
-> Name the constraint, identify who shares it, and keep a human decision owner attached to the next step.
+> Name the person, process, and cost that a promising pilot needs before you expand it.
 
 ## The Field Note
 
-Capacity is not only a resource. It is also a design question: who carries the burden, who can share it, and who decides what happens next?
+A promising pilot can fail at the handoff to routine work. Kauffman’s Missouri childcare feature describes a platform that combines contributions and makes one payment to providers. The administrative work is part of the model, not a detail to add later.
 
-The World Bank's commodity outlook shows how conflict, weather, and depleted inventories can move through operating inputs. The Kauffman Foundation describes a childcare model that shares costs across families, employers, philanthropy, and government. Harvard Business Review flags conflict over AI projects as a management problem. MIT Sloan's guidance keeps a person responsible for the finished work when AI assists.
+The feature reports 19 participating communities. It does not establish gains in retention or earnings. Expansion needs its own evidence: reliable payments, accessible places, and manageable work for the people running it.
 
-These sources describe different evidence types. They do not prove one universal scaling formula. They support one bounded practice: name the constraint, map the shared capacity, assign the decision owner, and set a review point before expansion.
+Costs also deserve a stress test. The World Bank’s commodity outlook is conditional, not a forecast for your budget. Use your own contracts to ask whether the pilot still works if essential costs rise.
 
 > [!example] Try this
-> For one project, write down the constraint, the people or systems that share the burden, the decision owner, and what the next review can and cannot establish.
+> Write the recurring tasks behind one pilot. Name an owner, cost, and backup for the task most likely to interrupt service.
 
 ## Mental Model Lens
 
@@ -36,20 +36,30 @@ These sources describe different evidence types. They do not prove one universal
 ## Use It Today
 
 > [!question] For Students
-> Name the part of a project you understand, the part you do not, and the next question that would reduce the gap.
+> Ask who will maintain your project after the launch team leaves.
 
 > [!question] For Managers And Founders
-> Before scaling a plan, ask who carries the constraint, who can share it, who owns the decision, and when the plan will be reviewed.
+> Test whether the process still works during an absence, cost increase, or surge in demand.
 
 > [!question] For Educators And Advisors
-> Ask learners to separate a forecast, an initiative description, expert guidance, and a management observation before drawing a conclusion.
+> Have students distinguish a promising design from evidence that it remains workable at a larger scale.
+
+## Reading Room
+
+**[Challenge for some, hindrance for others? How stress appraisals shape employee performance of essential and nonessential work during crises](https://doi.org/10.1177/00187267261466563); Song et al., 2026, *Human Relations*.**
+
+*Based on the abstract. Abstract available; full-text access not verified.*
+
+Research on crisis work used a two-wave survey and two experiments to examine essential and nonessential tasks. The authors report that how people understood the work’s demands helped explain performance differences. Organizational ability to adapt strengthened the proposed relationship in the field study, but that finding did not carry across all studies. The result does not justify simply labeling work essential or increasing pressure. Before expanding a demanding service, ask what makes the work manageable and worthwhile. Check staffing, support, and room to adjust, rather than assuming commitment will compensate for missing capacity.
+
+[Read the paper](https://doi.org/10.1177/00187267261466563).
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> Before you scale a promise, make the capacity behind it visible: burden, support, owner, and review point.
+> A pilot needs support that survives the launch. Name the person, process, and cost that a promising pilot needs before you expand it.
 
 ## Vantage Circle's Lens
 
@@ -60,6 +70,5 @@ These sources describe different evidence types. They do not prove one universal
 
 - [Commodity Prices Set to Increase by 23% in 2026 as Global Shocks Mount, World Bank Group](https://www.worldbank.org/en/news/press-release/2026/10/28/commodity-markets-outlook-october-2026)
 - [Grant supports capacity for collaborative funding model, Kauffman Foundation](https://www.kauffman.org/currents/collaborative-funding-model-kids-win-missouri/)
-- [AI Turf Wars, Harvard Business Review](https://hbr.org/2026/11/ai-turf-wars)
-- [Increase your personal productivity in an AI-enabled workspace, MIT Sloan](https://mitsloan.mit.edu/ideas-made-to-matter/increase-your-personal-productivity-ai-enabled-workspace)
+- [Challenge for some, hindrance for others? How stress appraisals shape employee performance of essential and nonessential work during crises, Human Relations](https://doi.org/10.1177/00187267261466563)
 - [Circle of Competence, Farnam Street](https://fs.blog/circle-of-competence/)

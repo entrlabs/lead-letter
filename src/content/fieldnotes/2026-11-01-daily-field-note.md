@@ -1,6 +1,6 @@
 ---
-title: "Choose Where Your First Test Belongs"
-description: "Match one small test to a specific habit, rule, or handoff so its result can guide your next decision."
+title: "Check the Rule Behind the Rivalry"
+description: "Find one evaluation rule that rewards rivalry, then test a fairer way to recognize useful contributions."
 date: 2026-11-01
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,21 +10,21 @@ tags: [leadership, decision-making, organizational-learning]
 ---
 
 > [!quote] Field Note
-> Before asking people to change, check whether the problem sits in a habit, a rule, or a handoff.
+> People respond to the contributions a system makes visible.
 
 > [!summary] The Reader Promise
-> Match one small test to a specific habit, rule, or handoff so its result can guide your next decision.
+> Find one evaluation rule that rewards rivalry, then test a fairer way to recognize useful contributions.
 
 ## The Field Note
 
+When teammates compete for the same narrow reward, asking them to collaborate may not be enough. In a Stanford interview, researcher Nir Halevy suggests recognizing different kinds of contribution. Helping a colleague and winning a new client need not compete for the same recognition.
+
+This is a proposed approach, not a tested remedy for your team. Start with the rule rather than a judgment about someone’s personality. Ask which work receives credit, whose contribution stays hidden, and whether people understand the criteria.
+
+Try one change on a small scale. Make the criteria visible before the work begins. Review whether cooperation improves and whether the new rule creates a different unfairness.
+
 > [!example] Try this
-> Describe one problem you can observe. Name one habit, rule, or handoff that might explain it. Choose a small test and write down what result would make you reconsider.
-
-A general complaint can hide several different problems. Pew’s October survey found favorable views of some U.S. agencies across party lines. That does not tell us why people hold those views. It does show why asking about a specific institution matters.
-
-The same need for a precise question appears elsewhere. Stanford’s interview with Nir Halevy asks managers to examine rewards and roles when a team becomes too competitive. UNDP’s report on security asks public leaders to prepare for shocks that cross between systems. Wharton’s Witold Henisz asks educators to include the people who bear costs in a business decision.
-
-These sources do not prove a single repair works everywhere. Use them to locate your own question. If a reward rule encourages rivalry, another teamwork session may miss the issue. If a service fails at a handoff, inspect that connection. Test where a change could reveal something useful.
+> List three contributions your team needs. Compare them with what its review form rewards. Choose one gap to discuss openly.
 
 ## Mental Model Lens
 
@@ -36,20 +36,30 @@ These sources do not prove a single repair works everywhere. Use them to locate 
 ## Use It Today
 
 > [!question] For Students
-> What have you observed, and what are you only assuming? Design a small test that separates the two.
+> Ask whether your group grade recognizes coordination and help as well as the final presentation.
 
 > [!question] For Managers And Founders
-> Would changing a habit, a reward rule, or a handoff address the problem most directly? Test one before expanding the response.
+> Publish the criteria for one recognition decision before choosing the recipient.
 
 > [!question] For Educators And Advisors
-> Ask learners who bears the cost of a proposed decision. What evidence would make them change it?
+> Invite students to identify who made a group outcome possible and what evidence supports that judgment.
+
+## Reading Room
+
+**[The impact of servant leadership on collaborative culture in UAE multicultural healthcare organizations](https://doi.org/10.1108/lhs-02-2026-0030); Upadhyay, 2026, *Leadership in Health Services*.**
+
+*Based on the abstract. Abstract available; full-text access not verified.*
+
+A survey of 312 healthcare professionals in six UAE organizations linked servant leadership with a more collaborative culture. Trust in leaders and perceived organizational support were also part of the reported relationships. Because the survey measured people at one point in time, it cannot establish that a leadership style caused the culture. The multicultural setting does not by itself show that diversity strengthened the relationships. Use the study to sharpen a local question: do people experience support in the decisions that affect their work? Ask for specific examples before assuming a recognition program has earned their trust.
+
+[Read the paper](https://doi.org/10.1108/lhs-02-2026-0030).
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> A useful test has a clear target. Locate the habit, rule, or handoff before choosing the fix.
+> People respond to the contributions a system makes visible. Find one evaluation rule that rewards rivalry, then test a fairer way to recognize useful contributions.
 
 ## Vantage Circle's Lens
 
@@ -60,8 +70,6 @@ These sources do not prove a single repair works everywhere. Use them to locate 
 
 ## Sources
 
-- [How Americans View Federal Agencies, Pew Research Center / Pew Research Center, 2026-10-26](https://www.pewresearch.org/fact-sheet/how-americans-view-federal-agencies/)
-- [New UNDP report calls for redefining security in an era of climate shocks, cybercrime, economic insecurity and distrust, UNDP / United Nations Development Programme, 2026-10-22](https://www.undp.org/press-releases/new-undp-report-calls-redefining-security-era-climate-shocks-cybercrime-economic-insecurity-and-distrust)
-- [How to Fix a Broken Hierarchy from the Inside, Aimee Levitt / Stanford Graduate School of Business, 2026-10-22](https://www.gsb.stanford.edu/insights/how-fix-broken-hierarchy-inside)
-- [Don’t Abolish Business Schools. Make Them Accountable for Impact as well as Value, Witold Henisz / Knowledge at Wharton, 2026-10-27](https://knowledge.wharton.upenn.edu/article/dont-abolish-business-schools-make-them-accountable-for-impact-as-well-as-value/)
-- [Your Best Work, Shane Parrish / Farnam Street, November 1, 2026](https://fs.blog/brain-food/november-1-2026/)
+- [How to Fix a Broken Hierarchy from the Inside, Stanford Graduate School of Business](https://www.gsb.stanford.edu/insights/how-fix-broken-hierarchy-inside)
+- [The impact of servant leadership on collaborative culture in UAE multicultural healthcare organizations, Leadership in Health Services](https://doi.org/10.1108/lhs-02-2026-0030)
+- [Your Best Work: learning through action, Farnam Street](https://fs.blog/brain-food/november-1-2026/)

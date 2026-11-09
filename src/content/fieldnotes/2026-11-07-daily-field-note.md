@@ -1,6 +1,6 @@
 ---
-title: "Name the Capability Behind the Change"
-description: "Name the skill behind new plans, quality reviews, and community programs before judging their results."
+title: "Practice the Decision Before Delegating It"
+description: "Check whether someone can make the decision, access help, and learn from feedback before expanding their authority."
 date: 2026-11-07
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,19 +10,21 @@ tags: [capacity, decision-making, organizational-design]
 ---
 
 > [!quote] Field Note
-> Change becomes workable when the people, skills, and support behind it are visible.
+> Responsibility needs practice as well as a new title.
 
 > [!summary] The Reader Promise
-> Name the skill behind new plans, quality reviews, and community programs before results are judged.
+> Check whether someone can make the decision, access help, and learn from feedback before expanding their authority.
 
 ## The Field Note
 
-Visible change often hides the work that makes it possible. Higher debt costs can narrow the room for public investment. A local business unit can move closer to customers while demanding stronger general managers and central expertise. A school review can make quality visible. A childcare platform can connect families, employers, providers, and public actors around a shared cost.
+A new title does not show what someone can do. Before handing over a difficult decision, ask the future owner to work through a realistic case. Watch what they notice, what they miss, and when they seek help.
 
-These sources describe different evidence types. They do not prove one universal development policy, a general failure rate for local units, a school review effect, or measured childcare outcomes. They support one bounded practice: before launching a new plan or program, name the owner, skill, feedback loop, and durable support it needs.
+AACSB’s accreditation announcement describes internal assessment, mentorship, and peer review. It documents a process, not proof of improved outcomes. Kauffman’s childcare feature likewise describes a planned operating model whose results still need evaluation.
+
+These examples invite a practical check, not a universal prescription. Identify the support behind a role. Keep a specialist available, define an escalation point, and review one real decision after the handoff. Use the evidence to adjust the responsibility.
 
 > [!example] Try this
-> For one planned change, write down the skill it needs, the person or group that owns it, the feedback that will reveal failure, and the support that must last.
+> Choose one decision you plan to delegate. Rehearse a realistic exception and agree when the new owner should ask for help.
 
 ## Mental Model Lens
 
@@ -35,20 +37,30 @@ These sources describe different evidence types. They do not prove one universal
 ## Use It Today
 
 > [!question] For Students
-> Ask what action would create useful information about the system around an opportunity.
+> Ask for a practice case and feedback before taking on a responsibility you have not held before.
 
 > [!question] For Managers And Founders
-> Before changing the plan, name the skill, owner, feedback loop, and shared support it needs.
+> Check decision quality and escalation judgment, not just attendance at a training session.
 
 > [!question] For Educators And Advisors
-> Separate broad data, a program description, a school review, and expert guidance before drawing a conclusion.
+> Assess a learner’s response to a difficult case alongside their explanation of the underlying concept.
+
+## Reading Room
+
+**[Leadership Development Programmes for Clinical Nurses: A Systematic Review](https://doi.org/10.1111/jocn.70613); Gökalp et al., 2026, *Journal of Clinical Nursing*.**
+
+*Based on the abstract. Abstract available; full-text access not verified.*
+
+A review of 18 studies examined leadership development for clinical nurses. It reports improvements in several leadership and staff outcomes and discusses active learning, reflection, and feedback. Programs differed in their design and duration. Crucially, evidence about institutional and patient outcomes remained limited. The review does not show that one course format works for every leadership role. Use it to ask what practice a program includes and which outcome its evaluation actually measures. A stronger self-rating is useful information, but it should not stand in for observed decision quality or results for the people served.
+
+[Read the paper](https://doi.org/10.1111/jocn.70613).
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> Before you judge a change by its result, name the skill, owner, feedback loop, and support that make the result possible.
+> Responsibility needs practice as well as a new title. Check whether someone can make the decision, access help, and learn from feedback before expanding their authority.
 
 ## Vantage Circle's Lens
 
@@ -57,8 +69,7 @@ These sources describe different evidence types. They do not prove one universal
 
 ## Sources
 
-- [Developing Countries' External Debt Surges to Record $9.4 Trillion, World Bank Group](https://www.worldbank.org/en/news/press-release/2026/11/05/developing-countries-external-debt-surges-to-record-9-4-trillion)
-- [The Risks of Decentralizing Your Organization, Harvard Business Review](https://hbr.org/2026/11/the-risks-of-decentralizing-your-organization)
-- [6 Institutions Earn AACSB Initial Business Accreditation, AACSB International](https://www.aacsb.edu/media-center/news/2026/6-institutions-earn-aacsb-initial-business-accreditation)
+- [6 Institutions Earn AACSB Initial Business Accreditation, AACSB International](https://www.aacsb.edu/media-center/news/2026/11/6-institutions-earn-aacsb-initial-business-accreditation)
 - [Grant supports capacity for collaborative funding model, Kauffman Foundation](https://www.kauffman.org/currents/collaborative-funding-model-kids-win-missouri/)
+- [Leadership Development Programmes for Clinical Nurses: A Systematic Review, Journal of Clinical Nursing](https://doi.org/10.1111/jocn.70613)
 - [Your Best Work, Farnam Street](https://fs.blog/brain-food/november-1-2026/)

@@ -1,6 +1,6 @@
 ---
 title: "Count Units Before You Reorder"
-description: "Check how many items sold at each price before you use a strong sales week to order more stock."
+description: "Check sales dollars separately from units, prices, and delivery before deciding that demand has grown."
 date: 2026-11-02
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,21 +10,21 @@ tags: [retail, pricing, decision-making]
 ---
 
 > [!quote] Field Note
-> Before you reorder a bestseller, count how many actually left the shelf.
+> A bigger sales total can hide a smaller change in demand.
 
 > [!summary] The Reader Promise
-> Check how many items sold at each price before you use a strong sales week to order more stock.
+> Check sales dollars separately from units, prices, and delivery before deciding that demand has grown.
 
 ## The Field Note
 
-Suppose your shop sold 20 mugs at $10 last week and 20 at $11 this week. Sales rose from $200 to $220. You still need the same shelf space for the next 20 mugs.
+Sales dollars can rise even when customers buy almost the same amount. The U.S. Bureau of Economic Analysis reported that September spending rose 0.5% in current dollars. After adjusting for inflation, the increase was less than 0.1%.
 
-The U.S. Bureau of Economic Analysis reported a similar gap in September. Consumer spending rose 0.5% in dollars. Once the agency adjusted for prices, the increase was less than 0.1%. That national figure cannot tell you what sold in your shop.
+That national estimate does not predict demand in your store. It offers a useful distinction to test locally. Compare unit sales, realized price, discounts, and product mix before increasing stock. A busy weekend can also hide quiet weekdays.
 
-A discount can complicate the picture in the other direction. In an October interview, Wharton marketing professor Peter Fader discussed how Black Friday discounts could shape holiday sales. If mugs sell faster during a promotion, check what happened when the regular price came back.
+Keep the stages separate. An order is not a completed delivery, and revenue is not proof of repeat demand. Decide which measure answers your next operating question before celebrating the headline total.
 
 > [!example] Try this
-> Pick one item you plan to reorder. Pull two weeks of receipts. For each week, count units sold at full price and on sale. Mark any days the shelf was empty. Use those counts when you set the next order.
+> Take one product’s last two weeks of sales. Compare units and realized price, then check cancellations and deliveries still outstanding.
 
 ## Mental Model Lens
 
@@ -36,20 +36,30 @@ A discount can complicate the picture in the other direction. In an October inte
 ## Use It Today
 
 > [!question] For Students
-> Take two grocery receipts. Find an item you bought both times. How much of the difference came from its price, and how much came from the quantity?
+> Separate how many people signed up for your project from how many received what you promised.
 
 > [!question] For Managers And Founders
-> Which product brings in more dollars this week? Check its units, discounts and days in stock before you place the next order.
+> Check unit demand and fulfillment capacity before reordering or accepting more orders.
 
 > [!question] For Educators And Advisors
-> Give a class two shops with the same revenue. Have students choose prices and quantities for each shop. What would they need to know to restock either one?
+> Ask learners to explain two ways sales dollars can rise without a comparable increase in purchases.
+
+## Reading Room
+
+**[Still Waiting for Rewards? User Entrepreneur’s Reward Delivery Performance in Crowdfunding](https://doi.org/10.1177/10422587251404867); Oo et al., 2026, *Entrepreneurship Theory and Practice*.**
+
+*Based on the abstract. Abstract available; full-text access not verified.*
+
+A study combining exploratory qualitative work with data on 322 crowdfunded ventures looked beyond fundraising to reward delivery. It found that founders who were users of the product delivered rewards more promptly than other founders. The reported analysis linked this pattern to intrinsic motivation, or interest in the work itself. It does not establish that customer experience alone causes better delivery, nor that the pattern holds for every venture. The practical question is useful regardless: what happens after the money arrives? Track promises fulfilled and delivery delays separately from funds raised before describing a campaign as successful.
+
+[Read the paper](https://doi.org/10.1177/10422587251404867).
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> Twenty mugs at $11 bring in more money than twenty at $10. Count the mugs before you buy a bigger shelf.
+> A bigger sales total can hide a smaller change in demand. Check sales dollars separately from units, prices, and delivery before deciding that demand has grown.
 
 ## Vantage Circle's Lens
 
@@ -59,5 +69,6 @@ A discount can complicate the picture in the other direction. In an October inte
 ## Sources
 
 - [Personal Income and Outlays, September 2026, U.S. Bureau of Economic Analysis](https://www.bea.gov/news/2026/personal-income-and-outlays-september-2026)
-- [Why Record Holiday Sales May Not Tell the Whole Story, Knowledge at Wharton](https://knowledge.wharton.upenn.edu/podcast/this-week-in-business/why-record-holiday-sales-may-not-tell-the-whole-story/)
+- [FTC Launches Personalized Pricing and Compensation Inquiry, Federal Trade Commission](https://www.ftc.gov/news-events/news/press-releases/2026/10/ftc-launches-personalized-pricing-compensation-inquiry)
+- [Still Waiting for Rewards? User Entrepreneur’s Reward Delivery Performance in Crowdfunding, Entrepreneurship Theory and Practice](https://doi.org/10.1177/10422587251404867)
 - [The Availability Bias, Farnam Street](https://fs.blog/availability-bias-cognitive/)

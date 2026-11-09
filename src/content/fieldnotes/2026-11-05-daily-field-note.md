@@ -1,6 +1,6 @@
 ---
-title: "Make the Conditions Around Decisions Visible"
-description: "Make debt, public voice, workforce access, and AI delegation visible before you act on a decision."
+title: "Check Who Carries the Ongoing Cost"
+description: "Check beyond access to funding or opportunity and identify the obligations people must keep carrying."
 date: 2026-11-05
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,19 +10,21 @@ tags: [capacity, decision-making, leadership]
 ---
 
 > [!quote] Field Note
-> A decision becomes clearer when you can see the financial burden, shared support, public responsibility, and human judgment around it.
+> An opportunity is incomplete until its ongoing costs are visible.
 
 > [!summary] The Reader Promise
-> Make debt, public voice, workforce access, and AI delegation visible before you act on a decision.
+> Check beyond access to funding or opportunity and identify the obligations people must keep carrying.
 
 ## The Field Note
 
-The conditions around a decision can shape the result before anyone acts. A public institution may have less room to invest when debt service rises. A workforce pathway may depend on an organization that connects people, employers, training, and support. A CEO may speak with the authority of an enterprise, not only as a private person. AI may assist with routine work, but a person still needs to judge the finished result.
+Getting access is only the first step. The World Bank reports $9.4 trillion in developing-country external debt for 2025. It also reports $1.4 trillion in principal and interest payments. New financing and the cost of servicing it are different measures.
 
-These sources describe different evidence types. They do not prove one universal management rule, a causal result for the Kauffman program, a measured AI productivity gain, or a forecast for any specific country. They support one bounded practice: name the constraint, identify who shares it, assign the decision owner, and define the next review before scaling.
+These totals cannot tell you what one school or business should borrow. They illustrate why a new resource should be considered alongside its recurring obligations. The same distinction is useful when reviewing an opportunity, without treating the situations as equivalent.
+
+Kauffman’s workforce feature describes support around a route into work. For your own program, ask who carries transport, care, time, and coordination costs after entry. Then check whether that support lasts.
 
 > [!example] Try this
-> For one decision, write down the constraint, the affected group, the accountable owner, the evidence needed next, and what the next review can and cannot establish.
+> Choose one new commitment. List its recurring time and cash costs, who pays them, and what would make the commitment unsustainable.
 
 ## Mental Model Lens
 
@@ -34,20 +36,30 @@ These sources describe different evidence types. They do not prove one universal
 ## Use It Today
 
 > [!question] For Students
-> Identify what you know, what you do not know, and the next action that would create useful information.
+> Compare an opportunity’s benefits with the travel, unpaid time, and support it requires.
 
 > [!question] For Managers And Founders
-> Before acting, name the constraint, the people or systems that share it, the decision owner, and the review point.
+> Ask whether a new role or venture leaves enough capacity for the obligations already in place.
 
 > [!question] For Educators And Advisors
-> Ask learners to separate aggregate data, an initiative description, survey analysis, and expert guidance before drawing a conclusion.
+> Include the costs of participation when judging whether an opportunity is accessible.
+
+## Reading Room
+
+**[Perceived Pain or Gain: Role Identity, Gratification, and the Well-Being of Hybrid Entrepreneurs](https://doi.org/10.1177/10422587261419463); Albrecht et al., 2026, *Entrepreneurship Theory and Practice*.**
+
+*Based on the abstract. Abstract available; full-text access not verified.*
+
+A longitudinal qualitative study followed people building ventures while keeping paid jobs. The authors describe two paths: pursuing future rewards while strain accumulated, and finding present satisfaction that supported well-being. These accounts show how people experienced combined roles; they do not identify a universal safe workload or prove that one mindset prevents burnout. Before adding a venture or major project to your job, ask what gives value now and what you are repeatedly postponing. Review that balance over time. A future promise should not make today’s costs disappear from the conversation.
+
+[Read the paper](https://doi.org/10.1177/10422587261419463).
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> Before you ask people to act, make the conditions around the decision visible: burden, support, owner, evidence, and review.
+> An opportunity is incomplete until its ongoing costs are visible. Check beyond access to funding or opportunity and identify the obligations people must keep carrying.
 
 ## Vantage Circle's Lens
 
@@ -57,7 +69,6 @@ These sources describe different evidence types. They do not prove one universal
 ## Sources
 
 - [Developing Countries' External Debt Surges to Record $9.4 Trillion, World Bank Group](https://www.worldbank.org/en/news/press-release/2026/11/05/developing-countries-external-debt-surges-to-record-9-4-trillion)
-- [Do People Want CEOs to Shut Up?, Harvard Business Review](https://hbr.org/2026/11/do-people-want-ceos-to-shut-up)
 - [Guadalupe Centers clears a path to increase economic mobility in Kansas City's Latino communities, Kauffman Foundation](https://www.kauffman.org/currents/guadalupe-centers-economic-mobility-latino-communities/)
-- [Increase your personal productivity in an AI-enabled workspace, MIT Sloan](https://mitsloan.mit.edu/ideas-made-to-matter/increase-your-personal-productivity-ai-enabled-workspace)
+- [Perceived Pain or Gain: Role Identity, Gratification, and the Well-Being of Hybrid Entrepreneurs, Entrepreneurship Theory and Practice](https://doi.org/10.1177/10422587261419463)
 - [Second-Order Thinking, Farnam Street](https://fs.blog/second-order-thinking/)

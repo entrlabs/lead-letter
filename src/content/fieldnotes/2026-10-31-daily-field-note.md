@@ -1,6 +1,6 @@
 ---
-title: "Name What Your Promise Needs to Work"
-description: "Name the essential condition behind a strategy, workflow, job pathway, or measure, then test whether the system supports it."
+title: "Connect Learning to a Real Opportunity"
+description: "Check the handoff between learning and work, then test whether learners can actually cross it."
 date: 2026-10-31
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,19 +10,21 @@ tags: [leadership, responsible-scale, organizational-learning]
 ---
 
 > [!quote] Field Note
-> A promise becomes useful when its essential condition is visible and supported.
+> A learning opportunity needs a usable next step.
 
 > [!summary] The Reader Promise
-> Name the essential condition behind a strategy, workflow, job pathway, or measure, then test whether the system supports it.
+> Check the handoff between learning and work, then test whether learners can actually cross it.
 
 ## The Field Note
 
+A course can end before the opportunity begins. Kauffman describes a student who met an employer at a career fair, secured an internship, and moved into an IT role. The useful detail is the connection between stages.
+
+That account does not establish the program’s average effect. The World Bank’s jobs report addresses a different scale: access to work and earnings from it. Together, they suggest questions to investigate, not a single proven solution.
+
+Trace one learner’s next step. Who makes the introduction? What does the employer need to see? What support lasts after the placement begins? Count completed transitions as well as course attendance.
+
 > [!example] Try this
-> Write one promise in plain language. List the conditions it needs. Then assign an owner to test the weakest condition before you expand the plan.
-
-Harvard Business Review’s strategy research links durable commitment with shared emotional investment. The World Bank’s poverty report places better jobs at the center of renewed poverty reduction. AACSB’s research-intelligence discussion asks institutions to use context beyond rankings. Kauffman’s Guadalupe Centers feature shows how economic mobility depends on capacity and employer connection.
-
-These cases do not prove one shared cause. Use them as prompts for your own test. List what must be true for one promise to work. Separate those needs from habits that can change. Then check who owns each need and what support they have.
+> Choose one course or placement. In ten minutes, sketch its next three handoffs. Name the owner and one common obstacle at each.
 
 ## Mental Model Lens
 
@@ -34,20 +36,30 @@ These cases do not prove one shared cause. Use them as prompts for your own test
 ## Use It Today
 
 > [!question] For Students
-> Which assumption in your project is being treated as evidence? Separate the two before you choose your next step.
+> Ask for the next concrete introduction or work sample your course can help you secure.
 
 > [!question] For Managers And Founders
-> What essential condition must hold for the strategy or workflow to deliver its promise? Name its owner and next test.
+> Check where applicants leave your training-to-work pathway and ask them why.
 
 > [!question] For Educators And Advisors
-> Ask learners to identify the condition behind a result, then inspect the measure, denominator, and pathway that support it.
+> Pair one learning outcome with a real audience, task, and follow-up conversation.
+
+## Reading Room
+
+**[Music Students’ Learning Experiences in University Entrepreneurship Courses](https://doi.org/10.1177/02557614261501480); Xiong, 2026, *International Journal of Music Education*.**
+
+*Based on the abstract. Abstract available; full-text access not verified.*
+
+Music students interviewed about U.S. university entrepreneurship courses described learning through applied tasks, professional exposure, and supportive settings. They also reflected on career choices and preparation. The study helps explain how students experience such courses; it does not show that taking one causes employment or higher earnings. The abstract does not report the interview sample size, so we cannot judge its breadth here. For your next learning activity, ask what professional situation it lets students rehearse. Then collect a concrete example of what they understood or tried differently, rather than treating attendance as evidence of career readiness.
+
+[Read the paper](https://doi.org/10.1177/02557614261501480).
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> Rebuild the promise from its essentials. Test the weakest condition before you scale the plan.
+> A learning opportunity needs a usable next step. Check the handoff between learning and work, then test whether learners can actually cross it.
 
 ## Vantage Circle's Lens
 
@@ -58,8 +70,8 @@ These cases do not prove one shared cause. Use them as prompts for your own test
 
 ## Sources
 
-- [To Make a New Strategy Stick, Executives Need Shared Emotional Investment, Harvard Business Review](https://hbr.org/2026/10/to-make-a-new-strategy-stick-executives-need-shared-emotional-investment)
+- [Guadalupe Centers clears a path to increase economic mobility in Kansas City's Latino communities, Kauffman Foundation](https://www.kauffman.org/currents/guadalupe-centers-economic-mobility-latino-communities/)
 - [More and Better Jobs Key to Putting Poverty Reduction Back on Track, World Bank Group](https://www.worldbank.org/en/news/press-release/2026/10/26/more-and-better-jobs-key-to-putting-poverty-reduction-back-on-track)
 - [Beyond Rankings: Building Better Research Intelligence, AACSB International](https://www.aacsb.edu/insights/articles/2026/10/beyond-rankings-building-better-research-intelligence)
-- [Guadalupe Centers Clears a Path to Increase Economic Mobility in Kansas City’s Latino Communities, Kauffman Foundation](https://www.kauffman.org/currents/guadalupe-centers-economic-mobility-latino-communities/)
+- [Music Students’ Learning Experiences in University Entrepreneurship Courses, International Journal of Music Education](https://doi.org/10.1177/02557614261501480)
 - [First Principles Thinking, Farnam Street](https://fs.blog/first-principles/)

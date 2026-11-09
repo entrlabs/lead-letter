@@ -1,6 +1,6 @@
 ---
-title: "Build the Conditions That Make Good Decisions Possible"
-description: "Build a clearer view of how jobs, institutional review, product identity, and childcare infrastructure shape people's choices."
+title: "Check What Makes a Livelihood Viable"
+description: "Ask whether an education or enterprise pathway leads to workable earnings, support, and choices in its actual setting."
 date: 2026-11-08
 author: "Joseph E. Iesue"
 publication: "EntrLabs - The Lead Letter"
@@ -10,19 +10,21 @@ tags: [capacity, decision-making, organizational-design]
 ---
 
 > [!quote] Field Note
-> Good decisions depend on the conditions around the person making them.
+> Teaching enterprise cannot replace the conditions that make work viable.
 
 > [!summary] The Reader Promise
-> See how jobs, institutional review, product identity, and childcare infrastructure shape the choices people can make.
+> Ask whether an education or enterprise pathway leads to workable earnings, support, and choices in its actual setting.
 
 ## The Field Note
 
-Individual effort is only one part of performance. The World Bank links poverty reduction to better jobs and stronger earnings. AACSB shows school quality as an ongoing process of mission, learning, impact, and review. Ferrari's electric Luce shows one company adding new technology while protecting a clear identity. Child Care Works brings families, employers, providers, donors, and public groups into one payment model.
+A livelihood needs more than motivation. The World Bank’s poverty report distinguishes access to employment from earnings. Its scenarios are estimates, not proof that a particular training course will change either.
 
-These sources use different kinds of evidence. They do not prove one universal development policy, an accreditation effect, a general Ferrari strategy, or measured childcare results. They support one bounded practice: before scaling a solution, name the constraint, the system owner, the affected group, and the evidence that would show improvement.
+Childcare offers a concrete example of the conditions around work. Kauffman describes a Missouri model that shares costs across several contributors. The account explains how the model operates; it does not establish its effect on employment or income.
+
+Before recommending a course or a new venture, ask what the person needs to make it workable. Consider customers, time, care, transport, and reliable income. A useful pathway should leave room to decide that a different route is better.
 
 > [!example] Try this
-> For one decision, write down the surrounding condition that could limit it, who owns that condition, who is affected, and what evidence would show that it improved.
+> Map one proposed career or venture pathway. Identify its likely income, essential support, and the condition that would make another route preferable.
 
 ## Mental Model Lens
 
@@ -35,20 +37,30 @@ These sources use different kinds of evidence. They do not prove one universal d
 ## Use It Today
 
 > [!question] For Students
-> Map the system around an opportunity, not only the effort of the person pursuing it.
+> Ask which local conditions would let the skills you learn become a sustainable source of work.
 
 > [!question] For Managers And Founders
-> Name the constraint, owner, affected group, and evidence before scaling a solution or product change.
+> Check whether your program helps people evaluate alternatives as well as start a venture.
 
 > [!question] For Educators And Advisors
-> Turn quality review into an evidence exercise, and keep announcements separate from outcome evaluations.
+> Invite learners to test an enterprise idea against local demand and the costs of earning a living.
+
+## Reading Room
+
+**[Rethinking Entrepreneurship Education in Uganda: Experiences and Perspectives of Young Entrepreneurs](https://doi.org/10.3390/su182111064); van der Linden and Jjuuko, 2026, *Sustainability*.**
+
+*Based on the abstract. Abstract available; full-text access not verified.*
+
+Researchers examined fourteen fieldwork reports about young entrepreneurs in and around Gulu, Uganda. The reports came from summer schools held between 2022 and 2024. Their analysis asks how education can support entrepreneurship while taking local economic and social conditions seriously. It does not estimate how much an entrepreneurship course improves income or survival. The setting also limits transfer to other places. For teaching, start with the learner’s actual options: customers, resources, constraints, and alternative work. Treat starting a business as a choice to examine, rather than assuming it is the best answer to limited employment.
+
+[Read the paper](https://doi.org/10.3390/su182111064).
 
 ## Useful Copy
 
 ### Signal Text
 
 > [!abstract] Social Copy
-> Before judging a person's performance, inspect the jobs, review systems, identity, and shared infrastructure that make the decision possible.
+> Teaching enterprise cannot replace the conditions that make work viable. Ask whether an education or enterprise pathway leads to workable earnings, support, and choices in its actual setting.
 
 ## Vantage Circle's Lens
 
@@ -58,7 +70,6 @@ These sources use different kinds of evidence. They do not prove one universal d
 ## Sources
 
 - [More and Better Jobs Key to Putting Poverty Reduction Back on Track, World Bank Group](https://www.worldbank.org/en/news/press-release/2026/10/26/more-and-better-jobs-key-to-putting-poverty-reduction-back-on-track)
-- [6 Institutions Earn AACSB Initial Business Accreditation, AACSB International](https://www.aacsb.edu/media-center/news/2026/11/6-institutions-earn-aacsb-initial-business-accreditation)
-- [How Ferrari balances identity and growth with the electric Luce, MIT Sloan](https://mitsloan.mit.edu/ideas-made-to-matter/how-ferrari-balances-identity-and-growth-electric-luce)
 - [Grant supports capacity for collaborative funding model, Kauffman Foundation](https://www.kauffman.org/currents/collaborative-funding-model-kids-win-missouri/)
+- [Rethinking Entrepreneurship Education in Uganda: Experiences and Perspectives of Young Entrepreneurs, Sustainability](https://doi.org/10.3390/su182111064)
 - [Honesty over Flattery, Farnam Street](https://fs.blog/brain-food/november-8-2026/)
