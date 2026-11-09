@@ -27,6 +27,8 @@ Recent manufacturing, growth, institutional, and research signals all point to t
 
 The practical move is to connect each signal to a decision owner and a revision point. This evidence does not prove one shared mechanism. It does not turn national measures into a forecast for one firm. It does not show that every institutional change will produce the intended result.
 
+Write a concrete revision trigger next to the measure and decision owner. Explain why changing course under that condition would honor the purpose of the plan.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ The practical move is to connect each signal to a decision owner and a revision 
 
 > [!question] For Educators And Advisors
 > Ask learners to defend a decision while keeping the evidence boundary visible.
+
+## Reading Room
+
+[Kristal, Dorison (2025). Precommitment can allow decision makers to maintain trust when de-escalating commitment. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001243)
+
+Nine preregistered experiments involving 7,759 participants examined advance promises to change course under specific conditions. Such promises helped preserve trust when decision makers later reduced commitment. Vague promises offered less benefit. The approach could also reduce followers’ confidence and motivation at the start. It is a communication trade-off, not a guarantee that stopping will be accepted. Write a concrete revision trigger next to the measure and decision owner. Explain why changing course under that condition would honor the purpose of the plan. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -68,3 +78,5 @@ The practical move is to connect each signal to a decision owner and a revision 
 - [World Bank appointment of Michael Kremer](https://www.worldbank.org/en/news/press-release/2026/09/16/michael-kremer-appointed-as-world-bank-group-chief-economist)
 - [Farnam Street: Focus and Diversification](https://fs.blog/brain-food/october-4-2026/)
 
+
+- [Reading Room study](https://doi.org/10.1037/apl0001243)

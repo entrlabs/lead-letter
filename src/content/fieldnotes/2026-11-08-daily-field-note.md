@@ -26,6 +26,8 @@ Before recommending a course or a new venture, ask what the person needs to make
 > [!example] Try this
 > Map one proposed career or venture pathway. Identify its likely income, essential support, and the condition that would make another route preferable.
 
+Keep a route back to employment visible when considering self-employment. Build evidence of relevant skills and test how employers interpret the experience before assuming the transition will be easy.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -55,6 +57,14 @@ Researchers examined fourteen fieldwork reports about young entrepreneurs in and
 
 [Read the paper](https://doi.org/10.3390/su182111064).
 
+### Further Reading
+
+[Asanov, Mavlikeeva (2026). Is Self-Employment a Career Trap? A Large-Scale Field Experiment in the Labor Market Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587261440312)
+
+A labor-market field experiment sent more than 8,000 fictitious résumés to examine transitions from self-employment. Applicants with self-employment histories received fewer callbacks than wage earners, particularly for associate professional positions. The study concerns employer responses to applications, not eventual job performance or every labor market. A venture history should not be treated as proof of either suitability or inability. Keep a route back to employment visible when considering self-employment. Build evidence of relevant skills and test how employers interpret the experience before assuming the transition will be easy. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -73,3 +83,5 @@ Researchers examined fourteen fieldwork reports about young entrepreneurs in and
 - [Grant supports capacity for collaborative funding model, Kauffman Foundation](https://www.kauffman.org/currents/collaborative-funding-model-kids-win-missouri/)
 - [Rethinking Entrepreneurship Education in Uganda: Experiences and Perspectives of Young Entrepreneurs, Sustainability](https://doi.org/10.3390/su182111064)
 - [Honesty over Flattery, Farnam Street](https://fs.blog/brain-food/november-8-2026/)
+
+- [Reading Room study](https://doi.org/10.1177/10422587261440312)

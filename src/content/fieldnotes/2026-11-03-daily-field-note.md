@@ -26,6 +26,8 @@ Write the decision first. Identify the smallest set of information needed to mak
 > [!example] Try this
 > Choose one form you ask people to complete. For each field, name the decision it supports. Test removing one field with no clear use.
 
+Make the data request understandable before judging a person’s choice. Test whether less information still supports the decision, without assuming one disclosure reveals a stable privacy preference.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -54,6 +56,14 @@ A qualitative study examined how actors interpreted human-rights due diligence i
 
 [Read the paper](https://doi.org/10.1111/joms.70180).
 
+### Further Reading
+
+[Lee, Weber (2025). Revealed Privacy Preferences: Are Privacy Choices Rational? Management Science.](https://doi.org/10.1287/mnsc.2022.00807)
+
+An experiment examined consistency in choices about sharing personal information. Sixty-three percent of participants made consistent choices when allocating privacy levels, but only about one-third were consistent across sharing and pricing choices. These findings do not describe every user or determine which information a service needs. They caution against treating a single choice as a complete account of privacy preferences. Make the data request understandable before judging a person’s choice. Test whether less information still supports the decision, without assuming one disclosure reveals a stable privacy preference. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -71,3 +81,5 @@ A qualitative study examined how actors interpreted human-rights due diligence i
 - [Data or privacy? Businesses can have both, MIT Sloan research finds, MIT Sloan](https://mitsloan.mit.edu/ideas-made-to-matter/data-or-privacy-businesses-can-have-both-mit-sloan-research-finds)
 - [From Contested Endogenization to Regulatory Unravelling of Mandatory Human Rights Due Diligence: Extending the Endogeneity of Law Framework, Journal of Management Studies](https://doi.org/10.1111/joms.70180)
 - [Watch What They Do, Farnam Street](https://fs.blog/brain-food/september-13-2026/)
+
+- [Reading Room study](https://doi.org/10.1287/mnsc.2022.00807)

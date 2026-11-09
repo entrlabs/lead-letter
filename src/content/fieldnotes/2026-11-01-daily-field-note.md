@@ -26,6 +26,8 @@ Try one change on a small scale. Make the criteria visible before the work begin
 > [!example] Try this
 > List three contributions your team needs. Compare them with what its review form rewards. Choose one gap to discuss openly.
 
+When changing recognition rules, check who feels able to challenge them afterward. Being praised for speaking up and feeling safe about the experience are different outcomes.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -54,6 +56,14 @@ A survey of 312 healthcare professionals in six UAE organizations linked servant
 
 [Read the paper](https://doi.org/10.1108/lhs-02-2026-0030).
 
+### Further Reading
+
+[Rees, Lam, Du, Yu, Wong, Xie (2026). Exploring the duality of voice habit: Testing and extending theory and measurement. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001326)
+
+A study of 435 employees and 135 supervisors examined habitual speaking up. Supervisors could respond positively when they saw helpful motives or consistent behavior. Employees could still regret speaking in teams with a weaker voice climate. The findings distinguish a favorable supervisor impression from the speaker’s own experience. They do not establish that speaking more often always improves decisions. When changing recognition rules, check who feels able to challenge them afterward. Being praised for speaking up and feeling safe about the experience are different outcomes. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -73,3 +83,5 @@ A survey of 312 healthcare professionals in six UAE organizations linked servant
 - [How to Fix a Broken Hierarchy from the Inside, Stanford Graduate School of Business](https://www.gsb.stanford.edu/insights/how-fix-broken-hierarchy-inside)
 - [The impact of servant leadership on collaborative culture in UAE multicultural healthcare organizations, Leadership in Health Services](https://doi.org/10.1108/lhs-02-2026-0030)
 - [Your Best Work: learning through action, Farnam Street](https://fs.blog/brain-food/november-1-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001326)

@@ -27,6 +27,8 @@ The World Bank Group describes record private-capital mobilization alongside ref
 
 Together, these sources support a bounded practice: examine the system around a resource before treating the resource as an outcome. The evidence does not prove that mobilized capital creates equivalent jobs everywhere. It does not prove that accreditation logistics cause improvement, that one support program generalizes, or that one labor release predicts an individual result.
 
+Add a usable route for newcomers to ask questions and find expertise. Check whether the support reaches people who are less comfortable taking the first step.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Together, these sources support a bounded practice: examine the system around a 
 
 > [!question] For Educators And Advisors
 > Separate a program’s funding or design from the belonging, coordination, and support that make participation possible.
+
+## Reading Room
+
+[Pang, Song, Liang, Wang (2026). Capitalizing on proactive personality over organizational socialization tactics in newcomer learning: A meta-analytic investigation. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001351)
+
+A review of 85 samples, with 24,293 people, examined how new staff learn. A tendency to take initiative helped explain learning beyond the formal support their employer offered. Prior experience and culture changed how much that tendency mattered. This does not make new staff solely responsible for learning their jobs. It separates the help a firm provides from how people seek and use that help. Add a usable route for newcomers to ask questions and find expertise. Check whether the support reaches people who are less comfortable taking the first step. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ Together, these sources support a bounded practice: examine the system around a 
 - [Inside Higher Ed](https://www.insidehighered.com/news/business/fundraising/2026/09/18/private-minn-university-receive-82m-first-gen-programs)
 - [BLS Employment Situation](https://www.bls.gov/news.release/empsit.nr0.htm)
 - [Farnam Street](https://fs.blog/map-and-territory/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001351)

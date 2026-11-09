@@ -24,6 +24,8 @@ Harvard Business Review’s October 30 article reports more recalls among higher
 
 These are different cases, not proof of one universal model. They support one practical move. Treat a dashboard, forecast, or plan as a useful map. Then check the people and conditions represented by it. Scale can make a rare defect, hidden dependency, or unsupported promise easier to see.
 
+Pair the growth measure with a measure of the quality people experience. Ask whether faster expansion changes who checks the work or how quickly defects are noticed. A successful headline can coexist with a weaker operating process.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -41,6 +43,14 @@ These are different cases, not proof of one universal model. They support one pr
 
 > [!question] For Educators And Advisors
 > Ask learners to separate what a model shows from what it cannot show.
+
+## Reading Room
+
+[Lun, Zurbruegg, Mount, Cheong (2026). The Double-Edged Sword of Entrepreneurial Orientation: Product Recalls and the Role of COO Power Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587261419465)
+
+Lun and colleagues (2026) examine entrepreneurial orientation and product recalls using 23 years of data on U.S. public firms. Their analysis links entrepreneurial orientation with greater recall likelihood and examines how chief operating officer power changes that relationship across product life cycle conditions. The abstract does not prove that a particular growth initiative will cause a recall. It does support looking beyond growth alone. Pair one expansion target with a quality check and a named reviewer. This is a proposed management practice, not an intervention tested by the study. The reading is abstract-based.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -63,3 +73,5 @@ These are different cases, not proof of one universal model. They support one pr
 - [Commodity Prices Set to Increase by 23% in 2026 as Global Shocks Mount, World Bank Group, October 28, 2026](https://www.worldbank.org/en/news/press-release/2026/10/28/commodity-markets-outlook-october-2026)
 - [Guadalupe Centers clears a path to increase economic mobility in Kansas City’s Latino communities, Julie Scheidegger / Kauffman Foundation, October 26, 2026](https://www.kauffman.org/currents/guadalupe-centers-economic-mobility-latino-communities/)
 - [The Map Is Not the Territory, Farnam Street](https://fs.blog/map-and-territory/)
+
+- [Lun, Zurbruegg, Mount, Cheong (2026). The Double-Edged Sword of Entrepreneurial Orientation: Product Recalls and the Role of COO Power Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587261419465)

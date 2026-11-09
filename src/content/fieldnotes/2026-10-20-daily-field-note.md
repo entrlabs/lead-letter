@@ -28,6 +28,8 @@ Use the example to examine your own suggestion process. Can an employee name a s
 
 Choose one proposal this week. Ask the person closest to the problem what they need to learn first. Fund a bounded test if it fits the team's purpose and capacity. At review, decide whether to continue, revise, or stop, and explain the evidence behind the choice.
 
+Give the small experiment both a near-term review and a longer purpose. Check whether continued funding builds useful capability or only extends coordination demands.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Choose one proposal this week. Ask the person closest to the problem what they n
 
 > [!question] For Educators And Advisors
 > Can students explain what result would justify a second round of work on their project?
+
+## Reading Room
+
+[Lefebvre (2025). Does a Long-Term Orientation Lead to Faster Growth? Firms’ Temporal Orientation and the Growth Process Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251400205)
+
+This study links firms’ investment horizons with growth in assets, employment, and sales. The relationship was curved: a longer horizon was not associated with ever-greater growth. The authors connect long horizons with resource building but also coordination demands. The abstract does not provide a planning period that every organization should adopt or establish a universal causal rule. Give the small experiment both a near-term review and a longer purpose. Check whether continued funding builds useful capability or only extends coordination demands. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -64,3 +74,5 @@ Choose one proposal this week. Ask the person closest to the problem what they n
 
 - [Harvard Business Review: How One Company Used Disciplined Chaos to Drive Innovation, October 14, updated October 15, 2026](https://hbr.org/2026/10/how-one-company-used-disciplined-chaos-to-drive-innovation)
 - [Farnam Street: The Power of Listening (August 9, 2026)](https://fs.blog/brain-food/august-9-2026/)
+
+- [Reading Room study](https://doi.org/10.1177/10422587251400205)

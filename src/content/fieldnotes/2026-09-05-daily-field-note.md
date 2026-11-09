@@ -27,6 +27,8 @@ The World Bank Group reports that Mission 300 has connected more than 50 million
 
 Together, these sources support a practical move: treat capacity as a teamwork problem before treating it as a drive problem. Shared systems can widen access when the delivery parts align. Standards become useful when people explain them and connect them to visible practice. A headline can prompt planning without proving a policy or market outcome. Basic questions can expose assumptions worth testing. The sources do not prove equal access, lasting low costs, better learning results, a final world event, or that this method always produces better decisions.
 
+Label whether a result describes a person, a team, or an institution. Then state the additional evidence needed before using it to judge another level.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Together, these sources support a practical move: treat capacity as a teamwork p
 
 > [!question] For Educators And Advisors
 > Ask learners to separate a known result, a current watch signal, and a useful method before suggesting action.
+
+## Reading Room
+
+[Lemoine, Ghahremani, Norris (2025). The Curious Case of Cross‐Level Effects: Refining Our Understanding to Match Our Methods Journal of Organizational Behavior.](https://doi.org/10.1002/job.70010)
+
+A review of 313 organizational studies examines claims that connect different levels, such as a team and its members. It identifies frequent gaps in how those relationships are explained or interpreted. This is a methodological review, not a finding that any particular economic indicator is wrong. Its central lesson is to specify the level a measure describes before applying it elsewhere. Label whether a result describes a person, a team, or an institution. Then state the additional evidence needed before using it to judge another level. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ Together, these sources support a practical move: treat capacity as a teamwork p
 - [AP current world headline](https://apnews.com/article/argentina-president-donald-trump-javier-milei-falkland-islands-britain-e84d99c99cfb1cb1ad232be8e3ea6c8a)
 - [AACSB interpretive guidance](https://www.aacsb.edu/educators/global-standards/interpretive-guidance)
 - [Farnam Street First Principles](https://fs.blog/first-principles/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70010)

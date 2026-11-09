@@ -29,6 +29,8 @@ AACSB's research-impact framework asks business schools to look beyond publicati
 
 These are different institutional examples, not proof of one scaling formula. They support a practical test: name what must be built around the promise before the promise is expanded. Make the decision owner, support system, partner network, and revision evidence explicit. The sources describe distinct initiatives and frameworks; they do not prove that any one approach will produce a specific outcome.
 
+Make one capacity claim earn support through a team test. Review how the group learns and shares expertise, not only whether it completes the first output.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -46,6 +48,14 @@ These are different institutional examples, not proof of one scaling formula. Th
 
 > [!question] For Educators And Advisors
 > Define who should use a project, what support makes use possible, and what evidence would show value beyond completion or citation.
+
+## Reading Room
+
+[Chen, Vashdi, Fan, Bamberger, Chen (2025). The relative effects of design thinking versus after-action review on team performance: An experiential/episodic team learning perspective. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001277)
+
+A six-month field experiment in a manufacturing company compared design thinking with after-action reviews. Teams receiving the design-thinking intervention showed greater performance improvement. Changes in the learning climate and shared knowledge about expertise partly explained the difference. This comparison does not make one method best for every task. The setting and task variety matter when considering another team. Make one capacity claim earn support through a team test. Review how the group learns and shares expertise, not only whether it completes the first output. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -68,3 +78,5 @@ These are different institutional examples, not proof of one scaling formula. Th
 - [AACSB: A Framework for Research Impact](https://www.aacsb.edu/insights/reports/2026/a-framework-for-research-impact)
 - [MIT Sloan: 5 things to know about how companies can create value from AI](https://mitsloan.mit.edu/ideas-made-to-matter/5-things-to-know-about-how-companies-can-create-value-ai)
 - [Farnam Street: Forget Mistakes](https://fs.blog/brain-food/october-11-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001277)

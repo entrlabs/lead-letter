@@ -26,6 +26,8 @@ Costs also deserve a stress test. The World Bank’s commodity outlook is condit
 > [!example] Try this
 > Write the recurring tasks behind one pilot. Name an owner, cost, and backup for the task most likely to interrupt service.
 
+Include the person who reconciles payments and handles exceptions in the pilot’s capacity plan. Smooth delivery can conceal their recurring effort unless it is measured explicitly.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -54,6 +56,14 @@ Research on crisis work used a two-wave survey and two experiments to examine es
 
 [Read the paper](https://doi.org/10.1177/00187267261466563).
 
+### Further Reading
+
+[Xue, Zhang, Li, Men, Bai, Lv (2026). When Managing Time Comes at a Cost: A Cross‐Role Resource Tradeoff Perspective on Team Temporal Leadership Journal of Organizational Behavior.](https://doi.org/10.1002/job.70121)
+
+Two field studies examined the work of managing a team’s time. Coordinating schedules and processes could reduce followers’ exhaustion while increasing leaders’ exhaustion. Task complexity shaped the benefits, and mental effort and process clarity helped explain the trade-off. These findings do not establish an ideal workload. They show why smoother team delivery can conceal costs for the person coordinating it. Include the person who reconciles payments and handles exceptions in the pilot’s capacity plan. Smooth delivery can conceal their recurring effort unless it is measured explicitly. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -72,3 +82,5 @@ Research on crisis work used a two-wave survey and two experiments to examine es
 - [Grant supports capacity for collaborative funding model, Kauffman Foundation](https://www.kauffman.org/currents/collaborative-funding-model-kids-win-missouri/)
 - [Challenge for some, hindrance for others? How stress appraisals shape employee performance of essential and nonessential work during crises, Human Relations](https://doi.org/10.1177/00187267261466563)
 - [Circle of Competence, Farnam Street](https://fs.blog/circle-of-competence/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70121)

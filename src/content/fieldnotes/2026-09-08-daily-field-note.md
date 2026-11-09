@@ -29,6 +29,8 @@ The same distinction appears in teaching, housing access, and founder developmen
 
 Together, these sources support a practical move: test the map against lived conditions. Ask what evidence would show that assurance reaches a control, that a teaching routine changes a decision, that a housing service reaches an eligible person, or that a setback changed a leader's behavior. The evidence does not establish that any one system works simply because its formal structure or story is persuasive.
 
+Inspect a support process from the recipient’s side. Ask which step adds strain, who explains the options, and whether the person can use the policy when they need it.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -47,6 +49,14 @@ Together, these sources support a practical move: test the map against lived con
 
 > [!question] For Educators And Advisors
 > Ask learners to compare a case or model with an observable decision and name the missing condition that could change the recommendation.
+
+## Reading Room
+
+[Barnes, Lacerenza, Hardin (2026). How policy implementation impacts employee suffering at work: An exploration of medical leaves of absence. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001383)
+
+A qualitative study drew on 48 leave-takers and leave coordinators to examine medical leave. It argues that implementing a policy should address suffering and healing, beyond balancing work and life. This is an account of experiences and a proposed framework, not a trial of every recommended policy. Its workplace setting also differs from student support. Inspect a support process from the recipient’s side. Ask which step adds strain, who explains the options, and whether the person can use the policy when they need it. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -69,3 +79,5 @@ Together, these sources support a practical move: test the map against lived con
 - [AP U.S. index](https://apnews.com/us-news)
 - [Farnam Street Brain Food](https://fs.blog/brain-food/september-6-2026/)
 - [Farnam Street Map Is Not the Territory](https://fs.blog/map-and-territory/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001383)

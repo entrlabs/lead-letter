@@ -29,6 +29,8 @@ The same pattern appears in teaching and business. AACSB lists a workshop on eff
 
 Farnam Street's inversion model adds a useful check. Ask what would make the plan fail, then remove the few avoidable conditions before scaling effort. This is a decision practice, not evidence that inversion guarantees better judgment. The practical move is to make the system visible, test the handoffs, and name the limits of the evidence.
 
+In a failure rehearsal, say when the team should pause to learn and when it must execute a known procedure. Make the transition between those goals explicit.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -47,6 +49,14 @@ Farnam Street's inversion model adds a useful check. Ask what would make the pla
 
 > [!question] For Educators And Advisors
 > Design a case around a decision, its feedback loop, and the evidence that would show whether the practice worked.
+
+## Reading Room
+
+[Dragoni, Hymer, Yoon, LePine, Woodruff, Young, Li (2026). Leader ambidexterity in goal orientation and team adaptive performance. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001405)
+
+Field data from 79 teams at a U.S. military academy linked leaders’ ability to shift between learning and performance goals with better team adaptation. The association remained after accounting for more stable goal orientations. The study does not establish a universal leadership routine or prove causation. Its useful distinction is between a fixed priority and a priority that fits changing demands. In a failure rehearsal, say when the team should pause to learn and when it must execute a known procedure. Make the transition between those goals explicit. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -68,3 +78,5 @@ Farnam Street's inversion model adds a useful check. Ask what would make the pla
 - [AACSB effective case-teaching workshop](https://www.aacsb.edu/events/2026/09/vs2026-september-effective-case-teaching-workshop-global)
 - [AP Business index](https://apnews.com/business)
 - [Farnam Street Inversion](https://fs.blog/inversion/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001405)

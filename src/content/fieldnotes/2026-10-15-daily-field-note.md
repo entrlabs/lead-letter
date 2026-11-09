@@ -29,6 +29,8 @@ AACSB's research-impact framework asks business schools to look beyond publicati
 
 These are different institutional examples. They do not prove one scaling formula. They support a practical test: name what must be built around the promise before the promise is expanded. Make the decision owner, support system, partner network, and revision evidence explicit.
 
+Before expanding a pathway, check support at entry, through partners, and after participation begins. Name the owner of each handoff rather than stopping at the recruitment promise.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -46,6 +48,14 @@ These are different institutional examples. They do not prove one scaling formul
 
 > [!question] For Educators And Advisors
 > Define who should use a project, what support makes use possible, and what evidence would show value beyond completion or citation.
+
+## Reading Room
+
+[Millin, Drader‐Mazza, Badura, Lopez‐Kidwell, Munyon (2025). Neurodiversity Right: The Case for Neurodiversity Employment Programs Journal of Organizational Behavior.](https://doi.org/10.1002/job.70040)
+
+This conceptual article examines programs intended to support neurodivergent people at work. It distinguishes support before hiring, external partnerships, and support after hiring. The authors argue that recruitment and retention require attention across those stages. The article is not a controlled test proving that every program works. Its categories help inspect a pathway without treating neurodivergent people as a uniform group. Before expanding a pathway, check support at entry, through partners, and after participation begins. Name the owner of each handoff rather than stopping at the recruitment promise. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -68,3 +78,5 @@ These are different institutional examples. They do not prove one scaling formul
 - [AACSB: A Framework for Research Impact](https://www.aacsb.edu/insights/reports/2026/a-framework-for-research-impact)
 - [MIT Sloan: 5 things to know about how companies can create value from AI](https://mitsloan.mit.edu/ideas-made-to-matter/5-things-to-know-about-how-companies-can-create-value-ai)
 - [Farnam Street: Ability to Adapt](https://fs.blog/brain-food/august-16-2026/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70040)

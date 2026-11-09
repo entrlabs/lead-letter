@@ -34,6 +34,8 @@ These sources describe plans, an institutional appointment, and survey answers. 
 
 The practical move is to map the system around the resource. Name the barrier, identify who can change it, and choose a measure that would reveal whether access improved. Then check what people experience and what the institution does over time.
 
+When an opportunity involves moving from a venture into employment, make the relevant work visible. Translate experience into role-specific evidence without assuming every employer will interpret a founder title the same way.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -52,6 +54,14 @@ The practical move is to map the system around the resource. Name the barrier, i
 
 > [!question] For Educators And Advisors
 > Ask learners what practical barriers affect participation. Identify which partner can address each one.
+
+## Reading Room
+
+[Asanov, Mavlikeeva (2026). Is Self-Employment a Career Trap? A Large-Scale Field Experiment in the Labor Market Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587261440312)
+
+A labor-market field experiment sent more than 8,000 fictitious résumés to examine transitions from self-employment. Applicants with self-employment histories received fewer callbacks than wage earners, particularly for associate professional positions. The study concerns employer responses to applications, not eventual job performance or every labor market. A venture history should not be treated as proof of either suitability or inability. When an opportunity involves moving from a venture into employment, make the relevant work visible. Translate experience into role-specific evidence without assuming every employer will interpret a founder title the same way. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -72,3 +82,5 @@ The practical move is to map the system around the resource. Name the barrier, i
 - [Pew Research Center: Americans Value Press Freedom but Differ on Its Limits](https://www.pewresearch.org/journalism/2026/09/15/americans-value-press-freedom-but-differ-on-its-limits/)
 - [Kauffman Foundation: Two Grants Aim to Create Stronger Pathways to Economic Mobility](https://www.kauffman.org/currents/kc-tech-council-phoenix-family-collective-impact-project-grants/)
 - [World Bank Group: Michael Kremer Appointed as World Bank Group Chief Economist](https://www.worldbank.org/en/news/press-release/2026/09/16/michael-kremer-appointed-as-world-bank-group-chief-economist)
+
+- [Reading Room study](https://doi.org/10.1177/10422587261440312)

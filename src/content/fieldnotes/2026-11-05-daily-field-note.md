@@ -26,6 +26,8 @@ Kauffman’s workforce feature describes support around a route into work. For y
 > [!example] Try this
 > Choose one new commitment. List its recurring time and cash costs, who pays them, and what would make the commitment unsustainable.
 
+List the informal requests created by the new commitment. Give the recurring helper a workload boundary, and identify another qualified person who can share that responsibility.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -54,6 +56,14 @@ A longitudinal qualitative study followed people building ventures while keeping
 
 [Read the paper](https://doi.org/10.1177/10422587261419463).
 
+### Further Reading
+
+[Frank, Matta, Nakos, Rodell (2026). How the boss’s “right hand” becomes the group’s “go-to”: Leader–member exchange as a heuristic cue for everyday asks. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001401)
+
+Three studies examined why one colleague becomes everyone’s source of help. People may follow the boss’s choice of whom to ask, rather than match each need with the most suitable person. Concentrated reliance can support performance while wearing that person down. The research does not imply that a trusted colleague lacks expertise; it questions how repeated requests become concentrated. List the informal requests created by the new commitment. Give the recurring helper a workload boundary, and identify another qualified person who can share that responsibility. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -72,3 +82,5 @@ A longitudinal qualitative study followed people building ventures while keeping
 - [Guadalupe Centers clears a path to increase economic mobility in Kansas City's Latino communities, Kauffman Foundation](https://www.kauffman.org/currents/guadalupe-centers-economic-mobility-latino-communities/)
 - [Perceived Pain or Gain: Role Identity, Gratification, and the Well-Being of Hybrid Entrepreneurs, Entrepreneurship Theory and Practice](https://doi.org/10.1177/10422587261419463)
 - [Second-Order Thinking, Farnam Street](https://fs.blog/second-order-thinking/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001401)

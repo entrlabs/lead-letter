@@ -27,6 +27,8 @@ The World Bank Group’s appointment of Yuko Keicho as Vice President and Audito
 
 Together, these sources support a practical move: build trust into the system. Visible controls help people see how key decisions are checked. Capacity measures reveal losses that confidence can hide. Careful teaching practice makes judgment visible. A fair first diagnosis can keep attention on repair while leaving room to check misconduct when evidence supports it. The sources do not prove better group performance, a specific savings amount, better teaching results, or that every conflict has an innocent cause.
 
+Make an assessment inspectable at the task level. Show what a person did in each exercise before allowing one total score to describe their capability.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Together, these sources support a practical move: build trust into the system. V
 
 > [!question] For Educators And Advisors
 > Observe how a case discussion is facilitated, then assess whether questions and evidence improve judgment rather than assuming that a workshop or method caused the result.
+
+## Reading Room
+
+[Ingold, Heimann, Waller, Breil, Sackett (2026). What do assessment center ratings reflect? Consistency and heterogeneity in variance composition across multiple samples. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001318)
+
+A study drew on 19 sets of ratings for 4,963 people across 272,528 observations. Scores reflected both the person and the task, and the patterns varied across settings. Merging the ratings into larger scores reduced those gaps only slightly. One total can therefore hide useful detail. The finding does not mean every score is flawed or that one task can show all a person can do. Make an assessment inspectable at the task level. Show what a person did in each exercise before allowing one total score to describe their capability. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ Together, these sources support a practical move: build trust into the system. V
 - [Stanford GSB operations insight](https://www.gsb.stanford.edu/insights/why-do-oil-tankers-spend-so-much-time-sailing-empty)
 - [AACSB case-teaching workshop](https://www.aacsb.edu/events/2026/09/vs2026-september-effective-case-teaching-workshop-global)
 - [Farnam Street Hanlon’s Razor](https://fs.blog/mental-model-hanlons-razor/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001318)

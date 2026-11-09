@@ -27,6 +27,8 @@ The October 2 evidence set moves across four scales. BLS reported little change 
 
 These sources support a practical test. Do not treat movement as a decision until the measure, timing, and operating path are clear. They do not prove one shared causal mechanism. They do not prove a universal economic forecast. They do not prove that every financed project will create durable jobs.
 
+Distinguish the release date from the period used to judge a plan. Choose a review horizon that fits the investment and the team’s ability to coordinate it.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ These sources support a practical test. Do not treat movement as a decision unti
 
 > [!question] For Educators And Advisors
 > Ask learners to separate what the evidence shows from what they still need to verify.
+
+## Reading Room
+
+[Lefebvre (2025). Does a Long-Term Orientation Lead to Faster Growth? Firms’ Temporal Orientation and the Growth Process Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251400205)
+
+This study links firms’ investment horizons with growth in assets, employment, and sales. The relationship was curved: a longer horizon was not associated with ever-greater growth. The authors connect long horizons with resource building but also coordination demands. The abstract does not provide a planning period that every organization should adopt or establish a universal causal rule. Distinguish the release date from the period used to judge a plan. Choose a review horizon that fits the investment and the team’s ability to coordinate it. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ These sources support a practical test. Do not treat movement as a decision unti
 - [Census M3 Release Schedule](https://www.census.gov/manufacturing/m3/release_schedule.html)
 - [World Bank capital mobilization release](https://www.worldbank.org/en/news/press-release/2026/09/17/world-bank-group-mobilizes-record-private-capital-for-developing-countries-driving)
 - [Farnam Street: More Focus](https://fs.blog/brain-food/september-27-2026/)
+
+- [Reading Room study](https://doi.org/10.1177/10422587251400205)

@@ -26,6 +26,8 @@ An AACSB practitioner article proposes alumni ties, partnerships, and credential
 
 Each case calls for a different check. Compare the price index with your own costs. Follow the student through the enrollment handoff. Measure uptake and delivery cost for a new offering. Confirm that a governance tool is actually released and used. Farnam Street's reminder about surprises is a reason to keep those checks close to the decision.
 
+Inspect the transition between learning stages. Check task performance and social connection separately, so a successful placement does not hide a person losing access to support.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ Each case calls for a different check. Compare the price index with your own cos
 
 > [!question] For Educators And Advisors
 > Ask learners to trace an enrollment or credential pathway and name the handoff where evidence is still missing.
+
+## Reading Room
+
+[Wu, Liu, Wu, Xia (2026). Off to a hard start: How job rotation reshapes newcomers’ learning and adjustment process. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001312)
+
+A study followed 255 new nurses across 12 waves during job rotations. Task mastery rose, fell around the transition, and then rose again. Social integration followed a different, declining path. Learning a task and feeling integrated were therefore distinct outcomes. This nursing setting does not establish that every rotation harms belonging or that rotation should always be avoided. Inspect the transition between learning stages. Check task performance and social connection separately, so a successful placement does not hide a person losing access to support. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ Each case calls for a different check. Compare the price index with your own cos
 - [AACSB small-school revenue article](https://www.aacsb.edu/insights/articles/2026/09/5-ways-a-small-school-can-boost-revenue-streams)
 - [UNESCO AI-governance notice](https://www.unesco.org/en/articles/unesco-launches-new-tools-reinforce-ethical-ai-governance-global-forum-riyadh-saudi-arabia)
 - [Farnam Street Surprises](https://fs.blog/brain-food/august-23-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001312)

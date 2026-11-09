@@ -27,6 +27,8 @@ Today's sources connect education leadership, climate preparation, official moni
 
 The practical task is to keep observation, outlook, and impact claims separate. Then make the operating choice visible. This evidence does not prove educational outcomes, a specific regional climate effect, or the causal effect of one management practice.
 
+For AI-supported monitoring, ask whether team reflection or confidence actually improves. Measure checking demands separately rather than assuming better output means less work.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ The practical task is to keep observation, outlook, and impact claims separate. 
 
 > [!question] For Educators And Advisors
 > Ask who owns the response and which local measure can test the plan.
+
+## Reading Room
+
+[Liu, Watts, Li, Wang, Li (2026). AI‐Augmented Leadership: How, Why, and When Leaders' Collaboration With AI Enhances Team Performance Journal of Organizational Behavior.](https://doi.org/10.1002/job.70070)
+
+Two surveys drawing on multiple sources and waves examined leaders working with AI. Team reflection and confidence in taking on broader roles helped explain the relationship with performance. Evidence that reduced role overload explained the relationship was mixed. These survey findings do not establish that AI automatically frees capacity. The useful question is which part of team work actually changes. For AI-supported monitoring, ask whether team reflection or confidence actually improves. Measure checking demands separately rather than assuming better output means less work. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ The practical task is to keep observation, outlook, and impact claims separate. 
 - [Harvard Business Review: When There's More Work Than Your Team Can Handle](https://hbr.org/2026/09/when-theres-more-work-than-your-team-can-handle)
 - [Farnam Street: Focus and Diversification](https://fs.blog/brain-food/october-4-2026/)
 
+
+- [Reading Room study](https://doi.org/10.1002/job.70070)

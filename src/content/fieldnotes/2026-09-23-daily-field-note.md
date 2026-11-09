@@ -34,6 +34,8 @@ Start with a claim you need to assess this week. Write down what the measure cap
 
 If that path is unclear, treat the promise as unfinished. A persuasive headline is only the start. The operating choices behind it show whether the evidence can become useful.
 
+Name the support needed after a program recruits participants. Give ongoing assistance an owner and resources, so enrollment does not become the last observable step.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -53,6 +55,14 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 
 > [!question] For Educators And Advisors
 > Ask which expertise improves a service over time, and distinguish visible access from the capability that makes the service better.
+
+## Reading Room
+
+[Millin, Drader‐Mazza, Badura, Lopez‐Kidwell, Munyon (2025). Neurodiversity Right: The Case for Neurodiversity Employment Programs Journal of Organizational Behavior.](https://doi.org/10.1002/job.70040)
+
+This conceptual article examines programs intended to support neurodivergent people at work. It distinguishes support before hiring, external partnerships, and support after hiring. The authors argue that recruitment and retention require attention across those stages. The article is not a controlled test proving that every program works. Its categories help inspect a pathway without treating neurodivergent people as a uniform group. Name the support needed after a program recruits participants. Give ongoing assistance an owner and resources, so enrollment does not become the last observable step. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -75,3 +85,5 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 - [Ahead of Fiscal Year End, NSF Over a Billion Behind, IES to Award Funds](https://www.insidehighered.com/news/government/science-research-policy/2026/09/21/nsf-over-billion-behind-grants-ies-says-will)
 - [U.S. Census Bureau Economic Indicators](https://www.census.gov/economic-indicators/)
 - [Farnam Street: Watch What They Do](https://fs.blog/brain-food/september-13-2026/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70040)

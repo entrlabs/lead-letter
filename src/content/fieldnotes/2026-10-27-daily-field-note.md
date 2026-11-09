@@ -30,6 +30,8 @@ For one initiative, write four lines: the action, the bottleneck, the authority 
 
 If the test fails, do not treat the failure as proof that the idea is weak. Ask whether the constraint was named correctly, whether the person had usable authority, or whether the test measured the intended change. Revise one condition before adding more scale.
 
+When a colleague asks for help, notice whether your response removes today’s obstacle or teaches a reusable way through it. Some urgent tasks need direct help. For a recurring decision, leave the person with the reasoning and authority to handle the next case.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -51,6 +53,14 @@ This is a practitioner thinking prompt, not evidence that the practice works in 
 > [!question] For Educators And Advisors
 > Ask learners to separate demand for a pathway from the capacity required to deliver it, then design a small capacity test.
 
+## Reading Room
+
+[Paek, Kakkar (2025). To give a fish or to teach how to fish: Examining leaders’ autonomy and dependency helping behaviors. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001299)
+
+Paek and Kakkar (2025) distinguish help that solves a problem for an employee from help that builds independent problem-solving. Their research includes preregistered experiments and field studies, including one with 105 supervisors and 420 employees. It examines how leaders’ approaches to status relate to these forms of help. The abstract does not establish that teaching is always preferable to direct assistance. For one recurring task, explain the decision rule and ask the colleague to apply it to a new case. Treat this as a proposed delegation exercise. The reading is based on the abstract.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -70,3 +80,5 @@ This is a practitioner thinking prompt, not evidence that the practice works in 
 - [Our Favorite Management Tips on Delegating Effectively, HBR Editors; October 22, 2026](https://hbr.org/2026/10/our-favorite-management-tips-on-delegating)
 - [Red Tail Academy provides a runway for students to enter the aviation workforce, Julie Scheidegger; August 27, 2026](https://www.kauffman.org/currents/red-tail-academy-aviation-workforce/)
 - [Farnam Street: A Thousand Compromises; June 7, 2026](https://fs.blog/brain-food/june-7-2026/)
+
+- [Paek, Kakkar (2025). To give a fish or to teach how to fish: Examining leaders’ autonomy and dependency helping behaviors. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001299)

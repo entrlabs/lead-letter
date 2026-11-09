@@ -30,6 +30,8 @@ The Census business-application indicator is useful, but it is not a count of co
 
 These sources document different measures, arguments, choices, and team findings. They do not prove one mechanism explains every domain, that teaching practices cause judgment, or that future research leadership will produce a specific outcome. They support one practical test: evidence becomes useful when the working practice makes judgment, coordination, feedback, and result visible.
 
+Build a review into the working routine. Let the team inspect its assumptions, redesign one step, and test whether its shared understanding of the work improves.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -49,6 +51,14 @@ Farnam Street supplies a thinking prompt, not independent evidence for the sourc
 
 > [!question] For Educators And Advisors
 > Assess whether learners can connect evidence to judgment, adaptation, and consequences rather than only repeat the evidence.
+
+## Reading Room
+
+[Chen, Vashdi, Fan, Bamberger, Chen (2025). The relative effects of design thinking versus after-action review on team performance: An experiential/episodic team learning perspective. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001277)
+
+A six-month field experiment in a manufacturing company compared design thinking with after-action reviews. Teams receiving the design-thinking intervention showed greater performance improvement. Changes in the learning climate and shared knowledge about expertise partly explained the difference. This comparison does not make one method best for every task. The setting and task variety matter when considering another team. Build a review into the working routine. Let the team inspect its assumptions, redesign one step, and test whether its shared understanding of the work improves. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -71,3 +81,5 @@ Farnam Street supplies a thinking prompt, not independent evidence for the sourc
 - [World Bank Group: Michael Kremer Appointed as Chief Economist](https://www.worldbank.org/en/news/press-release/2026/09/16/michael-kremer-appointed-as-world-bank-group-chief-economist)
 - [Gallup Workplace: The Science of High-Performing Teams](https://www.gallup.com/workplace/650156/science-of-high-performing-teams.aspx)
 - [Farnam Street: More Focus](https://fs.blog/brain-food/september-27-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001277)

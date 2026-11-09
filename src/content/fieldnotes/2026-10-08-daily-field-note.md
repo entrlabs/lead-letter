@@ -27,6 +27,8 @@ Today’s sources show four different ways conditions shape results. Census repo
 
 These sources do not prove one common cause. They do support a practical test: before scaling, make the operating conditions visible, name the accountable authority, and define the evidence that would change the plan.
 
+Include job quality among the conditions for expanding AI use. Ask staff which tasks improve, which burdens grow, and what evidence would justify adjusting the rollout.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ These sources do not prove one common cause. They do support a practical test: b
 
 > [!question] For Educators And Advisors
 > Connect technical fluency and opportunity to the support system, judgment task, and institution responsible for sustaining the result.
+
+## Reading Room
+
+[Schulz, Bendig, Bräunche, Kindermann (2025). Curse or Blessing: Investigating the Influence of Firms’ Artificial Intelligence Adoption on Employee Job Satisfaction Journal of Management Studies.](https://doi.org/10.1111/joms.70004)
+
+A study of 509 publicly listed U.S. firms used data from 2009–2020 and follow-up interviews. AI adoption had a curved relationship with job satisfaction, with benefits and costs changing across levels of adoption. Strategy and data governance also mattered. The findings do not show that adding more AI always improves jobs, or predict the result of one deployment. Include job quality among the conditions for expanding AI use. Ask staff which tasks improve, which burdens grow, and what evidence would justify adjusting the rollout. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ These sources do not prove one common cause. They do support a practical test: b
 - [Federal Reserve Board: Isabella Bank Corporation approval](https://www.federalreserve.gov/newsevents/pressreleases/orders20261005a.htm)
 - [MIT Sloan: The Collision: What AI Does to Us](https://mitsloan.mit.edu/ideas-made-to-matter/collision-what-ai-does-to-us)
 - [Farnam Street: Focus and Diversification](https://fs.blog/brain-food/october-4-2026/)
+
+- [Reading Room study](https://doi.org/10.1111/joms.70004)

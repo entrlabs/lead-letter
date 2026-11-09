@@ -27,6 +27,8 @@ The Census Bureau’s retailer-profit indicator shows why a number needs a defin
 
 These sources document different measures, institutional statements, resource listings, and practitioner frameworks. They do not prove one shared causal mechanism. They do not prove that a research-impact framework improves outcomes, that mobilized capital creates specific future jobs, or that any team routine causes performance. They support a practical test. Progress is easier to trust when the surrounding practice makes judgment, coordination, feedback, and consequence visible.
 
+Make progress visible through several relevant tasks. Preserve the differences between those performances so one summary score does not conceal where further practice is needed.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ These sources document different measures, institutional statements, resource li
 
 > [!question] For Educators And Advisors
 > Assess whether learners can connect evidence to judgment, adaptation, and consequences rather than only repeat the evidence.
+
+## Reading Room
+
+[Ingold, Heimann, Waller, Breil, Sackett (2026). What do assessment center ratings reflect? Consistency and heterogeneity in variance composition across multiple samples. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001318)
+
+A study drew on 19 sets of ratings for 4,963 people across 272,528 observations. Scores reflected both the person and the task, and the patterns varied across settings. Merging the ratings into larger scores reduced those gaps only slightly. One total can therefore hide useful detail. The finding does not mean every score is flawed or that one task can show all a person can do. Make progress visible through several relevant tasks. Preserve the differences between those performances so one summary score does not conceal where further practice is needed. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ These sources document different measures, institutional statements, resource li
 - [AACSB Insights](https://www.aacsb.edu/insights)
 - [Gallup Workplace: The Science of High-Performing Teams](https://www.gallup.com/workplace/650156/science-of-high-performing-teams.aspx)
 - [Farnam Street: More Focus](https://fs.blog/brain-food/september-27-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001318)

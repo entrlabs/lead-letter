@@ -27,6 +27,8 @@ Today’s sources show four ways capacity becomes visible. HBR reports that work
 
 These sources do not prove one common cause. They support a practical test: when a system expands, ask what human capability it protects, who owns the operating decision, and what evidence would make the plan change.
 
+Protect the capability held by the person everyone consults. Document recurring decisions and build another source of help before expansion makes that person the only practical route.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ These sources do not prove one common cause. They support a practical test: when
 
 > [!question] For Educators And Advisors
 > Connect emerging tools or career pathways to practice, accountability, and the institution responsible for sustaining them.
+
+## Reading Room
+
+[Frank, Matta, Nakos, Rodell (2026). How the boss’s “right hand” becomes the group’s “go-to”: Leader–member exchange as a heuristic cue for everyday asks. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001401)
+
+Three studies examined why one colleague becomes everyone’s source of help. People may follow the boss’s choice of whom to ask, rather than match each need with the most suitable person. Concentrated reliance can support performance while wearing that person down. The research does not imply that a trusted colleague lacks expertise; it questions how repeated requests become concentrated. Protect the capability held by the person everyone consults. Document recurring decisions and build another source of help before expansion makes that person the only practical route. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ These sources do not prove one common cause. They support a practical test: when
 - [Federal Reserve Board: Isabella Bank Corporation approval](https://www.federalreserve.gov/newsevents/pressreleases/orders20261005a.htm)
 - [MIT Sloan: These new courses track emerging technologies and business trends](https://mitsloan.mit.edu/ideas-made-to-matter/these-new-mit-sloan-courses-track-emerging-technologies-and-business-trends)
 - [Farnam Street: Focus and Diversification](https://fs.blog/brain-food/october-4-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001401)

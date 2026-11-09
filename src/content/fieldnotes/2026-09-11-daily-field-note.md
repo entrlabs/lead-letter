@@ -31,6 +31,8 @@ AACSB's case-teaching workshop makes the routine practical. Good discussion depe
 
 Use the sequence when a decision carries institutional risk: define the claim, name who checks it, preserve the evidence trail, and state what remains unknown. A completed review is a process outcome. It is not proof that the underlying risk has disappeared.
 
+When checking a difficult promise, seek a relevant perspective outside the usual circle. Ask what the new contact knows that your current reviewers cannot establish.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -49,6 +51,14 @@ Use the sequence when a decision carries institutional risk: define the claim, n
 
 > [!question] For Educators And Advisors
 > Design a case around the decision learners must make, the evidence they should use, and the feedback that tests the next attempt.
+
+## Reading Room
+
+[Chen, Batjargal (2025). What Does Not Kill You Makes You Search: The Effects of Failure Threat and Self-Evaluation on Entrepreneurs’ Ego Networks Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251315665)
+
+An experiment with 155 entrepreneurs and a survey of 153 entrepreneurs in China examined how failure threats relate to network choices. Threat and self-evaluation shaped whether people sought more diverse contacts. The survey also found different short- and long-term patterns. These findings do not show that a wider network always produces better advice or a successful venture. When checking a difficult promise, seek a relevant perspective outside the usual circle. Ask what the new contact knows that your current reviewers cannot establish. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -71,3 +81,5 @@ Use the sequence when a decision carries institutional risk: define the claim, n
 - [AACSB Effective Case Teaching Workshop](https://www.aacsb.edu/events/2026/09/vs2026-september-effective-case-teaching-workshop-global)
 - [World Bank Group auditor-general release](https://www.worldbank.org/en/news/press-release/2026/08/25/world-bank-group-appoints-yuko-keicho-as-auditor-general)
 - [Farnam Street: How Steve Jobs Learned to Lead](https://fs.blog/brain-food/september-6-2026/)
+
+- [Reading Room study](https://doi.org/10.1177/10422587251315665)

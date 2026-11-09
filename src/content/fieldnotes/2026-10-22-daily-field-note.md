@@ -28,6 +28,8 @@ The useful question is not whether a plan sounds ambitious. It is whether a pers
 
 These sources include expert guidance, a foundation retrospective, an official press release, and an association survey. They support a practice for inspection and review. They do not prove universal causal results or outcomes from future events.
 
+For an AI-assisted process, draw the links between people and the tool. Include who supplies context, who checks the output, and who can change the decision. Scaling the software also scales the demands on those people.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -46,6 +48,14 @@ These sources include expert guidance, a foundation retrospective, an official p
 
 > [!question] For Educators And Advisors
 > When an institution announces a new opportunity, ask what support, participation path, owner, and outcome evidence will make the promise usable.
+
+## Reading Room
+
+[Stelmaszak, Joshi, Constantiou (2025). Artificial Intelligence as an Organizing Capability Arising from Human‐Algorithm Relations Journal of Management Studies.](https://doi.org/10.1111/joms.70003)
+
+Stelmaszak, Joshi, and Constantiou (2025) propose treating AI capability as something that emerges through relations between people and algorithms. Their article is conceptual, not a test showing that a particular deployment improves performance. It shifts attention toward the connections that let a team analyze, learn, and act. Before expanding a pilot, trace one output through the people who supply, check, and use it. Name the handoff that still depends on informal help. This proposed exercise applies the argument to visible work. The reading is based on the abstract, not the full article.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -68,3 +78,5 @@ These sources include expert guidance, a foundation retrospective, an official p
 - [World Bank Group: UAE Signs Agreement to Host 2029 World Bank Group and IMF Annual Meetings in Abu Dhabi](https://www.worldbank.org/en/news/press-release/2026/10/18/uae-signs-agreement-to-host-2029-world-bank-group-annual-meetings)
 - [AACSB: 2026-27 Deans Survey: Findings in Focus](https://www.aacsb.edu/insights/reports/2026/2026-27-deans-survey-findings-in-focus)
 - [Farnam Street: Surprises](https://fs.blog/brain-food/august-23-2026/)
+
+- [Stelmaszak, Joshi, Constantiou (2025). Artificial Intelligence as an Organizing Capability Arising from Human‐Algorithm Relations Journal of Management Studies.](https://doi.org/10.1111/joms.70003)

@@ -27,6 +27,8 @@ UNESCO's education report shows that global enrollment parity can coexist with c
 
 These are distinct institutional examples, not proof of one universal formula. They support a practical test: identify the point where people stop being able to continue, then redesign the surrounding system before widening the intervention. Measure persistence, completion, re-entry, or usable work, not access alone.
 
+Inspect reentry from the participant’s perspective. Ask what makes returning harder and who can coordinate support, while adapting the question carefully beyond the medical-leave setting studied.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ These are distinct institutional examples, not proof of one universal formula. T
 
 > [!question] For Educators And Advisors
 > Pair access measures with persistence, completion, and return measures so support is designed around where participation breaks down.
+
+## Reading Room
+
+[Barnes, Lacerenza, Hardin (2026). How policy implementation impacts employee suffering at work: An exploration of medical leaves of absence. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001383)
+
+A qualitative study drew on 48 leave-takers and leave coordinators to examine medical leave. It argues that implementing a policy should address suffering and healing, beyond balancing work and life. This is an account of experiences and a proposed framework, not a trial of every recommended policy. Its workplace setting also differs from student support. Inspect reentry from the participant’s perspective. Ask what makes returning harder and who can coordinate support, while adapting the question carefully beyond the medical-leave setting studied. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -65,3 +75,5 @@ These are distinct institutional examples, not proof of one universal formula. T
 - [Ewing Marion Kauffman Foundation: Project Choice reflection](https://www.kauffman.org/currents/)
 - [MIT Sloan: AI and jobs: 4 takeaways from Google's chief economist](https://mitsloan.mit.edu/ideas-made-to-matter/ai-and-jobs-4-takeaways-googles-chief-economist)
 - [Farnam Street: Focus and Diversification](https://fs.blog/brain-food/october-4-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001383)

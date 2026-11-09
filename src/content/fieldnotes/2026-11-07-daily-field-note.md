@@ -26,6 +26,8 @@ These examples invite a practical check, not a universal prescription. Identify 
 > [!example] Try this
 > Choose one decision you plan to delegate. Rehearse a realistic exception and agree when the new owner should ask for help.
 
+Rehearse both a familiar case and an uncertain exception. Use direct guidance where the rule is clear, then invite the future owner to explain how they would investigate the exception.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -55,6 +57,14 @@ A review of 18 studies examined leadership development for clinical nurses. It r
 
 [Read the paper](https://doi.org/10.1111/jocn.70613).
 
+### Further Reading
+
+[Chib, Luk, Fu (2025). Enhancing Subordinate Job Performance Through Coaching Behaviors: A Lay Epistemic Approach Journal of Organizational Behavior.](https://doi.org/10.1002/job.70020)
+
+A two-wave study using supervisor and employee reports examined direct guidance and more exploratory coaching. Facilitation was linked with stronger self-efficacy for employees who preferred a more extended search for answers. Guidance was linked with trust in the supervisor. The findings do not establish one universally superior coaching style. They highlight differences in how people seek certainty while learning. Rehearse both a familiar case and an uncertain exception. Use direct guidance where the rule is clear, then invite the future owner to explain how they would investigate the exception. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -73,3 +83,5 @@ A review of 18 studies examined leadership development for clinical nurses. It r
 - [Grant supports capacity for collaborative funding model, Kauffman Foundation](https://www.kauffman.org/currents/collaborative-funding-model-kids-win-missouri/)
 - [Leadership Development Programmes for Clinical Nurses: A Systematic Review, Journal of Clinical Nursing](https://doi.org/10.1111/jocn.70613)
 - [Your Best Work, Farnam Street](https://fs.blog/brain-food/november-1-2026/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70020)

@@ -32,6 +32,8 @@ Start with a small, reversible test. A student project might need one shared wor
 
 Watch for a simple failure: the same employee doing both jobs after hours. If that happens, the promised protection has not reached the work.
 
+Protected time helps only if people also believe they may use it. State which small changes the experiment owner can make without another approval. Make the boundary clear enough that the person can repeat it back.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -53,6 +55,14 @@ This is a practitioner thinking prompt, not evidence that the practice works in 
 > [!question] For Educators And Advisors
 > Give an experimental assignment a clear time budget and a review point. Ask students which other demands compete with it.
 
+## Reading Room
+
+[Akben, Vogel (2025). The role of permission in the employee proactivity process. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001271)
+
+Akben and Vogel (2025) examine whether employees feel allowed to take initiative. In a field study of 388 employees and 110 supervisors across 35 organizations, perceived permission helped predict proactive behavior beyond established predictors. The study separates feeling permitted from having motivation or confidence. Its field design does not prove that a permission statement alone changes behavior. Pair protected experiment time with a clear decision boundary, then ask the owner what still needs approval. That is a proposed practice drawn from the concept. This reading uses the abstract; full methods and effect sizes were not reviewed.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -71,3 +81,5 @@ This is a practitioner thinking prompt, not evidence that the practice works in 
 
 - [How One Company Used Disciplined Chaos to Drive Innovation, HBR; October 14, updated October 15, 2026](https://hbr.org/2026/10/how-one-company-used-disciplined-chaos-to-drive-innovation)
 - [Farnam Street: The Nature of Power; August 2, 2026](https://fs.blog/brain-food/august-2-2026/)
+
+- [Akben, Vogel (2025). The role of permission in the employee proactivity process. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001271)

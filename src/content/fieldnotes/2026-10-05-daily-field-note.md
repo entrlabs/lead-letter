@@ -27,6 +27,8 @@ Today's evidence moves from development finance to operating measures, labor tal
 
 The evidence has clear limits. Aggregate measures do not predict one firm's results. Reports of labor disputes do not settle their merits or outcomes. Institutional claims do not independently prove long-term effects. An education framework does not prove every proposed method works.
 
+Ask whether the next phase requires reliable execution or learning about an uncertain task. Align the team’s immediate goal with that need and explain when it should change.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ The evidence has clear limits. Aggregate measures do not predict one firm's resu
 
 > [!question] For Educators And Advisors
 > Assess reasoning, trade-offs, and adaptation rather than answer recall alone.
+
+## Reading Room
+
+[Dragoni, Hymer, Yoon, LePine, Woodruff, Young, Li (2026). Leader ambidexterity in goal orientation and team adaptive performance. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001405)
+
+Field data from 79 teams at a U.S. military academy linked leaders’ ability to shift between learning and performance goals with better team adaptation. The association remained after accounting for more stable goal orientations. The study does not establish a universal leadership routine or prove causation. Its useful distinction is between a fixed priority and a priority that fits changing demands. Ask whether the next phase requires reliable execution or learning about an uncertain task. Align the team’s immediate goal with that need and explain when it should change. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ The evidence has clear limits. Aggregate measures do not predict one firm's resu
 - [AACSB: Educating for the Judgment Economy](https://www.aacsb.edu/insights/articles/2026/09/educating-for-the-judgment-economy)
 - [Farnam Street: More Focus](https://fs.blog/brain-food/september-27-2026/)
 
+
+- [Reading Room study](https://doi.org/10.1037/apl0001405)

@@ -31,6 +31,8 @@ Two other sources extend the question of who contributes. AACSB's Global Impact 
 
 These sources do not prove one leadership method. They offer advice, recollections, program descriptions, and stated aims. The practical test is yours: who can challenge the plan, who helps carry it out, and what evidence would show that it serves its users?
 
+Ask for an objection through a route people can actually use. Avoid reading silence as agreement or assuming that a confident personality guarantees a useful challenge.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -48,6 +50,14 @@ These sources do not prove one leadership method. They offer advice, recollectio
 
 > [!question] For Educators And Advisors
 > Name the people who should use a project and invite them to test its promised value. Define evidence of use beyond the finished output.
+
+## Reading Room
+
+[Liu, Wang, Huang, Xu, Liu, He (2026). The u-shaped relationship between locus of control and prohibitive voice via perceived risk of prohibitive voice: The moderating role of team voice climate. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001316)
+
+Two field studies examined beliefs about personal control and speaking up about concerns. People at either end of the control scale perceived less risk than those in the middle. The pattern was stronger where the team’s climate for speaking up was weaker. These associations do not justify labeling individual colleagues or predicting who will raise a concern. Ask for an objection through a route people can actually use. Avoid reading silence as agreement or assuming that a confident personality guarantees a useful challenge. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -70,3 +80,5 @@ These sources do not prove one leadership method. They offer advice, recollectio
 - [AACSB: Global Impact Awards](https://www.aacsb.edu/about-us/advocacy/global-impact-awards)
 - [World Bank Group: Philanthropy Hub](https://www.worldbank.org/en/news/press-release/2026/10/12/world-bank-group-launches-philanthropy-hub-to-unlock-capital-knowledge-and-network)
 - [Farnam Street: The Work Is The Reward](https://fs.blog/brain-food/july-26-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001316)

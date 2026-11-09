@@ -31,6 +31,8 @@ AACSB's case-teaching workshop points to the work inside the intervention. Pract
 
 Use the sequence when an access, integration, or learning problem appears: locate the risk and approval bottlenecks, listen to the people affected, and design the next practice around the constraint that remains.
 
+Map the work of keeping the process moving. Include reminders, rescheduling, and clarifications, then ask whether the coordinator has enough time and backup for that work.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -49,6 +51,14 @@ Use the sequence when an access, integration, or learning problem appears: locat
 
 > [!question] For Educators And Advisors
 > Design one case discussion around the decision learners must make, the evidence they need, and the feedback that can improve the next attempt.
+
+## Reading Room
+
+[Xue, Zhang, Li, Men, Bai, Lv (2026). When Managing Time Comes at a Cost: A Cross‐Role Resource Tradeoff Perspective on Team Temporal Leadership Journal of Organizational Behavior.](https://doi.org/10.1002/job.70121)
+
+Two field studies examined the work of managing a team’s time. Coordinating schedules and processes could reduce followers’ exhaustion while increasing leaders’ exhaustion. Task complexity shaped the benefits, and mental effort and process clarity helped explain the trade-off. These findings do not establish an ideal workload. They show why smoother team delivery can conceal costs for the person coordinating it. Map the work of keeping the process moving. Include reminders, rescheduling, and clarifications, then ask whether the coordinator has enough time and backup for that work. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -70,3 +80,5 @@ Use the sequence when an access, integration, or learning problem appears: locat
 - [Inside Higher Ed Bay Path report](https://www.insidehighered.com/news/quick-takes/2026/09/09/ed-approves-bay-path-acquisition-cambridge-college)
 - [AACSB Effective Case Teaching Workshop](https://www.aacsb.edu/events/2026/09/vs2026-september-effective-case-teaching-workshop-global)
 - [Farnam Street The Power of Listening](https://fs.blog/brain-food/august-9-2026/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70121)

@@ -27,6 +27,8 @@ The World Bank Group’s same-day headline announces record private-capital mobi
 
 Together, these sources support a practical discipline: make capacity usable. Capital announced is not capital deployed. A partnership named is not a working route. Available space is not useful capacity. Aggregate job growth is not an individual outcome. Identify the constraint, name the mechanism, define the measure, and assign a human owner before treating a plan as progress. The sources do not prove the World Bank’s realized jobs, the AACSB model’s general effectiveness, institution-specific campus savings, or any individual hiring result.
 
+Include language and trusted introductions when checking whether a resource is usable. Ask participants where communication prevents access, without using their background as a proxy for ability.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Together, these sources support a practical discipline: make capacity usable. Ca
 
 > [!question] For Educators And Advisors
 > Ask whether a program changes usable access or capacity, and document what people do before claiming impact.
+
+## Reading Room
+
+[Zhu, Shen, Lee (2025). Linguistic Capital, Social Capital, and Self-Employment of Rural-Urban Migrants in China Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251398806)
+
+Research using the China Migrants Dynamic Survey links local dialect similarity with rural-urban migrants’ likelihood of self-employment. Networks and trust help explain the relationship. The study uses statistical methods to address selection, but its context remains specific. It does not show that language similarity is a fair selection rule or that language training alone removes barriers. Include language and trusted introductions when checking whether a resource is usable. Ask participants where communication prevents access, without using their background as a proxy for ability. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ Together, these sources support a practical discipline: make capacity usable. Ca
 - [Inside Higher Ed](https://www.insidehighered.com/news/business/physical-campuses/2026/09/17/higher-ed-has-too-much-wasted-square-footage)
 - [BLS Employment Situation](https://www.bls.gov/news.release/empsit.nr0.htm)
 - [Farnam Street](https://fs.blog/brain-food/september-13-2026/)
+
+- [Reading Room study](https://doi.org/10.1177/10422587251398806)

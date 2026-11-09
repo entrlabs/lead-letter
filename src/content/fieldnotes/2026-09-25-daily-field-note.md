@@ -30,6 +30,8 @@ Harvard Business School reports a long-run shift away from locally rooted, high-
 
 These sources document different measures and scopes. They do not prove that the grants will improve outcomes, that uneven AI use caused an employment difference, or that applications predict venture survival. They support a disciplined practice: name the barrier, actor, measure, and time horizon before treating an opportunity as usable.
 
+Ask whether unfamiliar language or missing trusted contacts is part of the access barrier. Test a clearer explanation or introduction, and observe whether people can complete the next step.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -49,6 +51,14 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 
 > [!question] For Educators And Advisors
 > Ask learners to compare business applications, employment patterns, planned interventions, and AI adoption without treating them as interchangeable outcomes.
+
+## Reading Room
+
+[Zhu, Shen, Lee (2025). Linguistic Capital, Social Capital, and Self-Employment of Rural-Urban Migrants in China Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251398806)
+
+Research using the China Migrants Dynamic Survey links local dialect similarity with rural-urban migrants’ likelihood of self-employment. Networks and trust help explain the relationship. The study uses statistical methods to address selection, but its context remains specific. It does not show that language similarity is a fair selection rule or that language training alone removes barriers. Ask whether unfamiliar language or missing trusted contacts is part of the access barrier. Test a clearer explanation or introduction, and observe whether people can complete the next step. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -71,3 +81,5 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 - [Research Roundup: AI’s Uneven Impact on Work](https://www.aacsb.edu/insights/articles/2026/09/research-roundup-september-2026)
 - [U.S. Census Bureau Economic Indicators](https://www.census.gov/economic-indicators/)
 - [Slop](https://fs.blog/brain-food/september-20-2026/)
+
+- [Reading Room study](https://doi.org/10.1177/10422587251398806)

@@ -28,6 +28,8 @@ Use the three questions today: Who can access the system? Who can change the dec
 
 These sources do not prove that projected payment gains will occur, that Ohio's model will generalize, or that every AI-enabled team will improve. They support a bounded operating check, not a universal prediction.
 
+Keep a human decision owner visible when AI gives advice. Record the evidence behind accepting or rejecting the suggestion, rather than treating either agreement or independence as automatically sound.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ These sources do not prove that projected payment gains will occur, that Ohio's 
 
 > [!question] For Educators And Advisors
 > Ask learners to compare formal authority with practical influence before proposing a solution to an institutional problem.
+
+## Reading Room
+
+[Lee, Cho, Woo, de Jong (2025). When Do Individuals Believe in Themselves Rather Than in Artificial Intelligence? Insights from Longitudinal Investigations in Corporate Credit‐Rating Contexts Journal of Management Studies.](https://doi.org/10.1111/joms.70009)
+
+Six longitudinal studies examined how people used AI advice in corporate credit-rating tasks. Initial judgments grew more similar to the advice over time. Experience, disagreement with the advice, and other information shaped later adjustments. The AI in these studies was designed to offer more accurate advice than users. That condition cannot be assumed for every workplace tool. Keep a human decision owner visible when AI gives advice. Record the evidence behind accepting or rejecting the suggestion, rather than treating either agreement or independence as automatically sound. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ These sources do not prove that projected payment gains will occur, that Ohio's 
 - [AACSB Insights: Super Teams and Accountability](https://www.aacsb.edu/insights)
 - [BLS: Employment Situation Summary](https://www.bls.gov/news.release/empsit.nr0.htm)
 - [Farnam Street: Watch What They Do](https://fs.blog/brain-food/september-13-2026/)
+
+- [Reading Room study](https://doi.org/10.1111/joms.70009)

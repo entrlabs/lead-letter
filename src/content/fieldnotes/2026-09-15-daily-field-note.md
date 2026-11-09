@@ -28,6 +28,8 @@ The same idea matters in education. Stanford Social Innovation Review describes 
 
 Use these three questions today: What do the people doing the work say? Which step creates the delay or confusion? Who has the authority to change that step? The answers turn a broad complaint into a problem a team can test.
 
+When mapping AI-assisted work, ask what becomes easier and what becomes harder for staff. Include the checking work in the map before treating tool adoption as improvement.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Use these three questions today: What do the people doing the work say? Which st
 
 > [!question] For Educators And Advisors
 > Ask learners to name the people affected by a problem and the people able to change it. Compare the two lists before proposing solutions.
+
+## Reading Room
+
+[Schulz, Bendig, Bräunche, Kindermann (2025). Curse or Blessing: Investigating the Influence of Firms’ Artificial Intelligence Adoption on Employee Job Satisfaction Journal of Management Studies.](https://doi.org/10.1111/joms.70004)
+
+A study of 509 publicly listed U.S. firms used data from 2009–2020 and follow-up interviews. AI adoption had a curved relationship with job satisfaction, with benefits and costs changing across levels of adoption. Strategy and data governance also mattered. The findings do not show that adding more AI always improves jobs, or predict the result of one deployment. When mapping AI-assisted work, ask what becomes easier and what becomes harder for staff. Include the checking work in the map before treating tool adoption as improvement. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ Use these three questions today: What do the people doing the work say? Which st
 - [Harvard Business Review: Stop Automating Old Processes. Design New Ones Instead.](https://hbr.org/2026/09/stop-automating-old-processes-design-new-ones-instead)
 - [Stanford Social Innovation Review: If You Want to Teach Social Innovation, Teach Power](https://ssir.org/articles/entry/teaching-social-innovation-teaching-power)
 - [Farnam Street: Tobi Lütke on Better Decisions and the Future of Work](https://fs.blog/knowledge-project-podcast/tobi-lutke-3/)
+
+- [Reading Room study](https://doi.org/10.1111/joms.70004)

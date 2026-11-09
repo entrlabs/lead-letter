@@ -27,6 +27,8 @@ The World Bank’s Mission 300 describes coordinated delivery across governments
 
 Together, these cases support one practical move: treat implementation support as part of the intervention. A promising idea is not yet useful if people cannot reach it. They must also understand and sustain it. Name the delivery bottleneck, the accountable owner, and the capability that must remain after the initial change. The sources do not prove that coordination caused every infrastructure result or that one education partnership applies elsewhere. They do not show that the Stanford effect transfers to all markets or that the reported cuts improved institutional performance.
 
+Follow the path beyond entry. Ask what support remains after a person starts using the service, and who can respond when their needs change.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Together, these cases support one practical move: treat implementation support a
 
 > [!question] For Educators And Advisors
 > Pair one lesson or research aim with a practical pathway, the people it serves, and a check on whether it is usable.
+
+## Reading Room
+
+[Millin, Drader‐Mazza, Badura, Lopez‐Kidwell, Munyon (2025). Neurodiversity Right: The Case for Neurodiversity Employment Programs Journal of Organizational Behavior.](https://doi.org/10.1002/job.70040)
+
+This conceptual article examines programs intended to support neurodivergent people at work. It distinguishes support before hiring, external partnerships, and support after hiring. The authors argue that recruitment and retention require attention across those stages. The article is not a controlled test proving that every program works. Its categories help inspect a pathway without treating neurodivergent people as a uniform group. Follow the path beyond entry. Ask what support remains after a person starts using the service, and who can respond when their needs change. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ Together, these cases support one practical move: treat implementation support a
 - [Stanford GSB digital-payments experiment](https://www.gsb.stanford.edu/insights/small-retailers-need-more-tech-adopt-digital-payments)
 - [Inside Higher Ed August cuts](https://www.insidehighered.com/news/business/cost-cutting/2026/09/01/august-cuts-start-academic-year)
 - [Farnam Street Short and Sweet](https://fs.blog/brain-food/august-30-2026/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70040)

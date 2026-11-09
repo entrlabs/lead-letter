@@ -27,6 +27,8 @@ The Associated Press reports that rising government-bond yields are making borro
 
 Together, these sources support a practical move: translate pressure into the next operating choice. A higher cost is not yet a plan; a policy opening is not yet execution; a research output is not yet use. Identify the dependency, name the owner, and run a small check before making a larger claim. The sources do not prove that yields will follow one path or that Chevron’s plan will achieve its outcomes. They do not show that the AACSB framework causes greater impact or that coordination caused every reported infrastructure result.
 
+When pressure changes an investment choice, state the planning horizon. Check whether the team can coordinate the work throughout that period, rather than treating patience alone as capacity.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Together, these sources support a practical move: translate pressure into the ne
 
 > [!question] For Educators And Advisors
 > Design the route from research or advice to user interaction, then document what was applied without claiming more than the evidence supports.
+
+## Reading Room
+
+[Lefebvre (2025). Does a Long-Term Orientation Lead to Faster Growth? Firms’ Temporal Orientation and the Growth Process Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251400205)
+
+This study links firms’ investment horizons with growth in assets, employment, and sales. The relationship was curved: a longer horizon was not associated with ever-greater growth. The authors connect long horizons with resource building but also coordination demands. The abstract does not provide a planning period that every organization should adopt or establish a universal causal rule. When pressure changes an investment choice, state the planning horizon. Check whether the team can coordinate the work throughout that period, rather than treating patience alone as capacity. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ Together, these sources support a practical move: translate pressure into the ne
 - [AACSB research-impact video](https://www.aacsb.edu/insights/videos/2026/09/connecting-business-school-research-to-society)
 - [World Bank Mission 300](https://www.worldbank.org/en/news/press-release/2026/06/16/under-mission-300-a-new-way-of-doing-business-connects-over-50-million-people-to-electricity-across-africa)
 - [Farnam Street Short and Sweet](https://fs.blog/brain-food/august-30-2026/)
+
+- [Reading Room study](https://doi.org/10.1177/10422587251400205)

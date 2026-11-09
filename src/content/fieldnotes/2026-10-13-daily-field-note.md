@@ -31,6 +31,8 @@ Together, these examples suggest a useful exercise. List the work that must surv
 
 The sources do not prove a universal method. HBR offers survey-based advice; the World Bank announces a new institution. Kauffman describes a funded program, and AACSB proposes a framework. None guarantees that a particular expansion will succeed.
 
+During a continuity exercise, identify when the team must adapt and when it should follow the approved routine. Name who can authorize that change in approach.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -48,6 +50,14 @@ The sources do not prove a universal method. HBR offers survey-based advice; the
 
 > [!question] For Educators And Advisors
 > Define the intended use of one research or learning project. Identify the partners and support needed, then specify evidence that someone used the work.
+
+## Reading Room
+
+[Dragoni, Hymer, Yoon, LePine, Woodruff, Young, Li (2026). Leader ambidexterity in goal orientation and team adaptive performance. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001405)
+
+Field data from 79 teams at a U.S. military academy linked leaders’ ability to shift between learning and performance goals with better team adaptation. The association remained after accounting for more stable goal orientations. The study does not establish a universal leadership routine or prove causation. Its useful distinction is between a fixed priority and a priority that fits changing demands. During a continuity exercise, identify when the team must adapt and when it should follow the approved routine. Name who can authorize that change in approach. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -70,3 +80,5 @@ The sources do not prove a universal method. HBR offers survey-based advice; the
 - [Kauffman Foundation: Red Tail Academy](https://www.kauffman.org/currents/red-tail-academy-aviation-workforce/)
 - [AACSB: A Framework for Research Impact](https://www.aacsb.edu/insights/reports/2026/a-framework-for-research-impact)
 - [Farnam Street: Watch What They Do](https://fs.blog/brain-food/september-13-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001405)

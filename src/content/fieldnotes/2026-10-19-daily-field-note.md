@@ -28,6 +28,8 @@ Apply that distinction when your team closes a project, resolves a complaint, or
 
 Before moving on, ask a colleague to explain what the closure means. If their answer is broader than the evidence, narrow the wording. Watch whether the next handoff creates fewer questions about work that is still open.
 
+At closure, compare the completed work with the condition originally promised. Explain what ended and what would trigger a fresh review, so closure does not become a claim about every future risk.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Before moving on, ask a colleague to explain what the closure means. If their an
 
 > [!question] For Educators And Advisors
 > Can a student tell the difference between finishing a requirement and demonstrating a broader capability?
+
+## Reading Room
+
+[Kristal, Dorison (2025). Precommitment can allow decision makers to maintain trust when de-escalating commitment. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001243)
+
+Nine preregistered experiments involving 7,759 participants examined advance promises to change course under specific conditions. Such promises helped preserve trust when decision makers later reduced commitment. Vague promises offered less benefit. The approach could also reduce followers’ confidence and motivation at the start. It is a communication trade-off, not a guarantee that stopping will be accepted. At closure, compare the completed work with the condition originally promised. Explain what ended and what would trigger a fresh review, so closure does not become a claim about every future risk. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -64,3 +74,5 @@ Before moving on, ask a colleague to explain what the closure means. If their an
 
 - [Federal Reserve: Termination of enforcement actions, October 16, 2026](https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261016a.htm)
 - [Farnam Street: Defeat is Psychological (October 18, 2026)](https://fs.blog/brain-food/october-18-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001243)

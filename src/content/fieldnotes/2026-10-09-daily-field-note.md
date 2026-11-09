@@ -30,6 +30,8 @@ Today’s sources show four ways the work behind a result can be missed. An HBR 
 
 These sources do not prove one common causal mechanism. They do support a bounded practice: inspect the process behind a visible result, name who owns it, and define evidence that would reveal a gap.
 
+Inspect the learning process behind a course result. Match guidance to the learner’s need, then use a new task to see whether they can apply the reasoning.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -47,6 +49,14 @@ These sources do not prove one common causal mechanism. They do support a bounde
 
 > [!question] For Educators And Advisors
 > Trace one learning or program outcome to the connections, support, and accountability that make it possible.
+
+## Reading Room
+
+[Chib, Luk, Fu (2025). Enhancing Subordinate Job Performance Through Coaching Behaviors: A Lay Epistemic Approach Journal of Organizational Behavior.](https://doi.org/10.1002/job.70020)
+
+A two-wave study using supervisor and employee reports examined direct guidance and more exploratory coaching. Facilitation was linked with stronger self-efficacy for employees who preferred a more extended search for answers. Guidance was linked with trust in the supervisor. The findings do not establish one universally superior coaching style. They highlight differences in how people seek certainty while learning. Inspect the learning process behind a course result. Match guidance to the learner’s need, then use a new task to see whether they can apply the reasoning. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -69,3 +79,5 @@ These sources do not prove one common causal mechanism. They do support a bounde
 - [World Bank Voices: What Thailand's Maya Bay Teaches Us About the Missing Link in Blue Finance](https://blogs.worldbank.org/en/voices/what-thailand-s-maya-bay-teaches-us-about-the-missing-link-in-bl)
 - [Federal Reserve Board: Federal Reserve Board announces enforcement action against American Express Company](https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261008a.htm)
 - [Farnam Street: Focus and Diversification](https://fs.blog/brain-food/october-4-2026/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70020)

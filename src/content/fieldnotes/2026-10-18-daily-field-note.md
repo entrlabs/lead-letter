@@ -30,6 +30,8 @@ These are distinct examples, not proof of one universal formula. Together they s
 
 **Evidence limit:** These sources show distinct examples. They do not set one universal model or prove that any single plan will produce a set result.
 
+Include relationships and communication in the system around an opportunity. Ask whether a trusted introduction or clearer language changes someone’s ability to take the next step.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -47,6 +49,14 @@ These are distinct examples, not proof of one universal formula. Together they s
 
 > [!question] For Educators And Advisors
 > Pair access measures with staying power, use, and delivery measures so the path can improve where it breaks.
+
+## Reading Room
+
+[Zhu, Shen, Lee (2025). Linguistic Capital, Social Capital, and Self-Employment of Rural-Urban Migrants in China Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251398806)
+
+Research using the China Migrants Dynamic Survey links local dialect similarity with rural-urban migrants’ likelihood of self-employment. Networks and trust help explain the relationship. The study uses statistical methods to address selection, but its context remains specific. It does not show that language similarity is a fair selection rule or that language training alone removes barriers. Include relationships and communication in the system around an opportunity. Ask whether a trusted introduction or clearer language changes someone’s ability to take the next step. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -69,3 +79,5 @@ These are distinct examples, not proof of one universal formula. Together they s
 - [AACSB: A Framework for Research Impact](https://www.aacsb.edu/insights/reports/2026/a-framework-for-research-impact)
 - [UN News: COP17: The world has a plan to save nature. Is it working?](https://news.un.org/en/story/2026/10/1168618)
 - [Farnam Street: Forget Mistakes](https://fs.blog/brain-food/october-11-2026/)
+
+- [Reading Room study](https://doi.org/10.1177/10422587251398806)

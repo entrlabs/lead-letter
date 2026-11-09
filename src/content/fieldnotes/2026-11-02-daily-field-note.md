@@ -26,6 +26,8 @@ Keep the stages separate. An order is not a completed delivery, and revenue is n
 > [!example] Try this
 > Take one product’s last two weeks of sales. Compare units and realized price, then check cancellations and deliveries still outstanding.
 
+Keep the national spending figure and the store’s unit count at their proper levels. Use local transactions to explain a reorder rather than importing a national interpretation.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -54,6 +56,14 @@ A study combining exploratory qualitative work with data on 322 crowdfunded vent
 
 [Read the paper](https://doi.org/10.1177/10422587251404867).
 
+### Further Reading
+
+[Lemoine, Ghahremani, Norris (2025). The Curious Case of Cross‐Level Effects: Refining Our Understanding to Match Our Methods Journal of Organizational Behavior.](https://doi.org/10.1002/job.70010)
+
+A review of 313 organizational studies examines claims that connect different levels, such as a team and its members. It identifies frequent gaps in how those relationships are explained or interpreted. This is a methodological review, not a finding that any particular economic indicator is wrong. Its central lesson is to specify the level a measure describes before applying it elsewhere. Keep the national spending figure and the store’s unit count at their proper levels. Use local transactions to explain a reorder rather than importing a national interpretation. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -72,3 +82,5 @@ A study combining exploratory qualitative work with data on 322 crowdfunded vent
 - [FTC Launches Personalized Pricing and Compensation Inquiry, Federal Trade Commission](https://www.ftc.gov/news-events/news/press-releases/2026/10/ftc-launches-personalized-pricing-compensation-inquiry)
 - [Still Waiting for Rewards? User Entrepreneur’s Reward Delivery Performance in Crowdfunding, Entrepreneurship Theory and Practice](https://doi.org/10.1177/10422587251404867)
 - [The Availability Bias, Farnam Street](https://fs.blog/availability-bias-cognitive/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70010)

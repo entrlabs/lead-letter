@@ -28,6 +28,8 @@ An AACSB practitioner article describes VR and AI as tools for repeated manageme
 
 These signals share one practical move. Do not stop at the headline. Identify the measure, trace the route to the person or organization affected, and choose an observation that could change the decision. Farnam Street's current reminder is simple: watch what people do, not only what they say.
 
+If a tool scores learner or applicant responses, write the assessed construct and rating criteria first. Test those ratings on relevant examples before using the score to guide a consequential decision.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ These signals share one practical move. Do not stop at the headline. Identify th
 
 > [!question] For Educators And Advisors
 > Ask learners to trace an enrollment, business, or skill pathway and identify the point where evidence is still missing.
+
+## Reading Room
+
+[Stockdale, Hickman, Liu (2026). Scoring employment interviews with large language models: Evaluation design components, validity investigations, and best practice recommendations. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001396)
+
+Two interview datasets, with 954 and 144 participants, were used to evaluate large language models as raters. Model choice, prompts, and combining raters affected measurement quality. Detailed descriptions of the assessed traits showed promise, but the authors also urge caution in high-stakes use. Good performance in these datasets does not validate an unrelated model, task, or hiring process. If a tool scores learner or applicant responses, write the assessed construct and rating criteria first. Test those ratings on relevant examples before using the score to guide a consequential decision. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ These signals share one practical move. Do not stop at the headline. Identify th
 - [BLS Employment Situation](https://www.bls.gov/news.release/empsit.nr0.htm)
 - [AACSB VR and AI](https://www.aacsb.edu/insights/articles/2026/09/vr-and-ai-a-dream-team-for-teaching-and-learning)
 - [Farnam Street Watch What They Do](https://fs.blog/brain-food/september-13-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001396)

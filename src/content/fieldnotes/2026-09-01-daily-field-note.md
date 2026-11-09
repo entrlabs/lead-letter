@@ -27,6 +27,8 @@ The World Bank’s appointment of Yuko Keicho makes independent assurance and in
 
 Together, these cases support one practical move: treat the system around a decision as part of the decision. Make responsibility, support, evidence, and review pathways explicit before judging whether a promising direction is working. The sources do not prove that these measures caused better performance. They do not show that one institution represents the sector or that a current market headline predicts a lasting outcome.
 
+Add a condition for revisiting the decision while naming its owner. Explain both the commitment and the concrete evidence that would justify changing course.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Together, these cases support one practical move: treat the system around a deci
 
 > [!question] For Educators And Advisors
 > Connect one research or teaching aim to its practical pathway, affected people, and evidence of impact.
+
+## Reading Room
+
+[Kristal, Dorison (2025). Precommitment can allow decision makers to maintain trust when de-escalating commitment. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001243)
+
+Nine preregistered experiments involving 7,759 participants examined advance promises to change course under specific conditions. Such promises helped preserve trust when decision makers later reduced commitment. Vague promises offered less benefit. The approach could also reduce followers’ confidence and motivation at the start. It is a communication trade-off, not a guarantee that stopping will be accepted. Add a condition for revisiting the decision while naming its owner. Explain both the commitment and the concrete evidence that would justify changing course. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -68,3 +78,5 @@ Together, these cases support one practical move: treat the system around a deci
 - [Inside Higher Ed Bluefield State report](https://www.insidehighered.com/news/governance/executive-leadership/2026/08/31/bluefield-state-fires-president)
 - [AP Business](https://apnews.com/business)
 - [Farnam Street Short and Sweet](https://fs.blog/brain-food/august-30-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001243)

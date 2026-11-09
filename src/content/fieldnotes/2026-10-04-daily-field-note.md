@@ -27,6 +27,8 @@ The sources behind today's note span management, community leadership, developme
 
 These sources do not prove one shared causal mechanism. An award does not prove school outcomes. A capital total does not prove lasting local gains. Management guidance and an education framework do not establish universal effects. Their value is in the questions they help leaders ask before a visible plan grows.
 
+Before accepting more demand, count the time needed to coordinate it. Give the person managing deadlines a clear stop decision and a backup, as well as responsibility.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ These sources do not prove one shared causal mechanism. An award does not prove 
 
 > [!question] For Educators And Advisors
 > Ask learners to show how their recommendation changes when new evidence arrives.
+
+## Reading Room
+
+[Xue, Zhang, Li, Men, Bai, Lv (2026). When Managing Time Comes at a Cost: A Cross‐Role Resource Tradeoff Perspective on Team Temporal Leadership Journal of Organizational Behavior.](https://doi.org/10.1002/job.70121)
+
+Two field studies examined the work of managing a team’s time. Coordinating schedules and processes could reduce followers’ exhaustion while increasing leaders’ exhaustion. Task complexity shaped the benefits, and mental effort and process clarity helped explain the trade-off. These findings do not establish an ideal workload. They show why smoother team delivery can conceal costs for the person coordinating it. Before accepting more demand, count the time needed to coordinate it. Give the person managing deadlines a clear stop decision and a backup, as well as responsibility. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ These sources do not prove one shared causal mechanism. An award does not prove 
 - [AACSB: Educating for the Judgment Economy](https://www.aacsb.edu/insights/articles/2026/09/educating-for-the-judgment-economy)
 - [Farnam Street: Focus and Diversification](https://fs.blog/brain-food/october-4-2026/)
 
+
+- [Reading Room study](https://doi.org/10.1002/job.70121)

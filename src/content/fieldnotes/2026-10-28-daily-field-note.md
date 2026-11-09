@@ -26,6 +26,8 @@ These sources do not prove one universal leadership model. They support a practi
 
 Try the test on one live process. Ask the person closest to the problem where the decision stalls. Remove one unnecessary step, name the review evidence, and set a date to inspect whether the process worked for the people affected.
 
+A repeatable decision process also needs a rule for changing course. Write down what has become more certain, what has become less certain, and which commitment remains reversible. Review the rule when those conditions change.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -43,6 +45,14 @@ Try the test on one live process. Ask the person closest to the problem where th
 
 > [!question] For Educators And Advisors
 > Can learners distinguish a score that describes performance from evidence that helps them choose the next action?
+
+## Reading Room
+
+[Yan, Williams, Hunt (2025). A Real Options Reasoning Perspective on Entrepreneurs’ Decision-Making Over Time Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251371133)
+
+Yan, Williams, and Hunt (2025) study how entrepreneurs make sequential decisions as uncertainty changes. Their work combines a multistage experiment with 181 entrepreneurs and an archival study. The findings suggest that decision logic depends on both initial uncertainty and the direction of later change. The abstract does not supply one rule that guarantees better outcomes in every venture. Alongside your decision checklist, record which new information would justify waiting, expanding, or stopping. This is a proposed application, not a validated universal checklist. The reading is based on the abstract rather than the full methods.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -65,3 +75,5 @@ Try the test on one live process. Ask the person closest to the problem where th
 - [M. Sandy Hershcovis and Aja Rieger, Beyond Rankings: Building Better Research Intelligence, October 21, 2026](https://www.aacsb.edu/insights/articles/2026/10/beyond-rankings-building-better-research-intelligence)
 - [Julie Scheidegger, Red Tail Academy provides a runway for students to enter the aviation workforce, August 27, 2026](https://www.kauffman.org/currents/red-tail-academy-aviation-workforce/)
 - [Farnam Street, The Price of Admission, October 25, 2026](https://fs.blog/brain-food/october-25-2026/)
+
+- [Yan, Williams, Hunt (2025). A Real Options Reasoning Perspective on Entrepreneurs’ Decision-Making Over Time Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251371133)

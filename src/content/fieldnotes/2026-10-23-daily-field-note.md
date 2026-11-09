@@ -28,6 +28,8 @@ The useful question is not whether a measure looks impressive. It is whether the
 
 These sources include expert guidance, a business-education framework article, an institutional case feature, and a practitioner newsletter. They support a practice for inspection and review. They do not prove universal causal results or general outcomes from one case.
 
+Write the time window beside the measure. A pattern that appears useful over one year may look different over a venture’s lifetime. Also name what counts as failure, so an acquisition does not silently become a failed business in the score.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -46,6 +48,14 @@ These sources include expert guidance, a business-education framework article, a
 
 > [!question] For Educators And Advisors
 > When a ranking or opportunity is presented, ask what denominator, support path, and next decision make it useful.
+
+## Reading Room
+
+[Lamrani Abou Elassad, Criaco, Jansen, Mom (2026). Is the Venture Growth-Survival Relationship Inverted U-Shaped or Not? A Replication and Extension Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587261441597)
+
+Lamrani Abou Elassad and colleagues (2026) revisit the link between venture growth and survival. Their study uses 246,831 venture-year observations from 52,277 Dutch startups. Moderate annual growth aligned with short-term survival, while low or high lifetime growth aligned with stronger long-term survival. The analysis also distinguishes failure from other exits. These patterns are not a growth target for every venture. Before acting on a dashboard, check its time horizon and outcome definition. Compare like periods and like exits. This application follows an abstract-based reading; it does not establish a causal growth rule.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -67,3 +77,5 @@ These sources include expert guidance, a business-education framework article, a
 - [AACSB: Beyond Rankings: Building Better Research Intelligence](https://www.aacsb.edu/insights/articles/2026/10/beyond-rankings-building-better-research-intelligence)
 - [Kauffman Foundation: Red Tail Academy provides a runway for students to enter the aviation workforce](https://www.kauffman.org/currents/red-tail-academy-aviation-workforce/)
 - [Farnam Street: Defeat is Psychological](https://fs.blog/brain-food/october-18-2026/)
+
+- [Lamrani Abou Elassad, Criaco, Jansen, Mom (2026). Is the Venture Growth-Survival Relationship Inverted U-Shaped or Not? A Replication and Extension Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587261441597)

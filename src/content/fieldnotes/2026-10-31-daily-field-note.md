@@ -26,6 +26,8 @@ Trace one learner’s next step. Who makes the introduction? What does the emplo
 > [!example] Try this
 > Choose one course or placement. In ten minutes, sketch its next three handoffs. Name the owner and one common obstacle at each.
 
+After a learner enters a placement, check both task mastery and connection to colleagues. Keep a support contact available through the transition instead of ending assistance at the handoff.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -54,6 +56,14 @@ Music students interviewed about U.S. university entrepreneurship courses descri
 
 [Read the paper](https://doi.org/10.1177/02557614261501480).
 
+### Further Reading
+
+[Wu, Liu, Wu, Xia (2026). Off to a hard start: How job rotation reshapes newcomers’ learning and adjustment process. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001312)
+
+A study followed 255 new nurses across 12 waves during job rotations. Task mastery rose, fell around the transition, and then rose again. Social integration followed a different, declining path. Learning a task and feeling integrated were therefore distinct outcomes. This nursing setting does not establish that every rotation harms belonging or that rotation should always be avoided. After a learner enters a placement, check both task mastery and connection to colleagues. Keep a support contact available through the transition instead of ending assistance at the handoff. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -75,3 +85,5 @@ Music students interviewed about U.S. university entrepreneurship courses descri
 - [Beyond Rankings: Building Better Research Intelligence, AACSB International](https://www.aacsb.edu/insights/articles/2026/10/beyond-rankings-building-better-research-intelligence)
 - [Music Students’ Learning Experiences in University Entrepreneurship Courses, International Journal of Music Education](https://doi.org/10.1177/02557614261501480)
 - [First Principles Thinking, Farnam Street](https://fs.blog/first-principles/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001312)

@@ -30,6 +30,8 @@ The World Bank reports record private-capital mobilization alongside guarantees,
 
 These sources document different settings and evidence types. They do not prove that mobilized capital creates a particular number of jobs, that workload practices reduce attrition, that the proposed grant rule will become final, or that research oversight methods are safe in live organizations. They support a practical discipline: make the operating burden and the accountable check visible before calling a system scalable or trustworthy.
 
+Count informal help requests alongside assigned tasks. A colleague who handles every exception may carry a burden that the formal workload plan never shows.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -49,6 +51,14 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 
 > [!question] For Educators And Advisors
 > Ask learners to compare funding, workload, grant policy, and AI oversight without treating mobilized capital, advice, proposed rules, and research models as the same kind of outcome.
+
+## Reading Room
+
+[Frank, Matta, Nakos, Rodell (2026). How the boss’s “right hand” becomes the group’s “go-to”: Leader–member exchange as a heuristic cue for everyday asks. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001401)
+
+Three studies examined why one colleague becomes everyone’s source of help. People may follow the boss’s choice of whom to ask, rather than match each need with the most suitable person. Concentrated reliance can support performance while wearing that person down. The research does not imply that a trusted colleague lacks expertise; it questions how repeated requests become concentrated. Count informal help requests alongside assigned tasks. A colleague who handles every exception may carry a burden that the formal workload plan never shows. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -71,3 +81,5 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 - [Higher Ed Groups Bash ED Proposal to Allow More Grant Terminations](https://www.insidehighered.com/news/business/financial-health/2026/09/25/higher-ed-groups-bash-ed-proposal-allow-more-grant)
 - [A Blueprint for Keeping Humans in Control of AI](https://www.gsb.stanford.edu/insights/blueprint-keeping-humans-control-ai)
 - [Slop](https://fs.blog/brain-food/september-20-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001401)

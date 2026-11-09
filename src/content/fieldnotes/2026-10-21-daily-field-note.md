@@ -28,6 +28,8 @@ Choose one essential task with the people who deliver it. Agree on a safe test t
 
 The authors’ public summary does not establish that a specific recovery method works everywhere. This exercise is a proposed practice, not a reported result. Judge it by what staff can complete and what the test reveals.
 
+During the rehearsal, watch how people regain a shared picture after the plan breaks down. Ask who notices the change, who speaks up, and who confirms the next step. A working backup needs those habits as well as spare tools.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ The authors’ public summary does not establish that a specific recovery method
 
 > [!question] For Educators And Advisors
 > Can learners find the approved backup communication route if the usual course platform is unavailable?
+
+## Reading Room
+
+[David, Hoogeboom, Endedijk, Schraagen (2026). Coordination Restructuring in Team Training: Navigating Through Order and Disorder Small Group Research.](https://doi.org/10.1177/10464964251405195)
+
+David and colleagues (2026) studied how emergency medical teams coordinated before and after training. Higher-performing teams moved between ordered and disordered phases more often and spent more time in ordered coordination. During disorder, they combined standard routines with speaking up and monitoring. This supports a useful question for your rehearsal: how does the team recover a shared plan? The emergency setting does not establish what will work in every office. Try recording one moment of confusion and how the team resolves it. This is an abstract-based reading; the exercise is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -64,3 +74,5 @@ The authors’ public summary does not establish that a specific recovery method
 
 - [Harvard Business Review: Your Company Needs a Plan for the First 72 Hours After a Cyberattack, October 12, 2026](https://hbr.org/2026/10/your-company-needs-a-plan-for-the-first-72-hours-after-a-cyberattack)
 - [Farnam Street: Surprises (August 23, 2026)](https://fs.blog/brain-food/august-23-2026/)
+
+- [David, Hoogeboom, Endedijk, Schraagen (2026). Coordination Restructuring in Team Training: Navigating Through Order and Disorder Small Group Research.](https://doi.org/10.1177/10464964251405195)

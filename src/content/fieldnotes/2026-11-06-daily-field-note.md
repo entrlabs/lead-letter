@@ -26,6 +26,8 @@ Apply the distinction to your next project. Write what should change, by how muc
 > [!example] Try this
 > Write one project forecast, its review date, and one observation that would make you revise it. Save the dated version before acting.
 
+Define the task and rating standard before observing the result. Keep task-specific differences visible instead of changing the meaning of an overall score after performance is known.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -54,6 +56,14 @@ A qualitative study of entrepreneurship education examined biotechnology and bio
 
 [Read the paper](https://doi.org/10.1007/s10961-026-10339-6).
 
+### Further Reading
+
+[Ingold, Heimann, Waller, Breil, Sackett (2026). What do assessment center ratings reflect? Consistency and heterogeneity in variance composition across multiple samples. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001318)
+
+A study drew on 19 sets of ratings for 4,963 people across 272,528 observations. Scores reflected both the person and the task, and the patterns varied across settings. Merging the ratings into larger scores reduced those gaps only slightly. One total can therefore hide useful detail. The finding does not mean every score is flawed or that one task can show all a person can do. Define the task and rating standard before observing the result. Keep task-specific differences visible instead of changing the meaning of an overall score after performance is known. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -71,3 +81,5 @@ A qualitative study of entrepreneurship education examined biotechnology and bio
 - [A First Look at Polling Performance in 2026, Pew Research Center](https://www.pewresearch.org/short-reads/2026/11/06/a-first-look-at-polling-performance-in-2026/)
 - [Thinking and doing differently: the immediate impact of entrepreneurship education on STEM PhD students, Journal of Technology Transfer](https://doi.org/10.1007/s10961-026-10339-6)
 - [Decision Journal: Template and Example Included, Farnam Street](https://fs.blog/decision-journal/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001318)

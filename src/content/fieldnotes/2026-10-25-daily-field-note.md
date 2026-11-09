@@ -32,6 +32,8 @@ Keep the result that meets the task with less exposure. If the answer changes in
 
 The useful next step is a small test with a clear purpose. Watch whether the simpler view still helps the team make the right decision.
 
+A person’s willingness to share information can change with how the choice is framed. Keep the request specific and understandable. Ask whether the task still works without each personal detail, even when collecting it would be easy.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -53,6 +55,14 @@ This is a practitioner thinking prompt, not evidence that the practice works in 
 > [!question] For Educators And Advisors
 > Teach students to distinguish collecting information from needing it. Compare what a smaller dataset can and cannot show.
 
+## Reading Room
+
+[Lee, Weber (2025). Revealed Privacy Preferences: Are Privacy Choices Rational? Management Science.](https://doi.org/10.1287/mnsc.2022.00807)
+
+Lee and Weber (2025) examine consistency in experimental choices about sharing personal information. Sixty-three percent of participants made choices consistent with an underlying preference ordering when allocating privacy levels. Only about one-third were consistent across both sharing choices and pricing those choices. These results do not describe every user or determine which information your service needs. They suggest caution about treating one disclosure choice as a stable preference. Test a smaller request and explain its purpose clearly. That is a proposed design step, not an intervention tested here. This reading is based on the abstract.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -71,3 +81,5 @@ This is a practitioner thinking prompt, not evidence that the practice works in 
 
 - [Data or privacy? Businesses can have both, MIT Sloan research finds, Beth Stackpole; October 19, 2026](https://mitsloan.mit.edu/ideas-made-to-matter/data-or-privacy-businesses-can-have-both-mit-sloan-research-finds)
 - [Farnam Street: The Price of Admission; October 25, 2026](https://fs.blog/brain-food/october-25-2026/)
+
+- [Lee, Weber (2025). Revealed Privacy Preferences: Are Privacy Choices Rational? Management Science.](https://doi.org/10.1287/mnsc.2022.00807)

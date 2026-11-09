@@ -27,6 +27,8 @@ The Census Bureau's construction-spending series shows why a number needs a defi
 
 These sources document an official survey estimate, an announced institutional plan, workplace survey findings, and a release listing. They do not prove one shared causal mechanism. They do not prove that Carnegie Mellon's plan will succeed. They do not prove that manager support causes culture improvement. A release listing does not establish the underlying economic outcome. Use a practical test. Put the definition, reference period, owner, mechanism, and next check beside a result before acting on it.
 
+Before translating a national measure into a local move, name the missing link. Collect evidence at the level where the decision will take effect.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ These sources document an official survey estimate, an announced institutional p
 
 > [!question] For Educators And Advisors
 > Ask learners to separate what the evidence shows from what they would still need to verify.
+
+## Reading Room
+
+[Lemoine, Ghahremani, Norris (2025). The Curious Case of Cross‐Level Effects: Refining Our Understanding to Match Our Methods Journal of Organizational Behavior.](https://doi.org/10.1002/job.70010)
+
+A review of 313 organizational studies examines claims that connect different levels, such as a team and its members. It identifies frequent gaps in how those relationships are explained or interpreted. This is a methodological review, not a finding that any particular economic indicator is wrong. Its central lesson is to specify the level a measure describes before applying it elsewhere. Before translating a national measure into a local move, name the missing link. Collect evidence at the level where the decision will take effect. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ These sources document an official survey estimate, an announced institutional p
 - [Gallup: AI's Effect on Workplace Culture](https://www.gallup.com/workplace/712976/ai-effect-workplace-culture.aspx)
 - [BEA current releases](https://www.bea.gov/news/current-releases)
 - [Farnam Street: Slop](https://fs.blog/brain-food/september-20-2026/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70010)

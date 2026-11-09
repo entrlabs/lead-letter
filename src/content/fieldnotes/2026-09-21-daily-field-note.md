@@ -42,6 +42,8 @@ Choose a suitable way to invite their views. A conversation may reveal a questio
 
 Ask while there is still room to change the plan. Wharton's September 15 persuasion guidance recommends seeking input from affected people before settling on an option. That is practical advice, not proof that consultation always succeeds. Its useful test is simple: what could someone tell you that would actually change your choice?
 
+Invite a missing perspective without guessing why someone stayed quiet. Offer a specific question and a suitable response route, then make clear how their evidence could change the decision.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -61,6 +63,14 @@ Farnam Street's essay supplies a thinking prompt. Survey nonresponse and survivo
 
 > [!question] For Educators And Advisors
 > Before changing a course based on survey responses, check who responded. What remains unknown about students who did not?
+
+## Reading Room
+
+[Liu, Wang, Huang, Xu, Liu, He (2026). The u-shaped relationship between locus of control and prohibitive voice via perceived risk of prohibitive voice: The moderating role of team voice climate. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001316)
+
+Two field studies examined beliefs about personal control and speaking up about concerns. People at either end of the control scale perceived less risk than those in the middle. The pattern was stronger where the team’s climate for speaking up was weaker. These associations do not justify labeling individual colleagues or predicting who will raise a concern. Invite a missing perspective without guessing why someone stayed quiet. Offer a specific question and a suitable response route, then make clear how their evidence could change the decision. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -82,3 +92,5 @@ Farnam Street's essay supplies a thinking prompt. Survey nonresponse and survivo
 - [Pew Research Center: Weighting Polls on Party Affiliation and Past Vote, September 16, 2026](https://www.pewresearch.org/methods/2026/09/16/weighting-polls-on-party-affiliation-and-past-vote/)
 - [Knowledge at Wharton: Top Tips for Persuading Others, September 15, 2026](https://knowledge.wharton.upenn.edu/article/top-tips-for-persuading-others/)
 - [Farnam Street: Survivorship Bias, date not stated](https://fs.blog/survivorship-bias/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001316)

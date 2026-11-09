@@ -32,6 +32,8 @@ Then test the strongest objection. Is it a missing fact, a different goal, or a 
 
 Do not reward objections merely for being clever. Reward the information they add. Watch whether a raised concern changes the plan or leads to a useful check. That is a better sign of honest debate than the volume of discussion.
 
+Give the objection a clear job: identify an assumption, offer relevant evidence, or suggest a test. Keep the discussion away from status and personal motives. A useful challenge should leave the team with a better next step.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -53,6 +55,14 @@ This is a practitioner thinking prompt, not evidence that the practice works in 
 > [!question] For Educators And Advisors
 > Ask students to state the strongest case against their preferred answer, then identify the fact that would settle it.
 
+## Reading Room
+
+[Yuan, Yin, Sun (2026). The paradox of team conflict revisited: An updated meta-analysis of the team conflict–team performance relationships. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001315)
+
+Yuan, Yin, and Sun (2026) revisit team conflict in an updated meta-analysis. Task, relationship, process, and status conflict all had negative average relationships with team performance. Results for task and relationship conflict varied substantially across settings. That finding strengthens the distinction between inviting a useful objection and encouraging conflict for its own sake. Ask a colleague to name the evidence that would change the decision, then agree on a test. This is a proposed discussion practice, not a proven intervention from the review. The reading is abstract-based and does not establish a universal effect.
+
+*Research added November 9, 2026.*
+
 ## Useful Copy
 
 ### Signal Text
@@ -71,3 +81,5 @@ This is a practitioner thinking prompt, not evidence that the practice works in 
 
 - [Your Executive Team Needs More Productive Conflict, Rebecca Newton / HBR; October 7, 2026](https://hbr.org/2026/10/your-executive-team-needs-more-productive-conflict)
 - [Farnam Street: Think Alone; November 23, 2025](https://fs.blog/brain-food/november-23-2025/)
+
+- [Yuan, Yin, Sun (2026). The paradox of team conflict revisited: An updated meta-analysis of the team conflict–team performance relationships. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001315)

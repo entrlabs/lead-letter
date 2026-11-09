@@ -30,6 +30,8 @@ The World Bank reports that it mobilized $112 billion in private capital in fisc
 
 These examples do not establish one common causal rule. They do support one useful practice: do not confuse a resource, number, or label with the opportunity it is meant to create. Ask who can use it, what measure shows that use, and what feedback would make you change the plan.
 
+Ask recipients to trace the actual route to support, including waiting and explanation. A policy’s name and eligibility terms do not fully describe the effort needed to use it.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -49,6 +51,14 @@ Farnam Street supplies a thinking prompt, not factual evidence for the sources a
 
 > [!question] For Educators And Advisors
 > Ask whether a public program label matches the actual access, support, and experience available to students.
+
+## Reading Room
+
+[Barnes, Lacerenza, Hardin (2026). How policy implementation impacts employee suffering at work: An exploration of medical leaves of absence. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001383)
+
+A qualitative study drew on 48 leave-takers and leave coordinators to examine medical leave. It argues that implementing a policy should address suffering and healing, beyond balancing work and life. This is an account of experiences and a proposed framework, not a trial of every recommended policy. Its workplace setting also differs from student support. Ask recipients to trace the actual route to support, including waiting and explanation. A policy’s name and eligibility terms do not fully describe the effort needed to use it. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -71,3 +81,5 @@ Farnam Street supplies a thinking prompt, not factual evidence for the sources a
 - [U.S. Census Bureau Economic Indicators](https://www.census.gov/economic-indicators/)
 - [Inside Higher Ed: ASU Puts Obama’s Name Back on Scholarship Program](https://www.insidehighered.com/news/quick-takes/2026/09/28/asu-puts-obamas-name-back-scholarship-program)
 - [Farnam Street: The Map Is Not the Territory](https://fs.blog/map-and-territory/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001383)

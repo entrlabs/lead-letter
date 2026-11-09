@@ -30,6 +30,8 @@ The World Bank describes Mission 300 as a coordinated effort that connected more
 
 These examples do not establish one common causal rule. They do support one useful practice: when a result looks large, inspect the system around it. Ask who owns the enabling work, which constraint is being measured, and what evidence would make you revise the claim.
 
+Put a time horizon beside the scale target. Test whether coordination and staffing can keep pace with the longer commitment before treating a larger resource as usable capacity.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -49,6 +51,14 @@ Farnam Street supplies a thinking prompt, not factual evidence for the sources a
 
 > [!question] For Educators And Advisors
 > Ask what a large investment changes for access, learning, research, and governance, then separate the promise from the evidence.
+
+## Reading Room
+
+[Lefebvre (2025). Does a Long-Term Orientation Lead to Faster Growth? Firms’ Temporal Orientation and the Growth Process Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587251400205)
+
+This study links firms’ investment horizons with growth in assets, employment, and sales. The relationship was curved: a longer horizon was not associated with ever-greater growth. The authors connect long horizons with resource building but also coordination demands. The abstract does not provide a planning period that every organization should adopt or establish a universal causal rule. Put a time horizon beside the scale target. Test whether coordination and staffing can keep pace with the longer commitment before treating a larger resource as usable capacity. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -71,3 +81,5 @@ Farnam Street supplies a thinking prompt, not factual evidence for the sources a
 - [Census Bureau Economic Indicators](https://www.census.gov/economic-indicators/)
 - [Inside Higher Ed: Phil Knight Gifts Univ. of Oregon $1B for Engineering College](https://www.insidehighered.com/news/quick-takes/2026/09/24/phil-knight-gifts-univ-oregon-1b-engineering-college)
 - [Farnam Street: Inversion](https://fs.blog/inversion/)
+
+- [Reading Room study](https://doi.org/10.1177/10422587251400205)

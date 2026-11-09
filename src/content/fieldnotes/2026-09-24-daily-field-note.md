@@ -32,6 +32,8 @@ These sources support a practical evidence test, not one proven common cause. Th
 
 Start with a claim you need to assess this week. Write down what the measure captures and what it leaves out. Name the actor responsible for acting. Then identify the capacity and next test needed to carry the claim into practice.
 
+Separate an institution’s total from the experience of its members. Ask which observations connect those levels before using a large headline to explain what happened locally.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -51,6 +53,14 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 
 > [!question] For Educators And Advisors
 > Ask students or clients to compare business applications, sales, and services revenue without treating them as interchangeable.
+
+## Reading Room
+
+[Lemoine, Ghahremani, Norris (2025). The Curious Case of Cross‐Level Effects: Refining Our Understanding to Match Our Methods Journal of Organizational Behavior.](https://doi.org/10.1002/job.70010)
+
+A review of 313 organizational studies examines claims that connect different levels, such as a team and its members. It identifies frequent gaps in how those relationships are explained or interpreted. This is a methodological review, not a finding that any particular economic indicator is wrong. Its central lesson is to specify the level a measure describes before applying it elsewhere. Separate an institution’s total from the experience of its members. Ask which observations connect those levels before using a large headline to explain what happened locally. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -73,3 +83,5 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 - [The Employment Situation, August 2026](https://www.bls.gov/news.release/empsit.nr0.htm)
 - [U.S. Census Bureau Economic Indicators](https://www.census.gov/economic-indicators/)
 - [Slop](https://fs.blog/brain-food/september-20-2026/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70010)

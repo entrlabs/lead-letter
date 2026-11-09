@@ -29,6 +29,8 @@ The same question appears at a smaller scale. The World Bank places SME finance 
 
 Together, these sources support a practical move: treat capacity as part of the idea. Map the dependencies and test the financing assumption. Separate a headline from measured demand evidence. Redesign the workload before asking people to push harder. These sources do not prove that coordination guarantees delivery or that finance interventions produce equal growth. They do not establish a measured tourism decline or improved AACSB outcomes. The practitioner warning is not a clinical finding.
 
+Before adding capacity, map who receives the informal requests. Spread suitable questions across people with relevant expertise, and give the frequent helper time to complete their own work.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -47,6 +49,14 @@ Together, these sources support a practical move: treat capacity as part of the 
 
 > [!question] For Educators And Advisors
 > Ask learners to compare a model of success with one observed case and identify which missing condition could change the recommendation.
+
+## Reading Room
+
+[Frank, Matta, Nakos, Rodell (2026). How the boss’s “right hand” becomes the group’s “go-to”: Leader–member exchange as a heuristic cue for everyday asks. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001401)
+
+Three studies examined why one colleague becomes everyone’s source of help. People may follow the boss’s choice of whom to ask, rather than match each need with the most suitable person. Concentrated reliance can support performance while wearing that person down. The research does not imply that a trusted colleague lacks expertise; it questions how repeated requests become concentrated. Before adding capacity, map who receives the informal requests. Spread suitable questions across people with relevant expertise, and give the frequent helper time to complete their own work. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -69,3 +79,5 @@ Together, these sources support a practical move: treat capacity as part of the 
 - [AP Business index](https://apnews.com/business)
 - [AACSB Insights](https://www.aacsb.edu/insights)
 - [Farnam Street Short and Sweet](https://fs.blog/brain-food/august-30-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001401)

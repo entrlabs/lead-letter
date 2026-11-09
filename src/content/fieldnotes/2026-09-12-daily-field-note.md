@@ -26,6 +26,8 @@ Inversion supplies the review step. Ask what would make the initiative exclude p
 
 Use this sequence before scaling: name the bottleneck, map the mechanism, assign the reviewer, state the evidence gap, and test the failure conditions.
 
+Before scaling training, revisit learners after they have tried the task. Compare their confidence with completed work, and check whether both remain steady through unfamiliar cases.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ Use this sequence before scaling: name the bottleneck, map the mechanism, assign
 
 > [!question] For Educators And Advisors
 > Separate a standard or framework from proof that local practice or learning outcomes improved.
+
+## Reading Room
+
+[Weers, Gielnik (2026). Stability matters: A dynamic process view on self-efficacy in training transfer. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001330)
+
+A two-year study of 871 entrepreneurship-training participants examined both the level and stability of self-efficacy. Training raised confidence in the short term. As confidence became more stable, it became a stronger predictor of performance after training. A confident response immediately after a course is therefore different from demonstrated transfer. The study does not make confidence a substitute for performance evidence. Before scaling training, revisit learners after they have tried the task. Compare their confidence with completed work, and check whether both remain steady through unfamiliar cases. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -65,3 +75,5 @@ Use this sequence before scaling: name the bottleneck, map the mechanism, assign
 - [AACSB research-impact framework](https://www.aacsb.edu/insights/reports/2026/a-framework-for-research-impact)
 - [AACSB interpretive guidance](https://www.aacsb.edu/educators/global-standards/interpretive-guidance)
 - [Farnam Street inversion](https://fs.blog/inversion/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001330)

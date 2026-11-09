@@ -27,6 +27,8 @@ Four sources ask us to look at who owns a decision and who bears its cost. HBR a
 
 These sources do not prove one common cause or one solution. They suggest a useful check: name the owner, what is at risk, who bears the cost, and what would trigger review.
 
+Record who owns the final decision when an AI recommendation affects a customer. Make disagreement traceable to evidence, and keep the cost of reviewing that advice visible.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ These sources do not prove one common cause or one solution. They suggest a usef
 
 > [!question] For Educators And Advisors
 > Make one applied-learning decision visible by identifying who carries the uncertainty, what support is available, and what evidence would change the design.
+
+## Reading Room
+
+[Lee, Cho, Woo, de Jong (2025). When Do Individuals Believe in Themselves Rather Than in Artificial Intelligence? Insights from Longitudinal Investigations in Corporate Credit‐Rating Contexts Journal of Management Studies.](https://doi.org/10.1111/joms.70009)
+
+Six longitudinal studies examined how people used AI advice in corporate credit-rating tasks. Initial judgments grew more similar to the advice over time. Experience, disagreement with the advice, and other information shaped later adjustments. The AI in these studies was designed to offer more accurate advice than users. That condition cannot be assumed for every workplace tool. Record who owns the final decision when an AI recommendation affects a customer. Make disagreement traceable to evidence, and keep the cost of reviewing that advice visible. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ These sources do not prove one common cause or one solution. They suggest a usef
 - [Federal Reserve Board: 2025 Survey of Consumer Finances](https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm)
 - [AACSB Insights: Reinventing the Classroom Means Reinventing Ourselves](https://www.aacsb.edu/insights/articles/2026/10/reinventing-the-classroom-means-reinventing-ourselves)
 - [Farnam Street: Focus and Diversification](https://fs.blog/brain-food/october-4-2026/)
+
+- [Reading Room study](https://doi.org/10.1111/joms.70009)

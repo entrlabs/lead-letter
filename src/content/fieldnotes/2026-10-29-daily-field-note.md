@@ -24,6 +24,8 @@ The World Bank’s October 28 commodity outlook describes connected shocks acros
 
 These sources do not prove one universal rule. The outlook is a forecast. The articles offer expert views and a program description, not proof of results. They support one practical move: inspect the connection that carries the promise before adding more resources. Choose one link: a supplier, an approval, or a partner. Write how its failure would affect the people relying on your plan. Set a warning sign and a check date before expanding.
 
+In a resilience test, measure both the size of the interruption and the time needed to recover. A reserve may soften the first impact without making recovery faster. Give each outcome its own observation and owner.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -41,6 +43,14 @@ These sources do not prove one universal rule. The outlook is a forecast. The ar
 
 > [!question] For Educators And Advisors
 > Ask learners to state the strongest failure case before they defend the preferred answer.
+
+## Reading Room
+
+[Guan, Lin, Tan, Dong (2026). Resource Orchestration, Team Faultlines, and Entrepreneurial Resilience Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587261453883)
+
+Guan and colleagues (2026) separate resilience into loss severity and time to recovery. In their sample of 345 Chinese listed new ventures, combined social and technological resource slack was associated with smaller losses but slower recovery. Resource combinations and team structure also shaped the patterns. This setting does not establish that more reserves always slow recovery elsewhere. For a small disruption exercise, track both service loss and recovery time. Inspect whether the same resource helps both. That is a proposed test of local conditions. This reading is based on the abstract, not the full paper.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -62,3 +72,5 @@ These sources do not prove one universal rule. The outlook is a forecast. The ar
 - [Your Company’s Fraud Defenses Aren’t Ready for AI Threats, Zacharia H. Baldwin / Harvard Business Review, October 28, 2026](https://hbr.org/2026/10/your-companys-fraud-defenses-arent-ready-for-ai-threats)
 - [Guadalupe Centers clears a path to increase economic mobility in Kansas City’s Latino communities, Julie Scheidegger / Kauffman Foundation, October 26, 2026](https://www.kauffman.org/currents/guadalupe-centers-economic-mobility-latino-communities/)
 - [Inversion and The Power of Avoiding Stupidity, Farnam Street](https://fs.blog/inversion/)
+
+- [Guan, Lin, Tan, Dong (2026). Resource Orchestration, Team Faultlines, and Entrepreneurial Resilience Entrepreneurship Theory and Practice.](https://doi.org/10.1177/10422587261453883)

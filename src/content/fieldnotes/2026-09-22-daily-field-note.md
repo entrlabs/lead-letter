@@ -34,6 +34,8 @@ Start with a decision you face this week. Write down what the measure captures a
 
 Ask whether a person can use those routes without special access. If the answer is unclear, treat the promise as unfinished. A visible owner and a usable remedy matter as much as a persuasive headline.
 
+Check what happens after someone uses the reporting route. Ask whether the concern received a useful response and whether the person would feel able to raise another one.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -53,6 +55,14 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 
 > [!question] For Educators And Advisors
 > Ask who carries risk when a promise, program, or agreement changes. Make the escalation path and available remedy part of the design exercise.
+
+## Reading Room
+
+[Rees, Lam, Du, Yu, Wong, Xie (2026). Exploring the duality of voice habit: Testing and extending theory and measurement. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001326)
+
+A study of 435 employees and 135 supervisors examined habitual speaking up. Supervisors could respond positively when they saw helpful motives or consistent behavior. Employees could still regret speaking in teams with a weaker voice climate. The findings distinguish a favorable supervisor impression from the speaker’s own experience. They do not establish that speaking more often always improves decisions. Check what happens after someone uses the reporting route. Ask whether the concern received a useful response and whether the person would feel able to raise another one. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -75,3 +85,5 @@ Farnam Street supplies a thinking prompt, not factual evidence for the cards. It
 - [Report Finds Little Recourse for Donors](https://www.insidehighered.com/news/business/fundraising/2026/09/21/report-finds-little-recourse-donors)
 - [Business Formation Statistics](https://www.census.gov/econ/bfs/index.html)
 - [Farnam Street: Slop](https://fs.blog/brain-food/september-20-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001326)

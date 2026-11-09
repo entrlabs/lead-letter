@@ -27,6 +27,8 @@ Four sources show why a plan needs support around it. The Federal Reserve's hous
 
 These sources do not prove one common cause. They suggest a simple test: name what the plan needs to work, who can provide it, and what evidence would change the plan.
 
+Build information-seeking into the support around an opportunity. Give participants a named contact and a practical question to bring back after their first attempt.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ These sources do not prove one common cause. They suggest a simple test: name wh
 
 > [!question] For Educators And Advisors
 > Connect technical fluency and opportunity to the support system, judgment task, and institution responsible for sustaining the result.
+
+## Reading Room
+
+[Pang, Song, Liang, Wang (2026). Capitalizing on proactive personality over organizational socialization tactics in newcomer learning: A meta-analytic investigation. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001351)
+
+A review of 85 samples, with 24,293 people, examined how new staff learn. A tendency to take initiative helped explain learning beyond the formal support their employer offered. Prior experience and culture changed how much that tendency mattered. This does not make new staff solely responsible for learning their jobs. It separates the help a firm provides from how people seek and use that help. Build information-seeking into the support around an opportunity. Give participants a named contact and a practical question to bring back after their first attempt. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ These sources do not prove one common cause. They suggest a simple test: name wh
 - [Kauffman Foundation: Mr. K's Visionary Leadership](https://www.kauffman.org/currents/lou-smith-mr-k-visionary-leadership/)
 - [MIT Sloan: New Courses Track Emerging Technologies](https://mitsloan.mit.edu/ideas-made-to-matter/these-new-mit-sloan-courses-track-emerging-technologies-and-business-trends)
 - [Farnam Street: Focus and Diversification](https://fs.blog/brain-food/october-4-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001351)

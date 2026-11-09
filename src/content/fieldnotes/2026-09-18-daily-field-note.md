@@ -27,6 +27,8 @@ The World Bank Group’s announcement about Michael Kremer’s appointment conne
 
 Together, these sources support a bounded practice: make the evidence-to-action path visible. The evidence limit is clear. A leadership announcement is not a measured outcome. A space-use survey is not a universal campus target. Monthly labor data is not an individual hiring forecast. Name the evidence, mechanism, measure, and owner before treating a plan as progress.
 
+When helping someone use evidence, ask whether they need a clear worked example or room to explore alternatives. Check what they can do afterward, rather than counting advice delivered.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Together, these sources support a bounded practice: make the evidence-to-action 
 
 > [!question] For Educators And Advisors
 > Ask whether a program changes what people can use, and record observable behavior before claiming impact.
+
+## Reading Room
+
+[Chib, Luk, Fu (2025). Enhancing Subordinate Job Performance Through Coaching Behaviors: A Lay Epistemic Approach Journal of Organizational Behavior.](https://doi.org/10.1002/job.70020)
+
+A two-wave study using supervisor and employee reports examined direct guidance and more exploratory coaching. Facilitation was linked with stronger self-efficacy for employees who preferred a more extended search for answers. Guidance was linked with trust in the supervisor. The findings do not establish one universally superior coaching style. They highlight differences in how people seek certainty while learning. When helping someone use evidence, ask whether they need a clear worked example or room to explore alternatives. Check what they can do afterward, rather than counting advice delivered. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ Together, these sources support a bounded practice: make the evidence-to-action 
 - [Inside Higher Ed](https://www.insidehighered.com/news/business/physical-campuses/2026/09/17/higher-ed-has-too-much-wasted-square-footage)
 - [BLS Employment Situation](https://www.bls.gov/news.release/empsit.nr0.htm)
 - [Farnam Street](https://fs.blog/brain-food/september-13-2026/)
+
+- [Reading Room study](https://doi.org/10.1002/job.70020)

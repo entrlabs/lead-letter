@@ -27,6 +27,8 @@ The World Bank Group and Japan announced coordination frameworks for critical-mi
 
 Together, these sources support a practical move: make the system easy to check before making it larger. Map who depends on whom. Turn a standard into a visible review step. Separate an established fact from an allegation or watch signal. Change one condition in a thought experiment, state the predicted consequence, and identify the evidence needed to test it. These sources do not prove that coordination guarantees resilience, that a news headline settles a disputed claim, that AccredAI improves accreditation, or that thought experiments reliably predict results.
 
+Use a small test to learn how the team works, not only whether the output passes. Ask what needs redesign and who holds the missing expertise.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -45,6 +47,14 @@ Together, these sources support a practical move: make the system easy to check 
 
 > [!question] For Educators And Advisors
 > Ask learners to vary one condition in a scenario, predict the consequence, and distinguish the evidence needed from the conclusion they want.
+
+## Reading Room
+
+[Chen, Vashdi, Fan, Bamberger, Chen (2025). The relative effects of design thinking versus after-action review on team performance: An experiential/episodic team learning perspective. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001277)
+
+A six-month field experiment in a manufacturing company compared design thinking with after-action reviews. Teams receiving the design-thinking intervention showed greater performance improvement. Changes in the learning climate and shared knowledge about expertise partly explained the difference. This comparison does not make one method best for every task. The setting and task variety matter when considering another team. Use a small test to learn how the team works, not only whether the output passes. Ask what needs redesign and who holds the missing expertise. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ Together, these sources support a practical move: make the system easy to check 
 - [AP current U.S. index](https://apnews.com/us-news)
 - [AACSB AI Use Case Hub](https://www.aacsb.edu/educators/accreditation/accreditation-process/ai-use-cases-for-accreditation)
 - [Farnam Street Thought Experiment](https://fs.blog/thought-experiment/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001277)

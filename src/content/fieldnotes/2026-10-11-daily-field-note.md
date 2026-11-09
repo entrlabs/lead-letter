@@ -27,6 +27,8 @@ Four sources show why output alone can hide the skills and support behind it. NA
 
 These sources do not prove one common cause. They suggest a practical check: name the skill people need to keep, the support they need, who owns the decision, and when to review it.
 
+Revisit the skill after the tool or course is gone. Ask for demonstrated work on a fresh task, while keeping confidence and performance as separate observations.
+
 ## Mental Model Lens
 
 > [!tip] Thinking Tool
@@ -44,6 +46,14 @@ These sources do not prove one common cause. They suggest a practical check: nam
 
 > [!question] For Educators And Advisors
 > Pair a learning or workforce outcome with the staffing, systems, and burden measure needed to make the pathway usable.
+
+## Reading Room
+
+[Weers, Gielnik (2026). Stability matters: A dynamic process view on self-efficacy in training transfer. Journal of Applied Psychology.](https://doi.org/10.1037/apl0001330)
+
+A two-year study of 871 entrepreneurship-training participants examined both the level and stability of self-efficacy. Training raised confidence in the short term. As confidence became more stable, it became a stronger predictor of performance after training. A confident response immediately after a course is therefore different from demonstrated transfer. The study does not make confidence a substitute for performance evidence. Revisit the skill after the tool or course is gone. Ask for demonstrated work on a fresh task, while keeping confidence and performance as separate observations. This is an abstract-based reading; the suggested practice is a proposed application.
+
+*Research added November 9, 2026.*
 
 ## Useful Copy
 
@@ -66,3 +76,5 @@ These sources do not prove one common cause. They suggest a practical check: nam
 - [Kauffman Foundation: From capacity to scale](https://www.kauffman.org/currents/bioscience-core-skills-institute-workforce-readiness/)
 - [Federal Reserve Board: 2025 Survey of Consumer Finances](https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm)
 - [Farnam Street: Forget Mistakes](https://fs.blog/brain-food/october-11-2026/)
+
+- [Reading Room study](https://doi.org/10.1037/apl0001330)
