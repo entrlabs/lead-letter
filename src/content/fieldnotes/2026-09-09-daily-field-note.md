@@ -25,7 +25,7 @@ tags:
 
 The World Bank Group describes a 50-million-person electricity-access milestone under Mission 300 through country plans, policy reform, financing, and partners. This shows how coordination can turn a public goal into operating capacity. It does not prove that every project will succeed or that access will be sustained.
 
-The same pattern appears in teaching and business. AACSB lists a workshop on effective case teaching, which shows deliberate attention to practice but not improved learning. The Associated Press business index highlights Canada's retaliatory tariffs on about $20 billion of U.S. goods, a bounded signal that policy can change operating conditions before firms have a complete response. The article body was not accessible in this run.
+The same pattern appears in teaching and business. AACSB lists a workshop on effective case teaching, which shows deliberate attention to practice but not improved learning. For a cross-border business, check which goods a tariff covers, when it takes effect, and who bears the cost. A headline total alone cannot establish the effect on one firm.
 
 Farnam Street's inversion model adds a useful check. Ask what would make the plan fail, then remove the few avoidable conditions before scaling effort. This is a decision practice, not evidence that inversion guarantees better judgment. The practical move is to make the system visible, test the handoffs, and name the limits of the evidence.
 

@@ -48,7 +48,7 @@ Try one change on a small scale. Make the criteria visible before the work begin
 
 **[The impact of servant leadership on collaborative culture in UAE multicultural healthcare organizations](https://doi.org/10.1108/lhs-02-2026-0030); Upadhyay, 2026, *Leadership in Health Services*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 A survey of 312 healthcare professionals in six UAE organizations linked servant leadership with a more collaborative culture. Trust in leaders and perceived organizational support were also part of the reported relationships. Because the survey measured people at one point in time, it cannot establish that a leadership style caused the culture. The multicultural setting does not by itself show that diversity strengthened the relationships. Use the study to sharpen a local question: do people experience support in the decisions that affect their work? Ask for specific examples before assuming a recognition program has earned their trust.
 

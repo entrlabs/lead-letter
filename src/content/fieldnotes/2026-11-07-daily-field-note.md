@@ -49,7 +49,7 @@ These examples invite a practical check, not a universal prescription. Identify 
 
 **[Leadership Development Programmes for Clinical Nurses: A Systematic Review](https://doi.org/10.1111/jocn.70613); Gökalp et al., 2026, *Journal of Clinical Nursing*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 A review of 18 studies examined leadership development for clinical nurses. It reports improvements in several leadership and staff outcomes and discusses active learning, reflection, and feedback. Programs differed in their design and duration. Crucially, evidence about institutional and patient outcomes remained limited. The review does not show that one course format works for every leadership role. Use it to ask what practice a program includes and which outcome its evaluation actually measures. A stronger self-rating is useful information, but it should not stand in for observed decision quality or results for the people served.
 

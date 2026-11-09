@@ -48,7 +48,7 @@ Trace one learner’s next step. Who makes the introduction? What does the emplo
 
 **[Music Students’ Learning Experiences in University Entrepreneurship Courses](https://doi.org/10.1177/02557614261501480); Xiong, 2026, *International Journal of Music Education*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 Music students interviewed about U.S. university entrepreneurship courses described learning through applied tasks, professional exposure, and supportive settings. They also reflected on career choices and preparation. The study helps explain how students experience such courses; it does not show that taking one causes employment or higher earnings. The abstract does not report the interview sample size, so we cannot judge its breadth here. For your next learning activity, ask what professional situation it lets students rehearse. Then collect a concrete example of what they understood or tried differently, rather than treating attendance as evidence of career readiness.
 

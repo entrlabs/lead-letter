@@ -49,7 +49,7 @@ Before recommending a course or a new venture, ask what the person needs to make
 
 **[Rethinking Entrepreneurship Education in Uganda: Experiences and Perspectives of Young Entrepreneurs](https://doi.org/10.3390/su182111064); van der Linden and Jjuuko, 2026, *Sustainability*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 Researchers examined fourteen fieldwork reports about young entrepreneurs in and around Gulu, Uganda. The reports came from summer schools held between 2022 and 2024. Their analysis asks how education can support entrepreneurship while taking local economic and social conditions seriously. It does not estimate how much an entrepreneurship course improves income or survival. The setting also limits transfer to other places. For teaching, start with the learner’s actual options: customers, resources, constraints, and alternative work. Treat starting a business as a choice to examine, rather than assuming it is the best answer to limited employment.
 

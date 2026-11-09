@@ -48,7 +48,7 @@ Write the decision first. Identify the smallest set of information needed to mak
 
 **[From Contested Endogenization to Regulatory Unravelling of Mandatory Human Rights Due Diligence: Extending the Endogeneity of Law Framework](https://doi.org/10.1111/joms.70180); Lohmeyer et al., 2026, *Journal of Management Studies*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 A qualitative study examined how actors interpreted human-rights due diligence in Germany’s garment industry. Interviews, documents, and observations covered 2019 to 2026. The authors describe an initial contest over the law’s meaning, followed by changes that weakened implementation. This is a study of a particular regulatory setting, not evidence about the effects of privacy rules. Its useful connection is a question about practice: what do people actually do with a formal requirement? When reviewing a policy, compare its written aim with responsibilities, resources, and observable decisions. Agreement with the wording is not the same as implementation.
 

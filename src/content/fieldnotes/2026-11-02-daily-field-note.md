@@ -48,7 +48,7 @@ Keep the stages separate. An order is not a completed delivery, and revenue is n
 
 **[Still Waiting for Rewards? User Entrepreneur’s Reward Delivery Performance in Crowdfunding](https://doi.org/10.1177/10422587251404867); Oo et al., 2026, *Entrepreneurship Theory and Practice*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 A study combining exploratory qualitative work with data on 322 crowdfunded ventures looked beyond fundraising to reward delivery. It found that founders who were users of the product delivered rewards more promptly than other founders. The reported analysis linked this pattern to intrinsic motivation, or interest in the work itself. It does not establish that customer experience alone causes better delivery, nor that the pattern holds for every venture. The practical question is useful regardless: what happens after the money arrives? Track promises fulfilled and delivery delays separately from funds raised before describing a campaign as successful.
 

@@ -48,7 +48,7 @@ Costs also deserve a stress test. The World Bank’s commodity outlook is condit
 
 **[Challenge for some, hindrance for others? How stress appraisals shape employee performance of essential and nonessential work during crises](https://doi.org/10.1177/00187267261466563); Song et al., 2026, *Human Relations*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 Research on crisis work used a two-wave survey and two experiments to examine essential and nonessential tasks. The authors report that how people understood the work’s demands helped explain performance differences. Organizational ability to adapt strengthened the proposed relationship in the field study, but that finding did not carry across all studies. The result does not justify simply labeling work essential or increasing pressure. Before expanding a demanding service, ask what makes the work manageable and worthwhile. Check staffing, support, and room to adjust, rather than assuming commitment will compensate for missing capacity.
 

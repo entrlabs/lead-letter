@@ -43,7 +43,7 @@ Farnam Street's map-and-territory frame adds the decision discipline. Reports, p
 > **Use today:** Ask what the current report or plan cannot see, then verify one important assumption with direct evidence.
 
 > [!note] Evidence Limit
-> These sources include a listing-level news item, an institutional overview, current news reports, and mental-model guidance; they are not one causal test.
+> News headlines can identify a question to investigate. Institutional overviews and judgment tools can help frame it, but they do not establish that one approach causes better results.
 
 ## Use It Today
 

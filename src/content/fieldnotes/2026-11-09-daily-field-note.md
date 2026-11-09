@@ -49,7 +49,7 @@ Choose a task that matters outside the classroom. Set a visible standard, collec
 
 **[Enhancing Employability Through an Authentic Experiential Learning Exercise](https://doi.org/10.1177/10525629251394311); Black et al., 2025, *Journal of Management Education*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 Black and Warhurst describe a classroom exercise in which students advise on a human-resources problem as consultants. Students and instructors reported gains in skills and professional understanding. The evaluation concerns perceptions of learning, so it cannot establish later employment gains or independently measured workplace performance. First published online in 2025, the paper offers a practical starting point for designing an authentic task. Ask learners to produce advice for a defined audience, explain their choices, and respond to criticism. Then assess the work itself alongside their reflections. Feeling more ready is valuable, but it is a different outcome from demonstrating readiness.
 

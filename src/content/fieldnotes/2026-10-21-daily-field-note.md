@@ -26,7 +26,7 @@ The practical question is what your team can still do under those conditions. A 
 
 Choose one essential task with the people who deliver it. Agree on a safe test that does not disrupt live services. Use approved backup procedures and involve the responsible security staff. Record the first blocked step, assign a repair, and test that step again.
 
-The accessible article excerpt does not prove that a specific recovery method works everywhere. This exercise is a proposed practice, not a reported result. Judge it by what staff can complete and what the test reveals.
+The authors’ public summary does not establish that a specific recovery method works everywhere. This exercise is a proposed practice, not a reported result. Judge it by what staff can complete and what the test reveals.
 
 ## Mental Model Lens
 

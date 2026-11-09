@@ -20,7 +20,7 @@ sourceBrief: 2026-09-12 - Daily Business Intelligence Brief
 
 The World Bank Group reports that IFC announced a risk-sharing initiative for local financial institutions in emerging markets. The release says the initiative will initially provide up to $700 million in guarantees for part of credit-settlement risk. That supports a claim about the announced mechanism. It does not prove that projected payment growth or broader access will occur.
 
-AACSB presents a research-impact framework and interpretive guidance for its business-education standards. The pages support a practical question: how will a claim move from research to a user, and how will a general standard become local evidence? The accessible pages do not prove improved research use, compliance, or educational outcomes.
+AACSB presents a research-impact framework and interpretive guidance for its business-education standards. The pages support a practical question: how will a claim move from research to a user, and how will a general standard become local evidence? The framework and guidance do not establish improved research use, compliance, or educational outcomes.
 
 Inversion supplies the review step. Ask what would make the initiative exclude people, hide weak evidence, or create false confidence. Then name the reviewer, the evidence to collect, and the result that would change the decision.
 

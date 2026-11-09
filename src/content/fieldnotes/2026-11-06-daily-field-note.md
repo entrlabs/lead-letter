@@ -48,7 +48,7 @@ Apply the distinction to your next project. Write what should change, by how muc
 
 **[Thinking and doing differently: the immediate impact of entrepreneurship education on STEM PhD students](https://doi.org/10.1007/s10961-026-10339-6); Jenkins et al., 2026, *Journal of Technology Transfer*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 A qualitative study of entrepreneurship education examined biotechnology and biomedical researchers in an industry-linked program. It distinguished changes in how participants understood their industry from changes in what they did during research. The findings are preliminary and do not establish that the program caused better commercial outcomes. They nevertheless suggest a sharper evaluation question than whether participants enjoyed a course. Ask for a specific practice that changed, such as a revised experiment or a new industry conversation. Then check whether that change persisted. An immediate action and a long-term venture result need different measures.
 

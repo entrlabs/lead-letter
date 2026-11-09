@@ -43,7 +43,7 @@ Farnam Street's inversion frame supplies the practical move: ask what would make
 > **Use today:** List the three failure conditions for one initiative and test the most important one this week.
 
 > [!note] Evidence Limit
-> These sources include listing-level news items, an institutional announcement, and mental-model guidance; they are not one causal test.
+> Headlines and announcements can prompt a useful check. They do not establish that a proposed change works; test the result in the setting where you plan to use it.
 
 ## Use It Today
 

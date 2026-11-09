@@ -48,7 +48,7 @@ Kauffman’s workforce feature describes support around a route into work. For y
 
 **[Perceived Pain or Gain: Role Identity, Gratification, and the Well-Being of Hybrid Entrepreneurs](https://doi.org/10.1177/10422587261419463); Albrecht et al., 2026, *Entrepreneurship Theory and Practice*.**
 
-*Based on the abstract. Abstract available; full-text access not verified.*
+*Research summary based on the study abstract.*
 
 A longitudinal qualitative study followed people building ventures while keeping paid jobs. The authors describe two paths: pursuing future rewards while strain accumulated, and finding present satisfaction that supported well-being. These accounts show how people experienced combined roles; they do not identify a universal safe workload or prove that one mindset prevents burnout. Before adding a venture or major project to your job, ask what gives value now and what you are repeatedly postponing. Review that balance over time. A future promise should not make today’s costs disappear from the conversation.
 
