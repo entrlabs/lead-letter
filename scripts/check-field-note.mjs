@@ -112,6 +112,26 @@ function validateStructure(entry) {
   if (linkedSources.length < 2) throw new Error(`${entry.filename}: Sources must include at least two public HTTPS links.`);
 }
 
+// New issues must carry a substantive research card, not readiness labels.
+function validateReadingRoom(entry) {
+  if (entry.date < '2026-11-10') return;
+  const card = requireMatch(entry.source, /^## Reading Room\s*\n([\s\S]*?)(?=^## |$(?![\s\S]))/m,
+    `${entry.filename}: missing required Reading Room.`);
+  const start = entry.source.indexOf('## Reading Room');
+  if (start < entry.source.indexOf('## Use It Today') || start > entry.source.indexOf('## Useful Copy')) {
+    throw new Error(`${entry.filename}: Reading Room must follow Use It Today and precede Useful Copy.`);
+  }
+  if (!/https:\/\/doi\.org\/10\.\d{4,9}\/[\w.()/:;-]+/i.test(card)) {
+    throw new Error(`${entry.filename}: Reading Room requires a direct verified DOI citation.`);
+  }
+  const prose = card.replace(/^\*\*Paper:\*\*.*$/gm, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1');
+  const count = wordCount(prose);
+  if (count < 80 || count > 120) throw new Error(`${entry.filename}: Reading Room must contain 80-120 words excluding its Paper citation (found ${count}).`);
+  if (!/\b(based on the abstract|full text reviewed)\b/i.test(prose)) throw new Error(`${entry.filename}: Reading Room must state read depth.`);
+  if (!/\b(cannot|does not|did not|limit|not prove|not establish)\b/i.test(prose)) throw new Error(`${entry.filename}: Reading Room must state its own evidence limit.`);
+  if (!/\b(try|ask|test|compare|choose|check|use|name|write)\b/i.test(prose)) throw new Error(`${entry.filename}: Reading Room must offer a reader application.`);
+}
+
 function validateReadability(entry) {
   const body = entry.source
     .replace(/^---\s*\n[\s\S]*?\n---/, '')
@@ -177,6 +197,7 @@ for (const entry of selected) {
   validateIdentity(entry);
   validateReaderFacingCopy(entry, previousEntries);
   validateStructure(entry);
+  validateReadingRoom(entry);
   const readability = validateReadability(entry);
   await validateRendered(entry, entry === latest);
   console.log(`Validated ${entry.filename}: forward-facing copy, evidence limits, required design sections, rendered route/index binding, and ${readability.averageSentenceWords.toFixed(1)} words per sentence.`);

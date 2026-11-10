@@ -45,6 +45,12 @@ Before you approve growth, name the promise that must stay stable and the capabi
 > [!question] For Educators And Advisors
 > Measure pathway participation and completion separately from institutional intent.
 
+## Reading Room
+
+**Paper:** Shourkaei and Dyck (2025), *Organization*. [Scaling sustainability in businesses with a post-growth orientation](https://doi.org/10.1177/13505084251350847).
+
+Based on the abstract, this exploratory study examined 35 small and medium-sized businesses with a post-growth orientation. The authors identified four approaches to scaling positive social and ecological impact: enhancement, expansion, bridging, and collaboration. That gives teams a useful question before adding size: what kind of impact are we trying to scale? The abstract does not establish which approach works best or prove effects on profits. Its selected businesses also limit transfer to firms pursuing rapid growth. Try comparing a larger operation with a partnership that serves the same need. Name the capacity each option requires, then choose one outcome to track.
+
 ## Useful Copy
 
 ### Signal Text
@@ -64,3 +70,4 @@ Before you approve growth, name the promise that must stay stable and the capabi
 - [2026–27 Deans Survey Overview Report](https://www.aacsb.edu/insights/reports/2026/2026-27-deans-survey-overview-report)
 - [Kauffman Currents](https://www.kauffman.org/currents/)
 - [Insensitivity to Base Rates](https://fs.blog/mental-model-bias-from-insensitivity-to-base-rates/)
+- [Scaling sustainability in businesses with a post-growth orientation: An exploratory empirical study](https://doi.org/10.1177/13505084251350847)
