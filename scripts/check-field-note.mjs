@@ -99,7 +99,7 @@ function validateStructure(entry) {
   if (!/\b(ask|check|choose|decide|measure|practice|test|try|use|watch|write)\b/i.test(entry.source)) {
     throw new Error(`${entry.filename}: the public note must give the reader a next action.`);
   }
-  if (/<details>|source trace|readwise|candidate source|automation|vault path|\[\[[^\]]+\]\]/i.test(entry.source)) {
+  if (/<details>|source trace|readwise|candidate source|\bautomation[- ](?:notes?|workflow|run|status|log|handoff|checkpoint|pipeline)\b|\b(?:generated|created|published) (?:by|from|via) (?:an? )?automation\b|vault path|\[\[[^\]]+\]\]/i.test(entry.source)) {
     throw new Error(`${entry.filename}: public Field Note contains private workflow or vault material.`);
   }
   if (/\b(One clear, concrete|One sentence explaining|Primary source\]\(URL|Mental model:\s*\[Title\]\(URL)\b/i.test(entry.source)) {
