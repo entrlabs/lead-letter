@@ -47,9 +47,9 @@ Before approving expansion, name the bottleneck, owner, needed support, and clea
 
 ## Reading Room
 
-**Paper:** Shourkaei and Dyck (2025), *Organization*. [Scaling sustainability in businesses with a post-growth orientation](https://doi.org/10.1177/13505084251350847).
+**Paper:** Shourkaei and Dyck (2025), *Organization*, [Scaling sustainability in businesses with a post-growth orientation](https://doi.org/10.1177/13505084251350847); Dörlemann and Gilbert (2026), *Journal of Business Economics*, [Managing scaling tensions](https://doi.org/10.1007/s11573-026-01257-y).
 
-Based on the abstract, this early study examined 35 small and medium-sized businesses with a post-growth focus. The authors found four ways to scale social and environmental impact: improvement, expansion, bridging, and teamwork. That gives teams a useful question before adding size: what kind of impact are we trying to scale? The abstract does not show which way works best or prove effects on profits. Its selected businesses also limit transfer to firms pursuing rapid growth. Try comparing a larger operation with a partner that serves the same need. Name the capacity each option requires, then choose one outcome to track.
+Based on the abstract of each study, organizational size and social impact need separate measures. Shourkaei and Dyck studied 35 post-growth businesses and identified Enhancement, Expansion, Bridging, and Collaboration. Dörlemann and Gilbert examined 22 German social enterprises and described how involving beneficiaries in creating value shaped responses to growth tensions. The abstracts do not establish a best approach, profit effects, or causal benefits for all organizations. Both samples limit transfer to other firms. Before expanding, compare a larger operation with a partnership serving the same need. Ask the people affected what each option could weaken, name the capacity each requires, and choose one outcome to track.
 
 ## Useful Copy
 
@@ -70,3 +70,4 @@ Based on the abstract, this early study examined 35 small and medium-sized busin
 - [Diversifying the economy: A key lever for sustainable growth in Mauritania](https://www.worldbank.org/en/news/press-release/2025/11/24/diversifying-the-economy-a-key-lever-for-sustainable-growth-in-mauritania)
 - [Honesty over Flattery](https://fs.blog/brain-food/november-8-2026/)
 - [Scaling sustainability in businesses with a post-growth orientation](https://doi.org/10.1177/13505084251350847)
+- [Managing scaling tensions: the case of differentiation and integration in social enterprises](https://doi.org/10.1007/s11573-026-01257-y), Dörlemann and Gilbert, 2026.
